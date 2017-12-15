@@ -67,7 +67,7 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="忘記密碼"/>
                                 <connections>
-                                    <action selector="forgetPasswordTapped:" destination="OeK-oC-UsU" eventType="touchUpInside" id="19h-1I-fpU"/>
+                                    <action selector="forgotPasswordTapped:" destination="OeK-oC-UsU" eventType="touchUpInside" id="49Z-Bl-2Gs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -141,12 +141,18 @@
                                     <action selector="signUpButton:" destination="zpu-B9-vnU" eventType="touchUpInside" id="MBT-Xa-jVK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-Px-DF5">
-                                <rect key="frame" x="67" y="172" width="240" height="128"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-2" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-Px-DF5" customClass="CustomizableImageView" customModule="Husky" customModuleProvider="target">
+                                <rect key="frame" x="112" y="164" width="151.5" height="151.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="jTJ-SS-j2e" appends="YES" id="urW-Tt-vXY"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="zDW-cp-bxq"/>
                     </view>
                     <connections>
@@ -157,6 +163,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDM-vt-Vrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="jTJ-SS-j2e">
+                    <connections>
+                        <action selector="chooseUserImage:" destination="zpu-B9-vnU" id="RTy-GC-tge"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1116" y="168.6656671664168"/>
         </scene>
@@ -178,4 +189,7 @@
             <point key="canvasLocation" x="-482" y="169"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="user-2" width="128" height="128"/>
+    </resources>
 </document>

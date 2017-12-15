@@ -15,21 +15,40 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginPasswordTextField: UITextField!
     
-    @IBAction func forgetPasswordTapped(_ sender: Any) {
+    let networkingService = NetworkingService()
+
+    @IBAction func forgotPasswordTapped(_ sender: Any) {
     }
     
     
     @IBAction func loginInTapped(_ sender: Any) {
         
-        guard
-            let email = loginEmailAddressTextField.text,
-            let password = loginPasswordTextField.text
-            else {
-                print("Form is not valid")
-                return
-                
+        networkingService.signIn(email: loginEmailAddressTextField.text!, password: loginPasswordTextField.text!)
+        
+//        guard
+//            let email = loginEmailAddressTextField.text,
+//            let password = loginPasswordTextField.text
+//            else {
+//                print("Form is not valid")
+//                return
+        
         }
-        //sign in existing users
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*       //sign in existing users
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
                 print(error?.localizedDescription)
@@ -47,9 +66,10 @@ class LoginViewController: UIViewController {
             print("logged in")
             
             let sb = UIStoryboard(name: "StoreDetailStoryboard", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "StoreDetailViewController")
+            let vc = sb.instantiateViewController(witchIdentifier: "StoreDetailViewController")
             self.present(vc, animated: true, completion: nil)
             return
         }
     }
 }
+*/
