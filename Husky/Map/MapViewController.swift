@@ -106,10 +106,11 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                 didSelectedMarker = store
                 break
             }
-            
-            
         }
-        
+        let sb = UIStoryboard(name: "StoreDetailStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "StoreDetailViewController") as! StoreDetailViewController
+        vc.selectedMarkerId = didSelectedMarker
+        self.present(vc, animated: true, completion: nil)
         return true
     }
     

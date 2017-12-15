@@ -92,14 +92,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22F-Qg-5W5">
-                                <rect key="frame" x="0.0" y="0.0" width="197" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="BackIcon   寫pop回去"/>
-                                <connections>
-                                    <action selector="backToLoginIn:" destination="zpu-B9-vnU" eventType="touchUpInside" id="Ova-cg-iBT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="i Bubble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-Dd-QBf">
                                 <rect key="frame" x="0.0" y="79" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -150,6 +142,14 @@
                                     <outletCollection property="gestureRecognizers" destination="jTJ-SS-j2e" appends="YES" id="urW-Tt-vXY"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22F-Qg-5W5">
+                                <rect key="frame" x="0.0" y="14" width="55" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BackIcon   寫pop回去" image="back"/>
+                                <connections>
+                                    <action selector="backToLoginIn:" destination="zpu-B9-vnU" eventType="touchUpInside" id="Ova-cg-iBT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -190,6 +190,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="64" height="64"/>
         <image name="user-2" width="128" height="128"/>
     </resources>
 </document>

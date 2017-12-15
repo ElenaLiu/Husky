@@ -10,6 +10,8 @@ import UIKit
 
 class StoreDetailViewController: UIViewController {
     
+    var selectedMarkerId: Store?
+    
     @IBOutlet weak var storeInfoPageTapped: UIButton!
     
     @IBOutlet weak var scorePageTapped: UIButton!
@@ -56,6 +58,7 @@ class StoreDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(selectedMarkerId)
         // SetUp default page
         selectedViewController = StoreInfoViewController
         
