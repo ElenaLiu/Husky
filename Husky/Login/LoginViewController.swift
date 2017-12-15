@@ -46,6 +46,10 @@ class LoginViewController: UIViewController {
             }
             print("logged in")
             
+            let sb = UIStoryboard(name: "StoreDetailStoryboard", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "StoreDetailViewController")
+            self.present(vc, animated: true, completion: nil)
+            return
         }
     }
 }
