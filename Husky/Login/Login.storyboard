@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="276" y="168.6656671664168"/>
         </scene>
-        <!--View Controller-->
+        <!--Regist View Controller-->
         <scene sceneID="tUo-b1-zeQ">
             <objects>
-                <viewController id="zpu-B9-vnU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistViewController" id="zpu-B9-vnU" customClass="RegistViewController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nGK-Gp-hDB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,6 +86,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="197" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="BackIcon   寫pop回去"/>
+                                <connections>
+                                    <action selector="backToLoginIn:" destination="zpu-B9-vnU" eventType="touchUpInside" id="Ova-cg-iBT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="i Bubble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-Dd-QBf">
                                 <rect key="frame" x="0.0" y="79" width="375" height="64"/>
@@ -124,6 +127,9 @@
                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="0.0" blue="0.50196081400000003" alpha="0.27761130140000001" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpButton:" destination="zpu-B9-vnU" eventType="touchUpInside" id="MBT-Xa-jVK"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-Px-DF5">
                                 <rect key="frame" x="67" y="172" width="240" height="128"/>
@@ -133,6 +139,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="zDW-cp-bxq"/>
                     </view>
+                    <connections>
+                        <outlet property="registEmailAdressField" destination="v9V-5v-wNy" id="JaL-c4-qbd"/>
+                        <outlet property="registImageView" destination="E4f-Px-DF5" id="UvQ-ga-B5i"/>
+                        <outlet property="registNameField" destination="93p-al-zoC" id="2xD-5p-tzz"/>
+                        <outlet property="registPasswordField" destination="s1S-Bd-ovg" id="LgS-03-Eya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDM-vt-Vrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

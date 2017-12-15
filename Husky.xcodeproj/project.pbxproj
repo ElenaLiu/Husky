@@ -30,6 +30,7 @@
 		AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B431FE28533004A7893 /* StoreProvider.swift */; };
 		AC791B461FE36DFE004A7893 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B451FE36DFE004A7893 /* CommentsTableViewCell.swift */; };
 		AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */; };
+		AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B491FE3A925004A7893 /* RegistViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		AC791B431FE28533004A7893 /* StoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProvider.swift; sourceTree = "<group>"; };
 		AC791B451FE36DFE004A7893 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
+		AC791B491FE3A925004A7893 /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
 		E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 			children = (
 				AC75D1721FE148A20072DD1B /* Login.storyboard */,
 				AC75D1741FE148D80072DD1B /* LoginViewController.swift */,
+				AC791B491FE3A925004A7893 /* RegistViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */,
 				AC791B421FE2619C004A7893 /* Store.swift in Sources */,
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
+				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
 				AC75D1621FE12B790072DD1B /* ViewController.swift in Sources */,
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
