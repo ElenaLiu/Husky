@@ -43,13 +43,13 @@ class RegistViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
                 return
             }
-            guard let uId = user?.uid else {
+            guard let uid = user?.uid else {
                 return
             }
             let ref = Database.database().reference()
             
             let values = ["Email": email, "Name": name]
-            let userReference = ref.child("Users").child(uId)
+            let userReference = ref.child("Users").child(uid)
             userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err)

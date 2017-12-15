@@ -57,18 +57,28 @@
                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="0.0" blue="0.50196081400000003" alpha="0.27761130140000001" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginInTapped:" destination="OeK-oC-UsU" eventType="touchUpInside" id="vjE-wr-VFE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-I0-QAd">
                                 <rect key="frame" x="209" y="450" width="136" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="忘記密碼"/>
+                                <connections>
+                                    <action selector="forgetPasswordTapped:" destination="OeK-oC-UsU" eventType="touchUpInside" id="19h-1I-fpU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Rjd-sg-r0j"/>
                     </view>
                     <navigationItem key="navigationItem" id="zoF-I3-ldq"/>
+                    <connections>
+                        <outlet property="loginEmailAddressTextField" destination="hIk-Go-n0h" id="qRm-xg-vov"/>
+                        <outlet property="loginPasswordTextField" destination="CJ5-vx-IR2" id="w54-O6-ATJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhc-dl-QWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
