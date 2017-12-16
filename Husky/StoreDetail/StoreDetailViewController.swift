@@ -58,7 +58,7 @@ class StoreDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(selectedMarkerId)
+       
         // SetUp default page
         selectedViewController = StoreInfoViewController
         
