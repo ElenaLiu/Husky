@@ -35,7 +35,7 @@ class StoreDetailViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
-    var StoreInfoViewController: StoreInfoViewController!
+    var StoreInfoViewController: StoreInfoViewControlle!
     
     var selectedViewController: UIViewController!
     

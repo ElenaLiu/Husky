@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "HCSStarRatingView.h"
 
-FOUNDATION_EXPORT double HCSStarRatingViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char HCSStarRatingViewVersionString[];
+FOUNDATION_EXPORT double CosmosVersionNumber;
+FOUNDATION_EXPORT const unsigned char CosmosVersionString[];
 

@@ -12,6 +12,6 @@ target 'Husky' do
   pod 'Firebase/Storage'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  pod 'HCSStarRatingView'
+  pod 'Cosmos'
 
 end
