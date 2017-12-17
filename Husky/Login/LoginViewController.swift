@@ -18,6 +18,33 @@ class LoginViewController: UIViewController {
     let networkingService = NetworkingService()
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "忘記密碼?", message: "Enter your E-mail", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {(_ textField: UITextField) -> Void in
+            
+            textField.placeholder = "Your E-mail"
+            
+        })
+        
+        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+            
+            guard let email = alertController.textFields?.first?.text else {
+                return
+            }
+            
+            self.networkingService.resetPassword(email: email)
+            
+        })
+        
+        alertController.addAction(confirmAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+        
+        
     }
     
     
