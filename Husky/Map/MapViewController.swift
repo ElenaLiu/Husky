@@ -9,6 +9,9 @@
 import UIKit
 import GooglePlaces
 import GoogleMaps
+import SDWebImage
+import Firebase
+
 
 
 
@@ -74,12 +77,18 @@ extension MapViewController: CLLocationManagerDelegate {
         print("Location: \(location)")
         
         let marker = GMSMarker()
-        marker.icon =
-        
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "user-2"))
+        imageView.sd_setImage(with: Auth.auth().currentUser?.photoURL,
+                              placeholderImage: #imageLiteral(resourceName: "Empty Tea"),
+                              options: [],
+                              completed: nil
+        )
+        marker.map = mapView
+        marker.icon = UIImage(named: "whatsapp-3")
         
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        <#code#>
+        
     }
     
 }

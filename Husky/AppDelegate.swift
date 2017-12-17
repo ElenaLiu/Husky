@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyC6K9j6suJcGaVnGjyCLdG3Ge59f0RDovM")
         GMSPlacesClient.provideAPIKey("AIzaSyC6K9j6suJcGaVnGjyCLdG3Ge59f0RDovM")
         
-        //logUser()  //寫完logout再➕回來
+        logUser()  //寫完logout再➕回來
         return true
     }
     

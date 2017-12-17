@@ -10,7 +10,9 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var loginEmailAddressTextField: UITextField!
     
     @IBOutlet weak var loginPasswordTextField: UITextField!
@@ -52,14 +54,49 @@ class LoginViewController: UIViewController {
         
         networkingService.signIn(email: loginEmailAddressTextField.text!, password: loginPasswordTextField.text!)
         
-//        guard
-//            let email = loginEmailAddressTextField.text,
-//            let password = loginPasswordTextField.text
-//            else {
-//                print("Form is not valid")
-//                return
-        
         }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //tap anywhere to hide keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        
+    }
+    
+    // Remove observer
+    deinit {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    // Handling keyboard
+    @objc func keyboardWillShow(notification: Notification) {
+        let userInfo = (notification as NSNotification).userInfo!
+        let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollRectToVisible(keyboardCGRect, animated: true)
+        
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        
+        scrollView.contentInset = UIEdgeInsets.zero
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        
+        loginEmailAddressTextField.resignFirstResponder()
+        loginPasswordTextField.resignFirstResponder()
+        
+    }
 }
 
 
