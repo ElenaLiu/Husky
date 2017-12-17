@@ -12,6 +12,15 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class RegistViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var registNameTextField: UITextField!
+    @IBOutlet weak var registEmailTextField: UITextField!
+    @IBOutlet weak var registPasswordTextField: UITextField!
+    
+    
+    
     @IBAction func backToLoginIn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -28,7 +37,7 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let data = UIImageJPEGRepresentation(self.registImageView.image!, 0.8)
         
-        networkingService.signUp(email: registEmailAdressField.text!, username: registNameField.text!, password: registPasswordField.text!, data: data! as NSData)
+        networkingService.signUp(email: registEmailAdressField.text!, username: registNameField.text!, password: registPasswordField.text!, data: data!)
         
         
 //        guard
@@ -45,7 +54,21 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         
         setUpregistImage()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //tap anywhere to hide keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
 
+    }
+    
+    // Remove observer
+    deinit {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
     }
     
 
@@ -94,11 +117,39 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(alertController, animated: true, completion: nil)
     }
 
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        self.dismiss(animated: true, completion: nil)
-        self.registImageView.image = image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            registImageView.image = pickedImage
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
+    
+    // Handling keyboard
+    @objc func keyboardWillShow(notification: Notification) {
+        let userInfo = (notification as NSNotification).userInfo!
+        let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollRectToVisible(keyboardCGRect, animated: true)
+        
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        
+        scrollView.contentInset = UIEdgeInsets.zero
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        
+        registNameTextField.resignFirstResponder()
+        registEmailTextField.resignFirstResponder()
+        registPasswordTextField.resignFirstResponder()
+
+    }
+    
 }
 
 

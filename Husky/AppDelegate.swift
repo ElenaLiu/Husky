@@ -48,7 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func logUser(){
+        
+        if Auth.auth().currentUser != nil {
+            
+            let storyboard = UIStoryboard(name: "MapStoryboard", bundle: nil)
+            let tabBar = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+            self.window?.rootViewController = tabBar
+        }
+    }
 
 }
 

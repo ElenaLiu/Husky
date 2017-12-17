@@ -9,7 +9,12 @@
 import UIKit
 
 class UserProfileTableViewController: UITableViewController {
-
+    
+    var networkingService = NetworkingService()
+    
+    @IBAction func logOutTapped(_ sender: Any) {
+        networkingService.signOut()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
