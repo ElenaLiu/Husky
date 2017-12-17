@@ -41,17 +41,19 @@ class ScoreViewController: UIViewController {
                 / 5
        
         ref = Database.database().reference()
-        
-        self.ref.child("Comments").setValue([
-            "average": average,
-            "comment": comment,
-            "score": ["firstRating": firstRating,
-                      "secondRating": secondRating,
-                      "thirdRating": thirdRating,
-                      "fourthRating": fourthRating,
-                      "fifthRating": fifthRating]
-            ])
-        
+        if let uid = Auth.auth().currentUser?.uid {
+            
+            self.ref.child("Comments").setValue([
+                "uid": uid,
+                "average": average,
+                "comment": comment,
+                "score": ["firstRating": firstRating,
+                          "secondRating": secondRating,
+                          "thirdRating": thirdRating,
+                          "fourthRating": fourthRating,
+                          "fifthRating": fifthRating]
+                ])
+        }
     }
 
     
