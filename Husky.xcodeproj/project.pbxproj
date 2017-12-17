@@ -20,7 +20,6 @@
 		AC1E1A5F1FE16185004FD468 /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */; };
 		AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */; };
 		AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D15F1FE12B790072DD1B /* AppDelegate.swift */; };
-		AC75D1621FE12B790072DD1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D1611FE12B790072DD1B /* ViewController.swift */; };
 		AC75D1651FE12B790072DD1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1631FE12B790072DD1B /* Main.storyboard */; };
 		AC75D1671FE12B790072DD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1661FE12B790072DD1B /* Assets.xcassets */; };
 		AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */; };
@@ -50,7 +49,6 @@
 		AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC75D15C1FE12B790072DD1B /* Husky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Husky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC75D15F1FE12B790072DD1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC75D1611FE12B790072DD1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC75D1641FE12B790072DD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC75D1661FE12B790072DD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC75D1691FE12B790072DD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 				AC1E1A471FE15332004FD468 /* Navigation */,
 				AC75D1711FE148360072DD1B /* Login */,
 				AC75D1631FE12B790072DD1B /* Main.storyboard */,
-				AC75D1611FE12B790072DD1B /* ViewController.swift */,
 				AC75D1661FE12B790072DD1B /* Assets.xcassets */,
 				AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */,
 				AC75D16B1FE12B790072DD1B /* Info.plist */,
@@ -359,7 +356,6 @@
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
-				AC75D1621FE12B790072DD1B /* ViewController.swift in Sources */,
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
 				AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */,
 				AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */,
