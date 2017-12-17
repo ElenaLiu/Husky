@@ -8,8 +8,14 @@
 
 import UIKit
 import Cosmos
+import Firebase
+
+
 
 class ScoreViewController: UIViewController {
+    
+    var ref: DatabaseReference!
+    
 
     @IBOutlet weak var firstRatingView: CosmosView!
     @IBOutlet weak var secondRatingView: CosmosView!
@@ -18,9 +24,31 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var fifthRatingView: CosmosView!
     @IBOutlet weak var commentTextField: UITextView!
     
-    @IBAction func saveScoreTapped(_ sender: Any) {
-    }
+
+//self.ref.child("users").child(user.uid).setValue(["username": username])
     
+    @IBAction func saveScoreTapped(_ sender: Any) {
+        
+        guard let comment = commentTextField.text else { return }
+        
+        let average =
+            (firstRating + secondRating + thirdRating + fourthRating + fifthRating)
+                / 5
+       
+        ref = Database.database().reference()
+        
+        self.ref.child("Comments").childByAutoId().setValue([
+            "average": average,
+            "comment": comment,
+            "score": ["firstRating": firstRating,
+                      "secondRating": secondRating,
+                      "thirdRating": thirdRating,
+                      "fourthRating": fourthRating,
+                      "fifthRating": fifthRating]
+            ])
+        
+    }
+    // "firstRating": firstRating, "secondRating": secondRating, "thirdRating": thirdRating, "fourthRating": fourthRating, "fifthRating": fifthRating,
     var firstRating: Double = 0.0
     var secondRating: Double = 0.0
     var thirdRating: Double = 0.0
@@ -79,6 +107,4 @@ class ScoreViewController: UIViewController {
             self.fifthRating = rating
         }
     }
-    
-    
 }
