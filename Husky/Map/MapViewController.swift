@@ -12,7 +12,7 @@ import GoogleMaps
 
 
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var myMapView: UIView!
     
@@ -68,12 +68,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
-extension MapViewController {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
         print("Location: \(location)")
+        
+        let marker = GMSMarker()
+        marker.icon =
+        
+        
     }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        <#code#>
+    }
+    
 }
+
+
 
 extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
     func didFetch(with stores: [Store]) {

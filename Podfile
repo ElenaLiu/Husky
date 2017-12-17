@@ -13,5 +13,6 @@ target 'Husky' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Cosmos'
+  pod 'SDWebImage/WebP'
 
 end
