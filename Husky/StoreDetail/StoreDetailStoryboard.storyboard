@@ -18,6 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-he-ysq">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <connections>
+                                    <segue destination="tCB-iG-6hX" kind="embed" identifier="ContainerViewSegue" id="a76-Gn-dMJ"/>
+                                </connections>
+                            </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-5p-SA9">
                                 <rect key="frame" x="0.0" y="64" width="99" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,12 +48,6 @@
                                     <action selector="showScorePageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="F2R-4W-A9O"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-he-ysq">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
-                                <connections>
-                                    <segue destination="tCB-iG-6hX" kind="embed" identifier="ContainerViewSegue" id="a76-Gn-dMJ"/>
-                                </connections>
-                            </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3U-SV-Rwa">
                                 <rect key="frame" x="276" y="64" width="99" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,7 +137,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDi-oh-QaC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="品嚐心得" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4j-Pk-VNx">
                                                 <rect key="frame" x="0.0" y="20" width="375" height="36"/>
@@ -255,7 +255,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="kix-oY-Bd0"/>
+                                            <constraint firstAttribute="height" constant="667" id="kix-oY-Bd0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -282,13 +282,15 @@
                         <outlet property="fifthRatingView" destination="Pc6-oh-zam" id="xJ6-Y6-33H"/>
                         <outlet property="firstRatingView" destination="bS3-Gd-q8i" id="PSf-BC-GRW"/>
                         <outlet property="fourthRatingView" destination="64h-lG-fpd" id="Lla-99-6IM"/>
+                        <outlet property="scoreScrollView" destination="J9S-CZ-mmJ" id="XLQ-nD-GTZ"/>
+                        <outlet property="scoreScrollViewBottomConstraint" destination="jNI-Fq-DKE" id="wwl-e8-X15"/>
                         <outlet property="secondRatingView" destination="eOY-FP-G7L" id="KFS-KA-fZa"/>
                         <outlet property="thirdRatingView" destination="FQk-6k-Wlg" id="5mN-Tl-seX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feE-dL-jLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1831.2" y="-112.89355322338831"/>
+            <point key="canvasLocation" x="-1836" y="-7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="quN-Nk-dqh">

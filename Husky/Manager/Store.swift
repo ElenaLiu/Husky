@@ -28,7 +28,9 @@ public struct Store {
         
         public static let latitude = "latitude"
         
+        public static let scoredPeople = "scoredPeople"
         
+        public static let storeScoreAverage = "storeScoreAverage"
 
     }
     
@@ -45,6 +47,10 @@ public struct Store {
     public let longitude: CLLocationDegrees
     
     public let latitude: CLLocationDegrees
+    
+    public let scoredPeople: Double
+    
+    public let storeScoreAverage: Double
 
 }
 

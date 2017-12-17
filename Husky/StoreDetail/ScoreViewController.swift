@@ -11,12 +11,10 @@ import Cosmos
 import Firebase
 
 
-
 class ScoreViewController: UIViewController {
     
     var ref: DatabaseReference!
     
-
     @IBOutlet weak var firstRatingView: CosmosView!
     @IBOutlet weak var secondRatingView: CosmosView!
     @IBOutlet weak var thirdRatingView: CosmosView!
@@ -24,8 +22,15 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var fifthRatingView: CosmosView!
     @IBOutlet weak var commentTextField: UITextView!
     
-
-//self.ref.child("users").child(user.uid).setValue(["username": username])
+    @IBOutlet weak var scoreScrollViewBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var scoreScrollView: UIScrollView!
+    var firstRating: Double = 0.0
+    var secondRating: Double = 0.0
+    var thirdRating: Double = 0.0
+    var fourthRating: Double = 0.0
+    var fifthRating: Double = 0.0
+    
     
     @IBAction func saveScoreTapped(_ sender: Any) {
         
@@ -37,7 +42,7 @@ class ScoreViewController: UIViewController {
        
         ref = Database.database().reference()
         
-        self.ref.child("Comments").childByAutoId().setValue([
+        self.ref.child("Comments").setValue([
             "average": average,
             "comment": comment,
             "score": ["firstRating": firstRating,
@@ -48,12 +53,7 @@ class ScoreViewController: UIViewController {
             ])
         
     }
-    // "firstRating": firstRating, "secondRating": secondRating, "thirdRating": thirdRating, "fourthRating": fourthRating, "fifthRating": fifthRating,
-    var firstRating: Double = 0.0
-    var secondRating: Double = 0.0
-    var thirdRating: Double = 0.0
-    var fourthRating: Double = 0.0
-    var fifthRating: Double = 0.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +63,20 @@ class ScoreViewController: UIViewController {
         setUpthirdRating()
         setUpfourthRating()
         setUpfifthRating()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //tap anywhere to hide keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    
+    }
+    // Remove observer
+    deinit {
+         let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
     }
     
     func setUpFirstRating() {
@@ -106,5 +120,27 @@ class ScoreViewController: UIViewController {
         fifthRatingView.didFinishTouchingCosmos = { rating in
             self.fifthRating = rating
         }
+    }
+    
+    // Handling keyboard
+    @objc func keyboardWillShow(notification: Notification) {
+        let userInfo = (notification as NSNotification).userInfo!
+        let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height, right: 0)
+        scoreScrollView.contentInset = contentInsets
+        scoreScrollView.scrollRectToVisible(keyboardCGRect, animated: true)
+        
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        
+        scoreScrollView.contentInset = UIEdgeInsets.zero
+
+    }
+    
+    @objc func dismissKeyboard() {
+        
+        commentTextField.resignFirstResponder()
+        
     }
 }

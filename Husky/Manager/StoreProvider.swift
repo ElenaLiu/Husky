@@ -39,6 +39,8 @@ class StoreProvider {
                 guard let name = info[Store.Schema.name] as? String else { return }
                 guard let latitude = info[Store.Schema.latitude] as? CLLocationDegrees else { return }
                 guard let longitude = info[Store.Schema.longitude] as? CLLocationDegrees else { return }
+                guard let scoredPeople = info[Store.Schema.scoredPeople] as? Double else { return }
+                guard let storeScoreAverage = info[Store.Schema.storeScoreAverage] as? Double else { return }
                 stores.append(
                     Store(
                         id: id,
@@ -46,7 +48,9 @@ class StoreProvider {
                         address: address,
                         phone: phone,
                         longitude: longitude,
-                        latitude: latitude)
+                        latitude: latitude,
+                        scoredPeople: scoredPeople,
+                        storeScoreAverage: storeScoreAverage)
                 )
             }
             self.delegate?.didFetch(with: stores)
