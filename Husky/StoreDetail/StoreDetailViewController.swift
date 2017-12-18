@@ -59,6 +59,8 @@ class StoreDetailViewController: UIViewController {
                 storeInfoVC?.addressValue = selectedMarkerId.address
                 storeInfoVC?.phoneValue = selectedMarkerId.phone
                 storeInfoVC?.scorePeopleValue = selectedMarkerId.scoredPeople
+                storeInfoVC?.longitudeValue = selectedMarkerId.longitude
+                storeInfoVC?.latitudeValue = selectedMarkerId.latitude
                 print("我在這\(selectedMarkerId.scoredPeople)")
                 
             }

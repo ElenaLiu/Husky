@@ -21,6 +21,9 @@ class StoreInfoViewController: UIViewController {
     var addressValue: String!
     var phoneValue: String!
     var scorePeopleValue: Double!
+    var longitudeValue: CLLocationDegrees!
+    var latitudeValue: CLLocationDegrees!
+    
     
     @IBOutlet weak var myMapView: UIView!
     
@@ -30,6 +33,7 @@ class StoreInfoViewController: UIViewController {
     
     @IBOutlet weak var scorePeopleLabel: UILabel!
     
+    // Make phone call
     @IBAction func phoneCallTapped(_ sender: Any) {
         
         guard let phoneValue = phoneValue else { return }
@@ -39,7 +43,29 @@ class StoreInfoViewController: UIViewController {
         }
     }
     
-
+    @IBOutlet weak var addressGuideTapped: UIButton!
+    
+    // Make google guide
+    @IBAction func addressGuideTapped(_ sender: Any) {
+        
+        
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.openURL(URL(string:
+                "comgooglemaps://?saddr=\(addressValue)&daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&directionsmode=transit")!)
+        } else {
+            print("Can't use comgooglemaps://");
+        }
+//        let alert = UIAlertController(title: "Open Map", message: "打開Map app", preferredStyle: UIAlertControllerStyle.alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+//            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+//                UIApplication.shared.openURL(URL(string:
+//                    "comgooglemaps://?center=40.765819,-73.975866&zoom=14&views=traffic")!)
+//            } else {
+//                print("Can't use comgooglemaps://");
+//            }
+//        }))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    }
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -48,15 +74,31 @@ class StoreInfoViewController: UIViewController {
     var zoomLevel: Float = 15.0
     var endPosition: CLLocation?
     
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       setUpStoreInfoWith()
+    override func loadView() {
+        super.loadView()
+        
+        let camera = GMSCameraPosition.camera(withLatitude: latitudeValue, longitude: longitudeValue, zoom: zoomLevel)
+        self.mapView = GMSMapView.map(withFrame: myMapView.bounds, camera: camera)
+        mapView.isMyLocationEnabled = true
+        myMapView.addSubview(mapView)
+        
+        // Creates a marker in the center of the map.
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: longitudeValue, longitude: longitudeValue)
+        marker.map = mapView
+        marker.icon = UIImage(named: "BubbleTea(brown)")
         
     }
     
-    //address: String, phone: String, scorePeople: Double
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setUpStoreInfoWith()
+        initLocationManager()
+
+    }
+    
+
     private func setUpStoreInfoWith() {
         if let addressValue = addressValue, let phoneValue = phoneValue, let scorePeopleValue = scorePeopleValue {
             addressLabel.text = "地址：\(addressValue)"
@@ -72,10 +114,26 @@ class StoreInfoViewController: UIViewController {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.distanceFilter = 50
         self.locationManager.startUpdatingLocation()
-        self.locationManager.delegate = self
+        self.locationManager.delegate = self as? CLLocationManagerDelegate
         
         self.placesClient = GMSPlacesClient.shared()
     }
+    
+//    private func setUpMapView(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+//
+//        let camera = GMSCameraPosition.camera(withLatitude: latitudeValue, longitude: longitudeValue, zoom: zoomLevel)
+//        self.mapView = GMSMapView.map(withFrame: myMapView.bounds, camera: camera)
+//        mapView.isMyLocationEnabled = true
+//        myMapView.addSubview(mapView)
+//
+//        // Creates a marker in the center of the map.
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: longitudeValue, longitude: longitudeValue)
+//        marker.map = mapView
+//        marker.icon = UIImage(named: "BubbleTea(brown)")
+//
+//
+//    }
     
     //MARK: - this is function for create direction path, from start location to desination location
     
@@ -124,32 +182,32 @@ class StoreInfoViewController: UIViewController {
     }
 }
 
-extension StoreInfoViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
-                                              zoom: zoomLevel)
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        marker.map = mapView
-        marker.icon = UIImage(named: "Bubble")
-        
-        if mapView.isHidden {
-            mapView.isHidden = false
-            mapView.camera = camera
-        } else {
-            mapView.animate(to: camera)
-        }
-        
-        if let end = endPosition {
-            drawPath(startLocation: location, endLocation: end)
-        }
-    }
-    // Handle location manager errors.
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationManager.stopUpdatingLocation()
-        print("Error: \(error)")
-    }
-}
+//extension StoreInfoViewController: CLLocationManagerDelegate {
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let location: CLLocation = locations.last!
+//        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+//                                              longitude: location.coordinate.longitude,
+//                                              zoom: zoomLevel)
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//        marker.map = mapView
+//        marker.icon = UIImage(named: "Bubble")
+//
+//        if mapView.isHidden {
+//            mapView.isHidden = false
+//            mapView.camera = camera
+//        } else {
+//            mapView.animate(to: camera)
+//        }
+//
+//        if let end = endPosition {
+//            drawPath(startLocation: location, endLocation: end)
+//        }
+//    }
+//    // Handle location manager errors.
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        locationManager.stopUpdatingLocation()
+//        print("Error: \(error)")
+//    }
+//}
 

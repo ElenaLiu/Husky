@@ -87,6 +87,10 @@ class ScoreViewController: UIViewController {
         
         // Change the text
         //firstRatingView.text = String(ratingView.rating)
+        firstRatingView.settings.starMargin = 10
+        
+        // Change the size of the stars
+        firstRatingView.settings.starSize = 30
         
         firstRatingView.didFinishTouchingCosmos = { rating in
             print("didFinishTouchingCosmos")
@@ -98,6 +102,9 @@ class ScoreViewController: UIViewController {
     
     func setUpSecondRating() {
         secondRatingView.rating = 0
+        secondRatingView.settings.starMargin = 10
+        // Change the size of the stars
+        secondRatingView.settings.starSize = 30
         secondRatingView.didFinishTouchingCosmos = { rating in
             self.secondRating = rating
         }
@@ -105,6 +112,10 @@ class ScoreViewController: UIViewController {
     
     func setUpthirdRating() {
         thirdRatingView.rating = 0
+        thirdRatingView.settings.starMargin = 10
+        // Change the size of the stars
+        thirdRatingView.settings.starSize = 30
+        
         thirdRatingView.didFinishTouchingCosmos = { rating in
             self.thirdRating = rating
         }
@@ -112,6 +123,9 @@ class ScoreViewController: UIViewController {
     
     func setUpfourthRating() {
         fourthRatingView.rating = 0
+        fourthRatingView.settings.starMargin = 10
+        // Change the size of the stars
+        fourthRatingView.settings.starSize = 30
         fourthRatingView.didFinishTouchingCosmos = { rating in
             self.fourthRating = rating
         }
@@ -119,6 +133,9 @@ class ScoreViewController: UIViewController {
     
     func setUpfifthRating() {
         fifthRatingView.rating = 0
+        fifthRatingView.settings.starMargin = 10
+        // Change the size of the stars
+        fifthRatingView.settings.starSize = 30
         fifthRatingView.didFinishTouchingCosmos = { rating in
             self.fifthRating = rating
         }
