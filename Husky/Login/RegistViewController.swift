@@ -24,30 +24,20 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func backToLoginIn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBOutlet weak var registEmailAdressField: UITextField!
-    @IBOutlet weak var registNameField: UITextField!
-    @IBOutlet weak var registPasswordField: UITextField!
+
     @IBOutlet weak var registImageView: UIImageView!
     
     var networkingService = NetworkingService()
     
     @IBAction func signUpButton(_ sender: Any) {
         
-//        guard let selectedImage = registImageView.image else { return }
-        
         let data = UIImageJPEGRepresentation(self.registImageView.image!, 0.8)
         
-        networkingService.signUp(email: registEmailAdressField.text!, username: registNameField.text!, password: registPasswordField.text!, data: data!)
-        
-        
-//        guard
-//            let email = registEmailAdressField.text,
-//            let password = registPasswordField.text,
-//            let name = registNameField.text
-//            else {
-//                print("Form is not valid")
-//                return
-        
+        networkingService.signUp(email: registEmailTextField.text!,
+                                 username: registNameTextField.text!,
+                                 password: registPasswordTextField.text!,
+                                 data: data!)
+
         }
     
     override func viewDidLoad() {
@@ -56,29 +46,38 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         setUpregistImage()
         
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow),
+                                       name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide),
+                                       name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         //tap anywhere to hide keyboard
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                              action: #selector(dismissKeyboard)))
 
     }
     
     // Remove observer
     deinit {
+        
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
+        
     }
     
 
     
     func setUpregistImage() {
+        
         self.registImageView.layer.borderWidth = 1
         self.registImageView.layer.masksToBounds = false
         self.registImageView.layer.borderColor = UIColor.black.cgColor
         self.registImageView.layer.cornerRadius = registImageView.frame.height/2
         self.registImageView.clipsToBounds = true
+        
     }
 
     @IBAction func chooseUserImage(_ sender: Any) {
@@ -87,26 +86,41 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         pickerController.delegate = self
         pickerController.allowsEditing = true
         
-        let alertController = UIAlertController(title: "Add a Picture", message: "Choose From", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Add a Picture",
+                                                message: "Choose From", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+        let cameraAction = UIAlertAction(title: "Camera",
+                                         style: .default) {(action) in
             pickerController.sourceType = .camera
-            self.present(pickerController, animated: true, completion: nil)
+                                            
+            self.present(pickerController,
+                         animated: true,
+                         completion: nil)
             
         }
-        let photosLibraryAction = UIAlertAction(title: "Photos Library", style: .default) { (action) in
+        
+        let photosLibraryAction = UIAlertAction(title: "Photos Library",
+                                                style: .default) { (action) in
             pickerController.sourceType = .photoLibrary
-            self.present(pickerController, animated: true, completion: nil)
+                                                    
+            self.present(pickerController,
+                         animated: true,
+                         completion: nil)
             
         }
         
         let savedPhotosAction = UIAlertAction(title: "Saved Photos Album", style: .default) { (action) in
             pickerController.sourceType = .savedPhotosAlbum
-            self.present(pickerController, animated: true, completion: nil)
+            
+            self.present(pickerController,
+                         animated: true,
+                         completion: nil)
             
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .destructive,
+                                         handler: nil)
         
         alertController.addAction(cameraAction)
         alertController.addAction(photosLibraryAction)
@@ -115,10 +129,14 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         
         present(alertController, animated: true, completion: nil)
+        
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            
             registImageView.image = pickedImage
             
         }
@@ -127,10 +145,15 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     // Handling keyboard
-    @objc func keyboardWillShow(notification: Notification) {
+    @objc func keyboardWillShow(notification: Notification)
+    {
+        
         let userInfo = (notification as NSNotification).userInfo!
         let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0,
+                                         left: 0,
+                                         bottom: keyboardCGRect.height,
+                                         right: 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollRectToVisible(keyboardCGRect, animated: true)
         

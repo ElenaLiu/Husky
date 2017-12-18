@@ -91,30 +91,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2P-ZK-P9a">
                                 <rect key="frame" x="0.0" y="279" width="414" height="349"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AG-kE-NYy">
-                                        <rect key="frame" x="293" y="-204" width="94" height="20"/>
-                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="0AG-kE-NYy" firstAttribute="leading" secondItem="D2P-ZK-P9a" secondAttribute="leading" constant="293" id="lcD-yn-VTx"/>
-                                    <constraint firstAttribute="trailing" secondItem="0AG-kE-NYy" secondAttribute="trailing" constant="27" id="lqy-DK-GWb"/>
-                                    <constraint firstAttribute="bottom" secondItem="0AG-kE-NYy" secondAttribute="bottom" constant="533" id="zdh-m8-Po3"/>
-                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-sK-CEl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-sK-CEl">
                                 <rect key="frame" x="33" y="117" width="210" height="21"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-o0-uPR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-o0-uPR">
                                 <rect key="frame" x="33" y="172" width="210" height="21"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -123,6 +109,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-vz-TON">
                                 <rect key="frame" x="312" y="164" width="36" height="36"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="9es-Mb-l0H"/>
                                     <constraint firstAttribute="height" constant="36" id="lP1-L0-ofE"/>
@@ -131,8 +118,16 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQe-wI-ep6">
                                 <rect key="frame" x="312" y="109" width="36" height="36"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button" image="mapderaction"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評分人數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVM-Fn-OZm">
+                                <rect key="frame" x="278" y="54" width="104" height="24"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="0.5703125" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -142,12 +137,16 @@
                             <constraint firstItem="gxv-o0-uPR" firstAttribute="top" secondItem="xm2-sK-CEl" secondAttribute="bottom" constant="34" id="KmN-eB-oPn"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="NQe-wI-ep6" secondAttribute="bottom" constant="134" id="Ljt-cc-2xb"/>
                             <constraint firstItem="gxv-o0-uPR" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="33" id="Mob-NQ-Y0P"/>
+                            <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="PVM-Fn-OZm" secondAttribute="trailing" constant="32" id="SrA-c2-DnJ"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="gxv-o0-uPR" secondAttribute="trailing" constant="171" id="XA0-70-LUl"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="NQe-wI-ep6" secondAttribute="trailing" constant="66" id="aAE-bH-KjJ"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="gxv-o0-uPR" secondAttribute="bottom" constant="86" id="cWm-3i-Jaf"/>
                             <constraint firstItem="xm2-sK-CEl" firstAttribute="trailing" secondItem="gxv-o0-uPR" secondAttribute="trailing" id="cdL-7i-pKU"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" id="gBY-Ig-gbF"/>
+                            <constraint firstItem="PVM-Fn-OZm" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="278" id="hMr-EY-Kwf"/>
+                            <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="PVM-Fn-OZm" secondAttribute="bottom" constant="201" id="hcs-kn-e5D"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="trailing" secondItem="AlG-Ka-xI7" secondAttribute="trailing" id="inW-QX-DSH"/>
+                            <constraint firstItem="PVM-Fn-OZm" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="34" id="mRs-Zh-vFo"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="f2D-vz-TON" secondAttribute="bottom" constant="79" id="o74-ks-bd5"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="259" id="qYS-mW-yX2"/>
                             <constraint firstItem="NQe-wI-ep6" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="89" id="s3u-MN-3vv"/>
@@ -157,6 +156,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AlG-Ka-xI7"/>
                     </view>
+                    <connections>
+                        <outlet property="myMapView" destination="D2P-ZK-P9a" id="5en-GV-Nxf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDX-jp-hGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

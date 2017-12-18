@@ -250,13 +250,10 @@
                         <viewLayoutGuide key="safeArea" id="zDW-cp-bxq"/>
                     </view>
                     <connections>
-                        <outlet property="registEmailAdressField" destination="v9V-5v-wNy" id="JaL-c4-qbd"/>
-                        <outlet property="registEmailTextField" destination="v9V-5v-wNy" id="QEc-GF-wjG"/>
+                        <outlet property="registEmailTextField" destination="v9V-5v-wNy" id="rlu-DY-UfT"/>
                         <outlet property="registImageView" destination="E4f-Px-DF5" id="UvQ-ga-B5i"/>
-                        <outlet property="registNameField" destination="93p-al-zoC" id="2xD-5p-tzz"/>
-                        <outlet property="registNameTextField" destination="93p-al-zoC" id="8v5-QR-Hd9"/>
-                        <outlet property="registPasswordField" destination="s1S-Bd-ovg" id="LgS-03-Eya"/>
-                        <outlet property="registPasswordTextField" destination="s1S-Bd-ovg" id="6wr-b8-fNu"/>
+                        <outlet property="registNameTextField" destination="93p-al-zoC" id="pFD-p1-pCT"/>
+                        <outlet property="registPasswordTextField" destination="s1S-Bd-ovg" id="23E-6k-hRv"/>
                         <outlet property="scrollView" destination="xmi-kk-bpT" id="La7-ks-5KD"/>
                     </connections>
                 </viewController>

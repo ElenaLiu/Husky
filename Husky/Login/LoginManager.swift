@@ -36,10 +36,19 @@ struct NetworkingService {
     
     // 1 ---- We create the User
     
-    func signUp(email: String, username: String, password: String, data: Data!){
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+    func signUp(email: String,
+                username: String,
+                password: String,
+                data: Data!)
+    {
+        Auth.auth().createUser(withEmail: email,
+                               password: password,
+                               completion: { (user, error) in
             if error == nil {
-                self.setUserInfo(user: user, username: username, password: password, data: data)
+                self.setUserInfo(user: user,
+                                 username: username,
+                                 password: password,
+                                 data: data)
             }else {
                 print(error!.localizedDescription)
             }
@@ -48,7 +57,11 @@ struct NetworkingService {
     
     // 2 ------ Set User Info
     
-    private func setUserInfo(user: User!, username: String, password: String, data: Data!){
+    private func setUserInfo(user: User!,
+                             username: String,
+                             password: String,
+                             data: Data!)
+    {
         
         //Create Path for the User Image
         let imagePath = "profileImage\(user.uid)/userPic.jpg"
@@ -61,14 +74,17 @@ struct NetworkingService {
         metaData.contentType = "image/jpeg"
         
         // Save the user Image in the Firebase Storage File
-        imageRef.putData(data as Data, metadata: metaData) { (metaData, error) in
+        imageRef.putData(data as Data,
+                         metadata: metaData) { (metaData, error) in
             if error == nil {
                 let changeRequest = user.createProfileChangeRequest()
                 changeRequest.displayName = username
                 changeRequest.photoURL = metaData!.downloadURL()
                 changeRequest.commitChanges(completion: { (error) in
                     if error == nil {
-                        self.saveInfo(user: user, username: username, password: password)
+                        self.saveInfo(user: user,
+                                      username: username,
+                                      password: password)
                     }else{
                         print(error!.localizedDescription)
                     }
@@ -80,10 +96,16 @@ struct NetworkingService {
     }
     
     // 3 --- Saving the user Info in the database
-    private func saveInfo(user: User!, username: String, password: String){
+    private func saveInfo(user: User!,
+                          username: String,
+                          password: String)
+    {
         
         // Create our user dictionary info\
-        let userInfo = ["email": user.email!, "username": username, "uid": user.uid, "photoUrl": String(describing: user.photoURL!)]
+        let userInfo = ["email": user.email!,
+                        "username": username,
+                        "uid": user.uid,
+                        "photoUrl": String(describing: user.photoURL!)]
         
         // create user reference
         let userRef = databaseRef.child("Users").child(user.uid)
@@ -92,12 +114,15 @@ struct NetworkingService {
         userRef.setValue(userInfo)
         
         // Signing in the user
-        signIn(email: user.email!, password: password)
+        signIn(email: user.email!,
+               password: password)
     }
     
     // 4 ---- Signing in the User
     func signIn(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().signIn(withEmail: email,
+                           password: password,
+                           completion: { (user, error) in
             if error == nil {
                 if let user = user {
                     print("\(user.displayName!) has signed in succesfully!")

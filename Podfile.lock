@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.5.1)
   - Cosmos (12.0.1)
   - Firebase/Auth (4.6.0):
     - Firebase/Core
@@ -86,6 +87,7 @@ PODS:
     - SDWebImage/Core
 
 DEPENDENCIES:
+  - Alamofire
   - Cosmos
   - Firebase/Auth
   - Firebase/Core
@@ -96,6 +98,7 @@ DEPENDENCIES:
   - SDWebImage/WebP
 
 SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Cosmos: 4a9f57998a08788a1062c7b8eefbc62d2b590f39
   Firebase: 27321a925aa85520618255a7c630859e0502ccbd
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
@@ -113,6 +116,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: 0b6489a56ddf2fcf1a6f1dbae02e550aa6f7c307
+PODFILE CHECKSUM: 320f4fd90ca78bbf51ffb0f7bd9f0a13b802eec3
 
 COCOAPODS: 1.3.1

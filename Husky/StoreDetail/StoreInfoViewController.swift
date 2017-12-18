@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 
-class StoreInfoViewController: UIViewController {
+class StoreInfoViewController: UIViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var myMapView: UIView!
+    
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
+    var mapView: GMSMapView!
+    var placesClient: GMSPlacesClient!
+    var zoomLevel: Float = 15.0
+    
     
 
     
@@ -19,4 +30,15 @@ class StoreInfoViewController: UIViewController {
 
         
     }
+    func initLocationManager() {
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        
+        placesClient = GMSPlacesClient.shared()
+    }
+
 }

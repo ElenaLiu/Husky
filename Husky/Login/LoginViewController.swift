@@ -20,19 +20,24 @@ class LoginViewController: UIViewController {
     let networkingService = NetworkingService()
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: "忘記密碼?", message: "Enter your E-mail", preferredStyle: .alert)
         
-        alertController.addTextField(configurationHandler: {(_ textField: UITextField) -> Void in
+        let alertController = UIAlertController(title: "忘記密碼?",
+                                                message: "Enter your E-mail", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler:
+            
+            {(_ textField: UITextField) -> Void in
             
             textField.placeholder = "Your E-mail"
             
         })
         
-        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+        let confirmAction = UIAlertAction(title: "OK",
+                                          style: .default,
+                                          handler:
+            {(_ action: UIAlertAction) -> Void in
             
-            guard let email = alertController.textFields?.first?.text else {
-                return
-            }
+            guard let email = alertController.textFields?.first?.text else { return }
             
             self.networkingService.resetPassword(email: email)
             
@@ -40,7 +45,9 @@ class LoginViewController: UIViewController {
         
         alertController.addAction(confirmAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: nil)
         
         alertController.addAction(cancelAction)
         
@@ -52,7 +59,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginInTapped(_ sender: Any) {
         
-        networkingService.signIn(email: loginEmailAddressTextField.text!, password: loginPasswordTextField.text!)
+        networkingService.signIn(email: loginEmailAddressTextField.text!,
+                                 password: loginPasswordTextField.text!)
         
         }
     
@@ -60,12 +68,17 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow),
+                                       name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide),
+                                       name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         //tap anywhere to hide keyboard
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                              action: #selector(dismissKeyboard)))
         
     }
     
@@ -78,10 +91,15 @@ class LoginViewController: UIViewController {
     // Handling keyboard
     @objc func keyboardWillShow(notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo!
-        let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height, right: 0)
+        let keyboardCGRect =
+            (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let contentInsets = UIEdgeInsets(top: 0,
+                                         left: 0,
+                                         bottom: keyboardCGRect.height,
+                                         right: 0)
         scrollView.contentInset = contentInsets
-        scrollView.scrollRectToVisible(keyboardCGRect, animated: true)
+        scrollView.scrollRectToVisible(keyboardCGRect,
+                                       animated: true)
         
     }
     
