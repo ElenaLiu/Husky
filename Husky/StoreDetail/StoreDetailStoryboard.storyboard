@@ -115,6 +115,9 @@
                                     <constraint firstAttribute="height" constant="36" id="lP1-L0-ofE"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="whatsapp-3"/>
+                                <connections>
+                                    <action selector="phoneCallTapped:" destination="tCB-iG-6hX" eventType="touchUpInside" id="7gn-1M-TCI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQe-wI-ep6">
                                 <rect key="frame" x="358" y="107" width="36" height="36"/>

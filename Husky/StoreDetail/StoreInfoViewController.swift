@@ -15,6 +15,13 @@ import SwiftyJSON
 
 class StoreInfoViewController: UIViewController {
     
+    
+    var selectedMarkerId: Store?
+    
+    var addressValue: String!
+    var phoneValue: String!
+    var scorePeopleValue: Double!
+    
     @IBOutlet weak var myMapView: UIView!
     
     @IBOutlet weak var addressLabel: UILabel!
@@ -23,11 +30,16 @@ class StoreInfoViewController: UIViewController {
     
     @IBOutlet weak var scorePeopleLabel: UILabel!
     
-    var selectedMarkerId: Store?
+    @IBAction func phoneCallTapped(_ sender: Any) {
+        
+        guard let phoneValue = phoneValue else { return }
+        if let phoneCallURL = URL(string: "tel://\(phoneValue)") {
+            let application = UIApplication.shared
+            application.open(phoneCallURL, options: [:], completionHandler: nil)
+        }
+    }
     
-    var addressValue: String!
-    var phoneValue: String!
-    var scorePeopleValue: Double!
+
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -41,12 +53,9 @@ class StoreInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        setUpStoreInfoWith()
-//        if let selectedMarkerId = self.selectedMarkerId {
-//            setUpStoreInfoWith(address: selectedMarkerId.address, phone: selectedMarkerId.phone, scorePeople: selectedMarkerId.scoredPeople)
-//        }
-//
         
     }
+    
     //address: String, phone: String, scorePeople: Double
     private func setUpStoreInfoWith() {
         if let addressValue = addressValue, let phoneValue = phoneValue, let scorePeopleValue = scorePeopleValue {
@@ -54,8 +63,6 @@ class StoreInfoViewController: UIViewController {
             phoneLabel.text = "電話：\(phoneValue)"
             scorePeopleLabel.text = "\(scorePeopleValue)則評論"
         }
- 
-      
     }
     
     //Initialize the location manager and GMSPlacesClient
