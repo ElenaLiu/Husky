@@ -93,22 +93,22 @@
                                 <rect key="frame" x="0.0" y="279" width="414" height="349"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-sK-CEl">
-                                <rect key="frame" x="33" y="117" width="210" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-sK-CEl">
+                                <rect key="frame" x="0.0" y="103" width="319" height="21"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-o0-uPR">
-                                <rect key="frame" x="33" y="172" width="210" height="21"/>
+                                <rect key="frame" x="0.0" y="170" width="319" height="21"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-vz-TON">
-                                <rect key="frame" x="312" y="164" width="36" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-vz-TON">
+                                <rect key="frame" x="358" y="162" width="36" height="36"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="9es-Mb-l0H"/>
@@ -116,13 +116,13 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="whatsapp-3"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQe-wI-ep6">
-                                <rect key="frame" x="312" y="109" width="36" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQe-wI-ep6">
+                                <rect key="frame" x="358" y="107" width="36" height="36"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button" image="mapderaction"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評分人數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVM-Fn-OZm">
-                                <rect key="frame" x="278" y="54" width="104" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="評分人數" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVM-Fn-OZm">
+                                <rect key="frame" x="178" y="75" width="236" height="20"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="0.5703125" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -132,32 +132,34 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="NQe-wI-ep6" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="312" id="0SI-Sw-XyJ"/>
-                            <constraint firstItem="xm2-sK-CEl" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="97" id="5pV-PC-1bK"/>
-                            <constraint firstItem="xm2-sK-CEl" firstAttribute="leading" secondItem="gxv-o0-uPR" secondAttribute="leading" id="9lM-LU-k7F"/>
-                            <constraint firstItem="gxv-o0-uPR" firstAttribute="top" secondItem="xm2-sK-CEl" secondAttribute="bottom" constant="34" id="KmN-eB-oPn"/>
+                            <constraint firstItem="PVM-Fn-OZm" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="59" id="7RW-l9-4G8"/>
+                            <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="xm2-sK-CEl" secondAttribute="trailing" constant="95" id="AS8-dW-gZm"/>
+                            <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="gxv-o0-uPR" secondAttribute="trailing" constant="95" id="ASK-ba-Iwt"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="NQe-wI-ep6" secondAttribute="bottom" constant="134" id="Ljt-cc-2xb"/>
-                            <constraint firstItem="gxv-o0-uPR" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="33" id="Mob-NQ-Y0P"/>
-                            <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="PVM-Fn-OZm" secondAttribute="trailing" constant="32" id="SrA-c2-DnJ"/>
-                            <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="gxv-o0-uPR" secondAttribute="trailing" constant="171" id="XA0-70-LUl"/>
+                            <constraint firstItem="PVM-Fn-OZm" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="178" id="Nfb-ld-d9Q"/>
+                            <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="PVM-Fn-OZm" secondAttribute="trailing" id="QiC-Gt-6WR"/>
+                            <constraint firstItem="gxv-o0-uPR" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" id="ZoQ-YY-o2N"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="NQe-wI-ep6" secondAttribute="trailing" constant="66" id="aAE-bH-KjJ"/>
-                            <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="gxv-o0-uPR" secondAttribute="bottom" constant="86" id="cWm-3i-Jaf"/>
-                            <constraint firstItem="xm2-sK-CEl" firstAttribute="trailing" secondItem="gxv-o0-uPR" secondAttribute="trailing" id="cdL-7i-pKU"/>
+                            <constraint firstItem="xm2-sK-CEl" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="83" id="c0a-GB-GW3"/>
+                            <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="gxv-o0-uPR" secondAttribute="bottom" constant="88" id="cgd-1G-jfz"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" id="gBY-Ig-gbF"/>
-                            <constraint firstItem="PVM-Fn-OZm" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="278" id="hMr-EY-Kwf"/>
-                            <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="PVM-Fn-OZm" secondAttribute="bottom" constant="201" id="hcs-kn-e5D"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="trailing" secondItem="AlG-Ka-xI7" secondAttribute="trailing" id="inW-QX-DSH"/>
-                            <constraint firstItem="PVM-Fn-OZm" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="34" id="mRs-Zh-vFo"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="f2D-vz-TON" secondAttribute="bottom" constant="79" id="o74-ks-bd5"/>
+                            <constraint firstItem="PVM-Fn-OZm" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="59" id="pSB-Xh-khB"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="259" id="qYS-mW-yX2"/>
                             <constraint firstItem="NQe-wI-ep6" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="89" id="s3u-MN-3vv"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="bottom" secondItem="AlG-Ka-xI7" secondAttribute="bottom" id="t4B-53-JWN"/>
+                            <constraint firstItem="xm2-sK-CEl" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" id="uye-3t-ia0"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="f2D-vz-TON" secondAttribute="trailing" constant="66" id="vAW-eW-Ks5"/>
                             <constraint firstItem="f2D-vz-TON" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="312" id="yww-7e-Swh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AlG-Ka-xI7"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="xm2-sK-CEl" id="YBe-yy-QuM"/>
                         <outlet property="myMapView" destination="D2P-ZK-P9a" id="5en-GV-Nxf"/>
+                        <outlet property="phoneLabel" destination="gxv-o0-uPR" id="kHV-Ty-4m9"/>
+                        <outlet property="scorePeopleLabel" destination="PVM-Fn-OZm" id="eL2-Pz-yic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDX-jp-hGH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class StoreDetailViewController: UIViewController {
     
+    
     var selectedMarkerId: Store?
     
     @IBOutlet weak var storeInfoPageTapped: UIButton!
@@ -20,6 +21,7 @@ class StoreDetailViewController: UIViewController {
     
 
     @IBAction func showStoreInfoPageTapped(_ sender: Any) {
+        
          changePage(to: StoreInfoViewController)
     }
     
@@ -46,10 +48,21 @@ class StoreDetailViewController: UIViewController {
     lazy var ScoreViewController: ScoreViewController = {
         self.storyboard!.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
     }()
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "ContainerViewSegue" {
+
             StoreInfoViewController = segue.destination as! StoreInfoViewController
+            let storeInfoVC = StoreInfoViewController
+            if let selectedMarkerId = self.selectedMarkerId {
+                storeInfoVC?.addressValue = selectedMarkerId.address
+                storeInfoVC?.phoneValue = selectedMarkerId.phone
+                storeInfoVC?.scorePeopleValue = selectedMarkerId.scoredPeople
+                print("我在這\(selectedMarkerId.scoredPeople)")
+                
+            }
+
         }
     }
 
@@ -58,7 +71,7 @@ class StoreDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+       print("我是\(selectedMarkerId)")
         // SetUp default page
         selectedViewController = StoreInfoViewController
         
@@ -97,3 +110,4 @@ class StoreDetailViewController: UIViewController {
 
     }
 }
+
