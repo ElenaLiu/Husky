@@ -15,5 +15,6 @@ target 'Husky' do
   pod 'Cosmos'
   pod 'SDWebImage/WebP'
   pod 'Alamofire'
+  pod 'SwiftyJSON'
 
 end
