@@ -71,10 +71,8 @@ class StoreInfoViewController: UIViewController {
     override func loadView() {
         super.loadView()
     
-    if let selectedMarkerId = self.selectedMarkerId {
-        setUpMapView(latitude: selectedMarkerId.latitude, longitude: selectedMarkerId.longitude)
-    }
-//
+
+
 //        let camera = GMSCameraPosition.camera(withLatitude: latitudeValue, longitude: longitudeValue, zoom: zoomLevel)
 //        self.mapView = GMSMapView.map(withFrame: myMapView.bounds, camera: camera)
 //        mapView.isMyLocationEnabled = true
@@ -82,11 +80,11 @@ class StoreInfoViewController: UIViewController {
 //
 //        // Creates a marker in the center of the map.
 //        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: longitudeValue, longitude: longitudeValue)
+//        marker.position = CLLocationCoordinate2D(latitude:   longitudeValue, longitude: longitudeValue)
 //        marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
 //        marker.map = mapView
 //        marker.icon = UIImage(named: "BubbleTea(brown)")
-//
+
     }
     
     override func viewDidLoad() {
@@ -94,10 +92,16 @@ class StoreInfoViewController: UIViewController {
         
         setUpStoreInfoWith()
         initLocationManager()
+        
+        if let latitudeValue = latitudeValue,
+            let longitudeValue = longitudeValue {
+            
+            setUpMapView(latitude: latitudeValue,
+                         longitude: longitudeValue)
+        }
 
         
     }
-    
 
     private func setUpStoreInfoWith() {
         if let addressValue = addressValue, let phoneValue = phoneValue, let scorePeopleValue = scorePeopleValue {
@@ -105,14 +109,6 @@ class StoreInfoViewController: UIViewController {
             phoneLabel.text = "電話：\(phoneValue)"
             scorePeopleLabel.text = "\(scorePeopleValue)則評論"
         }
-    }
-    
-    private func setUpScoreAverage() {
-        
-        //ref = Database.database().reference()
-        
-        //scoreAverageView.rating =
-        
     }
     
     //Initialize the location manager and GMSPlacesClient
@@ -137,9 +133,11 @@ class StoreInfoViewController: UIViewController {
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: longitudeValue, longitude: longitudeValue)
+        marker.title = "123"
+        marker.snippet = "456"
         marker.map = mapView
-        marker.icon = UIImage(named: "BubbleTea(brown)")
-
+//        marker.icon = UIImage(named: "lover-2")
+        marker.icon = #imageLiteral(resourceName: "ask")
 
     }
     
@@ -190,32 +188,18 @@ class StoreInfoViewController: UIViewController {
 //    }
 }
 
-//extension StoreInfoViewController: CLLocationManagerDelegate {
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let location: CLLocation = locations.last!
-//        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-//                                              longitude: location.coordinate.longitude,
-//                                              zoom: zoomLevel)
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-//        marker.map = mapView
-//        marker.icon = UIImage(named: "Bubble")
-//
-//        if mapView.isHidden {
-//            mapView.isHidden = false
-//            mapView.camera = camera
-//        } else {
-//            mapView.animate(to: camera)
-//        }
-//
-//        if let end = endPosition {
-//            drawPath(startLocation: location, endLocation: end)
-//        }
-//    }
-//    // Handle location manager errors.
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        locationManager.stopUpdatingLocation()
-//        print("Error: \(error)")
-//    }
-//}
+extension StoreInfoViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        
+        let marker = GMSMarker()
+        marker.map = mapView
+        marker.icon = #imageLiteral(resourceName: "lover-2")
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+    }
+}
+
 

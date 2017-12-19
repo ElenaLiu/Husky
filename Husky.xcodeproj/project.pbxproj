@@ -32,6 +32,7 @@
 		AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B491FE3A925004A7893 /* RegistViewController.swift */; };
 		AC791B4C1FE3CB14004A7893 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B4B1FE3CB14004A7893 /* LoginManager.swift */; };
 		AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B571FE90663004A7893 /* LunchScreenViewController.swift */; };
+		AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		AC791B551FE90591004A7893 /* 古圓體.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "古圓體.otf"; sourceTree = "<group>"; };
 		AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WeibeiTC-Bold.otf"; sourceTree = "<group>"; };
 		AC791B571FE90663004A7893 /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
+		AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailNavigationController.swift; sourceTree = "<group>"; };
 		E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */,
 				AC791B451FE36DFE004A7893 /* CommentsTableViewCell.swift */,
 				AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */,
+				AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */,
 			);
 			path = StoreDetail;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
 				AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */,
+				AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */,
 				AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */,
 				AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */,
 				AC1E1A5D1FE16174004FD468 /* UserProfileTableViewController.swift in Sources */,

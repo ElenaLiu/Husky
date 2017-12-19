@@ -22,21 +22,25 @@ class StoreDetailViewController: UIViewController {
 
     @IBAction func showStoreInfoPageTapped(_ sender: Any) {
         
-        StoreInfoViewController.selectedMarkerId = self.selectedMarkerId
+        let navigationController = self.navigationController as! StoreDetailNavigationController
+        
+        StoreInfoViewController.selectedMarkerId = navigationController.selectedMarkerId
         
          changePage(to: StoreInfoViewController)
     }
     
     @IBAction func showScorePageTapped(_ sender: Any) {
+        let navigationController = self.navigationController as! StoreDetailNavigationController
         
-        ScoreViewController.selectedMarkerId = self.selectedMarkerId
+        ScoreViewController.selectedMarkerId = navigationController.selectedMarkerId
         
         changePage(to: ScoreViewController)
     }
     
     @IBAction func showCommentsPageTapped(_ sender: Any) {
+        let navigationController = self.navigationController as! StoreDetailNavigationController
         
-        CommentsTableViewController.selectedMarkerId = self.selectedMarkerId
+        CommentsTableViewController.selectedMarkerId = navigationController.selectedMarkerId
         changePage(to: CommentsTableViewController)
     }
     
@@ -60,16 +64,15 @@ class StoreDetailViewController: UIViewController {
         
         if segue.identifier == "ContainerViewSegue" {
 
-            StoreInfoViewController = segue.destination as! StoreInfoViewController
-            let storeInfoVC = StoreInfoViewController
-            if let selectedMarkerId = self.selectedMarkerId {
+            let navigationController = self.navigationController as! StoreDetailNavigationController
+            if let selectedMarkerId = navigationController.selectedMarkerId {
+                StoreInfoViewController = segue.destination as! StoreInfoViewController
+                let storeInfoVC = StoreInfoViewController
                 storeInfoVC?.addressValue = selectedMarkerId.address
                 storeInfoVC?.phoneValue = selectedMarkerId.phone
                 storeInfoVC?.scorePeopleValue = selectedMarkerId.scoredPeople
                 storeInfoVC?.longitudeValue = selectedMarkerId.longitude
                 storeInfoVC?.latitudeValue = selectedMarkerId.latitude
-                print("我在這\(selectedMarkerId.scoredPeople)")
-                
             }
 
         }
@@ -78,7 +81,10 @@ class StoreDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       print("我是\(selectedMarkerId)")
+        let navigationController = self.navigationController as! StoreDetailNavigationController
+        
+        self.selectedMarkerId = navigationController.selectedMarkerId
+        
         // SetUp default page
         selectedViewController = StoreInfoViewController
         
@@ -111,11 +117,6 @@ class StoreDetailViewController: UIViewController {
         // Set up current viewController == selectedViewController
         self.selectedViewController = newViewController
    
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
     }
 }
 

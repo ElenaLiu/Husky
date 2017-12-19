@@ -128,9 +128,13 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             }
         }
         let sb = UIStoryboard(name: "StoreDetailStoryboard", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "StoreDetailViewController") as! StoreDetailViewController
-        vc.selectedMarkerId = didSelectedMarker
-        self.present(vc, animated: true, completion: nil)
+        //let vc = sb.instantiateViewController(withIdentifier: "StoreDetailViewController") as! StoreDetailViewController
+        
+        let storeInfoNavigationController = sb.instantiateViewController(withIdentifier: "StoreInfoNavigation") as! StoreDetailNavigationController
+        
+        //vc.selectedMarkerId = didSelectedMarker
+        storeInfoNavigationController.selectedMarkerId = didSelectedMarker
+        self.present(storeInfoNavigationController, animated: true, completion: nil)
         return true
     }
     

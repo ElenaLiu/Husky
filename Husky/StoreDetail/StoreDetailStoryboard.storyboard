@@ -18,60 +18,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7Q-cB-BPj">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="idn-XH-JnO"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SgX-nt-7G2">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-74-B9q">
+                                        <rect key="frame" x="0.0" y="0.0" width="136" height="44"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="評論">
+                                            <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showCommentsPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="YT6-Dk-S3x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVe-BE-cuW">
+                                        <rect key="frame" x="139" y="0.0" width="136" height="44"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="評分">
+                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showScorePageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="F2R-4W-A9O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-5p-SA9">
+                                        <rect key="frame" x="278" y="0.0" width="136" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="店家資訊">
+                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showStoreInfoPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="bin-1L-upP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="y9D-TA-fLt"/>
+                                </constraints>
+                            </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-he-ysq">
                                 <rect key="frame" x="0.0" y="108" width="414" height="628"/>
                                 <connections>
                                     <segue destination="tCB-iG-6hX" kind="embed" identifier="ContainerViewSegue" id="a76-Gn-dMJ"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-5p-SA9">
-                                <rect key="frame" x="0.0" y="64" width="99" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="店家資訊">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="showStoreInfoPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="bin-1L-upP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVe-BE-cuW">
-                                <rect key="frame" x="137" y="64" width="99" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="評分">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="showScorePageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="F2R-4W-A9O"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3U-SV-Rwa">
-                                <rect key="frame" x="276" y="64" width="99" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="評論">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="showCommentsPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="GgR-uq-0jl"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5rQ-he-ysq" firstAttribute="leading" secondItem="8Xs-PZ-bH6" secondAttribute="leading" id="FvK-6W-wwA"/>
-                            <constraint firstItem="5rQ-he-ysq" firstAttribute="top" secondItem="8Xs-PZ-bH6" secondAttribute="top" constant="44" id="oH5-Va-PBi"/>
-                            <constraint firstItem="5rQ-he-ysq" firstAttribute="trailing" secondItem="8Xs-PZ-bH6" secondAttribute="trailing" id="r0W-Ac-vY9"/>
-                            <constraint firstItem="5rQ-he-ysq" firstAttribute="bottom" secondItem="8Xs-PZ-bH6" secondAttribute="bottom" id="tjp-Jp-kjH"/>
+                            <constraint firstItem="SgX-nt-7G2" firstAttribute="top" secondItem="8Xs-PZ-bH6" secondAttribute="top" id="12x-Ah-zRc"/>
+                            <constraint firstItem="5rQ-he-ysq" firstAttribute="leading" secondItem="8Xs-PZ-bH6" secondAttribute="leading" id="4nP-aZ-sDt"/>
+                            <constraint firstItem="B7Q-cB-BPj" firstAttribute="leading" secondItem="8Xs-PZ-bH6" secondAttribute="leading" id="D3j-W3-0HV"/>
+                            <constraint firstItem="SgX-nt-7G2" firstAttribute="leading" secondItem="8Xs-PZ-bH6" secondAttribute="leading" id="EZZ-fx-S2l"/>
+                            <constraint firstItem="5rQ-he-ysq" firstAttribute="top" secondItem="B7Q-cB-BPj" secondAttribute="bottom" id="Wde-nn-q3h"/>
+                            <constraint firstItem="8Xs-PZ-bH6" firstAttribute="trailing" secondItem="B7Q-cB-BPj" secondAttribute="trailing" id="dJs-am-YrI"/>
+                            <constraint firstItem="B7Q-cB-BPj" firstAttribute="top" secondItem="8Xs-PZ-bH6" secondAttribute="top" id="mf7-Dn-YSn"/>
+                            <constraint firstItem="8Xs-PZ-bH6" firstAttribute="trailing" secondItem="SgX-nt-7G2" secondAttribute="trailing" id="oS1-g4-Plh"/>
+                            <constraint firstItem="5rQ-he-ysq" firstAttribute="trailing" secondItem="8Xs-PZ-bH6" secondAttribute="trailing" id="pbY-Nn-NpZ"/>
+                            <constraint firstAttribute="bottom" secondItem="5rQ-he-ysq" secondAttribute="bottom" id="qXm-lD-gWs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Xs-PZ-bH6"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="UmO-35-TOf"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="commentsPageTapped" destination="Q3U-SV-Rwa" id="ycg-If-mIP"/>
                         <outlet property="containerView" destination="5rQ-he-ysq" id="XOm-OJ-ono"/>
                         <outlet property="scorePageTapped" destination="KVe-BE-cuW" id="o1C-mX-gSs"/>
                         <outlet property="storeInfoPageTapped" destination="zhJ-5p-SA9" id="wWb-HC-1py"/>
@@ -79,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E07-gx-c5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2796" y="62.518740629685162"/>
+            <point key="canvasLocation" x="-2797.1014492753625" y="61.956521739130437"/>
         </scene>
         <!--Store Info View Controller-->
         <scene sceneID="HD1-X0-Iho">
@@ -382,10 +402,10 @@
             </objects>
             <point key="canvasLocation" x="-1836" y="-7"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Store Detail Navigation Controller-->
         <scene sceneID="quN-Nk-dqh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lvb-Vq-hwh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="StoreInfoNavigation" automaticallyAdjustsScrollViewInsets="NO" id="lvb-Vq-hwh" customClass="StoreDetailNavigationController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KM6-UB-JBg">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
