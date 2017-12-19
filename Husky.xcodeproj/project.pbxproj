@@ -118,13 +118,13 @@
 		AC1E1A521FE1603F004FD468 /* StoreDetail */ = {
 			isa = PBXGroup;
 			children = (
+				AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */,
 				AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */,
 				AC1E1A531FE160CC004FD468 /* StoreInfoViewController.swift */,
 				AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */,
 				AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */,
 				AC791B451FE36DFE004A7893 /* CommentsTableViewCell.swift */,
 				AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */,
-				AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */,
 			);
 			path = StoreDetail;
 			sourceTree = "<group>";

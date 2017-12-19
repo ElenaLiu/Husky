@@ -95,7 +95,6 @@ class StoreInfoViewController: UIViewController {
         
         if let latitudeValue = latitudeValue,
             let longitudeValue = longitudeValue {
-            
             setUpMapView(latitude: latitudeValue,
                          longitude: longitudeValue)
         }
@@ -127,12 +126,12 @@ class StoreInfoViewController: UIViewController {
 
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
         self.mapView = GMSMapView.map(withFrame: myMapView.bounds, camera: camera)
-        mapView.isMyLocationEnabled = true
+        //mapView.isMyLocationEnabled = true
         myMapView.addSubview(mapView)
 
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: longitudeValue, longitude: longitudeValue)
+        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = "123"
         marker.snippet = "456"
         marker.map = mapView
@@ -195,8 +194,10 @@ extension StoreInfoViewController: CLLocationManagerDelegate{
         let marker = GMSMarker()
         marker.map = mapView
         marker.icon = #imageLiteral(resourceName: "lover-2")
+        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         
     }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
     }

@@ -25,6 +25,7 @@ class StoreDetailViewController: UIViewController {
         let navigationController = self.navigationController as! StoreDetailNavigationController
         
         StoreInfoViewController.selectedMarkerId = navigationController.selectedMarkerId
+        print("我是storeInfoPage\(StoreInfoViewController.selectedMarkerId)")
         
          changePage(to: StoreInfoViewController)
     }
@@ -73,6 +74,7 @@ class StoreDetailViewController: UIViewController {
                 storeInfoVC?.scorePeopleValue = selectedMarkerId.scoredPeople
                 storeInfoVC?.longitudeValue = selectedMarkerId.longitude
                 storeInfoVC?.latitudeValue = selectedMarkerId.latitude
+                
             }
 
         }

@@ -28,14 +28,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SgX-nt-7G2">
                                 <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-74-B9q">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-5p-SA9">
                                         <rect key="frame" x="0.0" y="0.0" width="136" height="44"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="評論">
-                                            <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="店家資訊">
+                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="showCommentsPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="YT6-Dk-S3x"/>
+                                            <action selector="showStoreInfoPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="bin-1L-upP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVe-BE-cuW">
@@ -49,15 +50,14 @@
                                             <action selector="showScorePageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="F2R-4W-A9O"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-5p-SA9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-74-B9q">
                                         <rect key="frame" x="278" y="0.0" width="136" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="店家資訊">
-                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="評論">
+                                            <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="showStoreInfoPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="bin-1L-upP"/>
+                                            <action selector="showCommentsPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="YT6-Dk-S3x"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -89,7 +89,9 @@
                         <viewLayoutGuide key="safeArea" id="8Xs-PZ-bH6"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="UmO-35-TOf"/>
+                    <navigationItem key="navigationItem" id="UmO-35-TOf">
+                        <nil key="title"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="5rQ-he-ysq" id="XOm-OJ-ono"/>
