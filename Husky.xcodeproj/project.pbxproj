@@ -31,6 +31,7 @@
 		AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */; };
 		AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B491FE3A925004A7893 /* RegistViewController.swift */; };
 		AC791B4C1FE3CB14004A7893 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B4B1FE3CB14004A7893 /* LoginManager.swift */; };
+		AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B571FE90663004A7893 /* LunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,9 @@
 		AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		AC791B491FE3A925004A7893 /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
 		AC791B4B1FE3CB14004A7893 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		AC791B551FE90591004A7893 /* 古圓體.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "古圓體.otf"; sourceTree = "<group>"; };
+		AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WeibeiTC-Bold.otf"; sourceTree = "<group>"; };
+		AC791B571FE90663004A7893 /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
 		E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +169,8 @@
 				AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */,
 				AC75D16B1FE12B790072DD1B /* Info.plist */,
 				AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */,
+				AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */,
+				AC791B551FE90591004A7893 /* 古圓體.otf */,
 			);
 			path = Husky;
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 				AC75D1721FE148A20072DD1B /* Login.storyboard */,
 				AC75D1741FE148D80072DD1B /* LoginViewController.swift */,
 				AC791B491FE3A925004A7893 /* RegistViewController.swift */,
+				AC791B571FE90663004A7893 /* LunchScreenViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -355,6 +362,7 @@
 				AC75D1751FE148D80072DD1B /* LoginViewController.swift in Sources */,
 				AC791B4C1FE3CB14004A7893 /* LoginManager.swift in Sources */,
 				AC1E1A4F1FE15EDF004FD468 /* MapViewController.swift in Sources */,
+				AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */,
 				AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */,
 				AC791B421FE2619C004A7893 /* Store.swift in Sources */,
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,

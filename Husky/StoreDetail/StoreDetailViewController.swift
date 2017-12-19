@@ -22,14 +22,21 @@ class StoreDetailViewController: UIViewController {
 
     @IBAction func showStoreInfoPageTapped(_ sender: Any) {
         
+        StoreInfoViewController.selectedMarkerId = self.selectedMarkerId
+        
          changePage(to: StoreInfoViewController)
     }
     
     @IBAction func showScorePageTapped(_ sender: Any) {
-         changePage(to: ScoreViewController)
+        
+        ScoreViewController.selectedMarkerId = self.selectedMarkerId
+        
+        changePage(to: ScoreViewController)
     }
     
     @IBAction func showCommentsPageTapped(_ sender: Any) {
+        
+        CommentsTableViewController.selectedMarkerId = self.selectedMarkerId
         changePage(to: CommentsTableViewController)
     }
     
@@ -68,8 +75,6 @@ class StoreDetailViewController: UIViewController {
         }
     }
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,6 +96,7 @@ class StoreDetailViewController: UIViewController {
     }
     
     func changePage(to newViewController: UIViewController) {
+
         // Remove previous viewController
         selectedViewController.willMove(toParentViewController: nil)
         selectedViewController.view.removeFromSuperview()
@@ -104,7 +110,7 @@ class StoreDetailViewController: UIViewController {
         
         // Set up current viewController == selectedViewController
         self.selectedViewController = newViewController
-        
+   
     }
 
     override func didReceiveMemoryWarning() {

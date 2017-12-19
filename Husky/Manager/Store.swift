@@ -48,7 +48,7 @@ public struct Store {
     
     public let latitude: CLLocationDegrees
     
-    public let scoredPeople: Double
+    public let scoredPeople: Int
     
     public let storeScoreAverage: Double
 

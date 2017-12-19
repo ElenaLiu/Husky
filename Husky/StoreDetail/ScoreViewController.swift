@@ -15,6 +15,9 @@ class ScoreViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    var selectedMarkerId: Store?
+
+    
     @IBOutlet weak var firstRatingView: CosmosView!
     @IBOutlet weak var secondRatingView: CosmosView!
     @IBOutlet weak var thirdRatingView: CosmosView!
@@ -34,25 +37,41 @@ class ScoreViewController: UIViewController {
     
     @IBAction func saveScoreTapped(_ sender: Any) {
         
-        guard let comment = commentTextField.text else { return }
+        guard let content = commentTextField.text else { return }
+        guard let selectedStore = (selectedMarkerId?.id) else { return }
+        print("我就是啦\(selectedStore)")
         
         let average =
             (firstRating + secondRating + thirdRating + fourthRating + fifthRating)
                 / 5
-       
+      
+       // var scorePeople = ref.child("Stores").child("scorePeople").observes
+        //var scoreAverage = ((average * scorePeople) + average) / scorePeople
+//    Database.database().reference().child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent
+        
+        
         ref = Database.database().reference()
         if let uid = Auth.auth().currentUser?.uid {
             
-            self.ref.child("Comments").setValue([
+
+            self.ref.child("StoreComments").childByAutoId().setValue([
                 "uid": uid,
+                "storeId": selectedStore,
                 "average": average,
-                "comment": comment,
+                "content": content,
                 "score": ["firstRating": firstRating,
                           "secondRating": secondRating,
                           "thirdRating": thirdRating,
                           "fourthRating": fourthRating,
                           "fifthRating": fifthRating]
                 ])
+
+
+            
+//            let key = ref.child("id").key
+//            let stores = ["scorePeople": scorePeople, "scoreAverage": scoreAverage]
+//            let childUpdate = ["/stores/\(key)": stores]
+//            ref.updateChildValues(childUpdate)
         }
     }
 
@@ -84,9 +103,8 @@ class ScoreViewController: UIViewController {
     func setUpFirstRating() {
         // Change the cosmos view rating
         firstRatingView.rating = 0
-        
-        // Change the text
-        //firstRatingView.text = String(ratingView.rating)
+
+        // Set the distance between stars
         firstRatingView.settings.starMargin = 10
         
         // Change the size of the stars
@@ -102,6 +120,7 @@ class ScoreViewController: UIViewController {
     
     func setUpSecondRating() {
         secondRatingView.rating = 0
+        // Set the distance between stars
         secondRatingView.settings.starMargin = 10
         // Change the size of the stars
         secondRatingView.settings.starSize = 30
@@ -112,6 +131,7 @@ class ScoreViewController: UIViewController {
     
     func setUpthirdRating() {
         thirdRatingView.rating = 0
+        // Set the distance between stars
         thirdRatingView.settings.starMargin = 10
         // Change the size of the stars
         thirdRatingView.settings.starSize = 30
@@ -123,6 +143,7 @@ class ScoreViewController: UIViewController {
     
     func setUpfourthRating() {
         fourthRatingView.rating = 0
+        // Set the distance between stars
         fourthRatingView.settings.starMargin = 10
         // Change the size of the stars
         fourthRatingView.settings.starSize = 30
@@ -133,6 +154,7 @@ class ScoreViewController: UIViewController {
     
     func setUpfifthRating() {
         fifthRatingView.rating = 0
+        // Set the distance between stars
         fifthRatingView.settings.starMargin = 10
         // Change the size of the stars
         fifthRatingView.settings.starSize = 30

@@ -107,25 +107,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQe-wI-ep6">
-                                <rect key="frame" x="159" y="199" width="64" height="64"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="rES-Nb-Pq6"/>
-                                    <constraint firstAttribute="height" constant="64" id="zkY-cl-laf"/>
-                                </constraints>
-                                <state key="normal" image="mapderaction"/>
-                                <connections>
-                                    <action selector="addressGuideTapped:" destination="tCB-iG-6hX" eventType="touchUpInside" id="Rsp-17-JjC"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評分人數" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVM-Fn-OZm">
-                                <rect key="frame" x="178" y="75" width="236" height="20"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="0.5703125" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-vz-TON">
                                 <rect key="frame" x="327" y="148" width="64" height="64"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,9 +119,33 @@
                                     <action selector="phoneCallTapped:" destination="tCB-iG-6hX" eventType="touchUpInside" id="7gn-1M-TCI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQe-wI-ep6">
+                                <rect key="frame" x="159" y="199" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="rES-Nb-Pq6"/>
+                                    <constraint firstAttribute="height" constant="64" id="zkY-cl-laf"/>
+                                </constraints>
+                                <state key="normal" image="mapderaction"/>
+                                <connections>
+                                    <action selector="addressGuideTapped:" destination="tCB-iG-6hX" eventType="touchUpInside" id="Rsp-17-JjC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評分人數" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVM-Fn-OZm">
+                                <rect key="frame" x="178" y="75" width="236" height="20"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="0.5703125" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kn0-iZ-E32" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="0.0" y="54" width="165" height="41"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Kn0-iZ-E32" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="34" id="1pF-pU-SwR"/>
                             <constraint firstItem="PVM-Fn-OZm" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="55" id="7RW-l9-4G8"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="xm2-sK-CEl" secondAttribute="trailing" constant="95" id="AS8-dW-gZm"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="gxv-o0-uPR" secondAttribute="trailing" constant="95" id="ASK-ba-Iwt"/>
@@ -155,13 +160,16 @@
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" id="gBY-Ig-gbF"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="trailing" secondItem="AlG-Ka-xI7" secondAttribute="trailing" id="inW-QX-DSH"/>
                             <constraint firstItem="f2D-vz-TON" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="327" id="jde-2F-zmp"/>
+                            <constraint firstItem="Kn0-iZ-E32" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" id="lyT-JZ-3Et"/>
                             <constraint firstItem="NQe-wI-ep6" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" constant="159" id="nQ5-ze-vco"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="NQe-wI-ep6" secondAttribute="trailing" constant="191" id="oyB-5v-bD1"/>
                             <constraint firstItem="PVM-Fn-OZm" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="55" id="pSB-Xh-khB"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="AlG-Ka-xI7" secondAttribute="top" constant="259" id="qYS-mW-yX2"/>
                             <constraint firstItem="D2P-ZK-P9a" firstAttribute="bottom" secondItem="AlG-Ka-xI7" secondAttribute="bottom" id="t4B-53-JWN"/>
                             <constraint firstItem="xm2-sK-CEl" firstAttribute="leading" secondItem="AlG-Ka-xI7" secondAttribute="leading" id="uye-3t-ia0"/>
+                            <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="Kn0-iZ-E32" secondAttribute="trailing" constant="249" id="vKQ-1D-gFN"/>
                             <constraint firstItem="AlG-Ka-xI7" firstAttribute="trailing" secondItem="f2D-vz-TON" secondAttribute="trailing" constant="23" id="xSl-Kr-uTM"/>
+                            <constraint firstItem="D2P-ZK-P9a" firstAttribute="top" secondItem="Kn0-iZ-E32" secondAttribute="bottom" constant="184" id="zJF-PC-b9e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AlG-Ka-xI7"/>
                     </view>
@@ -170,6 +178,7 @@
                         <outlet property="addressLabel" destination="xm2-sK-CEl" id="YBe-yy-QuM"/>
                         <outlet property="myMapView" destination="D2P-ZK-P9a" id="5en-GV-Nxf"/>
                         <outlet property="phoneLabel" destination="gxv-o0-uPR" id="kHV-Ty-4m9"/>
+                        <outlet property="scoreAverageView" destination="Kn0-iZ-E32" id="qcS-Z0-yW4"/>
                         <outlet property="scorePeopleLabel" destination="PVM-Fn-OZm" id="eL2-Pz-yic"/>
                     </connections>
                 </viewController>

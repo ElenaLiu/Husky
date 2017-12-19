@@ -10,10 +10,14 @@ import UIKit
 
 class CommentsTableViewController: UITableViewController {
     
+    var selectedMarkerId: Store?
+    
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("我是commentpage \(selectedMarkerId)")
 
     }
 
