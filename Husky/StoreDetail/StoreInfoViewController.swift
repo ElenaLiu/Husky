@@ -22,11 +22,13 @@ class StoreInfoViewController: UIViewController {
     
     //var ref = DatabaseReference!()
     
+    var nameValue: String!
     var addressValue: String!
     var phoneValue: String!
     var scorePeopleValue: Int!
     var longitudeValue: CLLocationDegrees!
     var latitudeValue: CLLocationDegrees!
+    var storeScoreAverageValue: Double!
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -68,40 +70,38 @@ class StoreInfoViewController: UIViewController {
         }
     }
     
-    override func loadView() {
-        super.loadView()
-    
-
-
-//        let camera = GMSCameraPosition.camera(withLatitude: latitudeValue, longitude: longitudeValue, zoom: zoomLevel)
-//        self.mapView = GMSMapView.map(withFrame: myMapView.bounds, camera: camera)
-//        mapView.isMyLocationEnabled = true
-//        myMapView.addSubview(mapView)
-//
-//        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude:   longitudeValue, longitude: longitudeValue)
-//        marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
-//        marker.map = mapView
-//        marker.icon = UIImage(named: "BubbleTea(brown)")
-
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpTotalRating()
         setUpStoreInfoWith()
         initLocationManager()
+        
         
         if let latitudeValue = latitudeValue,
             let longitudeValue = longitudeValue {
             setUpMapView(latitude: latitudeValue,
                          longitude: longitudeValue)
         }
-
+    }
+    
+    func setUpTotalRating() {
+        
+       guard let storeScoreAverageValue = storeScoreAverageValue else { return }
+            print("我拉\(storeScoreAverageValue)")
+        
+        // Change the cosmos view rating
+        scoreAverageView.rating = storeScoreAverageValue
+            
+        scoreAverageView.settings.updateOnTouch = false
+            
+        // Set the distance between stars
+        scoreAverageView.settings.starMargin = 5
+            
+        // Change the size of the stars
+        scoreAverageView.settings.starSize = 30
         
     }
-
     private func setUpStoreInfoWith() {
         if let addressValue = addressValue, let phoneValue = phoneValue, let scorePeopleValue = scorePeopleValue {
             addressLabel.text = "地址：\(addressValue)"
@@ -117,7 +117,7 @@ class StoreInfoViewController: UIViewController {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.distanceFilter = 50
         self.locationManager.startUpdatingLocation()
-        self.locationManager.delegate = self as? CLLocationManagerDelegate
+        self.locationManager.delegate = self
         
         self.placesClient = GMSPlacesClient.shared()
     }
@@ -132,11 +132,10 @@ class StoreInfoViewController: UIViewController {
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        marker.title = "123"
-        marker.snippet = "456"
+        guard let nameValue = nameValue else { return }
+        marker.title = nameValue
         marker.map = mapView
-//        marker.icon = UIImage(named: "lover-2")
-        marker.icon = #imageLiteral(resourceName: "ask")
+        marker.icon = #imageLiteral(resourceName: "Icon-App-40x40")
 
     }
     

@@ -74,6 +74,8 @@ class StoreDetailViewController: UIViewController {
                 storeInfoVC?.scorePeopleValue = selectedMarkerId.scoredPeople
                 storeInfoVC?.longitudeValue = selectedMarkerId.longitude
                 storeInfoVC?.latitudeValue = selectedMarkerId.latitude
+                storeInfoVC?.storeScoreAverageValue = selectedMarkerId.storeScoreAverage
+                storeInfoVC?.nameValue = selectedMarkerId.name
                 
             }
 

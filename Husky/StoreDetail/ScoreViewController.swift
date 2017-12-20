@@ -38,18 +38,17 @@ class ScoreViewController: UIViewController {
     @IBAction func saveScoreTapped(_ sender: Any) {
         
         guard let content = commentTextField.text else { return }
-        guard let selectedStore = (selectedMarkerId) else { return }
-        print(selectedStore)
+        guard let selectedStore = selectedMarkerId else { return }
+
         
         let newAverage =
             (firstRating + secondRating + thirdRating + fourthRating + fifthRating)
                 / 5
-      
-       // var scorePeople = ref.child("Stores").child("scorePeople").observes
+
         var averageTotal = (selectedStore.storeScoreAverage * Double(selectedStore.scoredPeople)) + newAverage
         
         var scoreAverage = averageTotal / Double(selectedStore.scoredPeople + 1)
-//    Database.database().reference().child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent
+
         
         
         ref = Database.database().reference()
@@ -69,7 +68,7 @@ class ScoreViewController: UIViewController {
 
 
             let storeRef = ref.child("Stores").child(selectedStore.id)
-            let stores = ["scorePeople": selectedStore.scoredPeople + 1 , "scoreAverage": scoreAverage] as [String : Any]
+            let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
             //let childUpdate = [storeRef: stores]
             storeRef.updateChildValues(stores)
         }
@@ -129,9 +128,12 @@ class ScoreViewController: UIViewController {
         secondRatingView.settings.starMargin = 10
         // Change the size of the stars
         secondRatingView.settings.starSize = 30
-        secondRatingView.didFinishTouchingCosmos = { rating in
+        secondRatingView.didTouchCosmos = { rating in
             self.secondRating = rating
         }
+//        secondRatingView.didFinishTouchingCosmos = { rating in
+//            self.secondRating = rating
+//        }
     }
     
     func setUpthirdRating() {
@@ -141,8 +143,11 @@ class ScoreViewController: UIViewController {
         // Change the size of the stars
         thirdRatingView.settings.starSize = 30
         
-        thirdRatingView.didFinishTouchingCosmos = { rating in
+        thirdRatingView.didTouchCosmos = { rating in
             self.thirdRating = rating
+        
+//        thirdRatingView.didFinishTouchingCosmos = { rating in
+//            self.thirdRating = rating
         }
     }
     
@@ -152,19 +157,24 @@ class ScoreViewController: UIViewController {
         fourthRatingView.settings.starMargin = 10
         // Change the size of the stars
         fourthRatingView.settings.starSize = 30
-        fourthRatingView.didFinishTouchingCosmos = { rating in
+        fourthRatingView.didTouchCosmos = { rating in
             self.fourthRating = rating
+//        fourthRatingView.didFinishTouchingCosmos = { rating in
+//            self.fourthRating = rating
         }
     }
     
     func setUpfifthRating() {
+        
         fifthRatingView.rating = 0
         // Set the distance between stars
         fifthRatingView.settings.starMargin = 10
         // Change the size of the stars
         fifthRatingView.settings.starSize = 30
-        fifthRatingView.didFinishTouchingCosmos = { rating in
+        fifthRatingView.didTouchCosmos = { rating in
             self.fifthRating = rating
+//        fifthRatingView.didFinishTouchingCosmos = { rating in
+//            self.fifthRating = rating
         }
     }
     
