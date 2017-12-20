@@ -36,6 +36,8 @@ class StoreInfoViewController: UIViewController {
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     var endPosition: CLLocation?
+
+    
     
     
     @IBOutlet weak var myMapView: UIView!
@@ -62,9 +64,16 @@ class StoreInfoViewController: UIViewController {
     // Make google guide
     @IBAction func addressGuideTapped(_ sender: Any) {
         
+        guard let userLocation = self.currentLocation else { return }
+        print("user位置\(userLocation)")
+        guard let longitudeValue = longitudeValue else { return }
+        print(234)
+        guard let latitudeValue = latitudeValue else { return }
+        print(456)
+        
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
             UIApplication.shared.openURL(URL(string:
-                "comgooglemaps://?saddr=\(addressValue)&daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&directionsmode=transit")!)
+                "comgooglemaps://?saddr=\(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)&daddr=\(latitudeValue),\(longitudeValue)&directionsmode=walking")!)
         } else {
             print("Can't use comgooglemaps://");
         }
@@ -88,7 +97,7 @@ class StoreInfoViewController: UIViewController {
     func setUpTotalRating() {
         
        guard let storeScoreAverageValue = storeScoreAverageValue else { return }
-            print("我拉\(storeScoreAverageValue)")
+
         
         // Change the cosmos view rating
         scoreAverageView.rating = storeScoreAverageValue
@@ -99,7 +108,7 @@ class StoreInfoViewController: UIViewController {
         scoreAverageView.settings.starMargin = 5
             
         // Change the size of the stars
-        scoreAverageView.settings.starSize = 30
+        scoreAverageView.settings.starSize = 40
         
     }
     private func setUpStoreInfoWith() {
@@ -147,9 +156,7 @@ class StoreInfoViewController: UIViewController {
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
 
-
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
-        print("我是 \(url)")
 
         Alamofire.request(url).responseJSON { response in
 
@@ -189,15 +196,16 @@ class StoreInfoViewController: UIViewController {
 
 extension StoreInfoViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
+        let userLocation: CLLocation = locations.last!
+        self.currentLocation = userLocation
         
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        marker.position = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         marker.map = mapView
         marker.icon = #imageLiteral(resourceName: "man")
         
         if let end = endPosition {
-            drawPath(startLocation: location, endLocation: end)
+            drawPath(startLocation: userLocation, endLocation: end)
         }
 
         
