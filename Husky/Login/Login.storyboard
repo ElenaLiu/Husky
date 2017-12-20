@@ -189,7 +189,7 @@
                                                     <action selector="signUpButton:" destination="zpu-B9-vnU" eventType="touchUpInside" id="MBT-Xa-jVK"/>
                                                 </connections>
                                             </button>
-                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-2" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-Px-DF5" customClass="CustomizableImageView" customModule="Husky" customModuleProvider="target">
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-2" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-Px-DF5" customClass="CustomizableImageView" customModule="Husky" customModuleProvider="target">
                                                 <rect key="frame" x="111" y="109" width="152" height="152"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>

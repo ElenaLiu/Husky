@@ -88,17 +88,7 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let alertController = UIAlertController(title: "Add a Picture",
                                                 message: "Choose From", preferredStyle: .actionSheet)
-        
-        let cameraAction = UIAlertAction(title: "Camera",
-                                         style: .default) {(action) in
-            pickerController.sourceType = .camera
-                                            
-            self.present(pickerController,
-                         animated: true,
-                         completion: nil)
-            
-        }
-        
+       
         let photosLibraryAction = UIAlertAction(title: "Photos Library",
                                                 style: .default) { (action) in
             pickerController.sourceType = .photoLibrary
@@ -122,7 +112,20 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
                                          style: .destructive,
                                          handler: nil)
         
-        alertController.addAction(cameraAction)
+        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+            let cameraAction = UIAlertAction(title: "Camera",
+                                             style: .default) {(action) in
+                                                pickerController.sourceType = .camera
+                                                
+                                                self.present(pickerController,
+                                                             animated: true,
+                                                             completion: nil)
+                                                
+            }
+            
+            alertController.addAction(cameraAction)
+        }
+        
         alertController.addAction(photosLibraryAction)
         alertController.addAction(savedPhotosAction)
         alertController.addAction(cancelAction)

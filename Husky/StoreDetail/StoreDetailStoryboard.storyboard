@@ -171,7 +171,7 @@
                                         <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="BubbleTea(brown)"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="Empty Tea"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="EmptyTea"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
@@ -444,7 +444,7 @@
     </scenes>
     <resources>
         <image name="BubbleTea(brown)" width="220" height="357"/>
-        <image name="Empty Tea" width="220" height="314"/>
+        <image name="EmptyTea" width="25" height="35"/>
         <image name="Phone" width="40" height="40"/>
         <image name="lover-2" width="32" height="32"/>
         <image name="lover-3" width="64" height="64"/>

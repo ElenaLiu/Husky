@@ -64,7 +64,6 @@ class MapViewController: UIViewController {
             withFrame: myMapView.bounds,
             camera: camera)
         
-        mapView.isMyLocationEnabled = true
         myMapView.addSubview(mapView)
         mapView.delegate = self
         
@@ -73,27 +72,36 @@ class MapViewController: UIViewController {
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        print("Location: \(location)")
         
+        //get current location
+        let location: CLLocation = locations.last!
+        
+        //set up marker
         let marker = GMSMarker()
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "user-2"))
+        marker.position = location.coordinate
+        
+        //set up user marker image view
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.frame.size = CGSize(width: 50, height: 50)
+        imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.sd_setImage(with: Auth.auth().currentUser?.photoURL,
-                              placeholderImage: #imageLiteral(resourceName: "Empty Tea"),
+                              placeholderImage: #imageLiteral(resourceName: "user-2"),
                               options: [],
                               completed: nil
         )
-        marker.map = mapView
-        marker.icon = UIImage(named: "whatsapp-3")
+        marker.iconView = imageView
         
-    }
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        //put marker on the mapView
+        marker.map = mapView
         
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        
+    }
 }
-
-
 
 extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
     func didFetch(with stores: [Store]) {
@@ -103,8 +111,10 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         for store in stores {
             let marker = GMSMarker()
             
-            marker.position = CLLocationCoordinate2D(latitude: store.latitude,
-                                                     longitude: store.longitude)
+            marker.position = CLLocationCoordinate2D(
+                latitude: store.latitude,
+                longitude: store.longitude
+            )
             marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
             marker.title = store.name
             marker.snippet = store.id

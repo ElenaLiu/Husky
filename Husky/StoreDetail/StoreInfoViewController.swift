@@ -13,6 +13,7 @@ import Alamofire
 import SwiftyJSON
 import Cosmos
 import Firebase
+import SDWebImage
 
 
 class StoreInfoViewController: UIViewController {
@@ -199,10 +200,23 @@ extension StoreInfoViewController: CLLocationManagerDelegate{
         let userLocation: CLLocation = locations.last!
         self.currentLocation = userLocation
         
+        
+        
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.frame.size = CGSize(width: 50, height: 50)
+        imageView.layer.cornerRadius = imageView.frame.width / 2
+        imageView.sd_setImage(with: Auth.auth().currentUser?.photoURL,
+                              placeholderImage: #imageLiteral(resourceName: "user-2"),
+                              options: [],
+                              completed: nil
+        )
+        
         marker.map = mapView
-        marker.icon = #imageLiteral(resourceName: "man")
+        marker.iconView = imageView
         
         if let end = endPosition {
             drawPath(startLocation: userLocation, endLocation: end)
