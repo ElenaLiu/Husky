@@ -132,58 +132,59 @@ class StoreInfoViewController: UIViewController {
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        endPosition = CLLocation(latitude: latitudeValue, longitude: longitudeValue)
         guard let nameValue = nameValue else { return }
         marker.title = nameValue
         marker.map = mapView
-        marker.icon = #imageLiteral(resourceName: "Icon-App-40x40")
+        marker.icon = #imageLiteral(resourceName: "bubbleNormal")
 
     }
     
     //MARK: - this is function for create direction path, from start location to desination location
     
-//    private func drawPath(startLocation: CLLocation, endLocation: CLLocation)
-//    {
-//        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
-//        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
-//
-//
-//        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
-//        print("我是 \(url)")
-//
-//        Alamofire.request(url).responseJSON { response in
-//
-//            print(response.request as Any)  // original URL request
-//            print(response.response as Any) // HTTP URL response
-//            print(response.data as Any)     // server data
-//            print(response.result as Any)   // result of response serialization
-//
-//            let json = try! JSON(data: response.data!)
-//            let routes = json["routes"].arrayValue
-//            if routes == [] {
-//                let alert = UIAlertController(title: "Oops!", message: "Distance is too far, can't show the path.", preferredStyle: .alert)
-//
-//                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-//
-//                }))
-//
-//                self.present(alert, animated: true, completion: nil)
-//            }else {
-//
-//            }
-//
-//            // print route using Polyline
-//            for route in routes
-//            {
-//                let routeOverviewPolyline = route["overview_polyline"].dictionary
-//                let points = routeOverviewPolyline?["points"]?.stringValue
-//                let path = GMSPath.init(fromEncodedPath: points!)
-//                let polyline = GMSPolyline.init(path: path)
-//                polyline.strokeWidth = 3
-//                polyline.strokeColor = UIColor.red
-//                polyline.map = self.mapView
-//            }
-//        }
-//    }
+    private func drawPath(startLocation: CLLocation, endLocation: CLLocation)
+    {
+        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
+        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
+
+
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        print("我是 \(url)")
+
+        Alamofire.request(url).responseJSON { response in
+
+            print(response.request as Any)  // original URL request
+            print(response.response as Any) // HTTP URL response
+            print(response.data as Any)     // server data
+            print(response.result as Any)   // result of response serialization
+
+            let json = try! JSON(data: response.data!)
+            let routes = json["routes"].arrayValue
+            if routes == [] {
+                let alert = UIAlertController(title: "Oops!", message: "Distance is too far, can't show the path.", preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+
+                }))
+
+                self.present(alert, animated: true, completion: nil)
+            }else {
+
+            }
+
+            // print route using Polyline
+            for route in routes
+            {
+                let routeOverviewPolyline = route["overview_polyline"].dictionary
+                let points = routeOverviewPolyline?["points"]?.stringValue
+                let path = GMSPath.init(fromEncodedPath: points!)
+                let polyline = GMSPolyline.init(path: path)
+                polyline.strokeWidth = 3
+                polyline.strokeColor = UIColor.red
+                polyline.map = self.mapView
+            }
+        }
+    }
 }
 
 extension StoreInfoViewController: CLLocationManagerDelegate{
@@ -191,9 +192,14 @@ extension StoreInfoViewController: CLLocationManagerDelegate{
         let location: CLLocation = locations.last!
         
         let marker = GMSMarker()
-        marker.map = mapView
-        marker.icon = #imageLiteral(resourceName: "lover-2")
         marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        marker.map = mapView
+        marker.icon = #imageLiteral(resourceName: "man")
+        
+        if let end = endPosition {
+            drawPath(startLocation: location, endLocation: end)
+        }
+
         
     }
     

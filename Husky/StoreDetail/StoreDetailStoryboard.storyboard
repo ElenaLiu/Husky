@@ -131,19 +131,19 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-vz-TON">
                                 <rect key="frame" x="327" y="148" width="64" height="64"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="17b-1g-0DS"/>
                                     <constraint firstAttribute="height" constant="64" id="tjY-90-Yas"/>
                                 </constraints>
-                                <state key="normal" image="whatsapp-3"/>
+                                <state key="normal" image="Phone"/>
                                 <connections>
                                     <action selector="phoneCallTapped:" destination="tCB-iG-6hX" eventType="touchUpInside" id="7gn-1M-TCI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQe-wI-ep6">
                                 <rect key="frame" x="159" y="199" width="64" height="64"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="rES-Nb-Pq6"/>
                                     <constraint firstAttribute="height" constant="64" id="zkY-cl-laf"/>
@@ -445,9 +445,9 @@
     <resources>
         <image name="BubbleTea(brown)" width="220" height="357"/>
         <image name="Empty Tea" width="220" height="314"/>
+        <image name="Phone" width="40" height="40"/>
         <image name="lover-2" width="32" height="32"/>
         <image name="lover-3" width="64" height="64"/>
-        <image name="mapderaction" width="315" height="310"/>
-        <image name="whatsapp-3" width="128" height="128"/>
+        <image name="mapderaction" width="40" height="40"/>
     </resources>
 </document>
