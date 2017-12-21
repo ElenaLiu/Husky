@@ -68,8 +68,6 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
-
-    
     func setUpregistImage() {
         
         self.registImageView.layer.borderWidth = 1
@@ -77,7 +75,6 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.registImageView.layer.borderColor = UIColor.black.cgColor
         self.registImageView.layer.cornerRadius = registImageView.frame.height/2
         self.registImageView.clipsToBounds = true
-        
     }
 
     @IBAction func chooseUserImage(_ sender: Any) {

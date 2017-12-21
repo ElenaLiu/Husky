@@ -30,6 +30,8 @@ class MapViewController: UIViewController {
         
         initLactionManager()
         
+        setUpNavigationBar()
+        
         setUpMapView()
 
         // fetch branches information
@@ -49,6 +51,15 @@ class MapViewController: UIViewController {
         
         
     }
+    
+    func setUpNavigationBar() {
+        
+        //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 28)!]
+        navigationItem.title = "i Bubble"
+    }
+    
     func setUpMapView() {
         
         let camera = GMSCameraPosition.camera(

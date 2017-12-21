@@ -39,7 +39,6 @@ class ScoreViewController: UIViewController {
         
         guard let content = commentTextField.text else { return }
         guard let selectedStore = selectedMarkerId else { return }
-
         
         let newAverage =
             (firstRating + secondRating + thirdRating + fourthRating + fifthRating)
@@ -49,8 +48,6 @@ class ScoreViewController: UIViewController {
         
         let scoreAverage = averageTotal / Double(selectedStore.scoredPeople + 1)
 
-        
-        
         ref = StoreProvider.ref
         if let uid = Auth.auth().currentUser?.uid {
             

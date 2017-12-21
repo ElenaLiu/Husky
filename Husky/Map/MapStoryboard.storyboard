@@ -57,7 +57,7 @@
         <!--Item-->
         <scene sceneID="y6H-hE-Mtt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fJh-bb-23W" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MapNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="fJh-bb-23W" customClass="MapNavigationController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="eUn-S0-ny0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2ba-Ov-076">

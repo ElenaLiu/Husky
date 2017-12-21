@@ -33,6 +33,7 @@
 		AC791B4C1FE3CB14004A7893 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B4B1FE3CB14004A7893 /* LoginManager.swift */; };
 		AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B571FE90663004A7893 /* LunchScreenViewController.swift */; };
 		AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */; };
+		AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WeibeiTC-Bold.otf"; sourceTree = "<group>"; };
 		AC791B571FE90663004A7893 /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
 		AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailNavigationController.swift; sourceTree = "<group>"; };
+		AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
 		E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1E1A4E1FE15EDF004FD468 /* MapViewController.swift */,
+				AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */,
 				AC1E1A501FE15EFB004FD468 /* MapStoryboard.storyboard */,
 			);
 			path = Map;
@@ -376,6 +379,7 @@
 				AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */,
 				AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */,
 				AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */,
+				AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */,
 				AC1E1A5D1FE16174004FD468 /* UserProfileTableViewController.swift in Sources */,
 				AC1E1A581FE160F2004FD468 /* CommentsTableViewController.swift in Sources */,
 				AC791B461FE36DFE004A7893 /* CommentsTableViewCell.swift in Sources */,
