@@ -119,6 +119,7 @@ class StoreDetailViewController: UIViewController {
             cameraTapped.setImage(#imageLiteral(resourceName: "PhotoCamera").withRenderingMode(.alwaysOriginal), for: .normal)
             cameraTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cameraTapped)
+            cameraTapped.addTarget(self, action: #selector(takePhotoAction), for: .touchUpInside)
         } else {
             navigationItem.rightBarButtonItem = nil
         }
@@ -137,6 +138,35 @@ class StoreDetailViewController: UIViewController {
         
         // Set up current viewController == selectedViewController
         self.selectedViewController = newViewController
+    }
+    
+    @objc func takePhotoAction() {
+        let pickercontroller = UIImagePickerController()
+        pickercontroller.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        pickercontroller.allowsEditing = true
+        
+        let alertController = UIAlertController(title: "Add a Picture", message: "Choose From", preferredStyle: .actionSheet)
+        let photosLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+            pickercontroller.sourceType = .photoLibrary
+            self.present(pickercontroller, animated: true, completion: nil)
+        }
+        let savedPhotosAction = UIAlertAction(title: "Saved Photos Album", style: .default) { (action) in
+            pickercontroller.sourceType = .savedPhotosAlbum
+            self.present(pickercontroller, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+                pickercontroller.sourceType = .camera
+                self.present(pickercontroller, animated: true, completion: nil)
+            })
+            alertController.addAction(cameraAction)
+        }
+        alertController.addAction(photosLibraryAction)
+        alertController.addAction(savedPhotosAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
