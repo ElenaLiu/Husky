@@ -95,7 +95,7 @@ class ScoreViewController: UIViewController {
          let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }
-    
+
     func setUpFirstRating() {
         // Change the cosmos view rating
         firstRatingView.rating = 0

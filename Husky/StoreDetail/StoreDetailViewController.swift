@@ -77,6 +77,11 @@ class StoreDetailViewController: UIViewController {
         selectedViewController = StoreInfoViewController
     }
     
+    @IBAction func backToMapPageTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -93,12 +98,31 @@ class StoreDetailViewController: UIViewController {
     
     func setUpNavigationBar() {
         
-        navigationItem.title = selectedMarkerId?.name
+        //navigationItem.title = selectedMarkerId?.name
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Papyrus", size: 15)!]
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let label1 = UILabel()
+        label1.text = selectedMarkerId?.name
+        label1.font = UIFont(name: "SentyWen", size: 12)
+        label1.sizeToFit()
+        navigationItem.titleView = label1
+        
     }
     
     func changePage(to newViewController: UIViewController) {
+        
+        if newViewController is ScoreViewController {
+            
+            let cameraTapped = UIButton(type: .system)
+            cameraTapped.setImage(#imageLiteral(resourceName: "PhotoCamera").withRenderingMode(.alwaysOriginal), for: .normal)
+            cameraTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cameraTapped)
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+        
 
         // Remove previous viewController
         selectedViewController.willMove(toParentViewController: nil)

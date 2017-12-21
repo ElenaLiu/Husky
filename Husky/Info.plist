@@ -4,8 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>古圓體</string>
-		<string>weibeiTC-Bold</string>
+		<string>SentyCreamPuff.ttf</string>
+		<string>SentyWEN2017</string>
+		<string>Chihaya日文字體1.ttf</string>
+		<string>Classic Xing kai Font.TTF</string>
+		<string>SentyMARUKO.ttf</string>
+		<string>SentyZHAO.ttf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>

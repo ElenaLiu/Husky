@@ -14,6 +14,9 @@
         <array key="Chalkduster.ttf">
             <string>Chalkduster</string>
         </array>
+        <array key="SentyWEN2017.ttf">
+            <string>SentyWen</string>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -34,8 +37,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人森不能沒有珍珠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asI-lH-TRh">
-                                <rect key="frame" x="0.0" y="261" width="375" height="30.5"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                                <rect key="frame" x="0.0" y="261" width="375" height="45"/>
+                                <fontDescription key="fontDescription" name="SentyWen" family="SentyWen" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

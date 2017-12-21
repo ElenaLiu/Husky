@@ -34,6 +34,12 @@
 		AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B571FE90663004A7893 /* LunchScreenViewController.swift */; };
 		AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */; };
 		AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */; };
+		AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */; };
+		AC791B601FEBD094004A7893 /* Classic Xing kai Font.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */; };
+		ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */; };
+		ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */; };
+		ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */; };
+		ACFB34301FEBD3FB002A690A /* SentyZHAO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342F1FEBD3FB002A690A /* SentyZHAO.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,11 +70,16 @@
 		AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		AC791B491FE3A925004A7893 /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
 		AC791B4B1FE3CB14004A7893 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
-		AC791B551FE90591004A7893 /* 古圓體.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "古圓體.otf"; sourceTree = "<group>"; };
 		AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WeibeiTC-Bold.otf"; sourceTree = "<group>"; };
 		AC791B571FE90663004A7893 /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
 		AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailNavigationController.swift; sourceTree = "<group>"; };
 		AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
+		AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chihaya日文字體1.ttf"; sourceTree = "<group>"; };
+		AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Classic Xing kai Font.TTF"; sourceTree = "<group>"; };
+		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
+		ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
+		ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyWEN2017.ttf; sourceTree = "<group>"; };
+		ACFB342F1FEBD3FB002A690A /* SentyZHAO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyZHAO.ttf; sourceTree = "<group>"; };
 		E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,8 +186,13 @@
 				AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */,
 				AC75D16B1FE12B790072DD1B /* Info.plist */,
 				AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */,
+				ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */,
+				ACFB342F1FEBD3FB002A690A /* SentyZHAO.ttf */,
+				ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */,
+				ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */,
 				AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */,
-				AC791B551FE90591004A7893 /* 古圓體.otf */,
+				AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */,
+				AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */,
 			);
 			path = Husky;
 			sourceTree = "<group>";
@@ -274,13 +290,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC1E1A5A1FE16111004FD468 /* StoreDetailStoryboard.storyboard in Resources */,
+				AC791B601FEBD094004A7893 /* Classic Xing kai Font.TTF in Resources */,
+				ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */,
 				AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */,
+				AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */,
 				AC75D1731FE148A20072DD1B /* Login.storyboard in Resources */,
 				AC1E1A5F1FE16185004FD468 /* UserProfileStoryboard.storyboard in Resources */,
 				AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */,
+				ACFB34301FEBD3FB002A690A /* SentyZHAO.ttf in Resources */,
 				AC75D1671FE12B790072DD1B /* Assets.xcassets in Resources */,
+				ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */,
 				AC75D1651FE12B790072DD1B /* Main.storyboard in Resources */,
 				AC1E1A511FE15EFB004FD468 /* MapStoryboard.storyboard in Resources */,
+				ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,9 @@ class MapViewController: UIViewController {
         StoreProvider.shared.getStores()
 
     }
+    
     func initLactionManager() {
+        
         locationMannager = CLLocationManager()
         locationMannager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationMannager.requestAlwaysAuthorization()
@@ -48,8 +50,6 @@ class MapViewController: UIViewController {
         locationMannager.delegate = self
         
         placesClient = GMSPlacesClient.shared()
-        
-        
     }
     
     func setUpNavigationBar() {
@@ -83,6 +83,8 @@ extension MapViewController: CLLocationManagerDelegate {
         //get current location
         let location: CLLocation = locations.last!
         
+        manager.stopUpdatingLocation()
+        
         //set up marker
         let marker = GMSMarker()
         marker.position = location.coordinate
@@ -90,7 +92,7 @@ extension MapViewController: CLLocationManagerDelegate {
         //set up user marker image view
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.frame.size = CGSize(width: 50, height: 50)
+        imageView.frame.size = CGSize(width: 40, height: 40)
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.sd_setImage(with: Auth.auth().currentUser?.photoURL,
                               placeholderImage: #imageLiteral(resourceName: "user-2"),
@@ -126,8 +128,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             marker.title = store.name
             marker.snippet = store.id
             marker.map = mapView
-            marker.icon = #imageLiteral(resourceName: "ask")
-  
+            marker.icon = #imageLiteral(resourceName: "QStoreMarker")
         }
     }
     func didFail(with error: Error) {

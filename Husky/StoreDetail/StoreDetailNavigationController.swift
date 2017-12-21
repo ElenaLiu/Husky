@@ -18,7 +18,6 @@ class StoreDetailNavigationController: UINavigationController {
         super.viewDidLoad()
         
         let selectStore = selectedMarkerId
-  
     }
     
 
