@@ -16,6 +16,6 @@ target 'Husky' do
   pod 'SDWebImage/WebP'
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'FaveButton'
+
 
 end
