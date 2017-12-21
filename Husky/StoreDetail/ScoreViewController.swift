@@ -18,7 +18,7 @@ class ScoreViewController: UIViewController {
     var selectedMarkerId: Store?
 
     
-    @IBOutlet var firstRatingView: CosmosView!
+    @IBOutlet weak var firstRatingView: CosmosView!
     @IBOutlet weak var secondRatingView: CosmosView!
     @IBOutlet weak var thirdRatingView: CosmosView!
     @IBOutlet weak var fourthRatingView: CosmosView!
@@ -45,13 +45,13 @@ class ScoreViewController: UIViewController {
             (firstRating + secondRating + thirdRating + fourthRating + fifthRating)
                 / 5
 
-        var averageTotal = (selectedStore.storeScoreAverage * Double(selectedStore.scoredPeople)) + newAverage
+        let averageTotal = (selectedStore.storeScoreAverage * Double(selectedStore.scoredPeople)) + newAverage
         
-        var scoreAverage = averageTotal / Double(selectedStore.scoredPeople + 1)
+        let scoreAverage = averageTotal / Double(selectedStore.scoredPeople + 1)
 
         
         
-        ref = Database.database().reference()
+        ref = StoreProvider.ref
         if let uid = Auth.auth().currentUser?.uid {
             
             ref.child("StoreComments").childByAutoId().setValue([

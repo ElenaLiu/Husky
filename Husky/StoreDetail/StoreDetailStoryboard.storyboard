@@ -89,7 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="8Xs-PZ-bH6"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="UmO-35-TOf">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="UmO-35-TOf">
                         <nil key="title"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

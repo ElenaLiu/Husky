@@ -12,15 +12,16 @@ class StoreDetailNavigationController: UINavigationController {
 
     var selectedMarkerId: Store?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("我是navigation\(selectedMarkerId)")
-        // Do any additional setup after loading the view.
+        
+        let selectStore = selectedMarkerId
+  
     }
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        
+    
 }

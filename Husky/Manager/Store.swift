@@ -53,6 +53,3 @@ public struct Store {
     public let storeScoreAverage: Double
 
 }
-
-
-

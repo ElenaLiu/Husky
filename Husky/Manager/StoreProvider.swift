@@ -15,7 +15,6 @@ protocol StoreProviderDelegate: class {
     func didFetch(with stores: [Store])
     
     func didFail(with error: Error)
-    
 }
 
 class StoreProvider {
@@ -27,12 +26,17 @@ class StoreProvider {
     weak var delegate: StoreProviderDelegate?
     
     func getStores() {
+        
         StoreProvider.ref.child("Stores").observeSingleEvent(of: .value) { (snapShot) in
+            
             guard let storeDic = snapShot.value as? [String: Any] else { return }
             
             var stores = [Store]()
+            
             for dicValue in storeDic {
+                
                 let id = dicValue.key
+                
                 guard let info =  dicValue.value as? [String: Any] else { return }
                 guard let address = info[Store.Schema.address] as? String else { return }
                 guard let phone = info[Store.Schema.phone] as? String else { return }
@@ -41,6 +45,7 @@ class StoreProvider {
                 guard let longitude = info[Store.Schema.longitude] as? CLLocationDegrees else { return }
                 guard let scoredPeople = info[Store.Schema.scoredPeople] as? Int else { return }
                 guard let storeScoreAverage = info[Store.Schema.storeScoreAverage] as? Double else { return }
+                
                 stores.append(
                     Store(
                         id: id,
@@ -50,13 +55,11 @@ class StoreProvider {
                         longitude: longitude,
                         latitude: latitude,
                         scoredPeople: scoredPeople,
-                        storeScoreAverage: storeScoreAverage)
+                        storeScoreAverage: storeScoreAverage
+                    )
                 )
             }
             self.delegate?.didFetch(with: stores)
         }
     }
 }
-
-
-
