@@ -126,8 +126,8 @@ class StoreInfoViewController: UIViewController {
             let phoneValue = phoneValue,
             let scorePeopleValue = scorePeopleValue {
             
-            addressLabel.text = "地址：\(addressValue)"
-            phoneLabel.text = "電話：\(phoneValue)"
+            addressLabel.text = addressValue
+            phoneLabel.text = phoneValue
             scorePeopleLabel.text = "\(scorePeopleValue)則評論"
         }
     }
@@ -185,7 +185,7 @@ class StoreInfoViewController: UIViewController {
         
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
 
-        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=walking"
 
         Alamofire.request(url).responseJSON { response in
             

@@ -12,9 +12,6 @@ import GoogleMaps
 import SDWebImage
 import Firebase
 
-
-
-
 class MapViewController: UIViewController {
     
     @IBOutlet weak var myMapView: UIView!
@@ -35,7 +32,6 @@ class MapViewController: UIViewController {
         
         setUpMapView()
 
-        
         // fetch branches information
         StoreProvider.shared.delegate = self
         StoreProvider.shared.getStores()
@@ -138,7 +134,6 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             }
         }
         let sb = UIStoryboard(name: "StoreDetailStoryboard", bundle: nil)
-        //let vc = sb.instantiateViewController(withIdentifier: "StoreDetailViewController") as! StoreDetailViewController
         
         let storeInfoNavigationController = sb.instantiateViewController(withIdentifier: "StoreInfoNavigation") as! StoreDetailNavigationController
         
