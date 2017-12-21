@@ -175,7 +175,7 @@ class StoreInfoViewController: UIViewController {
         guard let nameValue = nameValue else { return }
         marker.title = nameValue
         marker.map = mapView
-        marker.icon = #imageLiteral(resourceName: "bubbleNormal")
+        marker.icon = #imageLiteral(resourceName: "DarkBubbleTea")
     }
     
     //MARK: - this is function for create direction path, from start location to desination location
