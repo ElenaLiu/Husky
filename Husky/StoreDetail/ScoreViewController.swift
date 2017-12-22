@@ -69,6 +69,17 @@ class ScoreViewController: UIViewController {
             //let childUpdate = [storeRef: stores]
             storeRef.updateChildValues(stores)
         }
+        let alert = UIAlertController(title: "標題", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
+            self.firstRatingView.rating = 0
+            self.secondRatingView.rating = 0
+            self.thirdRatingView.rating = 0
+            self.fourthRatingView.rating = 0
+            self.fifthRatingView.rating = 0
+            self.commentTextField.text = nil
+        }))
+        alert.addAction(UIAlertAction(title: "等等我再想想！", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
     

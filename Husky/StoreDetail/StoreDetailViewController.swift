@@ -10,6 +10,8 @@ import UIKit
 
 class StoreDetailViewController: UIViewController {
     
+    let textView = UITextView()
+    
     var selectedMarkerId: Store?
     
     var StoreInfoViewController: StoreInfoViewController!
@@ -77,23 +79,20 @@ class StoreDetailViewController: UIViewController {
         selectedViewController = StoreInfoViewController
     }
     
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//
+//        let contentSize = self.textView.sizeThatFits(self.textView.bounds.size)
+//        var frame = self.textView.frame
+//        frame.size.height = contentSize.height
+//        self.textView.frame = frame
+//
+//        aspectRatioTextViewConstraint = NSLayoutConstraint(item: self.textView, attribute: .height, relatedBy: .equal, toItem: self.textView, attribute: .width, multiplier: textView.bounds.height/textView.bounds.width, constant: 1)
+//        self.textView.addConstraint(aspectRatioTextViewConstraint)!
+//    }
+    
     @IBAction func backToMapPageTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(animated)
-        
-        selectedViewController = StoreInfoViewController
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        
-        selectedViewController = StoreInfoViewController
     }
     
     func setUpNavigationBar() {
@@ -103,11 +102,15 @@ class StoreDetailViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        let label1 = UILabel()
-        label1.text = selectedMarkerId?.name
-        label1.font = UIFont(name: "SentyWen", size: 12)
-        label1.sizeToFit()
-        navigationItem.titleView = label1
+        let textView = UITextView()
+        textView.text = selectedMarkerId?.name
+        textView.font = UIFont(name: "NotoSansCJKtc-Regular", size: 18)
+        textView.textAlignment = .center
+        textView.showsHorizontalScrollIndicator = false
+        textView.showsVerticalScrollIndicator = false
+    
+        textView.sizeToFit()
+        navigationItem.titleView = textView
         
     }
     

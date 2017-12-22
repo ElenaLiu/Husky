@@ -6,6 +6,7 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NotoSansCJKtc-Regular</string>
 		<string>SentyCreamPuff.ttf</string>
 		<string>SentyWEN2017</string>
 		<string>Chihaya日文字體1.ttf</string>

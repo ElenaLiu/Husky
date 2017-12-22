@@ -14,9 +14,6 @@
         <array key="Chalkduster.ttf">
             <string>Chalkduster</string>
         </array>
-        <array key="SentyWEN2017.ttf">
-            <string>SentyWen</string>
-        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -33,12 +30,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i Bubble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNO-Db-vme">
                                 <rect key="frame" x="0.0" y="145" width="375" height="86"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="68"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人森不能沒有珍珠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asI-lH-TRh">
-                                <rect key="frame" x="0.0" y="261" width="375" height="45"/>
-                                <fontDescription key="fontDescription" name="SentyWen" family="SentyWen" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -113,7 +104,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uhx-qg-UHe" secondAttribute="bottom" constant="111" id="Zgg-vU-QYO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BJZ-T4-rbU" secondAttribute="trailing" constant="42" id="Zgq-RX-wg5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="GdS-R2-tE5" secondAttribute="top" constant="20" id="anE-uk-llr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="asI-lH-TRh" secondAttribute="trailing" id="cfF-8L-aET"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pNO-Db-vme" secondAttribute="trailing" id="dUO-Sc-7Cp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="YLC-lM-AP4" secondAttribute="leading" constant="9" id="ded-6u-oE9"/>
                             <constraint firstItem="BJZ-T4-rbU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="297" id="egD-kj-dKj"/>
@@ -121,10 +111,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GdS-R2-tE5" secondAttribute="bottom" id="fC8-Vt-Rz0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BJZ-T4-rbU" secondAttribute="bottom" constant="135" id="ihZ-eh-ZuJ"/>
                             <constraint firstItem="pNO-Db-vme" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lCj-Ps-B5J"/>
-                            <constraint firstItem="asI-lH-TRh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="241" id="lPN-Qb-ya9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c7O-87-iJS" secondAttribute="trailing" constant="180" id="lsq-UT-ef0"/>
                             <constraint firstItem="t3R-bP-dkn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="11" id="q3h-m9-fYt"/>
-                            <constraint firstItem="asI-lH-TRh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rW3-eD-VYk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c7O-87-iJS" secondAttribute="bottom" constant="64" id="u5a-YN-kah"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3zy-Et-nun" secondAttribute="trailing" constant="81" id="uTW-ED-YXA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wRo-ST-dxq" secondAttribute="bottom" constant="124" id="va7-vd-u8n"/>

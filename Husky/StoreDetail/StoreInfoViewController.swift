@@ -128,7 +128,7 @@ class StoreInfoViewController: UIViewController {
             
             addressLabel.text = addressValue
             phoneLabel.text = phoneValue
-            scorePeopleLabel.text = "\(scorePeopleValue)則評論"
+            scorePeopleLabel.text = "\(scorePeopleValue) 則 評 論"
         }
     }
     
