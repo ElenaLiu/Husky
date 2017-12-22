@@ -65,24 +65,33 @@ class StoreInfoViewController: UIViewController {
     // set up google guide
     @IBAction func addressGuideTapped(_ sender: Any) {
         
-        guard let userLocation = self.currentLocation else { return }
-        
-        guard let longitudeValue = longitudeValue else { return }
-        
-        guard let latitudeValue = latitudeValue else { return }
-        
-        let googlemapsSchema = "comgooglemaps://"
-        
-        if (UIApplication.shared.canOpenURL(URL(string: googlemapsSchema)!)) {
+        let alert = UIAlertController(title: "", message: "「i Bubble」想要打開 「Google Maps」", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "打開", style: .default, handler: { (action) in
             
-            let url = URL(string:
-                "\(googlemapsSchema)?saddr=\(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)&daddr=\(latitudeValue),\(longitudeValue)&directionsmode=walking")!
+            guard let userLocation = self.currentLocation else { return }
             
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            guard let longitudeValue = self.longitudeValue else { return }
             
-         } else {
-            print("Can't use comgooglemaps://");
-        }
+            guard let latitudeValue = self.latitudeValue else { return }
+            
+            let googlemapsSchema = "comgooglemaps://"
+            
+            if (UIApplication.shared.canOpenURL(URL(string: googlemapsSchema)!)) {
+                
+                let url = URL(string:
+                    "\(googlemapsSchema)?saddr=\(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)&daddr=\(latitudeValue),\(longitudeValue)&directionsmode=walking")!
+                
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                
+            } else {
+                print("Can't use comgooglemaps://");
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
     
     override func viewDidLoad() {
