@@ -16,6 +16,8 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var myMapView: UIView!
     
+    var ref: DatabaseReference!
+    
     var storesInfo = [Store]()
     
     var locationMannager = CLLocationManager()
@@ -124,14 +126,31 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                 latitude: store.latitude,
                 longitude: store.longitude
             )
+            
             marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
             marker.title = store.name
             marker.snippet = store.id
             marker.map = mapView
-            marker.icon = #imageLiteral(resourceName: "QStoreMarker")
+            ref = Database.database().reference()
+            if let userId = Auth.auth().currentUser?.uid {
+                ref.child("StoreComments").queryOrdered(byChild: "uid").queryEqual(toValue: userId).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let snapshotValue = snapshot.value,
+                        let snapshotValueDics = snapshotValue as? [String: Any] {
+                        for snapshotValueDic in snapshotValueDics {
+                            if let valueDic = snapshotValueDic.value as? [String: Any],
+                                let uidValue = valueDic["uid"] as? String {
+                               marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
+                            }
+                        }
+                    }
+                })
+            }else {
+                 marker.icon = #imageLiteral(resourceName: "QStoreMarker")
+            }
         }
     }
-    func didFail(with error: Error) {
+    func didFail(with error: Error) 
+    {
         print(error)
     }
     

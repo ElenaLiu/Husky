@@ -63,7 +63,6 @@ class ScoreViewController: UIViewController {
                           "fifthRating": fifthRating]
                 ])
 
-
             let storeRef = ref.child("Stores").child(selectedStore.id)
             let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
             //let childUpdate = [storeRef: stores]

@@ -14,8 +14,8 @@
         <array key="Chalkduster.ttf">
             <string>Chalkduster</string>
         </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+        <array key="NotoSansCJKtc-Regular.otf">
+            <string>NotoSansCJKtc-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -37,7 +37,7 @@
                                                 <rect key="frame" x="32" y="508" width="112" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                                 <state key="normal" title="註冊"/>
                                                 <connections>
                                                     <segue destination="zpu-B9-vnU" kind="show" id="vio-14-wSM"/>
@@ -54,7 +54,7 @@
                                                 <rect key="frame" x="268" y="242" width="79" height="117"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="0.90988785028457642" blue="0.91362971067428589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="25"/>
                                                 <state key="normal" title="登入">
                                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" red="1" green="0.0" blue="0.50196081400000003" alpha="0.27761130140000001" colorSpace="calibratedRGB"/>
@@ -67,6 +67,7 @@
                                                 <rect key="frame" x="211" y="509" width="136" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                                 <state key="normal" title="忘記密碼"/>
                                                 <connections>
                                                     <action selector="forgotPasswordTapped:" destination="OeK-oC-UsU" eventType="touchUpInside" id="49Z-Bl-2Gs"/>
@@ -180,7 +181,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="79" id="1wl-DD-s4H"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="25"/>
                                                 <state key="normal" title="註冊">
                                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
