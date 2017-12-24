@@ -110,14 +110,38 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
                                          handler: nil)
         
         if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
-            let cameraAction = UIAlertAction(title: "Camera",
-                                             style: .default) {(action) in
-                                                pickerController.sourceType = .camera
+            let cameraAction = UIAlertAction(
+                title: "Camera",
+                style: .default
+            ) {(action) in
+                pickerController.sourceType = .camera
                                                 
-                                                self.present(pickerController,
-                                                             animated: true,
-                                                             completion: nil)
-                                                
+//                //Creat camera overlay
+//                let pickerFrame = CGRect(
+//                    x: 0,
+//                    y: UIApplication.shared.statusBarFrame.size.height,
+//                    width: pickerController.view.bounds.width,
+//                    height: pickerController.view.bounds.height - pickerController.navigationBar.bounds.size.height - pickerController.toolbar.bounds.size.height
+//                )
+//
+//                let squareFrame = CGRect(
+//                    x: pickerFrame.width/2 - 200/2,
+//                    y: pickerFrame.height/2 - 200/2,
+//                    width: 200,
+//                    height: 200
+//                )
+//                UIGraphicsBeginImageContext(pickerFrame.size)
+                
+//                let context = UIGraphicsGetCurrentContext()
+//                CGContext.saveGState(context!)
+//                CGContext.move(context, squareFrame.origin.x, squareFrame.origin.y)
+//                CGContext.addLine(context, squareFrame.origin.x + squareFrame.width, squareFrame.origin.y)
+                
+                self.present(
+                    pickerController,
+                    animated: true,
+                    completion: nil
+                )
             }
             
             alertController.addAction(cameraAction)

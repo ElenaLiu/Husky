@@ -139,7 +139,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                         for snapshotValueDic in snapshotValueDics {
                             if let valueDic = snapshotValueDic.value as? [String: Any],
                                 let uidValue = valueDic["uid"] as? String {
-                               marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
+                                marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
                             }
                         }
                     }
@@ -167,12 +167,9 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         let sb = UIStoryboard(name: "StoreDetailStoryboard", bundle: nil)
         
         let storeInfoNavigationController = sb.instantiateViewController(withIdentifier: "StoreInfoNavigation") as! StoreDetailNavigationController
-        
-        //vc.selectedMarkerId = didSelectedMarker
         storeInfoNavigationController.selectedMarkerId = didSelectedMarker
         self.present(storeInfoNavigationController, animated: true, completion: nil)
         return true
     }
     
 }
-
