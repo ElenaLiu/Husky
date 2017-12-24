@@ -96,15 +96,6 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
             
         }
         
-        let savedPhotosAction = UIAlertAction(title: "Saved Photos Album", style: .default) { (action) in
-            pickerController.sourceType = .savedPhotosAlbum
-            
-            self.present(pickerController,
-                         animated: true,
-                         completion: nil)
-            
-        }
-        
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .destructive,
                                          handler: nil)
@@ -148,9 +139,7 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         
         alertController.addAction(photosLibraryAction)
-        alertController.addAction(savedPhotosAction)
         alertController.addAction(cancelAction)
-        
         
         present(alertController, animated: true, completion: nil)
         

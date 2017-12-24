@@ -140,14 +140,6 @@ class ScoreViewController: UIViewController {
         firstRatingView.didTouchCosmos = { rating in
             self.firstRating = rating
         }
-        
-        
-//        firstRatingView.didFinishTouchingCosmos = { rating in
-//            print("didFinishTouchingCosmos")
-//            print(rating)
-//            self.firstRating = rating
-//        }
-
     }
     
     func setUpSecondRating() {
@@ -159,9 +151,6 @@ class ScoreViewController: UIViewController {
         secondRatingView.didTouchCosmos = { rating in
             self.secondRating = rating
         }
-//        secondRatingView.didFinishTouchingCosmos = { rating in
-//            self.secondRating = rating
-//        }
     }
     
     func setUpthirdRating() {
@@ -173,9 +162,6 @@ class ScoreViewController: UIViewController {
         
         thirdRatingView.didTouchCosmos = { rating in
             self.thirdRating = rating
-        
-//        thirdRatingView.didFinishTouchingCosmos = { rating in
-//            self.thirdRating = rating
         }
     }
     
@@ -187,8 +173,7 @@ class ScoreViewController: UIViewController {
         fourthRatingView.settings.starSize = 30
         fourthRatingView.didTouchCosmos = { rating in
             self.fourthRating = rating
-//        fourthRatingView.didFinishTouchingCosmos = { rating in
-//            self.fourthRating = rating
+
         }
     }
     

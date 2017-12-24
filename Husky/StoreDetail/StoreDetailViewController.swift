@@ -176,17 +176,6 @@ class StoreDetailViewController: UIViewController {
                 completion: nil
             )
         }
-        let savedPhotosAction = UIAlertAction(
-        title: "Saved Photos Album",
-        style: .default
-        ) { (action) in
-            pickercontroller.sourceType = .savedPhotosAlbum
-            self.present(
-                pickercontroller,
-                animated: true,
-                completion: nil
-            )
-        }
         let cancelAction = UIAlertAction(
             title: "Cancel",
             style: .destructive,
@@ -206,7 +195,6 @@ class StoreDetailViewController: UIViewController {
             alertController.addAction(cameraAction)
         }
         alertController.addAction(photosLibraryAction)
-        alertController.addAction(savedPhotosAction)
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
