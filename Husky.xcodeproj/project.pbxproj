@@ -30,12 +30,13 @@
 		AC791B461FE36DFE004A7893 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B451FE36DFE004A7893 /* CommentsTableViewCell.swift */; };
 		AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */; };
 		AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B491FE3A925004A7893 /* RegistViewController.swift */; };
-		AC791B4C1FE3CB14004A7893 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B4B1FE3CB14004A7893 /* LoginManager.swift */; };
+		AC791B4C1FE3CB14004A7893 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */; };
 		AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B571FE90663004A7893 /* LunchScreenViewController.swift */; };
 		AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */; };
 		AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */; };
 		AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */; };
 		AC791B601FEBD094004A7893 /* Classic Xing kai Font.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */; };
+		ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBAE1171FEFF02E0022AF5F /* Comment.swift */; };
 		ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */; };
 		ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */; };
 		ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */; };
@@ -74,13 +75,14 @@
 		AC791B451FE36DFE004A7893 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		AC791B491FE3A925004A7893 /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
-		AC791B4B1FE3CB14004A7893 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WeibeiTC-Bold.otf"; sourceTree = "<group>"; };
 		AC791B571FE90663004A7893 /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
 		AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailNavigationController.swift; sourceTree = "<group>"; };
 		AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
 		AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chihaya日文字體1.ttf"; sourceTree = "<group>"; };
 		AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Classic Xing kai Font.TTF"; sourceTree = "<group>"; };
+		ACBAE1171FEFF02E0022AF5F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
 		ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
 		ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyWEN2017.ttf; sourceTree = "<group>"; };
@@ -213,7 +215,7 @@
 		AC75D1711FE148360072DD1B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AC791B4B1FE3CB14004A7893 /* LoginManager.swift */,
+				AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */,
 				AC75D1721FE148A20072DD1B /* Login.storyboard */,
 				AC75D1741FE148D80072DD1B /* LoginViewController.swift */,
 				AC791B491FE3A925004A7893 /* RegistViewController.swift */,
@@ -227,6 +229,7 @@
 			children = (
 				AC791B431FE28533004A7893 /* StoreProvider.swift */,
 				AC791B411FE2619C004A7893 /* Store.swift */,
+				ACBAE1171FEFF02E0022AF5F /* Comment.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -415,7 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC75D1751FE148D80072DD1B /* LoginViewController.swift in Sources */,
-				AC791B4C1FE3CB14004A7893 /* LoginManager.swift in Sources */,
+				AC791B4C1FE3CB14004A7893 /* NetworkingService.swift in Sources */,
 				AC1E1A4F1FE15EDF004FD468 /* MapViewController.swift in Sources */,
 				AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */,
 				AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */,
@@ -423,6 +426,7 @@
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
+				ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */,
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
 				AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */,
 				ACFB343B1FECD880002A690A /* AddStoreNavigationController.swift in Sources */,

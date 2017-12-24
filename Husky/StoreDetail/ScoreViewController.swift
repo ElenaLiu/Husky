@@ -13,6 +13,8 @@ import Firebase
 
 class ScoreViewController: UIViewController {
     
+    let networkingService = NetworkingService()
+    
     var ref: DatabaseReference!
     
     var selectedMarkerId: Store?
@@ -38,6 +40,8 @@ class ScoreViewController: UIViewController {
     
     @IBAction func saveScoreTapped(_ sender: Any) {
         
+        let imageData = UIImageJPEGRepresentation(self.scoreImageView.image!, 0.8)
+        
         guard let content = commentTextField.text else { return }
         guard let selectedStore = selectedMarkerId else { return }
         
@@ -52,34 +56,40 @@ class ScoreViewController: UIViewController {
         ref = StoreProvider.ref
         if let uid = Auth.auth().currentUser?.uid {
             
-            ref.child("StoreComments").childByAutoId().setValue([
-                "uid": uid,
-                "storeId": selectedStore.id,
-                "average": newAverage,
-                "content": content,
-                "score": ["firstRating": firstRating,
-                          "secondRating": secondRating,
-                          "thirdRating": thirdRating,
-                          "fourthRating": fourthRating,
-                          "fifthRating": fifthRating]
-                ])
-
-            let storeRef = ref.child("Stores").child(selectedStore.id)
+            let comment = Comment(
+                uid: uid,
+                storeId: selectedStore.id,
+                average: newAverage,
+                imageData: imageData!,
+                content: content,
+                firstRating: firstRating,
+                secondRating: secondRating,
+                thirdRating: thirdRating,
+                fourthRating: fourthRating,
+                fifthRating: fifthRating
+            )
+            
+        let alert = UIAlertController(title: "標題", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
+            
+            self.networkingService.saveComment(comment: comment)
+            
+            let storeRef = self.ref.child("Stores").child(selectedStore.id)
             let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
             //let childUpdate = [storeRef: stores]
             storeRef.updateChildValues(stores)
-        }
-        let alert = UIAlertController(title: "標題", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
+            
             self.firstRatingView.rating = 0
             self.secondRatingView.rating = 0
             self.thirdRatingView.rating = 0
             self.fourthRatingView.rating = 0
             self.fifthRatingView.rating = 0
             self.commentTextField.text = nil
+            self.scoreImageView.image = #imageLiteral(resourceName: "Bubble-1")
         }))
         alert.addAction(UIAlertAction(title: "等等我再想想！", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        }
     }
 
     

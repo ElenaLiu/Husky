@@ -1,5 +1,5 @@
 //
-//  LoginManager.swift
+//  NetworkingService.swift
 //  Husky
 //
 //  Created by 劉芳瑜 on 2017/12/15.
@@ -95,6 +95,7 @@ struct NetworkingService {
         }
     }
     
+    
     // 3 --- Saving the user Info in the database
     private func saveInfo(user: User!,
                           username: String,
@@ -145,4 +146,44 @@ struct NetworkingService {
         
     }
     
+    func saveComment(comment: Comment)
+    {
+        
+        //Create Path for the User Image
+        let commentImagePath = "commentImage\(comment.uid)/commentPic.jpg"
+        
+        // Create image Reference
+        let imageRef = storageRef.child(commentImagePath)
+        
+        // Create Metadata for the image
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        // Save the user Image in the Firebase Storage File
+        imageRef.putData(comment.imageData,
+                         metadata: metaData) { (metaData, error) in
+                            if error == nil {
+                                let imageUrl = metaData!.downloadURL()
+                                self.saveCommentInfo(comment: comment, imageUrl: imageUrl)
+                            }else {
+                                print(error!.localizedDescription)
+                            }
+        }
+    }
+    
+    private func saveCommentInfo(comment: Comment, imageUrl: URL?) {
+            
+            databaseRef.child("StoreComments").childByAutoId().setValue([
+                "uid": comment.uid,
+                "storeId": comment.storeId,
+                "average": comment.average,
+                "content": comment.content,
+                "imageUrl": imageUrl?.absoluteString,
+                "score": ["firstRating": comment.firstRating,
+                          "secondRating": comment.secondRating,
+                          "thirdRating": comment.thirdRating,
+                          "fourthRating": comment.fourthRating,
+                          "fifthRating": comment.fifthRating]
+                ])
+    }
 }
