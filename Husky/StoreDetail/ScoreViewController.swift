@@ -17,6 +17,7 @@ class ScoreViewController: UIViewController {
     
     var selectedMarkerId: Store?
 
+    @IBOutlet weak var scoreImageView: UIImageView!
     
     @IBOutlet weak var firstRatingView: CosmosView!
     @IBOutlet weak var secondRatingView: CosmosView!
@@ -85,6 +86,7 @@ class ScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpScoreImage()
         setUpFirstRating()
         setUpSecondRating()
         setUpthirdRating()
@@ -106,6 +108,15 @@ class ScoreViewController: UIViewController {
         notificationCenter.removeObserver(self)
     }
 
+    func setUpScoreImage() {
+        
+        self.scoreImageView.layer.borderWidth = 1
+        self.scoreImageView.layer.masksToBounds = false
+        self.scoreImageView.layer.borderColor = UIColor.black.cgColor
+        self.scoreImageView.layer.cornerRadius = 5
+        self.scoreImageView.clipsToBounds = true
+    }
+    
     func setUpFirstRating() {
         // Change the cosmos view rating
         firstRatingView.rating = 0

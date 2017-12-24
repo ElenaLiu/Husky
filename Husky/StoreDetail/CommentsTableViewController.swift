@@ -7,21 +7,32 @@
 //
 
 import UIKit
+import FoldingCell
 
 class CommentsTableViewController: UITableViewController {
     
     var selectedMarkerId: Store?
     
-
+    let kCloseCellHeight: CGFloat = 179
+    let kOpenCellHeight: CGFloat = 488
+    let kRowsCount = 10
+    var cellHeights: [CGFloat] = []
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("我是commentpage \(selectedMarkerId)")
-
+        guard let selectedStore = selectedMarkerId else { return }
+        setup()
     }
-
-
+    
+    private func setup() {
+        cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
+        tableView.estimatedRowHeight = kCloseCellHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Bubble-1"))
+    }
 
     // MARK: - Table view data source
 

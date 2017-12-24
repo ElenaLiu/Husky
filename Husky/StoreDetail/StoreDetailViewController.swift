@@ -68,12 +68,12 @@ class StoreDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let button = UIButton(type: .custom)
-        button.setImage( #imageLiteral(resourceName: "Back"), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
-        let barButton = UIBarButtonItem.init(customView: button)
-        self.navigationItem.leftBarButtonItem = barButton
-        
+//        let button = UIButton(type: .custom)
+//        button.setImage( #imageLiteral(resourceName: "Back"), for: .normal)
+//        button.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
+//        let barButton = UIBarButtonItem.init(customView: button)
+//        self.navigationItem.leftBarButtonItem = barButton
+//
         let navigationController = self.navigationController as! StoreDetailNavigationController
         
         self.selectedMarkerId = navigationController.selectedMarkerId
@@ -98,12 +98,12 @@ class StoreDetailViewController: UIViewController {
 //    }
     
     @IBAction func backToMapPageTapped(_ sender: Any) {
-        
-        let button = UIButton(type: .custom)
-        button.setImage( #imageLiteral(resourceName: "Back"), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
-        let barButton = UIBarButtonItem.init(customView: button)
-        self.navigationItem.leftBarButtonItem = barButton
+//
+//        let button = UIButton(type: .custom)
+//        button.setImage( #imageLiteral(resourceName: "Back"), for: .normal)
+//        button.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
+//        let barButton = UIBarButtonItem.init(customView: button)
+//        self.navigationItem.leftBarButtonItem = barButton
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -157,23 +157,51 @@ class StoreDetailViewController: UIViewController {
     
     @objc func takePhotoAction() {
         let pickercontroller = UIImagePickerController()
-        pickercontroller.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        pickercontroller.delegate = self
         pickercontroller.allowsEditing = true
         
-        let alertController = UIAlertController(title: "Add a Picture", message: "Choose From", preferredStyle: .actionSheet)
-        let photosLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+        let alertController = UIAlertController(
+            title: "Add a Picture",
+            message: "Choose From",
+            preferredStyle: .actionSheet
+        )
+        let photosLibraryAction = UIAlertAction(
+        title: "Photo Library",
+        style: .default
+        ) { (action) in
             pickercontroller.sourceType = .photoLibrary
-            self.present(pickercontroller, animated: true, completion: nil)
+            self.present(
+                pickercontroller,
+                animated: true,
+                completion: nil
+            )
         }
-        let savedPhotosAction = UIAlertAction(title: "Saved Photos Album", style: .default) { (action) in
+        let savedPhotosAction = UIAlertAction(
+        title: "Saved Photos Album",
+        style: .default
+        ) { (action) in
             pickercontroller.sourceType = .savedPhotosAlbum
-            self.present(pickercontroller, animated: true, completion: nil)
+            self.present(
+                pickercontroller,
+                animated: true,
+                completion: nil
+            )
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .destructive,
+            handler: nil
+        )
         if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            let cameraAction = UIAlertAction(
+                title: "Camera",
+                style: .default,
+                handler: { (action) in
                 pickercontroller.sourceType = .camera
-                self.present(pickercontroller, animated: true, completion: nil)
+                self.present(
+                    pickercontroller,
+                    animated: true,
+                    completion: nil)
             })
             alertController.addAction(cameraAction)
         }
@@ -203,5 +231,18 @@ class StoreDetailViewController: UIViewController {
                 storeInfoVC?.nameValue = selectedMarkerId.name
             }
         }
+    }
+}
+
+extension StoreDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            ScoreViewController.scoreImageView.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 }

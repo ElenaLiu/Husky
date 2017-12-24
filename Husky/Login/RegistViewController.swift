@@ -196,56 +196,6 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         registPasswordTextField.resignFirstResponder()
 
     }
-    
 }
 
-
-
-
-
-
-
-
-
-
-
-//        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-//            if error != nil {
-//                print(error?.localizedDescription)
-//                let alertController = UIAlertController(title: "Alert",
-//                                                        message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-//                alertController.addAction(UIAlertAction(title: "Ok",
-//                                                        style: .default,
-//                                                        handler: nil))
-//                self.present(alertController, animated: true, completion: nil)
-//                return
-//            }
-//            guard let uid = user?.uid else {
-//                return
-//            }
-//            let ref = Database.database().reference()
-//
-//            let values = ["Email": email, "Name": name]
-//            let userReference = ref.child("Users").child(uid)
-//            userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-//                if err != nil {
-//                    print(err)
-//                    return
-//                }
-//                print("Saved user successfully into Firebase db.")
-//            })
-//            let alertController = UIAlertController(title: "Congratulation!",
-//                                                    message: "Seccessfully Sign Up", preferredStyle: UIAlertControllerStyle.alert)
-//
-//            alertController.addAction(
-//                UIAlertAction(title: "OK",
-//                              style: .default,
-//                              handler: { (action) in
-//                                self.navigationController?.popViewController(animated: true)
-//                })
-//            )
-//            self.present(alertController, animated: true, completion: nil)
-//        }
-//    }
-//}
 
