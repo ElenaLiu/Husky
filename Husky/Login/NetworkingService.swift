@@ -140,8 +140,8 @@ struct NetworkingService {
     func signOut() {
         do {
             try Auth.auth().signOut()
-        }catch {
-            print("logOut error")
+        }catch let error as Error{
+            print(error.localizedDescription)
         }
         
     }

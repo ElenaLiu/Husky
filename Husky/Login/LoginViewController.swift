@@ -62,6 +62,10 @@ class LoginViewController: UIViewController {
         networkingService.signIn(email: loginEmailAddressTextField.text!,
                                  password: loginPasswordTextField.text!)
         
+        let sb = UIStoryboard(name: "MapStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MapNavigation") as? MapNavigationController
+        self.present(vc!, animated: true, completion: nil)
+        
         }
     
     override func viewDidLoad() {
@@ -117,41 +121,3 @@ class LoginViewController: UIViewController {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- /*       //sign in existing users
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if error != nil {
-                print(error?.localizedDescription)
-                let alertController = UIAlertController(title: "Alert",
-                                                        message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(
-                    UIAlertAction(
-                        title: "Ok",
-                        style: .default,
-                        handler: nil)
-                )
-                self.present(alertController, animated: true, completion: nil)
-                return
-            }
-            print("logged in")
-            
-            let sb = UIStoryboard(name: "StoreDetailStoryboard", bundle: nil)
-            let vc = sb.instantiateViewController(witchIdentifier: "StoreDetailViewController")
-            self.present(vc, animated: true, completion: nil)
-            return
-        }
-    }
-}
-*/

@@ -142,10 +142,11 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                                 marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
                             }
                         }
+                    }else {
+                        marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                     }
                 })
-            }else {
-                 marker.icon = #imageLiteral(resourceName: "QStoreMarker")
+            }else {ㄋ
             }
         }
     }

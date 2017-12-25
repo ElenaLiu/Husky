@@ -110,10 +110,11 @@ class ScoreViewController: UIViewController {
         
         //tap anywhere to hide keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
-    
     }
+    
     // Remove observer
     deinit {
+        
          let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }

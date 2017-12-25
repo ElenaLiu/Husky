@@ -16,9 +16,9 @@
 		AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */; };
 		AC1E1A581FE160F2004FD468 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */; };
 		AC1E1A5A1FE16111004FD468 /* StoreDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */; };
-		AC1E1A5D1FE16174004FD468 /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A5C1FE16174004FD468 /* UserProfileTableViewController.swift */; };
 		AC1E1A5F1FE16185004FD468 /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */; };
 		AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */; };
+		AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */; };
 		AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D15F1FE12B790072DD1B /* AppDelegate.swift */; };
 		AC75D1651FE12B790072DD1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1631FE12B790072DD1B /* Main.storyboard */; };
 		AC75D1671FE12B790072DD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1661FE12B790072DD1B /* Assets.xcassets */; };
@@ -59,9 +59,9 @@
 		AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDetailStoryboard.storyboard; sourceTree = "<group>"; };
-		AC1E1A5C1FE16174004FD468 /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
 		AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		AC75D15C1FE12B790072DD1B /* Husky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Husky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC75D15F1FE12B790072DD1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC75D1641FE12B790072DD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				ACFB343C1FECD8FB002A690A /* UserProfileNavigationController.swift */,
-				AC1E1A5C1FE16174004FD468 /* UserProfileTableViewController.swift */,
 				AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */,
+				AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -426,6 +426,7 @@
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
+				AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */,
 				ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */,
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
 				AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */,
@@ -435,7 +436,6 @@
 				AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */,
 				AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */,
 				ACFB34351FECD81C002A690A /* AddStoreViewController.swift in Sources */,
-				AC1E1A5D1FE16174004FD468 /* UserProfileTableViewController.swift in Sources */,
 				AC1E1A581FE160F2004FD468 /* CommentsTableViewController.swift in Sources */,
 				ACFB343D1FECD8FB002A690A /* UserProfileNavigationController.swift in Sources */,
 				AC791B461FE36DFE004A7893 /* CommentsTableViewCell.swift in Sources */,

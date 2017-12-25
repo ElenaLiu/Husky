@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User Profile View Controller-->
         <scene sceneID="s73-l3-xsV">
             <objects>
-                <viewController id="O9a-Rr-6b8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" id="O9a-Rr-6b8" customClass="UserProfileViewController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sfa-6c-krx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,29 +25,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
-                                <rect key="frame" x="58" y="156" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-tI-FTs">
-                                <rect key="frame" x="121" y="292" width="132" height="31"/>
+                                <rect key="frame" x="121" y="362" width="132" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="編輯大頭貼"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帳號 ： " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnh-K2-Byy">
-                                <rect key="frame" x="27" y="443" width="71" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名 ： " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYd-U4-JHE">
-                                <rect key="frame" x="27" y="376" width="71" height="44"/>
+                                <rect key="frame" x="27" y="438" width="71" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帳號 ： " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnh-K2-Byy">
+                                <rect key="frame" x="27" y="490" width="71" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
+                                <rect key="frame" x="77" y="134" width="220" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="afx-Cy-fys"/>
@@ -55,20 +55,22 @@
                     <navigationItem key="navigationItem" id="hFn-hd-3or">
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="qFJ-3w-1cF">
                             <connections>
-                                <action selector="logOutTapped:" destination="1ne-B4-jz3" id="bHc-MO-92i"/>
+                                <action selector="logOutTapped:" destination="O9a-Rr-6b8" id="2bS-Jn-lKI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="userProfileImageView" destination="r4D-F3-WuG" id="2W0-RM-uTV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAh-Ln-bNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="1ne-B4-jz3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="343.19999999999999" y="-83.208395802098963"/>
         </scene>
         <!--User Profile Navigation Controller-->
         <scene sceneID="c16-0j-wXq">
             <objects>
-                <navigationController storyboardIdentifier="UserProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hgM-fO-xTj" customClass="UserProfileNavigationController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UserProfileNavigation" automaticallyAdjustsScrollViewInsets="NO" id="hgM-fO-xTj" customClass="UserProfileNavigationController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p3J-cE-A6b">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

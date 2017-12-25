@@ -10,31 +10,51 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        setUpTabBar()
-//        
-//    }
-//    
-//    func setUpTabBar() {
-//        let childViewControllers = [self.setUpMapNavigationController()] as [Any]
-//        
-////        UserProfileNavigationController(), AddStoreNavigationController()
-//        
-//    }
-//    
-//    func setUpMapNavigationController() {
-//        let mapSb = UIStoryboard(name: "MapStoryboard", bundle: nil)
-//        let mapVC = mapSb.instantiateViewController(withIdentifier:
-//            "MapViewController")
-//
-//        let mapNav = mapSb.instantiateViewController(withIdentifier: "MapNavigationController")
-//        navigationController?.tabBarItem.image = #imageLiteral(resourceName: "Map")
-//        
-//    }
-//    
-//    func setUpMapNavigationControllerTabBarItem() {
-//        
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let viewControllers: [UIViewController] =  [addStoreNavigationContorller(), setUpMapNavigationController(), userProfileNavigationController()]
+    
+        self.setViewControllers(viewControllers, animated: true)
+    }
+    
+    func setUpMapNavigationController() -> UINavigationController {
+        
+        let mapStoryBoard = UIStoryboard(name: "MapStoryboard", bundle: nil)
+        
+        if let mapNavigationController =
+            mapStoryBoard.instantiateViewController(withIdentifier: "MapNavigation") as? MapNavigationController {
+            let mapTabBarItem = UITabBarItem(title: "Map", image: #imageLiteral(resourceName: "Map"), selectedImage: nil)
+            mapNavigationController.tabBarItem = mapTabBarItem
+            
+            return mapNavigationController
+        }
+        return UINavigationController()
+    }
+    
+    func userProfileNavigationController() -> UINavigationController {
+        
+        let userProfileStoryBoard = UIStoryboard(name: "UserProfileStoryboard", bundle: nil)
+        
+        if let userProfileNavigationController = userProfileStoryBoard.instantiateViewController(withIdentifier: "UserProfileNavigation") as? UserProfileNavigationController {
+            let userprofileTabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "UserProfile"), selectedImage: nil)
+            userProfileNavigationController.tabBarItem = userprofileTabBarItem
+            
+            return userProfileNavigationController
+        }
+        return UINavigationController()
+    }
+    
+    func addStoreNavigationContorller() -> UINavigationController{
+        
+        let addStoreStoryBoard = UIStoryboard(name: "AddStoreStoryboard", bundle: nil)
+        
+        if let addStoreNavigationContorller = addStoreStoryBoard.instantiateViewController(withIdentifier: "AddStoreNavigation") as? AddStoreNavigationController {
+            let addStoreTabBarItem = UITabBarItem(title: "Add", image: #imageLiteral(resourceName: "Add"), selectedImage: nil)
+            addStoreNavigationContorller.tabBarItem = addStoreTabBarItem
+            
+            return addStoreNavigationContorller
+        }
+        return UINavigationController()
+    }
 }

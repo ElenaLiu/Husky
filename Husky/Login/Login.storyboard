@@ -22,7 +22,7 @@
         <!--Login View Controller-->
         <scene sceneID="Q7n-65-K8W">
             <objects>
-                <viewController id="OeK-oC-UsU" customClass="LoginViewController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="OeK-oC-UsU" customClass="LoginViewController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G9M-V0-C6N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
