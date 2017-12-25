@@ -20,7 +20,6 @@
 		AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */; };
 		AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */; };
 		AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D15F1FE12B790072DD1B /* AppDelegate.swift */; };
-		AC75D1651FE12B790072DD1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1631FE12B790072DD1B /* Main.storyboard */; };
 		AC75D1671FE12B790072DD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1661FE12B790072DD1B /* Assets.xcassets */; };
 		AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */; };
 		AC75D1731FE148A20072DD1B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1721FE148A20072DD1B /* Login.storyboard */; };
@@ -31,7 +30,6 @@
 		AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B471FE3711E004A7893 /* StoreDetailViewController.swift */; };
 		AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B491FE3A925004A7893 /* RegistViewController.swift */; };
 		AC791B4C1FE3CB14004A7893 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */; };
-		AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B571FE90663004A7893 /* LunchScreenViewController.swift */; };
 		AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */; };
 		AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */; };
 		AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */; };
@@ -64,7 +62,6 @@
 		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		AC75D15C1FE12B790072DD1B /* Husky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Husky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC75D15F1FE12B790072DD1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC75D1641FE12B790072DD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC75D1661FE12B790072DD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC75D1691FE12B790072DD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC75D16B1FE12B790072DD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,7 +74,6 @@
 		AC791B491FE3A925004A7893 /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
 		AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WeibeiTC-Bold.otf"; sourceTree = "<group>"; };
-		AC791B571FE90663004A7893 /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
 		AC791B591FE9423C004A7893 /* StoreDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailNavigationController.swift; sourceTree = "<group>"; };
 		AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
 		AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chihaya日文字體1.ttf"; sourceTree = "<group>"; };
@@ -195,10 +191,8 @@
 				AC1E1A4A1FE1558C004FD468 /* Tabbar */,
 				AC1E1A471FE15332004FD468 /* Navigation */,
 				AC75D1711FE148360072DD1B /* Login */,
-				AC75D1631FE12B790072DD1B /* Main.storyboard */,
 				AC75D1661FE12B790072DD1B /* Assets.xcassets */,
 				AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */,
-				AC75D16B1FE12B790072DD1B /* Info.plist */,
 				AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */,
 				ACFB34311FECB7F1002A690A /* NotoSansCJKtc-Regular.otf */,
 				ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */,
@@ -208,6 +202,7 @@
 				AC791B561FE90599004A7893 /* WeibeiTC-Bold.otf */,
 				AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */,
 				AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */,
+				AC75D16B1FE12B790072DD1B /* Info.plist */,
 			);
 			path = Husky;
 			sourceTree = "<group>";
@@ -219,7 +214,6 @@
 				AC75D1721FE148A20072DD1B /* Login.storyboard */,
 				AC75D1741FE148D80072DD1B /* LoginViewController.swift */,
 				AC791B491FE3A925004A7893 /* RegistViewController.swift */,
-				AC791B571FE90663004A7893 /* LunchScreenViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -328,7 +322,6 @@
 				ACFB34321FECB7F3002A690A /* NotoSansCJKtc-Regular.otf in Resources */,
 				AC75D1671FE12B790072DD1B /* Assets.xcassets in Resources */,
 				ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */,
-				AC75D1651FE12B790072DD1B /* Main.storyboard in Resources */,
 				AC1E1A511FE15EFB004FD468 /* MapStoryboard.storyboard in Resources */,
 				ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */,
 			);
@@ -422,7 +415,6 @@
 				AC75D1751FE148D80072DD1B /* LoginViewController.swift in Sources */,
 				AC791B4C1FE3CB14004A7893 /* NetworkingService.swift in Sources */,
 				AC1E1A4F1FE15EDF004FD468 /* MapViewController.swift in Sources */,
-				AC791B581FE90663004A7893 /* LunchScreenViewController.swift in Sources */,
 				AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */,
 				AC791B421FE2619C004A7893 /* Store.swift in Sources */,
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
@@ -447,14 +439,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC75D1631FE12B790072DD1B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC75D1641FE12B790072DD1B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

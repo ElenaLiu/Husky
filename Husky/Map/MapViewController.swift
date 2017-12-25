@@ -38,8 +38,14 @@ class MapViewController: UIViewController {
 
         // fetch branches information
         StoreProvider.shared.delegate = self
-        StoreProvider.shared.getStores()
+        
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        StoreProvider.shared.getStores()
     }
     
     func initLactionManager() {
@@ -138,15 +144,18 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                         let snapshotValueDics = snapshotValue as? [String: Any] {
                         for snapshotValueDic in snapshotValueDics {
                             if let valueDic = snapshotValueDic.value as? [String: Any],
-                                let uidValue = valueDic["uid"] as? String {
-                                marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
+                                let uidValue = valueDic["uid"] as? String,
+                                let storeValue = valueDic["storeId"] as? String{
+                                
+                                if (userId == uidValue) && (store.id == storeValue){
+                                    marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
+                                } else {
+                                    marker.icon = #imageLiteral(resourceName: "QStoreMarker")
+                                }
                             }
                         }
-                    }else {
-                        marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                     }
                 })
-            }else {
             }
         }
     }

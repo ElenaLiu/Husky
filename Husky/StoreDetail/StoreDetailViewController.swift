@@ -116,7 +116,6 @@ class StoreDetailViewController: UIViewController {
         
         let textView = UITextView()
         textView.text = selectedMarkerId?.name
-        textView.adjustsFontForContentSizeCategory = true
         textView.font = UIFont(name: "NotoSansCJKtc-Regular", size: 18)
         textView.textAlignment = .center
         textView.showsHorizontalScrollIndicator = false
