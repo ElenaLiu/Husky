@@ -17,6 +17,7 @@ target 'Husky' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'FoldingCell'
+  pod 'RAMAnimatedTabBarController'
 
 
 end

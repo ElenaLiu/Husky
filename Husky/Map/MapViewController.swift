@@ -146,7 +146,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                         marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                     }
                 })
-            }else {ㄋ
+            }else {
             }
         }
     }

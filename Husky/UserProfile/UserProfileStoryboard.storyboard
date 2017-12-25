@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User Profile View Controller-->
+        <!--編輯個人檔案-->
         <scene sceneID="s73-l3-xsV">
             <objects>
                 <viewController storyboardIdentifier="UserProfileViewController" id="O9a-Rr-6b8" customClass="UserProfileViewController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,41 +19,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="編輯個人檔案" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu8-pJ-4we">
-                                <rect key="frame" x="0.0" y="76" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-tI-FTs">
-                                <rect key="frame" x="121" y="362" width="132" height="31"/>
+                                <rect key="frame" x="121" y="267" width="132" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="編輯大頭貼"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-2" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
+                                <rect key="frame" x="111" y="89" width="152" height="152"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="r4D-F3-WuG" secondAttribute="height" multiplier="1:1" id="3sV-1w-iqk"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xx-pK-0zn">
+                                <rect key="frame" x="144" y="359" width="197" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKk-fb-uaj">
+                                <rect key="frame" x="144" y="490" width="197" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名 ： " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYd-U4-JHE">
-                                <rect key="frame" x="27" y="438" width="71" height="44"/>
+                                <rect key="frame" x="51" y="352" width="71" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帳號 ： " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnh-K2-Byy">
-                                <rect key="frame" x="27" y="490" width="71" height="44"/>
+                                <rect key="frame" x="51" y="483" width="71" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
-                                <rect key="frame" x="77" y="134" width="220" height="220"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r4D-F3-WuG" firstAttribute="leading" secondItem="afx-Cy-fys" secondAttribute="leading" constant="111" id="0R1-Lq-Ajb"/>
+                            <constraint firstItem="afx-Cy-fys" firstAttribute="trailing" secondItem="r4D-F3-WuG" secondAttribute="trailing" constant="112" id="CFG-nj-Hdr"/>
+                            <constraint firstItem="r4D-F3-WuG" firstAttribute="top" secondItem="afx-Cy-fys" secondAttribute="top" constant="25" id="q4q-az-JbE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="afx-Cy-fys"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hFn-hd-3or">
+                    <navigationItem key="navigationItem" title="編輯個人檔案" id="hFn-hd-3or">
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="qFJ-3w-1cF">
                             <connections>
                                 <action selector="logOutTapped:" destination="O9a-Rr-6b8" id="2bS-Jn-lKI"/>
@@ -86,4 +101,7 @@
             <point key="canvasLocation" x="-423" y="-83"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="user-2" width="128" height="128"/>
+    </resources>
 </document>
