@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Fusuma
 
-class StoreDetailViewController: UIViewController {
+class StoreDetailViewController: UIViewController, FusumaDelegate {
     
     let textView = UITextView()
     
@@ -156,49 +157,25 @@ class StoreDetailViewController: UIViewController {
     }
     
     @objc func takePhotoAction() {
-        let pickercontroller = UIImagePickerController()
-        pickercontroller.delegate = self
-        pickercontroller.allowsEditing = true
         
-        let alertController = UIAlertController(
-            title: "Add a Picture",
-            message: "Choose From",
-            preferredStyle: .actionSheet
-        )
-        let photosLibraryAction = UIAlertAction(
-        title: "Photo Library",
-        style: .default
-        ) { (action) in
-            pickercontroller.sourceType = .photoLibrary
-            self.present(
-                pickercontroller,
-                animated: true,
-                completion: nil
-            )
-        }
-        let cancelAction = UIAlertAction(
-            title: "Cancel",
-            style: .destructive,
-            handler: nil
-        )
-        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
-            let cameraAction = UIAlertAction(
-                title: "Camera",
-                style: .default,
-                handler: { (action) in
-                pickercontroller.sourceType = .camera
-                self.present(
-                    pickercontroller,
-                    animated: true,
-                    completion: nil)
-            })
-            alertController.addAction(cameraAction)
-        }
-        alertController.addAction(photosLibraryAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
+       let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        self.present(fusuma, animated: true, completion: nil)
     }
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
+        self.ScoreViewController.scoreImageView.image = image
+    }
+    
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
+    
+    func fusumaCameraRollUnauthorized() {}
+    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

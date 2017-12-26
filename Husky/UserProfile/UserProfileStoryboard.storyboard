@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,13 +22,10 @@
                                 <rect key="frame" x="121" y="267" width="132" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="編輯大頭貼"/>
+                                <connections>
+                                    <action selector="changeProfileImageTapped:" destination="O9a-Rr-6b8" eventType="touchUpInside" id="aQ6-8c-ljE"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-2" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
-                                <rect key="frame" x="111" y="89" width="152" height="152"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="r4D-F3-WuG" secondAttribute="height" multiplier="1:1" id="3sV-1w-iqk"/>
-                                </constraints>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xx-pK-0zn">
                                 <rect key="frame" x="130" y="359" width="197" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -58,12 +54,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-2" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
+                                <rect key="frame" x="111" y="84" width="152" height="152"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="oDp-Mn-fkf"/>
+                                    <constraint firstAttribute="height" constant="152" id="pTu-gR-gKF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="r4D-F3-WuG" firstAttribute="leading" secondItem="afx-Cy-fys" secondAttribute="leading" constant="111" id="0R1-Lq-Ajb"/>
-                            <constraint firstItem="afx-Cy-fys" firstAttribute="trailing" secondItem="r4D-F3-WuG" secondAttribute="trailing" constant="112" id="CFG-nj-Hdr"/>
-                            <constraint firstItem="r4D-F3-WuG" firstAttribute="top" secondItem="afx-Cy-fys" secondAttribute="top" constant="25" id="q4q-az-JbE"/>
+                            <constraint firstItem="r4D-F3-WuG" firstAttribute="top" secondItem="afx-Cy-fys" secondAttribute="top" constant="20" id="7dU-p5-ELK"/>
+                            <constraint firstItem="r4D-F3-WuG" firstAttribute="centerX" secondItem="sfa-6c-krx" secondAttribute="centerX" id="R7z-jo-n4H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="afx-Cy-fys"/>
                     </view>

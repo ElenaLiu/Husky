@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -21,6 +22,8 @@ class LoginViewController: UIViewController {
     let networkingService = NetworkingService()
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
+        
+        
         
         let alertController = UIAlertController(title: "忘記密碼?",
                                                 message: "Enter your E-mail", preferredStyle: .alert)
@@ -63,6 +66,8 @@ class LoginViewController: UIViewController {
         
         networkingService.signIn(email: loginEmailAddressTextField.text!,
                                  password: loginPasswordTextField.text!)
+        
+        
         
         let sb = UIStoryboard(name: "MapStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MapNavigation") as? MapNavigationController
@@ -128,5 +133,26 @@ class LoginViewController: UIViewController {
         
         self.loginTapped.layer.cornerRadius = 5
     }
+    
+    /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
+    
+//    func textField(
+//        textField: UITextField,
+//        shouldChangeCharactersInRange range: NSRange,
+//        replacementString string: String
+//        ) -> Bool {
+//        if let text = loginEmailAddressTextField.text {
+//            if let text = textField as? SkyFloatingLabelTextField {
+//                if(text.characters.count < 3 || !text.containsString("@")) {
+//                    text.errorMessage = "Invalid email"
+//                }
+//                else {
+//                    // The error message will only disappear when we reset it to nil or empty string
+//                    floatingLabelTextField.errorMessage = ""
+//                }
+//            }
+//        }
+//        return true
+//    }
 }
 

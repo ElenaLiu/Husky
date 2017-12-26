@@ -9,12 +9,34 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
+import Fusuma
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, FusumaDelegate {
     
     let networkingService = NetworkingService()
     
     @IBOutlet weak var userProfileImageView: UIImageView!
+    
+    @IBAction func changeProfileImageTapped(_ sender: Any) {
+        
+        let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        self.present(fusuma, animated: true, completion: nil)
+    }
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        userProfileImageView.image = image
+    }
+    
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
+    
+    func fusumaCameraRollUnauthorized() {}
+    
     
     @IBAction func logOutTapped(_ sender: Any) {
         
@@ -37,8 +59,42 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScoreImage()
+        
+        if Auth.auth().currentUser == nil {
+            let vc = UIStoryboard(
+                name: "Login",
+                bundle: nil
+                ).instantiateViewController(withIdentifier: "Login")
+            
+            self.present(vc, animated: true, completion: nil)
+        }else {
+            
+            
+            let uid = Auth.auth().currentUser?.uid
+            networkingService.databaseRef.child("Users").child(uid!).observe(.value, with: { (snapshot) in
+                DispatchQueue.main.async {
+                    if let snapshotValue = snapshot.value,
+                        let snapshotValueDics = snapshotValue as? [String: Any] {
+                        for snapshotValueDic in snapshotValueDics {
+                            if let valueDic = snapshotValueDic.value as? [String: Any],
+                                let uidValue = valueDic["uid"] as? String,
+                                let nameValue = valueDic["username"] as? String,
+                                let emailValue = valueDic["email"] as? String,
+                                let photoUrlValue = valueDic["photoUrl"] as? String {
+                                    print("343443\(valueDic)")
+                            }
+                        }
+                    }
+                }
 
-       
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func checkIfUserIsLoggedIn() {
+        
     }
     
     func setUpScoreImage() {

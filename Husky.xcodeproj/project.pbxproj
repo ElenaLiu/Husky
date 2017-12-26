@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		79B579ACBA4A6ABFBFE7484A /* Pods_Husky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */; };
+		AC11DD761FF21C9300834285 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD751FF21C9300834285 /* User.swift */; };
 		AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A481FE153E8004FD468 /* NavigationController.swift */; };
 		AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A4B1FE155DA004FD468 /* TabBarController.swift */; };
 		AC1E1A4F1FE15EDF004FD468 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A4E1FE15EDF004FD468 /* MapViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		700C1E20DE2AF1473C3B2F1C /* Pods-Husky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.debug.xcconfig"; sourceTree = "<group>"; };
 		8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Husky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC11DD751FF21C9300834285 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC1E1A481FE153E8004FD468 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		AC1E1A4B1FE155DA004FD468 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AC1E1A4E1FE15EDF004FD468 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AC75D15C1FE12B790072DD1B /* Husky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Husky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC75D15F1FE12B790072DD1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC75D1661FE12B790072DD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				AC791B431FE28533004A7893 /* StoreProvider.swift */,
 				AC791B411FE2619C004A7893 /* Store.swift */,
 				ACBAE1171FEFF02E0022AF5F /* Comment.swift */,
+				AC11DD751FF21C9300834285 /* User.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
+				"${BUILT_PRODUCTS_DIR}/Fusuma/Fusuma.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
@@ -375,6 +379,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fusuma.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
@@ -426,6 +431,7 @@
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
 				AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */,
 				ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */,
+				AC11DD761FF21C9300834285 /* User.swift in Sources */,
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
 				AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */,
 				ACFB343B1FECD880002A690A /* AddStoreNavigationController.swift in Sources */,

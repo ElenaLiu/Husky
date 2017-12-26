@@ -34,7 +34,7 @@ struct NetworkingService {
         })
     }
     
-    // 1 ---- We create the User
+    // 1 ---- create the User
     
     func signUp(email: String,
                 username: String,
@@ -45,7 +45,7 @@ struct NetworkingService {
                                password: password,
                                completion: { (user, error) in
             if error == nil {
-                self.setUserInfo(user: user,
+                self.setUserInfo(user: user!,
                                  username: username,
                                  password: password,
                                  data: data)
@@ -57,7 +57,7 @@ struct NetworkingService {
     
     // 2 ------ Set User Info
     
-    private func setUserInfo(user: User!,
+    private func setUserInfo(user: User,
                              username: String,
                              password: String,
                              data: Data!)

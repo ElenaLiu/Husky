@@ -10,15 +10,18 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import SCLAlertView
+import Fusuma
 
-class RegistViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+class RegistViewController: UIViewController, FusumaDelegate {
+
     
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var registNameTextField: UITextField!
     @IBOutlet weak var registEmailTextField: UITextField!
     @IBOutlet weak var registPasswordTextField: UITextField!
-    
     
     
     @IBAction func backToLoginIn(_ sender: Any) {
@@ -35,6 +38,9 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func signUpTapped(_ sender: Any) {
         
         let data = UIImageJPEGRepresentation(self.registImageView.image!, 0.8)
+        
+        //SCLAlertView().showNotice("Hi~", subTitle: "喝杯珍奶吧～")
+   
         
         networkingService.signUp(email: registEmailTextField.text!,
                                  username: registNameTextField.text!,
@@ -61,7 +67,6 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         //tap anywhere to hide keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                               action: #selector(dismissKeyboard)))
-
     }
     
     // Remove observer
@@ -89,83 +94,23 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     @IBAction func chooseUserImage(_ sender: Any) {
         
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.allowsEditing = true
-        
-        let alertController = UIAlertController(title: "Add a Picture",
-                                                message: "Choose From", preferredStyle: .actionSheet)
-       
-        let photosLibraryAction = UIAlertAction(title: "Photos Library",
-                                                style: .default) { (action) in
-            pickerController.sourceType = .photoLibrary
-                                                    
-            self.present(pickerController,
-                         animated: true,
-                         completion: nil)
-            
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .destructive,
-                                         handler: nil)
-        
-        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
-            let cameraAction = UIAlertAction(
-                title: "Camera",
-                style: .default
-            ) {(action) in
-                pickerController.sourceType = .camera
-                                                
-//                //Creat camera overlay
-//                let pickerFrame = CGRect(
-//                    x: 0,
-//                    y: UIApplication.shared.statusBarFrame.size.height,
-//                    width: pickerController.view.bounds.width,
-//                    height: pickerController.view.bounds.height - pickerController.navigationBar.bounds.size.height - pickerController.toolbar.bounds.size.height
-//                )
-//
-//                let squareFrame = CGRect(
-//                    x: pickerFrame.width/2 - 200/2,
-//                    y: pickerFrame.height/2 - 200/2,
-//                    width: 200,
-//                    height: 200
-//                )
-//                UIGraphicsBeginImageContext(pickerFrame.size)
-                
-//                let context = UIGraphicsGetCurrentContext()
-//                CGContext.saveGState(context!)
-//                CGContext.move(context, squareFrame.origin.x, squareFrame.origin.y)
-//                CGContext.addLine(context, squareFrame.origin.x + squareFrame.width, squareFrame.origin.y)
-                
-                self.present(
-                    pickerController,
-                    animated: true,
-                    completion: nil
-                )
-            }
-            
-            alertController.addAction(cameraAction)
-        }
-        
-        alertController.addAction(photosLibraryAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
-        
+        //init Fusuma
+        let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        self.present(fusuma, animated: true, completion: nil)
     }
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-    {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        {
-            
-            registImageView.image = pickedImage
-            
-        }
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
-        dismiss(animated: true, completion: nil)
+        registImageView.image = image
     }
+    
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
+    
+    func fusumaCameraRollUnauthorized() {}
     
     // Handling keyboard
     @objc func keyboardWillShow(notification: Notification)
