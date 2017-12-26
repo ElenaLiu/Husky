@@ -56,8 +56,9 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var loginTapped: UIButton!
     
-    @IBAction func loginInTapped(_ sender: Any) {
+    @IBAction func loginTapped(_ sender: Any) {
         
         networkingService.signIn(email: loginEmailAddressTextField.text!,
                                  password: loginPasswordTextField.text!)
@@ -70,6 +71,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpLoginTapped()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -118,6 +121,11 @@ class LoginViewController: UIViewController {
         loginEmailAddressTextField.resignFirstResponder()
         loginPasswordTextField.resignFirstResponder()
         
+    }
+    
+    func setUpLoginTapped() {
+        
+        self.loginTapped.layer.cornerRadius = 5
     }
 }
 

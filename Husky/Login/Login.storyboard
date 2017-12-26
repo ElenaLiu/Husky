@@ -67,7 +67,7 @@
                                                     <color key="titleShadowColor" red="1" green="0.0" blue="0.50196081400000003" alpha="0.27761130140000001" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="loginInTapped:" destination="OeK-oC-UsU" eventType="touchUpInside" id="vjE-wr-VFE"/>
+                                                    <action selector="loginTapped:" destination="OeK-oC-UsU" eventType="touchUpInside" id="dVT-b6-leM"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="Ij9-oM-BTB">
@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="loginEmailAddressTextField" destination="hIk-Go-n0h" id="qRm-xg-vov"/>
                         <outlet property="loginPasswordTextField" destination="CJ5-vx-IR2" id="w54-O6-ATJ"/>
+                        <outlet property="loginTapped" destination="mUn-DK-Ff5" id="DGY-LX-XdB"/>
                         <outlet property="scrollView" destination="fG8-hA-0Bu" id="xa4-kT-cca"/>
                     </connections>
                 </viewController>
@@ -211,7 +212,7 @@
                                                     <color key="titleShadowColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="signUpButton:" destination="zpu-B9-vnU" eventType="touchUpInside" id="MBT-Xa-jVK"/>
+                                                    <action selector="signUpTapped:" destination="zpu-B9-vnU" eventType="touchUpInside" id="zEP-zZ-vga"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -253,6 +254,7 @@
                         <outlet property="registNameTextField" destination="93p-al-zoC" id="pFD-p1-pCT"/>
                         <outlet property="registPasswordTextField" destination="s1S-Bd-ovg" id="23E-6k-hRv"/>
                         <outlet property="scrollView" destination="xmi-kk-bpT" id="La7-ks-5KD"/>
+                        <outlet property="signUpTapped" destination="etC-UW-Nev" id="drw-91-Og2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDM-vt-Vrz" userLabel="First Responder" sceneMemberID="firstResponder"/>

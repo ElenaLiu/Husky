@@ -18,6 +18,8 @@ target 'Husky' do
   pod 'SwiftyJSON'
   pod 'FoldingCell'
   pod 'RAMAnimatedTabBarController'
+  pod 'SCLAlertView'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
 
 end

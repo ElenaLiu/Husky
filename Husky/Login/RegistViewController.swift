@@ -29,7 +29,10 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var networkingService = NetworkingService()
     
-    @IBAction func signUpButton(_ sender: Any) {
+    
+    @IBOutlet weak var signUpTapped: UIButton!
+    
+    @IBAction func signUpTapped(_ sender: Any) {
         
         let data = UIImageJPEGRepresentation(self.registImageView.image!, 0.8)
         
@@ -44,6 +47,7 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         
         setUpregistImage()
+        setUpRegistTapped()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -76,6 +80,12 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.registImageView.layer.cornerRadius = registImageView.frame.height/2
         self.registImageView.clipsToBounds = true
     }
+    
+    func setUpRegistTapped() {
+        
+        self.signUpTapped.layer.cornerRadius = 5
+    }
+    
 
     @IBAction func chooseUserImage(_ sender: Any) {
         
