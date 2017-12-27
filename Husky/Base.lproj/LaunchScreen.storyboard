@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_9" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,28 +20,40 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="GdS-R2-tE5">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i Bubble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNO-Db-vme">
-                                <rect key="frame" x="0.0" y="154" width="375" height="86"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="68"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA2-q2-EMG">
+                                <rect key="frame" x="0.0" y="-25" width="768" height="1089"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="GdS-R2-tE5">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1089"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i Bubble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNO-Db-vme">
+                                        <rect key="frame" x="10" y="86" width="748" height="76"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GdS-R2-tE5" firstAttribute="leading" secondItem="MA2-q2-EMG" secondAttribute="leading" id="MXD-Ud-zWX"/>
+                                    <constraint firstItem="pNO-Db-vme" firstAttribute="leading" secondItem="MA2-q2-EMG" secondAttribute="leading" constant="10" id="NLe-B4-nO2"/>
+                                    <constraint firstAttribute="trailing" secondItem="GdS-R2-tE5" secondAttribute="trailing" id="d5I-sj-tX9"/>
+                                    <constraint firstAttribute="bottom" secondItem="GdS-R2-tE5" secondAttribute="bottom" id="euI-Tv-4ba"/>
+                                    <constraint firstItem="GdS-R2-tE5" firstAttribute="top" secondItem="MA2-q2-EMG" secondAttribute="top" id="kG7-Ti-6th"/>
+                                    <constraint firstItem="pNO-Db-vme" firstAttribute="top" secondItem="MA2-q2-EMG" secondAttribute="top" constant="86" id="uYv-8E-AgI"/>
+                                    <constraint firstAttribute="trailing" secondItem="pNO-Db-vme" secondAttribute="trailing" constant="10" id="yGc-fr-m9W"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GdS-R2-tE5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7O0-yr-l81"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pNO-Db-vme" secondAttribute="trailing" id="CPn-xf-NKC"/>
-                            <constraint firstItem="pNO-Db-vme" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IoC-O2-u9J"/>
-                            <constraint firstItem="pNO-Db-vme" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="PGN-NM-ch8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="GdS-R2-tE5" secondAttribute="top" id="S9N-nR-fk4"/>
-                            <constraint firstItem="GdS-R2-tE5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fbZ-eY-6P4"/>
-                            <constraint firstItem="GdS-R2-tE5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zZP-gx-qNR"/>
+                            <constraint firstItem="MA2-q2-EMG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LZ3-Ia-wiE"/>
+                            <constraint firstItem="MA2-q2-EMG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-45" id="Vse-gK-5Iu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MA2-q2-EMG" secondAttribute="bottom" constant="-40" id="bBZ-kB-prS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MA2-q2-EMG" secondAttribute="trailing" id="thz-4U-P4m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

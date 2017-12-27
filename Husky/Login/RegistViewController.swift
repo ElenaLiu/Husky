@@ -82,7 +82,7 @@ class RegistViewController: UIViewController, FusumaDelegate {
         self.registImageView.layer.borderWidth = 1
         self.registImageView.layer.masksToBounds = false
         self.registImageView.layer.borderColor = UIColor.black.cgColor
-        self.registImageView.layer.cornerRadius = registImageView.frame.height/2
+        self.registImageView.layer.cornerRadius = registImageView.frame.height/2.0
         self.registImageView.clipsToBounds = true
     }
     
