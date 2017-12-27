@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		79B579ACBA4A6ABFBFE7484A /* Pods_Husky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */; };
 		AC11DD761FF21C9300834285 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD751FF21C9300834285 /* User.swift */; };
+		AC11DD781FF388E000834285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC11DD771FF388E000834285 /* Assets.xcassets */; };
 		AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A481FE153E8004FD468 /* NavigationController.swift */; };
 		AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A4B1FE155DA004FD468 /* TabBarController.swift */; };
 		AC1E1A4F1FE15EDF004FD468 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A4E1FE15EDF004FD468 /* MapViewController.swift */; };
@@ -21,7 +22,6 @@
 		AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */; };
 		AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */; };
 		AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D15F1FE12B790072DD1B /* AppDelegate.swift */; };
-		AC75D1671FE12B790072DD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1661FE12B790072DD1B /* Assets.xcassets */; };
 		AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */; };
 		AC75D1731FE148A20072DD1B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1721FE148A20072DD1B /* Login.storyboard */; };
 		AC75D1751FE148D80072DD1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D1741FE148D80072DD1B /* LoginViewController.swift */; };
@@ -51,6 +51,7 @@
 		700C1E20DE2AF1473C3B2F1C /* Pods-Husky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.debug.xcconfig"; sourceTree = "<group>"; };
 		8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Husky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC11DD751FF21C9300834285 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AC11DD771FF388E000834285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC1E1A481FE153E8004FD468 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		AC1E1A4B1FE155DA004FD468 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AC1E1A4E1FE15EDF004FD468 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AC75D15C1FE12B790072DD1B /* Husky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Husky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC75D15F1FE12B790072DD1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC75D1661FE12B790072DD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC75D1691FE12B790072DD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC75D16B1FE12B790072DD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC75D1721FE148A20072DD1B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 				AC1E1A4A1FE1558C004FD468 /* Tabbar */,
 				AC1E1A471FE15332004FD468 /* Navigation */,
 				AC75D1711FE148360072DD1B /* Login */,
-				AC75D1661FE12B790072DD1B /* Assets.xcassets */,
 				AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */,
+				AC11DD771FF388E000834285 /* Assets.xcassets */,
 				AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */,
 				ACFB34311FECB7F1002A690A /* NotoSansCJKtc-Regular.otf */,
 				ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */,
@@ -316,6 +316,7 @@
 				AC791B601FEBD094004A7893 /* Classic Xing kai Font.TTF in Resources */,
 				ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */,
 				ACFB34371FECD831002A690A /* AddStoreStoryboard.storyboard in Resources */,
+				AC11DD781FF388E000834285 /* Assets.xcassets in Resources */,
 				AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */,
 				AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */,
 				AC75D1731FE148A20072DD1B /* Login.storyboard in Resources */,
@@ -323,7 +324,6 @@
 				AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */,
 				ACFB34301FEBD3FB002A690A /* SentyZHAO.ttf in Resources */,
 				ACFB34321FECB7F3002A690A /* NotoSansCJKtc-Regular.otf in Resources */,
-				AC75D1671FE12B790072DD1B /* Assets.xcassets in Resources */,
 				ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */,
 				AC1E1A511FE15EFB004FD468 /* MapStoryboard.storyboard in Resources */,
 				ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */,

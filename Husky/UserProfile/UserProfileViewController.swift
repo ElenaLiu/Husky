@@ -13,6 +13,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import Fusuma
 import SDWebImage
+import SCLAlertView
 
 class UserProfileViewController: UIViewController, FusumaDelegate {
     
@@ -74,8 +75,11 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpScoreImage()
-  
+        
+        setUpNavigationBar()
+   
             
         if let user = Auth.auth().currentUser {
                 
@@ -115,9 +119,22 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
     }
     
+    func setUpNavigationBar() {
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let image = #imageLiteral(resourceName: "Save")
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: imageView)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView  
+    }
+    
     func setUpScoreImage() {
         
-        self.userProfileImageView.layer.borderWidth = 1
+        self.userProfileImageView.layer.borderWidth = 0
         self.userProfileImageView.layer.masksToBounds = false
         self.userProfileImageView.layer.borderColor = UIColor.darkGray.cgColor
         self.userProfileImageView.layer.cornerRadius = userProfileImageView.frame.height/2

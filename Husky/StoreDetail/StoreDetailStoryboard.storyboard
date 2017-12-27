@@ -546,7 +546,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back" width="42" height="42"/>
+        <image name="Back" width="25" height="25"/>
         <image name="BubbleTea(Brown)" width="25" height="40"/>
         <image name="EmptyTea" width="25" height="35"/>
         <image name="Phone" width="25" height="26"/>
