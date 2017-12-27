@@ -57,7 +57,7 @@ struct NetworkingService {
     
     // 2 ------ Set User Info
     
-    private func setUserInfo(user: User,
+  func setUserInfo(user: User,
                              username: String,
                              password: String,
                              data: Data!)
@@ -113,10 +113,12 @@ struct NetworkingService {
         
         // Save the user info in the Database
         userRef.setValue(userInfo)
-        
-        // Signing in the user
-        signIn(email: user.email!,
-               password: password)
+    
+        if password != "" {
+            // Signing in the user
+            signIn(email: user.email!,
+                   password: password)
+        }
     }
     
     // 4 ---- Signing in the User

@@ -419,7 +419,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back" width="42" height="42"/>
+        <image name="Back" width="25" height="25"/>
         <image name="LunchScreen" width="750" height="1334"/>
         <image name="user-2" width="128" height="128"/>
     </resources>

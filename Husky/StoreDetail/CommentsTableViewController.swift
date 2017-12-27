@@ -8,10 +8,14 @@
 
 import UIKit
 import FoldingCell
+import Firebase
 
 class CommentsTableViewController: UITableViewController {
+    let netWordingService = NetworkingService()
     
     var selectedMarkerId: Store?
+    
+    var comments = [Comment]()
     
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 488
@@ -25,13 +29,29 @@ class CommentsTableViewController: UITableViewController {
         
         guard let selectedStore = selectedMarkerId else { return }
         setup()
+        fetchComment()
+        
+    }
+    
+    private func fetchComment() {
+        
+        let storeId = selectedMarkerId?.id
+        
+        netWordingService.databaseRef.child("StoreComments").child(storeId!).observe(.childAdded, with: { (snapshot) in
+            
+            print("234y83\(snapshot)")
+            //如果有抓到  解值
+            
+            
+        }, withCancel: nil)
+        
     }
     
     private func setup() {
         cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
         tableView.estimatedRowHeight = kCloseCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Bubble-1"))
+//        tableView.backgroundColor = UIColor()
     }
 
     // MARK: - Table view data source

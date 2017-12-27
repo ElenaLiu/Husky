@@ -117,6 +117,7 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
         
         let textView = UITextView()
         textView.text = selectedMarkerId?.name
+    
         textView.font = UIFont(name: "NotoSansCJKtc-Regular", size: 18)
         textView.textAlignment = .center
         textView.showsHorizontalScrollIndicator = false
@@ -174,8 +175,6 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
     func fusumaVideoCompleted(withFileURL fileURL: URL) {}
     
     func fusumaCameraRollUnauthorized() {}
-    
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

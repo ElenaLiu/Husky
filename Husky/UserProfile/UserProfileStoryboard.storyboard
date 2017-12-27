@@ -18,6 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqq-T7-tsD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8j-mL-GRg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-tI-FTs">
                                 <rect key="frame" x="121" y="267" width="132" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,7 +54,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKk-fb-uaj">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKk-fb-uaj">
                                 <rect key="frame" x="130" y="490" width="197" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -64,19 +71,38 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Vqq-T7-tsD" firstAttribute="leading" secondItem="afx-Cy-fys" secondAttribute="leading" id="3RN-UB-Uzi"/>
                             <constraint firstItem="r4D-F3-WuG" firstAttribute="top" secondItem="afx-Cy-fys" secondAttribute="top" constant="20" id="7dU-p5-ELK"/>
+                            <constraint firstItem="Vqq-T7-tsD" firstAttribute="height" secondItem="sfa-6c-krx" secondAttribute="height" id="G3A-SS-uGR"/>
+                            <constraint firstItem="Vqq-T7-tsD" firstAttribute="width" secondItem="sfa-6c-krx" secondAttribute="width" id="GrO-0u-2bB"/>
                             <constraint firstItem="r4D-F3-WuG" firstAttribute="centerX" secondItem="sfa-6c-krx" secondAttribute="centerX" id="R7z-jo-n4H"/>
+                            <constraint firstItem="n8j-mL-GRg" firstAttribute="trailing" secondItem="Vqq-T7-tsD" secondAttribute="trailing" id="VTb-T4-24F"/>
+                            <constraint firstItem="afx-Cy-fys" firstAttribute="trailing" secondItem="Vqq-T7-tsD" secondAttribute="trailing" id="cc8-A6-1ff"/>
+                            <constraint firstItem="afx-Cy-fys" firstAttribute="top" secondItem="Vqq-T7-tsD" secondAttribute="top" constant="64" id="eqZ-cj-Vxc"/>
+                            <constraint firstItem="n8j-mL-GRg" firstAttribute="top" secondItem="Vqq-T7-tsD" secondAttribute="top" id="fsI-XJ-Roe"/>
+                            <constraint firstItem="afx-Cy-fys" firstAttribute="bottom" secondItem="Vqq-T7-tsD" secondAttribute="bottom" id="kL7-1e-anv"/>
+                            <constraint firstItem="n8j-mL-GRg" firstAttribute="bottom" secondItem="Vqq-T7-tsD" secondAttribute="bottom" id="tds-gh-1UD"/>
+                            <constraint firstItem="n8j-mL-GRg" firstAttribute="leading" secondItem="Vqq-T7-tsD" secondAttribute="leading" id="wIC-GG-VnB"/>
+                            <constraint firstItem="n8j-mL-GRg" firstAttribute="width" secondItem="Vqq-T7-tsD" secondAttribute="width" id="xYg-9t-pDD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="afx-Cy-fys"/>
                     </view>
                     <navigationItem key="navigationItem" title="編輯個人檔案" id="hFn-hd-3or">
-                        <barButtonItem key="rightBarButtonItem" title="Log out" id="qFJ-3w-1cF">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="qFJ-3w-1cF">
                             <connections>
                                 <action selector="logOutTapped:" destination="O9a-Rr-6b8" id="2bS-Jn-lKI"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="YtM-UA-CVy">
+                            <connections>
+                                <action selector="saveProfileInfo:" destination="O9a-Rr-6b8" id="hTY-Jc-CnB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="AKk-fb-uaj" id="DCu-Sm-AtE"/>
+                        <outlet property="nameTextField" destination="2xx-pK-0zn" id="szL-In-ww7"/>
+                        <outlet property="scrollView" destination="Vqq-T7-tsD" id="kI3-Kb-iAp"/>
                         <outlet property="userProfileImageView" destination="r4D-F3-WuG" id="2W0-RM-uTV"/>
                     </connections>
                 </viewController>

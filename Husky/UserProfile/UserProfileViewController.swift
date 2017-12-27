@@ -12,12 +12,27 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 import Fusuma
+import SDWebImage
 
 class UserProfileViewController: UIViewController, FusumaDelegate {
     
     let networkingService = NetworkingService()
     
     @IBOutlet weak var userProfileImageView: UIImageView!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBAction func saveProfileInfo(_ sender: Any) {
+
+        if let user = Auth.auth().currentUser {
+            let imageData = UIImageJPEGRepresentation(userProfileImageView.image!, 0.8)
+            networkingService.setUserInfo(user: user, username: nameTextField.text!, password: "", data: imageData)
+        }
+    }
     
     @IBAction func changeProfileImageTapped(_ sender: Any) {
         
@@ -28,6 +43,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     }
     
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
         userProfileImageView.image = image
     }
     
@@ -59,41 +75,43 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScoreImage()
-        
-        if Auth.auth().currentUser == nil {
+  
+            
+        if let user = Auth.auth().currentUser {
+                
+            self.nameTextField.text = user.displayName
+            self.emailTextField.text = user.email
+
+            self.userProfileImageView.sd_setImage(with: user.photoURL, completed: nil)
+            
+        } else {
             let vc = UIStoryboard(
                 name: "Login",
                 bundle: nil
                 ).instantiateViewController(withIdentifier: "Login")
-            
+                
             self.present(vc, animated: true, completion: nil)
-        }else {
-            
-            
-            let uid = Auth.auth().currentUser?.uid
-            networkingService.databaseRef.child("Users").child(uid!).observe(.value, with: { (snapshot) in
-                DispatchQueue.main.async {
-                    if let snapshotValue = snapshot.value,
-                        let snapshotValueDics = snapshotValue as? [String: Any] {
-                        for snapshotValueDic in snapshotValueDics {
-                            if let valueDic = snapshotValueDic.value as? [String: Any],
-                                let uidValue = valueDic["uid"] as? String,
-                                let nameValue = valueDic["username"] as? String,
-                                let emailValue = valueDic["email"] as? String,
-                                let photoUrlValue = valueDic["photoUrl"] as? String {
-                                    print("343443\(valueDic)")
-                            }
-                        }
-                    }
-                }
-
-            }) { (error) in
-                print(error.localizedDescription)
-            }
         }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow),
+                                       name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide),
+                                       name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //tap anywhere to hide keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                              action: #selector(dismissKeyboard)))
     }
     
-    func checkIfUserIsLoggedIn() {
+    // Remove observer
+    deinit {
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
         
     }
     
@@ -104,6 +122,35 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         self.userProfileImageView.layer.borderColor = UIColor.darkGray.cgColor
         self.userProfileImageView.layer.cornerRadius = userProfileImageView.frame.height/2
         self.userProfileImageView.clipsToBounds = true
+        
+    }
+    
+    // Handling keyboard
+    @objc func keyboardWillShow(notification: Notification)
+    {
+        
+        let userInfo = (notification as NSNotification).userInfo!
+        let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let contentInsets = UIEdgeInsets(top: 0,
+                                         left: 0,
+                                         bottom: keyboardCGRect.height,
+                                         right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollRectToVisible(keyboardCGRect, animated: true)
+        
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        
+        scrollView.contentInset = UIEdgeInsets.zero
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        
+        nameTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
         
     }
 }
