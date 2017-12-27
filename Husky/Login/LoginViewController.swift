@@ -67,13 +67,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         networkingService.signIn(email: loginEmailAddressTextField.text!,
                                  password: loginPasswordTextField.text!)
         
-        
-        
-        let sb = UIStoryboard(name: "MapStoryboard", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "MapNavigation") as? MapNavigationController
-        self.present(vc!, animated: true, completion: nil)
-        
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+            appdelegate.logUser()
         }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

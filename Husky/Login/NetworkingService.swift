@@ -130,8 +130,10 @@ struct NetworkingService {
                 if let user = user {
                     print("\(user.displayName!) has signed in succesfully!")
                     
-                    let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDel.logUser()
+                    if let appDel: AppDelegate = UIApplication.shared.delegate as? AppDelegate {
+                        
+                        appDel.logUser()
+                    }
                 }
             }else {
                 print(error!.localizedDescription)

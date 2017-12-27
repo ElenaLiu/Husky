@@ -137,7 +137,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         self.userProfileImageView.layer.borderWidth = 0
         self.userProfileImageView.layer.masksToBounds = false
         self.userProfileImageView.layer.borderColor = UIColor.darkGray.cgColor
-        self.userProfileImageView.layer.cornerRadius = userProfileImageView.frame.height/2
+        self.userProfileImageView.layer.cornerRadius = userProfileImageView.frame.width/2.0
         self.userProfileImageView.clipsToBounds = true
         
     }
