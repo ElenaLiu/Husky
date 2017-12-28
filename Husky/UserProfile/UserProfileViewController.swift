@@ -73,29 +73,16 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
             
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpScoreImage()
         
         setUpNavigationBar()
+        
+        fetchUserProfile()
    
-            
-        if let user = Auth.auth().currentUser {
-                
-            self.nameTextField.text = user.displayName
-            self.emailTextField.text = user.email
-
-            self.userProfileImageView.sd_setImage(with: user.photoURL, completed: nil)
-            
-        } else {
-            let vc = UIStoryboard(
-                name: "Login",
-                bundle: nil
-                ).instantiateViewController(withIdentifier: "Login")
-                
-            self.present(vc, animated: true, completion: nil)
-        }
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -119,6 +106,25 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
     }
     
+    func fetchUserProfile(){
+        
+        if let user = Auth.auth().currentUser {
+            
+            self.nameTextField.text = user.displayName
+            self.emailTextField.text = user.email
+            
+            self.userProfileImageView.sd_setImage(with: user.photoURL, completed: nil)
+            
+        } else {
+            let vc = UIStoryboard(
+                name: "Login",
+                bundle: nil
+                ).instantiateViewController(withIdentifier: "Login")
+            
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     func setUpNavigationBar() {
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -139,7 +145,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         self.userProfileImageView.layer.borderColor = UIColor.darkGray.cgColor
         self.userProfileImageView.layer.cornerRadius = userProfileImageView.frame.width/2.0
         self.userProfileImageView.clipsToBounds = true
-        
     }
     
     // Handling keyboard

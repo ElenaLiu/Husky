@@ -10,6 +10,7 @@
 		79B579ACBA4A6ABFBFE7484A /* Pods_Husky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */; };
 		AC11DD761FF21C9300834285 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD751FF21C9300834285 /* User.swift */; };
 		AC11DD781FF388E000834285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC11DD771FF388E000834285 /* Assets.xcassets */; };
+		AC11DD7A1FF52DC600834285 /* CommentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD791FF52DC600834285 /* CommentProvider.swift */; };
 		AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A481FE153E8004FD468 /* NavigationController.swift */; };
 		AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A4B1FE155DA004FD468 /* TabBarController.swift */; };
 		AC1E1A4F1FE15EDF004FD468 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A4E1FE15EDF004FD468 /* MapViewController.swift */; };
@@ -52,6 +53,7 @@
 		8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Husky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC11DD751FF21C9300834285 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC11DD771FF388E000834285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC11DD791FF52DC600834285 /* CommentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentProvider.swift; sourceTree = "<group>"; };
 		AC1E1A481FE153E8004FD468 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		AC1E1A4B1FE155DA004FD468 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AC1E1A4E1FE15EDF004FD468 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				AC791B431FE28533004A7893 /* StoreProvider.swift */,
 				AC791B411FE2619C004A7893 /* Store.swift */,
+				AC11DD791FF52DC600834285 /* CommentProvider.swift */,
 				ACBAE1171FEFF02E0022AF5F /* Comment.swift */,
 				AC11DD751FF21C9300834285 /* User.swift */,
 			);
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC75D1751FE148D80072DD1B /* LoginViewController.swift in Sources */,
+				AC11DD7A1FF52DC600834285 /* CommentProvider.swift in Sources */,
 				AC791B4C1FE3CB14004A7893 /* NetworkingService.swift in Sources */,
 				AC1E1A4F1FE15EDF004FD468 /* MapViewController.swift in Sources */,
 				AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */,

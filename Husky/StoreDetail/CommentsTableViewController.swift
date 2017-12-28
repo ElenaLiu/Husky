@@ -10,49 +10,87 @@ import UIKit
 import FoldingCell
 import Firebase
 
-class CommentsTableViewController: UITableViewController {
+class CommentsTableViewController: UITableViewController, CommentProviderDelegate {
+    
+    func didFetch(with comments: [Comment]) {
+        
+    }
+    func didFail(with error: Error) {
+        
+    }
+    
     let netWordingService = NetworkingService()
     
     var selectedMarkerId: Store?
     
     var comments = [Comment]()
+
     
-    let kCloseCellHeight: CGFloat = 179
-    let kOpenCellHeight: CGFloat = 488
-    let kRowsCount = 10
-    var cellHeights: [CGFloat] = []
-    
-    
+//    let kCloseCellHeight: CGFloat = 179
+//    let kOpenCellHeight: CGFloat = 488
+//    let kRowsCount = 10
+//    var cellHeights: [CGFloat] = []
+//
+//
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // fetch stores information
+        CommentProvider.shared.delegate = self
+        
         guard let selectedStore = selectedMarkerId else { return }
-        setup()
-        fetchComment()
+        
+//        fetchComment()
         
     }
     
-    private func fetchComment() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let storeId = selectedMarkerId?.id
-        
-        netWordingService.databaseRef.child("StoreComments").child(storeId!).observe(.childAdded, with: { (snapshot) in
-            
-            print("234y83\(snapshot)")
-            //如果有抓到  解值
-            
-            
-        }, withCancel: nil)
-        
+        CommentProvider.shared.fetchComments()
     }
     
-    private func setup() {
-        cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
-        tableView.estimatedRowHeight = kCloseCellHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.backgroundColor = UIColor()
-    }
+//    private func fetchComment() {
+//
+//        let storeId = selectedMarkerId?.id
+//
+//        netWordingService.databaseRef.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observe(.value) { [weak self] (snapshot) in
+//            print("234\(storeId)")
+//            guard let dictionary = snapshot.value as? [String: Any] else { return }
+//            guard let uid = dictionary["uid"] as? String,
+//                let storeId = dictionary["storeId"] as? String,
+//                let average = dictionary["average"] as? Double,
+//                let imageData = dictionary["imageData"] as? Data,
+//                let content = dictionary["content"] as? String else { return }
+//            print("2783\(dictionary)")
+//
+//
+//            guard let scoreValue = dictionary["score"] as? [String: AnyObject] else { return }
+//            guard let firstRating = scoreValue["firstRating"] as? Double,
+//                let secondRating = scoreValue["secondRating"] as? Double,
+//                let thirdRating = scoreValue["thirdRating"] as? Double,
+//                let fourthRating = scoreValue["fourthRating"] as? Double,
+//                let fifthRating = scoreValue["fifthRating"] as? Double else { return }
+//            print("347\(scoreValue)")
+//
+//
+//                let comment = Comment(uid: uid, storeId: storeId, average: average, imageData: imageData, content: content, firstRating: firstRating, secondRating: secondRating, thirdRating: thirdRating, fourthRating: fourthRating, fifthRating: fifthRating)
+//
+//
+//            self?.comments.append(comment)
+//
+//        }
+//
+//
+//    }
+    
+//    private func setup() {
+//        cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
+//        tableView.estimatedRowHeight = kCloseCellHeight
+//        tableView.rowHeight = UITableViewAutomaticDimension
+////        tableView.backgroundColor = UIColor()
+//    }
 
     // MARK: - Table view data source
 

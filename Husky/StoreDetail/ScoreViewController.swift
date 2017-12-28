@@ -60,7 +60,7 @@ class ScoreViewController: UIViewController {
                 uid: uid,
                 storeId: selectedStore.id,
                 average: newAverage,
-                imageData: imageData!,
+                imageUrl: "",
                 content: content,
                 firstRating: firstRating,
                 secondRating: secondRating,
@@ -72,11 +72,10 @@ class ScoreViewController: UIViewController {
         let alert = UIAlertController(title: "標題", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
             
-            self.networkingService.saveComment(comment: comment)
+            self.networkingService.saveComment(comment: comment, imageData: imageData!)
             
             let storeRef = self.ref.child("Stores").child(selectedStore.id)
             let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
-            //let childUpdate = [storeRef: stores]
             storeRef.updateChildValues(stores)
             
             self.firstRatingView.rating = 0

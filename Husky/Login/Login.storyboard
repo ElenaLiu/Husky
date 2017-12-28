@@ -49,11 +49,11 @@
                                                 <rect key="frame" x="8" y="152" width="359" height="262"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hIk-Go-n0h" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="44" width="239" height="39.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="44" width="239" height="47.666666666666657"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -82,11 +82,11 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJ5-vx-IR2" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="139.33333333333331" width="239" height="39"/>
+                                                        <rect key="frame" x="0.0" y="147.66666666666669" width="239" height="47.666666666666657"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
@@ -281,6 +281,7 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="0.60463934075342463" colorSpace="calibratedRGB"/>
                                                                 <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
@@ -313,7 +314,7 @@
                                                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -346,7 +347,7 @@
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES" textContentType="password"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">

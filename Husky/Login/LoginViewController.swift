@@ -131,15 +131,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.loginTapped.layer.cornerRadius = 5
     }
     
-    /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
+}
+
+extension LoginViewController {
+    func setUpErrorTextFieldHandeler() {
+        
+        loginEmailAddressTextField.delegate = self
+        loginEmailAddressTextField.tag = 1
+        
+        loginPasswordTextField.delegate = self
+        loginPasswordTextField.tag = 2
+        
+    }
+    
+    // Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
     
 //    func textField(
 //        textField: UITextField,
 //        shouldChangeCharactersInRange range: NSRange,
 //        replacementString string: String
 //        ) -> Bool {
-//        if let text = loginEmailAddressTextField.text {
-//            if let text = textField as? SkyFloatingLabelTextField {
+//
+//        if let text = textField.text {
+//            if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
 //                if(text.characters.count < 3 || !text.containsString("@")) {
 //                    text.errorMessage = "Invalid email"
 //                }
@@ -151,5 +165,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        }
 //        return true
 //    }
+
+    
+
 }
 

@@ -150,7 +150,7 @@ struct NetworkingService {
         
     }
     
-    func saveComment(comment: Comment)
+    func saveComment(comment: Comment, imageData: Data)
     {
         
         //Create Path for the User Image
@@ -164,10 +164,11 @@ struct NetworkingService {
         metaData.contentType = "image/jpeg"
         
         // Save the user Image in the Firebase Storage File
-        imageRef.putData(comment.imageData,
+        imageRef.putData(imageData,
                          metadata: metaData) { (metaData, error) in
                             if error == nil {
                                 let imageUrl = metaData!.downloadURL()
+                
                                 self.saveCommentInfo(comment: comment, imageUrl: imageUrl)
                             }else {
                                 print(error!.localizedDescription)

@@ -21,7 +21,7 @@ public struct Comment {
         
         public static let average = "average"
         
-        public static let imageData = "imageData"
+        public static let imageUrl = "imageUrl"
         
         public static let content = "content"
         
@@ -45,7 +45,7 @@ public struct Comment {
     
     public let average: Double
     
-    public let imageData: Data
+    public let imageUrl: String
     
     public let content: String
     
