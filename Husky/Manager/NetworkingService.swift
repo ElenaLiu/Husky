@@ -13,7 +13,16 @@ import FirebaseStorage
 import FirebaseDatabase
 import UIKit
 
+protocol NetworkingServiceDelegate {
+    
+    func didFail(with error: Error)
+}
+
+
+
 struct NetworkingService {
+    
+    var delegate: NetworkingServiceDelegate?
     
     var databaseRef: DatabaseReference! {
         return Database.database().reference()
@@ -91,6 +100,7 @@ struct NetworkingService {
                 })
             }else {
                 print(error!.localizedDescription)
+                self.delegate?.didFail(with: error!)
             }
         }
     }

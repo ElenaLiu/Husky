@@ -9,9 +9,10 @@
 import UIKit
 import Firebase
 import SCLAlertView
+import SkyFloatingLabelTextField
 
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -77,6 +78,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         setUpLoginTapped()
         
+        textFieldErrorHandle()
+        
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillShow),
@@ -105,7 +108,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let contentInsets = UIEdgeInsets(top: 0,
                                          left: 0,
-                                         bottom: keyboardCGRect.height,
+                                         bottom: keyboardCGRect.height - 200,
                                          right: 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollRectToVisible(keyboardCGRect,
@@ -133,40 +136,46 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 }
 
-extension LoginViewController {
-    func setUpErrorTextFieldHandeler() {
+extension LoginViewController: UITextFieldDelegate  {
+    
+    func textFieldErrorHandle() {
         
         loginEmailAddressTextField.delegate = self
-        loginEmailAddressTextField.tag = 1
-        
         loginPasswordTextField.delegate = self
-        loginPasswordTextField.tag = 2
-        
     }
     
-    // Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    
-//    func textField(
-//        textField: UITextField,
-//        shouldChangeCharactersInRange range: NSRange,
-//        replacementString string: String
-//        ) -> Bool {
-//
-//        if let text = textField.text {
-//            if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-//                if(text.characters.count < 3 || !text.containsString("@")) {
-//                    text.errorMessage = "Invalid email"
-//                }
-//                else {
-//                    // The error message will only disappear when we reset it to nil or empty string
-//                    floatingLabelTextField.errorMessage = ""
-//                }
-//            }
-//        }
-//        return true
-//    }
-
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField === loginEmailAddressTextField {
+            if let text = textField.text {
+                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                    if(text.count < 3 || !text.contains("@")) {
+                        floatingLabelTextField.errorMessage = "Invalid email"
+                    }
+                    else {
+                        // The error message will only disappear when we reset it to nil or empty string
+                        floatingLabelTextField.errorMessage = ""
+                    }
+                }
+            }
+            
+        }else if textField === loginPasswordTextField {
+            if let text = textField.text {
+                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                    if(text.count < 8 ) {
+                        floatingLabelTextField.errorMessage = "Invalid password"
+                    }
+                    else {
+                        // The error message will only disappear when we reset it to nil or empty string
+                        floatingLabelTextField.errorMessage = ""
+                    }
+                }
+            }
+            
+        }
+        return true
+    }
 
 }
+
 

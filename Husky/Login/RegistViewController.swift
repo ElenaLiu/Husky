@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import SCLAlertView
 import Fusuma
+import SkyFloatingLabelTextField
 
 
 class RegistViewController: UIViewController, FusumaDelegate {
@@ -54,6 +55,7 @@ class RegistViewController: UIViewController, FusumaDelegate {
         
         setUpregistImage()
         setUpRegistTapped()
+        textFieldErrorHandle()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -77,11 +79,17 @@ class RegistViewController: UIViewController, FusumaDelegate {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUpregistImage()
+        
+    }
+    
     func setUpregistImage() {
         
         self.registImageView.layer.borderWidth = 1
         self.registImageView.layer.masksToBounds = false
-        self.registImageView.layer.borderColor = UIColor.black.cgColor
+        self.registImageView.layer.borderColor = UIColor.darkGray.cgColor
         self.registImageView.layer.cornerRadius = registImageView.frame.height/2.0
         self.registImageView.clipsToBounds = true
     }
@@ -91,7 +99,6 @@ class RegistViewController: UIViewController, FusumaDelegate {
         self.signUpTapped.layer.cornerRadius = 5
     }
     
-
     @IBAction func chooseUserImage(_ sender: Any) {
         
         //init Fusuma
@@ -140,6 +147,49 @@ class RegistViewController: UIViewController, FusumaDelegate {
         registPasswordTextField.resignFirstResponder()
 
     }
+}
+
+extension RegistViewController: UITextFieldDelegate  {
+    
+    func textFieldErrorHandle() {
+
+
+        registEmailTextField.delegate = self
+        registPasswordTextField.delegate = self
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField === registEmailTextField {
+            if let text = textField.text {
+                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                    if(text.count < 3 || !text.contains("@")) {
+                        floatingLabelTextField.errorMessage = "Invalid email"
+                    }
+                    else {
+                        // The error message will only disappear when we reset it to nil or empty string
+                        floatingLabelTextField.errorMessage = ""
+                    }
+                }
+            }
+            
+        }else if textField === registPasswordTextField {
+            if let text = textField.text {
+                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                    if(text.count < 8 ) {
+                        floatingLabelTextField.errorMessage = "Invalid password"
+                    }
+                    else {
+                        // The error message will only disappear when we reset it to nil or empty string
+                        floatingLabelTextField.errorMessage = ""
+                    }
+                }
+            }
+            
+        }
+        return true
+    }
+    
 }
 
 

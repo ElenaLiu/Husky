@@ -77,7 +77,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpScoreImage()
+//        setUpScoreImage()
         
         setUpNavigationBar()
         
@@ -96,6 +96,12 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         //tap anywhere to hide keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                               action: #selector(dismissKeyboard)))
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUpScoreImage()
+
     }
     
     // Remove observer
@@ -139,11 +145,12 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     }
     
     func setUpScoreImage() {
-        
+
         self.userProfileImageView.layer.borderWidth = 0
         self.userProfileImageView.layer.masksToBounds = false
         self.userProfileImageView.layer.borderColor = UIColor.darkGray.cgColor
-        self.userProfileImageView.layer.cornerRadius = userProfileImageView.frame.width/2.0
+        self.userProfileImageView.layer.cornerRadius = userProfileImageView.bounds.size.height / 2.0
+        print("223\(userProfileImageView.bounds)")
         self.userProfileImageView.clipsToBounds = true
     }
     

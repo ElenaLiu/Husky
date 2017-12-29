@@ -85,26 +85,9 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
         // SetUp default page
         selectedViewController = StoreInfoViewController
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        let contentSize = self.textView.sizeThatFits(self.textView.bounds.size)
-//        var frame = self.textView.frame
-//        frame.size.height = contentSize.height
-//        self.textView.frame = frame
-//
-//        aspectRatioTextViewConstraint = NSLayoutConstraint(item: self.textView, attribute: .height, relatedBy: .equal, toItem: self.textView, attribute: .width, multiplier: textView.bounds.height/textView.bounds.width, constant: 1)
-//        self.textView.addConstraint(aspectRatioTextViewConstraint)!
-//    }
-    
+
     @IBAction func backToMapPageTapped(_ sender: Any) {
-//
-//        let button = UIButton(type: .custom)
-//        button.setImage( #imageLiteral(resourceName: "Back"), for: .normal)
-//        button.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
-//        let barButton = UIBarButtonItem.init(customView: button)
-//        self.navigationItem.leftBarButtonItem = barButton
+
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -142,7 +125,6 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
             navigationItem.rightBarButtonItem = nil
         }
         
-
         // Remove previous viewController
         selectedViewController.willMove(toParentViewController: nil)
         selectedViewController.view.removeFromSuperview()

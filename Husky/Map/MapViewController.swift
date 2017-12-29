@@ -136,7 +136,6 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
             marker.title = store.name
             marker.snippet = store.id
-            marker.map = mapView
             ref = Database.database().reference()
             if let userId = Auth.auth().currentUser?.uid {
                 ref.child("StoreComments").queryOrdered(byChild: "uid").queryEqual(toValue: userId).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -155,6 +154,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                             }
                         }
                     }
+                   marker.map = self.mapView
                 })
             }
         }

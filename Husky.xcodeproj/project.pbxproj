@@ -214,7 +214,6 @@
 		AC75D1711FE148360072DD1B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */,
 				AC75D1721FE148A20072DD1B /* Login.storyboard */,
 				AC75D1741FE148D80072DD1B /* LoginViewController.swift */,
 				AC791B491FE3A925004A7893 /* RegistViewController.swift */,
@@ -225,6 +224,7 @@
 		AC791B3E1FE26158004A7893 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */,
 				AC791B431FE28533004A7893 /* StoreProvider.swift */,
 				AC791B411FE2619C004A7893 /* Store.swift */,
 				AC11DD791FF52DC600834285 /* CommentProvider.swift */,
@@ -344,6 +344,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Husky/Pods-Husky-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
