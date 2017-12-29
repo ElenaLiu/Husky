@@ -9,8 +9,9 @@
 import UIKit
 import FoldingCell
 
-class CommentsTableViewCell: FoldingCell {
+class CommentsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
