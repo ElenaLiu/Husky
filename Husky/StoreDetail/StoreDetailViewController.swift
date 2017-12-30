@@ -69,12 +69,6 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let button = UIButton(type: .custom)
-//        button.setImage( #imageLiteral(resourceName: "Back"), for: .normal)
-//        button.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
-//        let barButton = UIBarButtonItem.init(customView: button)
-//        self.navigationItem.leftBarButtonItem = barButton
-//
         let navigationController = self.navigationController as! StoreDetailNavigationController
         
         self.selectedMarkerId = navigationController.selectedMarkerId

@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import GoogleMaps
+import GooglePlaces
 
 protocol StoreProviderDelegate: class {
     
@@ -19,15 +20,13 @@ protocol StoreProviderDelegate: class {
 
 class StoreProvider {
     
-    static var ref: DatabaseReference = Database.database().reference()
-    
     static let shared = StoreProvider()
     
     weak var delegate: StoreProviderDelegate?
     
     func getStores() {
         
-        StoreProvider.ref.child("Stores").observeSingleEvent(of: .value) { (snapShot) in
+        NetworkingService.databaseRef.child("Stores").observeSingleEvent(of: .value) { (snapShot) in
             
             guard let storeDic = snapShot.value as? [String: Any] else { return }
             
@@ -61,5 +60,39 @@ class StoreProvider {
             }
             self.delegate?.didFetch(with: stores)
         }
+    }
+    
+//    public let id: String
+//
+//    public let name: String
+//
+//    public let address: String
+//
+//    public let phone: String
+//
+//    public let longitude: CLLocationDegrees
+//
+//    public let latitude: CLLocationDegrees
+//
+//    public let scoredPeople: Int
+//
+//    public let storeScoreAverage: Double
+
+    
+    func saveStore(place: GMSPlace) {
+        
+        guard let address = place.formattedAddress,
+            let phoneNumber = place.phoneNumber else { return }
+        
+
+            NetworkingService.databaseRef.child("Stores").childByAutoId().setValue([
+                "name": place.name,
+                "address": address,
+                "phone": phoneNumber,
+                "latitude": place.coordinate.latitude,
+                "longitude": place.coordinate.longitude,
+                "scoredPeople": 0,
+                "storeScoreAverage": 0.0
+                ])
     }
 }

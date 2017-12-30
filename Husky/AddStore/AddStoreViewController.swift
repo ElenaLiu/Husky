@@ -10,80 +10,68 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
+import Firebase
+import SkyFloatingLabelTextField
 
 class AddStoreViewController: UIViewController {
     
+    var placeInfo: GMSPlace?
+    
+    @IBOutlet weak var storeNameTextField: UITextField!
+    
+    @IBOutlet weak var storePhoneNumberTextField: UITextField!
+    
+    @IBOutlet weak var storeAddressTextField: UITextField!
+    
     @IBAction func addStoreTapped(_ sender: Any) {
+        
+        storeNameTextField.text = ""
+        storePhoneNumberTextField.text = ""
+        storeAddressTextField.text = ""
+        
         let config = GMSPlacePickerConfig(viewport: nil)
-        let placePicker = GMSPlacePickerViewController(config: config)
         
-        present(placePicker, animated: true, completion: nil)
+        let placePicker = GMSPlacePicker(config: config)
         
+        placePicker.pickPlace(callback: { (place, error) -> Void in
+            
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place selected")
+                return
+            }
+            self.placeInfo = place
+            
+            self.storeNameTextField.text = place.name
+            self.storeNameTextField.isEnabled = false
+            
+            if let phoneNumber = place.phoneNumber {
+                self.storePhoneNumberTextField.isEnabled = false
+                self.storePhoneNumberTextField.text = place.phoneNumber
+            }else {
+                self.storePhoneNumberTextField.isEnabled = true
+            }
+            
+            
+            if let address = place.formattedAddress {
+                self.storeAddressTextField.isEnabled = false
+                self.storeAddressTextField.text = place.formattedAddress
+            }else {
+                self.storeAddressTextField.isEnabled = true
+            }
+            StoreProvider.shared.saveStore(place: self.placeInfo!)
+        })
     }
-    
-    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        viewController.dismiss(animated: true, completion: nil)
-        
-        print("Place name \(place.name)")
-        print("Place address \(place.formattedAddress)")
-        print("Place attributions \(place.attributions)")
-    }
-    
-    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        viewController.dismiss(animated: true, completion: nil)
-        
-        print("No place selected")
-    }
-    var resultsViewController: GMSAutocompleteResultsViewController?
-    var searchController: UISearchController?
-    var resultView: UITextView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavigationBar()
-
-//        resultsViewController = GMSAutocompleteResultsViewController()
-//        resultsViewController?.delegate = self
-//
-//
-//        searchController = UISearchController(searchResultsController: resultsViewController)
-//        searchController?.searchResultsUpdater = resultsViewController
-//
-//
-//
-//        // Put the search bar in the navigation bar.
-//        searchController?.searchBar.sizeToFit()
-//        navigationItem.titleView = searchController?.searchBar
-//
-//        // When UISearchController presents the results view, present it in
-//        // this view controller, not one further up the chain.
-//        definesPresentationContext = true
-//
-//        // Prevent the navigation bar from being hidden when searching.
-//        searchController?.hidesNavigationBarDuringPresentation = false
     }
-    
-
-    
-//    func setUpGoogleSearchBar() {
-//
-//        searchController = UISearchController(searchResultsController: resultsViewController)
-//        searchController?.searchResultsUpdater = resultsViewController
-//
-//        // Put the search bar in the navigation bar.
-//        searchController?.searchBar.sizeToFit()
-//        navigationItem.titleView = searchController?.searchBar
-//
-//        // When UISearchController presents the results view, present it in
-//        // this view controller, not one further up the chain.
-//        self.definesPresentationContext = true
-//
-//        // Prevent the navigation bar from being hidden when searching.
-//        searchController?.hidesNavigationBarDuringPresentation = false
-//    }
     
     func setUpNavigationBar() {
         
@@ -91,33 +79,16 @@ class AddStoreViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 28)!]
         navigationItem.title = "i Bubble"
+        
+        let image = #imageLiteral(resourceName: "AddStore")
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: imageView)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.rightBarButtonItem?.customView = imageView
+  
     }
 }
 
-//// Handle the user's selection.
-//extension AddStoreViewController: GMSAutocompleteResultsViewControllerDelegate {
-//    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-//                           didAutocompleteWith place: GMSPlace) {
-//        searchController?.isActive = false
-//        // Do something with the selected place.
-//        print("Place name: \(place.name)")
-//        print("Place address: \(place.formattedAddress)")
-//        print("Place attributions: \(place.attributions)")
-//    }
-//
-//    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-//                           didFailAutocompleteWithError error: Error){
-//        // TODO: handle the error.
-//        print("Error: ", error.localizedDescription)
-//    }
-//
-//    // Turn the network activity indicator on and off again.
-//    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//    }
-//
-//    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-////    }
-//}
+
 

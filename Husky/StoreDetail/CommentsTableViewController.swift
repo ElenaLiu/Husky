@@ -24,8 +24,6 @@ class CommentsTableViewController: UITableViewController {
         CommentProvider.shared.delegate = self
         
         guard let selectedStore = selectedMarkerId else { return }
-        print("777\(selectedStore)")
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

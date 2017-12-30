@@ -17,9 +17,8 @@ protocol CommentProviderDelegate: class {
     func didFail(with error: Error)
 }
 
+
 class CommentProvider {
-    
-    static var ref: DatabaseReference = Database.database().reference()
     
     static let shared = CommentProvider()
     
@@ -30,15 +29,11 @@ class CommentProvider {
     var comments = [Comment]()
     
     
-        func fetchComments(selectStoreId: String) {
+    func fetchComments(selectStoreId: String) {
 
         let storeId = selectStoreId
 
-        print("123\(storeId)")
-
-
-        CommentProvider.ref.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent(of: .value) { (snapshot) in
-            print("455\(snapshot)")
+        NetworkingService.databaseRef.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent(of: .value) { (snapshot) in
 
             guard let commentDic = snapshot.value as? [String: Any] else { return }
 
@@ -48,22 +43,18 @@ class CommentProvider {
 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
 
-                guard let info =  dicValue.value as? [String: Any] else { return }
-                guard let storeId = info[Comment.Schema.storeId] as? String else { return }
-                guard let average = info[Comment.Schema.average] as? Double else { return }
-                guard let imageUrl = info[Comment.Schema.imageUrl] as? String else { return }
-                guard let content = info[Comment.Schema.content] as? String else { return }
+                guard let info =  dicValue.value as? [String: Any],
+                    let storeId = info[Comment.Schema.storeId] as? String,
+                    let average = info[Comment.Schema.average] as? Double,
+                    let imageUrl = info[Comment.Schema.imageUrl] as? String,
+                    let content = info[Comment.Schema.content] as? String else { return }
 
-                print("124\(info)")
-
-
-                guard let scoreInfo = info["score"] as? [String: Any] else { return }
-                guard let firstRating = scoreInfo[Comment.Schema.firstRating] as? Double,
+                guard let scoreInfo = info["score"] as? [String: Any],
+                    let firstRating = scoreInfo[Comment.Schema.firstRating] as? Double,
                     let secondRating = scoreInfo[Comment.Schema.secondRating] as? Double,
                     let thirdRating = scoreInfo[Comment.Schema.thirdRating] as? Double,
                     let fourthRating = scoreInfo[Comment.Schema.fourthRating] as? Double,
                     let fifthRating = scoreInfo[Comment.Schema.fifthRating] as? Double else { return }
-                print("135\(scoreInfo)")
 
                 comments.append(
                     Comment(
@@ -83,5 +74,47 @@ class CommentProvider {
             self.delegate?.didFetch(with: comments)
         }
 
+    }
+    
+    func saveComment(comment: Comment, imageData: Data)
+    {
+        
+        //Create Path for the User Image
+        let commentImagePath = "commentImage\(comment.uid)/commentPic.jpg"
+        
+        // Create image Reference
+        let imageRef = NetworkingService.storageRef.child(commentImagePath)
+        
+        // Create Metadata for the image
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        // Save the user Image in the Firebase Storage File
+        imageRef.putData(imageData,
+                         metadata: metaData) { (metaData, error) in
+                            if error == nil {
+                                let imageUrl = metaData!.downloadURL()
+                                
+                                self.saveCommentInfo(comment: comment, imageUrl: imageUrl)
+                            }else {
+                                print(error!.localizedDescription)
+                            }
+        }
+    }
+    
+    private func saveCommentInfo(comment: Comment, imageUrl: URL?) {
+        
+        NetworkingService.databaseRef.child("StoreComments").childByAutoId().setValue([
+            "uid": comment.uid,
+            "storeId": comment.storeId,
+            "average": comment.average,
+            "content": comment.content,
+            "imageUrl": imageUrl?.absoluteString,
+            "score": ["firstRating": comment.firstRating,
+                      "secondRating": comment.secondRating,
+                      "thirdRating": comment.thirdRating,
+                      "fourthRating": comment.fourthRating,
+                      "fifthRating": comment.fifthRating]
+            ])
     }
 }

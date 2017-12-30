@@ -28,9 +28,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string></string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Show your location on the map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Show your location on the map</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>

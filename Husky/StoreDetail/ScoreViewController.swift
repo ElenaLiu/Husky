@@ -53,7 +53,7 @@ class ScoreViewController: UIViewController {
         
         let scoreAverage = averageTotal / Double(selectedStore.scoredPeople + 1)
 
-        ref = StoreProvider.ref
+        ref = NetworkingService.databaseRef
         if let uid = Auth.auth().currentUser?.uid {
             
             let comment = Comment(

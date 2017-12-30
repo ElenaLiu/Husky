@@ -18,17 +18,15 @@ protocol NetworkingServiceDelegate {
     func didFail(with error: Error)
 }
 
-
-
 struct NetworkingService {
     
     var delegate: NetworkingServiceDelegate?
     
-    var databaseRef: DatabaseReference! {
+    static var databaseRef: DatabaseReference! {
         return Database.database().reference()
     }
     
-    var storageRef: StorageReference {
+    static var storageRef: StorageReference {
         return Storage.storage().reference()
     }
     
@@ -76,7 +74,7 @@ struct NetworkingService {
         let imagePath = "profileImage\(user.uid)/userPic.jpg"
         
         // Create image Reference
-        let imageRef = storageRef.child(imagePath)
+        let imageRef = NetworkingService.storageRef.child(imagePath)
         
         // Create Metadata for the image
         let metaData = StorageMetadata()
@@ -119,7 +117,7 @@ struct NetworkingService {
                         "photoUrl": String(describing: user.photoURL!)]
         
         // create user reference
-        let userRef = databaseRef.child("Users").child(user.uid)
+        let userRef = NetworkingService.databaseRef.child("Users").child(user.uid)
         
         // Save the user info in the Database
         userRef.setValue(userInfo)
@@ -167,7 +165,7 @@ struct NetworkingService {
         let commentImagePath = "commentImage\(comment.uid)/commentPic.jpg"
         
         // Create image Reference
-        let imageRef = storageRef.child(commentImagePath)
+        let imageRef = NetworkingService.storageRef.child(commentImagePath)
         
         // Create Metadata for the image
         let metaData = StorageMetadata()
@@ -187,8 +185,8 @@ struct NetworkingService {
     }
     
     private func saveCommentInfo(comment: Comment, imageUrl: URL?) {
-            
-            databaseRef.child("StoreComments").childByAutoId().setValue([
+        NetworkingService.databaseRef.child("StoreComments").childByAutoId().setValue(
+            [
                 "uid": comment.uid,
                 "storeId": comment.storeId,
                 "average": comment.average,
@@ -199,6 +197,7 @@ struct NetworkingService {
                           "thirdRating": comment.thirdRating,
                           "fourthRating": comment.fourthRating,
                           "fifthRating": comment.fifthRating]
-                ])
+            ]
+        )
     }
 }
