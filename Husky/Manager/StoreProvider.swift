@@ -86,13 +86,14 @@ class StoreProvider {
         
 
             NetworkingService.databaseRef.child("Stores").childByAutoId().setValue([
-                "name": place.name,
-                "address": address,
-                "phone": phoneNumber,
-                "latitude": place.coordinate.latitude,
-                "longitude": place.coordinate.longitude,
-                "scoredPeople": 0,
-                "storeScoreAverage": 0.0
+                
+                Store.Schema.name: place.name,
+                Store.Schema.address: address,
+                Store.Schema.phone: phoneNumber,
+                Store.Schema.latitude: place.coordinate.latitude,
+                Store.Schema.longitude: place.coordinate.longitude,
+                Store.Schema.scoredPeople: 0,
+                Store.Schema.storeScoreAverage: 0.0
                 ])
     }
 }
