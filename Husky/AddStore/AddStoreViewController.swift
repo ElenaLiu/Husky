@@ -23,6 +23,11 @@ class AddStoreViewController: UIViewController {
     
     @IBOutlet weak var storeAddressTextField: UITextField!
     
+    @IBAction func saveStoreTapped(_ sender: Any) {
+        
+        StoreProvider.shared.saveStore(place: self.placeInfo!)
+    }
+
     @IBAction func addStoreTapped(_ sender: Any) {
         
         storeNameTextField.text = ""
@@ -63,7 +68,6 @@ class AddStoreViewController: UIViewController {
             }else {
                 self.storeAddressTextField.isEnabled = true
             }
-            StoreProvider.shared.saveStore(place: self.placeInfo!)
         })
     }
 
@@ -73,6 +77,8 @@ class AddStoreViewController: UIViewController {
         setUpNavigationBar()
     }
     
+    
+    
     func setUpNavigationBar() {
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -80,13 +86,12 @@ class AddStoreViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 28)!]
         navigationItem.title = "i Bubble"
         
-        let image = #imageLiteral(resourceName: "AddStore")
-        let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: imageView)
-        imageView.contentMode = .scaleAspectFit
-        navigationItem.rightBarButtonItem?.customView = imageView
-  
+//        let image = #imageLiteral(resourceName: "AddStore")
+//        let imageView = UIImageView(image: image)
+//        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: imageView)
+//        imageView.contentMode = .scaleAspectFit
+//        navigationItem.rightBarButtonItem?.customView = imageView
     }
 }
 
