@@ -113,17 +113,16 @@ class ScoreViewController: UIViewController {
     
     // Remove observer
     deinit {
-        
          let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }
 
     func setUpScoreImage() {
         
-        self.scoreImageView.layer.borderWidth = 1
+        self.scoreImageView.layer.borderWidth = 0.6
         self.scoreImageView.layer.masksToBounds = false
-        self.scoreImageView.layer.borderColor = UIColor.black.cgColor
-        self.scoreImageView.layer.cornerRadius = 5
+        self.scoreImageView.layer.borderColor = UIColor.gray.cgColor
+        self.scoreImageView.layer.cornerRadius = 10
         self.scoreImageView.clipsToBounds = true
     }
     
@@ -195,7 +194,7 @@ class ScoreViewController: UIViewController {
     @objc func keyboardWillShow(notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo!
         let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height - 130, right: 0)
         scoreScrollView.contentInset = contentInsets
         scoreScrollView.scrollRectToVisible(keyboardCGRect, animated: true)
         

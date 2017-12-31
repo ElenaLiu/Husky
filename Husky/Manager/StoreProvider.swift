@@ -25,7 +25,6 @@ class StoreProvider {
     weak var delegate: StoreProviderDelegate?
     
     func getStores() {
-        
         NetworkingService.databaseRef.child("Stores").observeSingleEvent(of: .value) { (snapShot) in
             
             guard let storeDic = snapShot.value as? [String: Any] else { return }
@@ -62,31 +61,12 @@ class StoreProvider {
         }
     }
     
-//    public let id: String
-//
-//    public let name: String
-//
-//    public let address: String
-//
-//    public let phone: String
-//
-//    public let longitude: CLLocationDegrees
-//
-//    public let latitude: CLLocationDegrees
-//
-//    public let scoredPeople: Int
-//
-//    public let storeScoreAverage: Double
-
-    
     func saveStore(place: GMSPlace) {
         
         guard let address = place.formattedAddress,
             let phoneNumber = place.phoneNumber else { return }
         
-
-            NetworkingService.databaseRef.child("Stores").childByAutoId().setValue([
-                
+        NetworkingService.databaseRef.child("Stores").childByAutoId().setValue([
                 Store.Schema.name: place.name,
                 Store.Schema.address: address,
                 Store.Schema.phone: phoneNumber,

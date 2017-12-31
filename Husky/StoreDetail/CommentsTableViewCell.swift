@@ -9,19 +9,17 @@
 import UIKit
 import FoldingCell
 
-class CommentsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var label: UILabel!
+class CommentsTableViewCell:  FoldingCell {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+//    @IBOutlet weak var foregroundView: RotatedView!
+    
+    
+    override func animationDuration(_ itemIndex: NSInteger, type: FoldingCell.AnimationType) -> TimeInterval {
         
+        // durations count equal it itemCount
+        let durations = [0.33, 0.26, 0.26] // timing animation for each view
+        return durations[itemIndex]
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-       
-    }
+ 
 
 }

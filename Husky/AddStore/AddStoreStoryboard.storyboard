@@ -18,40 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCL-6c-RSu">
-                                <rect key="frame" x="38" y="116" width="307" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="select store"/>
-                                <connections>
-                                    <action selector="addStoreTapped:" destination="6sq-dl-Gmn" eventType="touchUpInside" id="NiC-2n-Trn"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-tJ-fuX">
                                 <rect key="frame" x="20" y="214" width="335" height="253"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-zv-AM4">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" background="BubbleTea(Brown)" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-zv-AM4">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="67.5"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.2283283390410959" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-6Z-KSb">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-6Z-KSb">
                                         <rect key="frame" x="0.0" y="92.5" width="335" height="68"/>
-                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.2517123288" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.98023545742034912" green="0.89025676250457764" blue="0.88627922534942627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibU-MN-K84">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibU-MN-K84">
                                         <rect key="frame" x="0.0" y="185.5" width="335" height="67.5"/>
-                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.2517123288" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.99196183681488037" green="0.95698976516723633" blue="0.87450480461120605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCL-6c-RSu">
+                                <rect key="frame" x="34" y="505" width="307" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="select store"/>
+                                <connections>
+                                    <action selector="addStoreTapped:" destination="6sq-dl-Gmn" eventType="touchUpInside" id="NiC-2n-Trn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,7 +66,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="i Bubble" id="DnT-CV-pyr">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Axp-ag-pd9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="AddStore" style="plain" id="Axp-ag-pd9">
                             <connections>
                                 <action selector="saveStoreTapped:" destination="6sq-dl-Gmn" id="oy4-cT-QzX"/>
                             </connections>
@@ -105,4 +105,8 @@
             <point key="canvasLocation" x="-380" y="36"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AddStore" width="25" height="25"/>
+        <image name="BubbleTea(Brown)" width="25" height="40"/>
+    </resources>
 </document>

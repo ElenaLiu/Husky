@@ -53,7 +53,6 @@ class RegistViewController: UIViewController, FusumaDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpregistImage()
         setUpRegistTapped()
         textFieldErrorHandle()
         
