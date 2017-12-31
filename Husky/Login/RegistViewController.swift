@@ -84,6 +84,10 @@ class RegistViewController: UIViewController, FusumaDelegate {
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
     func setUpregistImage() {
         
         self.registImageView.layer.borderWidth = 1

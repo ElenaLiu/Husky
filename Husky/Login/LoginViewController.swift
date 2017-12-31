@@ -101,6 +101,12 @@ class LoginViewController: UIViewController {
         notificationCenter.removeObserver(self)
     }
     
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
+    
     // Handling keyboard
     @objc func keyboardWillShow(notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo!
