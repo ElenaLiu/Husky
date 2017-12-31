@@ -9,6 +9,7 @@
 import UIKit
 import FoldingCell
 import Firebase
+import SDWebImage
 
 
 
@@ -16,13 +17,13 @@ class CommentsTableViewController: UITableViewController {
     
     fileprivate struct C {
         struct CellHeight {
-            static let close: CGFloat = 130
-            static let open: CGFloat = 210
+            static let close: CGFloat = 179
+            static let open: CGFloat = 420
         }
     }
     
     //Add property for calculate cells height
-    var cellHeights = (0..<2).map { _ in C.CellHeight.close }
+    var cellHeights = (0..<3).map { _ in C.CellHeight.close }
     
     var selectedMarkerId: Store?
     
@@ -50,7 +51,7 @@ class CommentsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard case let cell as FoldingCell = tableView.cellForRow(at: indexPath) else {
+        guard case let cell as CommentsTableViewCell = tableView.cellForRow(at: indexPath) else {
             return
         }
         
@@ -97,12 +98,21 @@ class CommentsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as! CommentsTableViewCell
+        let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+        cell.durationsForExpandedState = durations
+        cell.durationsForCollapsedState = durations
+        
         let comment = comments[indexPath.row]
-
         
-
+        // Trainsition String type to be URL
+        let photoUrl = URL(string: comment.imageUrl)
         
-
+        //上傳圖片時才壓縮, 載入圖片時不用
+        cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
+        
+        cell.firstScoreLabel.text = "珍珠Ｑ度："
+        cell.firstRatingView.rating = comment.firstRating
+        cell.firstRatingView.settings.updateOnTouch = false
         return cell
     }
 }
