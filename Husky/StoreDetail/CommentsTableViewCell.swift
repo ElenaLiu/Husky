@@ -9,10 +9,7 @@
 import UIKit
 import FoldingCell
 
-class CommentsTableViewCell:  FoldingCell {
-    
-//    @IBOutlet weak var foregroundView: RotatedView!
-    
+class CommentsTableViewCell: FoldingCell {
     
     override func animationDuration(_ itemIndex: NSInteger, type: FoldingCell.AnimationType) -> TimeInterval {
         
@@ -20,6 +17,4 @@ class CommentsTableViewCell:  FoldingCell {
         let durations = [0.33, 0.26, 0.26] // timing animation for each view
         return durations[itemIndex]
     }
- 
-
 }

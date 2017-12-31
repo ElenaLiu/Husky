@@ -107,7 +107,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="containerView" destination="5rQ-he-ysq" id="XOm-OJ-ono"/>
+                        <outlet property="containerView" destination="5rQ-he-ysq" id="S6C-C2-KZ7"/>
                         <outlet property="scorePageTapped" destination="KVe-BE-cuW" id="o1C-mX-gSs"/>
                         <outlet property="storeInfoPageTapped" destination="zhJ-5p-SA9" id="wWb-HC-1py"/>
                     </connections>
@@ -264,7 +264,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentsTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsTableViewCell" rowHeight="667" id="Eqq-Bl-ACM" customClass="CommentsTableViewCell" customModule="FoldingCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentsTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsTableViewCell" rowHeight="667" id="Eqq-Bl-ACM" customClass="CommentsTableViewCell" customModule="Husky">
                                 <rect key="frame" x="0.0" y="28" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eqq-Bl-ACM" id="7hq-bZ-Bmr">
@@ -273,6 +273,13 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGT-S0-m13" customClass="RotatedView" customModule="FoldingCell">
                                             <rect key="frame" x="20" y="7" width="335" height="128"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BubbleTea(Brown)" translatesAutoresizingMaskIntoConstraints="NO" id="OAq-bT-5FZ">
+                                                    <rect key="frame" x="47" y="0.0" width="240" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.16863762842465754" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-8L-O3f">
@@ -298,7 +305,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="foregroundView" destination="bGT-S0-m13" id="9Sy-79-qde"/>
+                                    <outlet property="containerView" destination="4Da-8L-O3f" id="4xe-eT-HXB"/>
+                                    <outlet property="containerViewTop" destination="Uh1-4U-ZE4" id="DCe-OF-kCR"/>
+                                    <outlet property="foregroundView" destination="bGT-S0-m13" id="qty-yK-6Oc"/>
+                                    <outlet property="foregroundViewTop" destination="Jtk-hU-6xB" id="urH-76-nLf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

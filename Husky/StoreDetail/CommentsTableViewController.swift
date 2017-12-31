@@ -28,7 +28,6 @@ class CommentsTableViewController: UITableViewController {
     
     var comments = [Comment]()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,8 +80,6 @@ class CommentsTableViewController: UITableViewController {
             }
         }
     }
-    
-
 
     // MARK: - Table view data source
 
