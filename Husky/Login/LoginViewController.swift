@@ -132,7 +132,6 @@ class LoginViewController: UIViewController {
         
         loginEmailAddressTextField.resignFirstResponder()
         loginPasswordTextField.resignFirstResponder()
-        
     }
     
     func setUpLoginTapped() {
@@ -168,7 +167,7 @@ extension LoginViewController: UITextFieldDelegate  {
         }else if textField === loginPasswordTextField {
             if let text = textField.text {
                 if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                    if(text.count < 8 ) {
+                    if(text.count < 7 ) {
                         floatingLabelTextField.errorMessage = "Invalid password"
                     }
                     else {

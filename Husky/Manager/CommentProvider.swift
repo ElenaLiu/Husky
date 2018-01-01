@@ -20,6 +20,7 @@ protocol CommentProviderDelegate: class {
 
 class CommentProvider {
     
+    //static 不用透過實體就可以呼叫
     static let shared = CommentProvider()
     
     weak var delegate: CommentProviderDelegate?

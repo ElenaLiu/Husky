@@ -10,25 +10,34 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-struct BubbleUser {
+//Name User 會跟 firebase User重覆
+public struct BubbleUser {
+    
+    // MARK: Schema
+    
+    public struct Schema {
+        
+        public static let uid = "uid"
+        
+        public static let userName = "username"
+        
+        public static let email = "email"
+        
+        public static let photoUrl = "photoUrl"
 
-    var userName: String!
-    var email: String!
-    var uid: String!
-    var photoUrl: String!
-    var ref: DatabaseReference?
-    var key: String
-
-    init(snapshot: DataSnapshot){
-
-        if let dictionary = snapshot.value as? [String: Any] {
-            userName = dictionary["username"] as! String
-            email = dictionary["email"] as! String
-            photoUrl = dictionary["photoUrl"] as! String
-        }
-        key = snapshot.key
-        ref = snapshot.ref
     }
+    
+    // MARK: Property
+    
+    public var uid: String
+    
+    public var userName: String
+    
+    public var email: String
+    
+    public var photoUrl: String
+
+    
 }
 
 

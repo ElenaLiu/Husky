@@ -36,6 +36,7 @@
 		AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */; };
 		AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */; };
 		AC791B601FEBD094004A7893 /* Classic Xing kai Font.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */; };
+		AC8504451FFA140400251018 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8504441FFA140400251018 /* UserProvider.swift */; };
 		ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBAE1171FEFF02E0022AF5F /* Comment.swift */; };
 		ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */; };
 		ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */; };
@@ -82,6 +83,7 @@
 		AC791B5B1FEBB4D5004A7893 /* MapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
 		AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chihaya日文字體1.ttf"; sourceTree = "<group>"; };
 		AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Classic Xing kai Font.TTF"; sourceTree = "<group>"; };
+		AC8504441FFA140400251018 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		ACBAE1171FEFF02E0022AF5F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
 		ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				AC791B411FE2619C004A7893 /* Store.swift */,
 				AC11DD791FF52DC600834285 /* CommentProvider.swift */,
 				ACBAE1171FEFF02E0022AF5F /* Comment.swift */,
+				AC8504441FFA140400251018 /* UserProvider.swift */,
 				AC11DD751FF21C9300834285 /* User.swift */,
 			);
 			path = Manager;
@@ -432,6 +435,7 @@
 				AC1E1A491FE153E8004FD468 /* NavigationController.swift in Sources */,
 				AC791B421FE2619C004A7893 /* Store.swift in Sources */,
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
+				AC8504451FFA140400251018 /* UserProvider.swift in Sources */,
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
 				AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */,

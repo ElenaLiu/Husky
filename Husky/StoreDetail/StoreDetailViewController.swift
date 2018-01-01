@@ -145,6 +145,7 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
         self.ScoreViewController.scoreImageView.image = image
+        self.ScoreViewController.scoreImageView.contentMode = .scaleAspectFill
     }
     
     func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}

@@ -11,36 +11,32 @@ import FoldingCell
 import Firebase
 import SDWebImage
 
-
-
 class CommentsTableViewController: UITableViewController {
     
     fileprivate struct C {
         struct CellHeight {
             static let close: CGFloat = 179
-            static let open: CGFloat = 420
+            static let open: CGFloat = 480
         }
     }
     
     //Add property for calculate cells height
-    var cellHeights = (0..<3).map { _ in C.CellHeight.close }
+    var cellHeights: [CGFloat] = []
     
     var selectedMarkerId: Store?
+    //上下方法 有什麼不同？
+    var comments = [Comment]() //var comments: [Comment] = []
     
-    var comments = [Comment]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // fetch stores information
         CommentProvider.shared.delegate = self
-        
-        guard let selectedStore = selectedMarkerId else { return }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         CommentProvider.shared.fetchComments(selectStoreId: (selectedMarkerId?.id)!)
         
     }
@@ -109,10 +105,44 @@ class CommentsTableViewController: UITableViewController {
         
         //上傳圖片時才壓縮, 載入圖片時不用
         cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
-        
-        cell.firstScoreLabel.text = "珍珠Ｑ度："
+        cell.containerImageView.sd_setImage(with: photoUrl, completed: nil)
         cell.firstRatingView.rating = comment.firstRating
-        cell.firstRatingView.settings.updateOnTouch = false
+        cell.secondRatingView.rating = comment.secondRating
+        cell.thirdRatingView.rating = comment.thirdRating
+        cell.fourthRatingView.rating = comment.fourthRating
+        cell.fifthRatingView.rating = comment.fifthRating
+        cell.userNameLabel.text = comment.uid
+        cell.userCommentTextField.text = comment.content
+        
+      
+        let commentUid = comment.uid
+        
+        NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
+           
+            guard let userDic = snapshot.value as? [String: Any] else { return }
+            
+            for value in userDic.values {
+                guard let valueDic = value as? [String: String] else { return }
+                guard let username = valueDic[BubbleUser.Schema.userName] as? String else { return }
+                guard let photoUrl = valueDic[BubbleUser.Schema.photoUrl] as? String else { return }
+               
+                print("6 \(username)")
+                print("66 \(photoUrl)")
+                
+                DispatchQueue.main.async {
+                    // Trainsition String type to be URL
+                    let userPhotoUrl = URL(string: photoUrl)
+                    cell.userImageView.sd_setImage(with: userPhotoUrl, completed: nil)
+                    cell.userNameLabel.text = username
+                }
+                
+            }
+            
+        }
+    
+        
+      
+      
         return cell
     }
 }
@@ -123,6 +153,8 @@ extension CommentsTableViewController: CommentProviderDelegate {
         self.comments = comments
         
         DispatchQueue.main.async {
+            
+            self.cellHeights = (0..<comments.count).map { _ in C.CellHeight.close }
             self.tableView.reloadData()
         }
     }
@@ -131,5 +163,4 @@ extension CommentsTableViewController: CommentProviderDelegate {
         
     }
 }
-
 

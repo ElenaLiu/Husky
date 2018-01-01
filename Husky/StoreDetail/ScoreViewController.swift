@@ -69,10 +69,10 @@ class ScoreViewController: UIViewController {
                 fifthRating: fifthRating
             )
             
-        let alert = UIAlertController(title: "標題", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
             
-            self.networkingService.saveComment(comment: comment, imageData: imageData!)
+            CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
             
             let storeRef = self.ref.child("Stores").child(selectedStore.id)
             let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
@@ -84,7 +84,8 @@ class ScoreViewController: UIViewController {
             self.fourthRatingView.rating = 0
             self.fifthRatingView.rating = 0
             self.commentTextField.text = nil
-            self.scoreImageView.image = #imageLiteral(resourceName: "Bubble-1")
+            self.scoreImageView.image = #imageLiteral(resourceName: "GreenBubbleTea")
+            self.scoreImageView.contentMode = .scaleAspectFit
         }))
         alert.addAction(UIAlertAction(title: "等等我再想想！", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

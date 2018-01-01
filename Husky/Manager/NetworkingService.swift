@@ -158,46 +158,46 @@ struct NetworkingService {
         
     }
     
-    func saveComment(comment: Comment, imageData: Data)
-    {
-        
-        //Create Path for the User Image
-        let commentImagePath = "commentImage\(comment.uid)/commentPic.jpg"
-        
-        // Create image Reference
-        let imageRef = NetworkingService.storageRef.child(commentImagePath)
-        
-        // Create Metadata for the image
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpeg"
-        
-        // Save the user Image in the Firebase Storage File
-        imageRef.putData(imageData,
-                         metadata: metaData) { (metaData, error) in
-                            if error == nil {
-                                let imageUrl = metaData!.downloadURL()
-                
-                                self.saveCommentInfo(comment: comment, imageUrl: imageUrl)
-                            }else {
-                                print(error!.localizedDescription)
-                            }
-        }
-    }
-    
-    private func saveCommentInfo(comment: Comment, imageUrl: URL?) {
-        NetworkingService.databaseRef.child("StoreComments").childByAutoId().setValue(
-            [
-                "uid": comment.uid,
-                "storeId": comment.storeId,
-                "average": comment.average,
-                "content": comment.content,
-                "imageUrl": imageUrl?.absoluteString,
-                "score": ["firstRating": comment.firstRating,
-                          "secondRating": comment.secondRating,
-                          "thirdRating": comment.thirdRating,
-                          "fourthRating": comment.fourthRating,
-                          "fifthRating": comment.fifthRating]
-            ]
-        )
-    }
+//    func saveComment(comment: Comment, imageData: Data)
+//    {
+//        
+//        //Create Path for the User Image
+//        let commentImagePath = "commentImage\(comment.uid)/commentPic.jpg"
+//        
+//        // Create image Reference
+//        let imageRef = NetworkingService.storageRef.child(commentImagePath)
+//        
+//        // Create Metadata for the image
+//        let metaData = StorageMetadata()
+//        metaData.contentType = "image/jpeg"
+//        
+//        // Save the user Image in the Firebase Storage File
+//        imageRef.putData(imageData,
+//                         metadata: metaData) { (metaData, error) in
+//                            if error == nil {
+//                                let imageUrl = metaData!.downloadURL()
+//                
+//                                self.saveCommentInfo(comment: comment, imageUrl: imageUrl)
+//                            }else {
+//                                print(error!.localizedDescription)
+//                            }
+//        }
+//    }
+//    
+//    private func saveCommentInfo(comment: Comment, imageUrl: URL?) {
+//        NetworkingService.databaseRef.child("StoreComments").childByAutoId().setValue(
+//            [
+//                "uid": comment.uid,
+//                "storeId": comment.storeId,
+//                "average": comment.average,
+//                "content": comment.content,
+//                "imageUrl": imageUrl?.absoluteString,
+//                "score": ["firstRating": comment.firstRating,
+//                          "secondRating": comment.secondRating,
+//                          "thirdRating": comment.thirdRating,
+//                          "fourthRating": comment.fourthRating,
+//                          "fifthRating": comment.fifthRating]
+//            ]
+//        )
+//    }
 }

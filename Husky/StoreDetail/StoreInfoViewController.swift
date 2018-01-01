@@ -167,6 +167,9 @@ class StoreInfoViewController: UIViewController {
             camera: camera
         )
 
+        print(mapView.frame.width)
+        print(mapView.frame.height)
+        
         myMapView.addSubview(mapView)
 
         // Creates a marker in the center of the map.
