@@ -37,6 +37,7 @@ class CommentsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        startLoading(status: "Loading")
         CommentProvider.shared.fetchComments(selectStoreId: (selectedMarkerId?.id)!)
         
     }
@@ -149,6 +150,7 @@ extension CommentsTableViewController: CommentProviderDelegate {
     
     func didFetch(with comments: [Comment]) {
         
+        endLoading()
         self.comments = comments
         
         DispatchQueue.main.async {

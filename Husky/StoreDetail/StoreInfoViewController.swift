@@ -193,6 +193,7 @@ class StoreInfoViewController: UIViewController {
     //MARK: - this is function for create direction path, from start location to desination location
     private func drawPath(startLocation: CLLocation, endLocation: CLLocation)
     {
+        startLoading(status: "Loading")
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
         
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
@@ -200,6 +201,8 @@ class StoreInfoViewController: UIViewController {
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=walking"
 
         Alamofire.request(url).responseJSON { response in
+            
+            endLoading()
             
             let json = try! JSON(data: response.data!)
             

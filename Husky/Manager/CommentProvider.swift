@@ -117,5 +117,6 @@ class CommentProvider {
                       "fourthRating": comment.fourthRating,
                       "fifthRating": comment.fifthRating]
             ])
+        endLoading()
     }
 }

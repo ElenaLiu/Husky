@@ -40,6 +40,7 @@ class ScoreViewController: UIViewController {
     
     @IBAction func saveScoreTapped(_ sender: Any) {
         
+        
         let imageData = UIImageJPEGRepresentation(self.scoreImageView.image!, 0.8)
         
         guard let content = commentTextField.text else { return }
@@ -71,7 +72,7 @@ class ScoreViewController: UIViewController {
             
         let alert = UIAlertController(title: "", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
-            
+            startLoading(status: "Loading")
             CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
             
             let storeRef = self.ref.child("Stores").child(selectedStore.id)
@@ -86,6 +87,8 @@ class ScoreViewController: UIViewController {
             self.commentTextField.text = nil
             self.scoreImageView.image = #imageLiteral(resourceName: "GreenBubbleTea")
             self.scoreImageView.contentMode = .scaleAspectFit
+            
+            
         }))
         alert.addAction(UIAlertAction(title: "等等我再想想！", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

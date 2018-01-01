@@ -12,6 +12,7 @@ import GoogleMaps
 import SDWebImage
 import Firebase
 
+
 class MapViewController: UIViewController {
     
     @IBOutlet weak var myMapView: UIView!
@@ -45,6 +46,7 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        startLoading(status: "Loading")
         StoreProvider.shared.getStores()
     }
     
@@ -123,6 +125,7 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
     func didFetch(with stores: [Store]) {
         
+        endLoading()
         self.storesInfo = stores
         
         for store in stores {
