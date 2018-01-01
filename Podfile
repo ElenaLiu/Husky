@@ -22,6 +22,7 @@ target 'Husky' do
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Fusuma'
   pod 'GooglePlacePicker'
+  pod 'SVProgressHUD'
 
 
 

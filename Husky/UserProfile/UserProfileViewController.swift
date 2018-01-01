@@ -63,7 +63,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
             alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { (action) in
                 
                 self.networkingService.signOut()
-                let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigation")
                 
                 self.present(vc, animated: true, completion: nil)
             }))

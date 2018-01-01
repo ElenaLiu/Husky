@@ -104,17 +104,17 @@ class CommentsTableViewController: UITableViewController {
         let photoUrl = URL(string: comment.imageUrl)
         
         //上傳圖片時才壓縮, 載入圖片時不用
-        cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
-        cell.containerImageView.sd_setImage(with: photoUrl, completed: nil)
-        cell.firstRatingView.rating = comment.firstRating
-        cell.secondRatingView.rating = comment.secondRating
-        cell.thirdRatingView.rating = comment.thirdRating
-        cell.fourthRatingView.rating = comment.fourthRating
-        cell.fifthRatingView.rating = comment.fifthRating
-        cell.userNameLabel.text = comment.uid
-        cell.userCommentTextField.text = comment.content
+        DispatchQueue.main.async {
+            cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
+            cell.containerImageView.sd_setImage(with: photoUrl, completed: nil)
+            cell.firstRatingView.rating = comment.firstRating
+            cell.secondRatingView.rating = comment.secondRating
+            cell.thirdRatingView.rating = comment.thirdRating
+            cell.fourthRatingView.rating = comment.fourthRating
+            cell.fifthRatingView.rating = comment.fifthRating
+            cell.userCommentTextField.text = comment.content
+        }
         
-      
         let commentUid = comment.uid
         
         NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
@@ -129,20 +129,19 @@ class CommentsTableViewController: UITableViewController {
                 print("6 \(username)")
                 print("66 \(photoUrl)")
                 
+            
+                
                 DispatchQueue.main.async {
                     // Trainsition String type to be URL
                     let userPhotoUrl = URL(string: photoUrl)
                     cell.userImageView.sd_setImage(with: userPhotoUrl, completed: nil)
+                    
                     cell.userNameLabel.text = username
                 }
                 
             }
             
         }
-    
-        
-      
-      
         return cell
     }
 }

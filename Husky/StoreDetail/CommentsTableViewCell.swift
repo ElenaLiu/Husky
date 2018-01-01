@@ -37,6 +37,7 @@ class CommentsTableViewCell: FoldingCell {
         foregroundView.layer.cornerRadius = 20
         foregroundView.layer.masksToBounds = true
         setUpRating()
+        setUpUserImage()
         //code 要加在 super 上面
         super.awakeFromNib()
         
@@ -49,6 +50,16 @@ class CommentsTableViewCell: FoldingCell {
         thirdRatingView.settings.updateOnTouch = false
         fourthRatingView.settings.updateOnTouch = false
         fifthRatingView.settings.updateOnTouch = false
+    }
+    
+    func setUpUserImage() {
+        
+        self.userImageView.layer.borderWidth = 0
+        self.userImageView.layer.masksToBounds = false
+        self.userImageView.frame.size = CGSize(width: 50, height: 50)
+        self.userImageView.layer.borderColor = UIColor.darkGray.cgColor
+        self.userImageView.layer.cornerRadius = userImageView.bounds.size.height / 2.0
+        self.userImageView.clipsToBounds = true
     }
 }
 
