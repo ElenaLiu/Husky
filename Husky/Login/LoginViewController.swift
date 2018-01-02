@@ -11,7 +11,6 @@ import Firebase
 import SCLAlertView
 import SkyFloatingLabelTextField
 
-
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -21,11 +20,38 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginPasswordTextField: UITextField!
     
     let networkingService = NetworkingService()
+    
+    //MARK: Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setUpLoginTapped()
+        
+        textFieldErrorHandle()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow),
+                                       name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide),
+                                       name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //tap anywhere to hide keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                              action: #selector(dismissKeyboard)))
+    }
+    
+    // Remove observer
+    deinit {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
-        
-        
-        
+
         let alertController = UIAlertController(title: "忘記密碼?",
                                                 message: "Enter your E-mail", preferredStyle: .alert)
         
@@ -57,8 +83,6 @@ class LoginViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
-        
-        
     }
     
     @IBOutlet weak var loginTapped: UIButton!
@@ -67,45 +91,11 @@ class LoginViewController: UIViewController {
         
         networkingService.signIn(email: loginEmailAddressTextField.text!,
                                  password: loginPasswordTextField.text!)
-        
-        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
-            appdelegate.logUser()
-        }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setUpLoginTapped()
-        
-        textFieldErrorHandle()
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillShow),
-                                       name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillHide),
-                                       name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        //tap anywhere to hide keyboard
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
-                                                              action: #selector(dismissKeyboard)))
-        
-    }
-    
-    // Remove observer
-    deinit {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.removeObserver(self)
-    }
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
-    
     
     // Handling keyboard
     @objc func keyboardWillShow(notification: Notification) {
@@ -117,15 +107,14 @@ class LoginViewController: UIViewController {
                                          bottom: keyboardCGRect.height - 200,
                                          right: 0)
         scrollView.contentInset = contentInsets
-        scrollView.scrollRectToVisible(keyboardCGRect,
-                                       animated: true)
-        
+        scrollView.scrollRectToVisible(
+            keyboardCGRect,
+            animated: true
+        )
     }
     
     @objc func keyboardWillHide(notification: Notification) {
-        
         scrollView.contentInset = UIEdgeInsets.zero
-        
     }
     
     @objc func dismissKeyboard() {
@@ -135,10 +124,8 @@ class LoginViewController: UIViewController {
     }
     
     func setUpLoginTapped() {
-        
         self.loginTapped.layer.cornerRadius = 5
     }
-    
 }
 
 extension LoginViewController: UITextFieldDelegate  {
@@ -176,11 +163,9 @@ extension LoginViewController: UITextFieldDelegate  {
                     }
                 }
             }
-            
         }
         return true
     }
-
 }
 
 

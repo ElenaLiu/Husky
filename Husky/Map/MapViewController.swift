@@ -102,6 +102,7 @@ extension MapViewController: CLLocationManagerDelegate {
         //set up user marker image view
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         imageView.frame.size = CGSize(width: 40, height: 40)
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.sd_setImage(with: Auth.auth().currentUser?.photoURL,

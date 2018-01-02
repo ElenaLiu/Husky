@@ -23,7 +23,11 @@ class CommentsTableViewCell: FoldingCell {
 
     @IBOutlet weak var fifthRatingView: CosmosView!
     
+    @IBOutlet weak var foregroundBlurImageView: UIImageView!
+    
     @IBOutlet weak var foregroundImageView: UIImageView!
+    
+    @IBOutlet weak var containerBlurImageView: UIImageView!
     
     @IBOutlet weak var containerImageView: UIImageView!
     
@@ -34,15 +38,19 @@ class CommentsTableViewCell: FoldingCell {
     @IBOutlet weak var userCommentTextField: UITextView!
     
     override func awakeFromNib() {
-        foregroundView.layer.cornerRadius = 20
-        foregroundView.layer.masksToBounds = true
+
         setUpRating()
         setUpUserImage()
+        setUpForegroundImage()
+        setUpForegroundBlurImageView()
+        setUpContainerBlurImageView()
+        
+        self.backViewColor = UIColor.clear
+        
         //code 要加在 super 上面
         super.awakeFromNib()
-        
     }
-    
+
     func setUpRating() {
 
         firstRatingView.settings.updateOnTouch = false
@@ -60,6 +68,46 @@ class CommentsTableViewCell: FoldingCell {
         self.userImageView.layer.borderColor = UIColor.darkGray.cgColor
         self.userImageView.layer.cornerRadius = userImageView.bounds.size.height / 2.0
         self.userImageView.clipsToBounds = true
+    }
+    
+    func setUpForegroundImage() {
+        
+        self.foregroundImageView.layer.borderWidth = 0
+        self.foregroundImageView.layer.masksToBounds = true
+        self.foregroundImageView.layer.cornerRadius = 20
+        self.foregroundImageView.clipsToBounds = true
+        
+        self.foregroundBlurImageView.layer.borderWidth = 0
+        self.foregroundBlurImageView.layer.masksToBounds = true
+        self.foregroundBlurImageView.layer.cornerRadius = 20
+        self.foregroundBlurImageView.clipsToBounds = true
+    }
+    
+    func setUpForegroundBlurImageView() {
+        //建立模糊效果
+        let blurEffect = UIBlurEffect(style: .light)
+        //建立乘載模糊效果的圖
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        //設置模糊效果圖片範圍
+        blurView.frame.size = CGSize(width: self.foregroundView.frame.width, height: self.foregroundView.frame.height)
+        //添加模糊圖片到view上（圖片下方都會有模糊的效果）
+        self.foregroundBlurImageView.addSubview(blurView)
+        
+        // Add Auto Layout for blurView
+        
+//        blurView.leadingAnchor.constraint(equalTo: foregroundBlurImageView.leadingAnchor).isActive = true
+        
+    }
+    
+    func setUpContainerBlurImageView() {
+        //建立模糊效果
+        let blurEffect = UIBlurEffect(style: .light)
+        //建立乘載模糊效果的圖
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        //設置模糊效果圖片範圍
+        blurView.frame.size = CGSize(width: self.containerView.frame.width, height: self.containerView.frame.height)
+        //添加模糊圖片到view上（圖片下方都會有模糊的效果）
+        self.containerBlurImageView.addSubview(blurView)
     }
 }
 

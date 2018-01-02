@@ -42,3 +42,4 @@ func endLoading() {
     UIApplication.shared.endIgnoringInteractionEvents()
     
 }
+

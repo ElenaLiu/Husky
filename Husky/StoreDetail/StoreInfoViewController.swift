@@ -35,7 +35,8 @@ class StoreInfoViewController: UIViewController {
     var zoomLevel: Float = 15.0
     var endPosition: CLLocation?
     
-    @IBOutlet weak var myMapView: UIView!
+//    @IBOutlet weak var myMapView: UIView!
+    @IBOutlet weak var myMapView: GMSMapView!
     
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -162,15 +163,15 @@ class StoreInfoViewController: UIViewController {
             zoom: zoomLevel
         )
         
-        self.mapView = GMSMapView.map(
-            withFrame: myMapView.bounds,
-            camera: camera
-        )
-
-        print(mapView.frame.width)
-        print(mapView.frame.height)
-        
-        myMapView.addSubview(mapView)
+//        self.mapView = GMSMapView.map(
+//            withFrame: myMapView.bounds,
+//            camera: camera
+//        )
+//
+//        print(mapView.frame.width)
+//        print(mapView.frame.height)
+//        
+//        myMapView.addSubview(mapView)
 
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
@@ -256,6 +257,7 @@ extension StoreInfoViewController: CLLocationManagerDelegate{
         
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         imageView.frame.size = CGSize(width: 50, height: 50)
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.sd_setImage(

@@ -29,7 +29,6 @@ class CommentProvider {
     
     var comments = [Comment]()
     
-    
     func fetchComments(selectStoreId: String) {
 
         let storeId = selectStoreId

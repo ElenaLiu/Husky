@@ -16,7 +16,7 @@ class CommentsTableViewController: UITableViewController {
     fileprivate struct C {
         struct CellHeight {
             static let close: CGFloat = 179
-            static let open: CGFloat = 480
+            static let open: CGFloat = 490
         }
     }
     
@@ -24,7 +24,7 @@ class CommentsTableViewController: UITableViewController {
     var cellHeights: [CGFloat] = []
     
     var selectedMarkerId: Store?
-    //上下方法 有什麼不同？
+  
     var comments = [Comment]() //var comments: [Comment] = []
     
     override func viewDidLoad() {
@@ -106,7 +106,9 @@ class CommentsTableViewController: UITableViewController {
         
         //上傳圖片時才壓縮, 載入圖片時不用
         DispatchQueue.main.async {
+            cell.foregroundBlurImageView.sd_setImage(with: photoUrl, completed: nil)
             cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
+            cell.containerBlurImageView.sd_setImage(with: photoUrl, completed: nil)
             cell.containerImageView.sd_setImage(with: photoUrl, completed: nil)
             cell.firstRatingView.rating = comment.firstRating
             cell.secondRatingView.rating = comment.secondRating

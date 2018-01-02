@@ -14,16 +14,13 @@ import SCLAlertView
 import Fusuma
 import SkyFloatingLabelTextField
 
-
 class RegistViewController: UIViewController, FusumaDelegate {
 
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var registNameTextField: UITextField!
     @IBOutlet weak var registEmailTextField: UITextField!
     @IBOutlet weak var registPasswordTextField: UITextField!
-    
     
     @IBAction func backToLoginIn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -33,7 +30,6 @@ class RegistViewController: UIViewController, FusumaDelegate {
     
     var networkingService = NetworkingService()
     
-    
     @IBOutlet weak var signUpTapped: UIButton!
     
     @IBAction func signUpTapped(_ sender: Any) {
@@ -42,13 +38,13 @@ class RegistViewController: UIViewController, FusumaDelegate {
         
         //SCLAlertView().showNotice("Hi~", subTitle: "喝杯珍奶吧～")
    
-        
         networkingService.signUp(email: registEmailTextField.text!,
                                  username: registNameTextField.text!,
                                  password: registPasswordTextField.text!,
                                  data: data!)
-
-        }
+    }
+    
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +71,6 @@ class RegistViewController: UIViewController, FusumaDelegate {
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,10 +79,12 @@ class RegistViewController: UIViewController, FusumaDelegate {
         
     }
     
+    // MARK: Status Bar
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
     
+    // MARK: Class function
     func setUpregistImage() {
         
         self.registImageView.layer.borderWidth = 1
@@ -111,6 +108,8 @@ class RegistViewController: UIViewController, FusumaDelegate {
         self.present(fusuma, animated: true, completion: nil)
     }
     
+    //MARK: FusumaDelegate function
+    
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
         registImageView.image = image
@@ -122,7 +121,7 @@ class RegistViewController: UIViewController, FusumaDelegate {
     
     func fusumaCameraRollUnauthorized() {}
     
-    // Handling keyboard
+    //MARK: Handling keyboard
     @objc func keyboardWillShow(notification: Notification)
     {
         
@@ -152,6 +151,7 @@ class RegistViewController: UIViewController, FusumaDelegate {
     }
 }
 
+//MARK: UITextFieldDelegate function
 extension RegistViewController: UITextFieldDelegate  {
     
     func textFieldErrorHandle() {
@@ -192,7 +192,6 @@ extension RegistViewController: UITextFieldDelegate  {
         }
         return true
     }
-    
 }
 
 

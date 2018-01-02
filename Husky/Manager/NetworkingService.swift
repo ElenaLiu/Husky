@@ -134,18 +134,13 @@ struct NetworkingService {
         Auth.auth().signIn(withEmail: email,
                            password: password,
                            completion: { (user, error) in
-            if error == nil {
-                if let user = user {
-                    print("\(user.displayName!) has signed in succesfully!")
-                    
-                    if let appDel: AppDelegate = UIApplication.shared.delegate as? AppDelegate {
-                        
-                        appDel.logUser()
-                    }
+                            
+                if error != nil {
+                    print(error!.localizedDescription)
                 }
-            }else {
-                print(error!.localizedDescription)
-            }
+                            
+                print("\(user!.displayName!) has signed in succesfully!")
+                AppDelegate.shared.logUser()
         })
     }
     
