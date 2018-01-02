@@ -37,10 +37,8 @@ class ScoreViewController: UIViewController {
     var fourthRating: Double = 0.0
     var fifthRating: Double = 0.0
     
-    
     @IBAction func saveScoreTapped(_ sender: Any) {
-        
-        
+
         let imageData = UIImageJPEGRepresentation(self.scoreImageView.image!, 0.8)
         
         guard let content = commentTextField.text else { return }
@@ -58,6 +56,7 @@ class ScoreViewController: UIViewController {
         if let uid = Auth.auth().currentUser?.uid {
             
             let comment = Comment(
+                commentId: "",
                 uid: uid,
                 storeId: selectedStore.id,
                 average: newAverage,
@@ -88,14 +87,12 @@ class ScoreViewController: UIViewController {
             self.scoreImageView.image = #imageLiteral(resourceName: "GreenBubbleTea")
             self.scoreImageView.contentMode = .scaleAspectFit
             
-            
         }))
         alert.addAction(UIAlertAction(title: "等等我再想想！", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
         }
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

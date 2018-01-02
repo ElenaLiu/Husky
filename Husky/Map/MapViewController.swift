@@ -39,8 +39,6 @@ class MapViewController: UIViewController {
 
         // fetch branches information
         StoreProvider.shared.delegate = self
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -15,6 +15,8 @@ public struct Comment {
     
     public struct Schema {
         
+        public static let commentId = "commentId"
+        
         public static let uid = "uid"
         
         public static let storeId = "storeId"
@@ -38,6 +40,8 @@ public struct Comment {
     
     
     // MARK: Property
+    
+    public let commentId: String
     
     public let uid: String
     

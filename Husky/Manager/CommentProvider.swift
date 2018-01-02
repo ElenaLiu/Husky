@@ -39,7 +39,10 @@ class CommentProvider {
 
             var comments = [Comment]()
 
+  
             for dicValue in commentDic {
+                
+                let commentId = dicValue.key
 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
 
@@ -58,6 +61,7 @@ class CommentProvider {
 
                 comments.append(
                     Comment(
+                        commentId: commentId,
                         uid: uid,
                         storeId: storeId,
                         average: average,
@@ -78,33 +82,34 @@ class CommentProvider {
     
     func saveComment(comment: Comment, imageData: Data)
     {
+        let key = NetworkingService.databaseRef.child("StoreComments").childByAutoId().key
         
         //Create Path for the User Image
-        let commentImagePath = "commentImage\(comment.uid)/commentPic.jpg"
+        let commentImagePath = "commentImage\(key)/commentPic.jpg"
         
         // Create image Reference
-        let imageRef = NetworkingService.storageRef.child(commentImagePath)
+        let imagesRef = NetworkingService.storageRef.child(commentImagePath)
         
         // Create Metadata for the image
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         
         // Save the user Image in the Firebase Storage File
-        imageRef.putData(imageData,
+        imagesRef.putData(imageData,
                          metadata: metaData) { (metaData, error) in
                             if error == nil {
                                 let imageUrl = metaData!.downloadURL()
                                 
-                                self.saveCommentInfo(comment: comment, imageUrl: imageUrl)
+                                self.saveCommentInfo(comment: comment, imageUrl: imageUrl, key: key)
                             }else {
                                 print(error!.localizedDescription)
                             }
         }
     }
     
-    private func saveCommentInfo(comment: Comment, imageUrl: URL?) {
-        
-        NetworkingService.databaseRef.child("StoreComments").childByAutoId().setValue([
+    private func saveCommentInfo(comment: Comment, imageUrl: URL?, key: String) {
+
+        NetworkingService.databaseRef.child("StoreComments").child(key).setValue([
             "uid": comment.uid,
             "storeId": comment.storeId,
             "average": comment.average,

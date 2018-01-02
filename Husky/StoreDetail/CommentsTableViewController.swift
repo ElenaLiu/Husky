@@ -15,8 +15,8 @@ class CommentsTableViewController: UITableViewController {
     
     fileprivate struct C {
         struct CellHeight {
-            static let close: CGFloat = 179
-            static let open: CGFloat = 490
+            static let close: CGFloat = 199
+            static let open: CGFloat = 510
         }
     }
     
@@ -123,7 +123,7 @@ class CommentsTableViewController: UITableViewController {
         NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
            
             guard let userDic = snapshot.value as? [String: Any] else { return }
-            
+
             for value in userDic.values {
                 guard let valueDic = value as? [String: String] else { return }
                 guard let username = valueDic[BubbleUser.Schema.userName] as? String else { return }

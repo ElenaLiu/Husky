@@ -163,7 +163,6 @@ class StoreInfoViewController: UIViewController {
             zoom: zoomLevel
         )
         
-      
 //        self.mapView = GMSMapView.map(
 //            withFrame: myMapView.bounds,
 //            camera: camera
