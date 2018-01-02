@@ -30,7 +30,7 @@ class StoreInfoViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
-    var mapView: GMSMapView!
+//    var mapView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     var endPosition: CLLocation?
@@ -163,6 +163,7 @@ class StoreInfoViewController: UIViewController {
             zoom: zoomLevel
         )
         
+      
 //        self.mapView = GMSMapView.map(
 //            withFrame: myMapView.bounds,
 //            camera: camera
@@ -187,7 +188,7 @@ class StoreInfoViewController: UIViewController {
         
         guard let nameValue = nameValue else { return }
         marker.title = nameValue
-        marker.map = mapView
+        marker.map = myMapView
         marker.icon = #imageLiteral(resourceName: "DarkBubbleTea")
     }
     
@@ -236,7 +237,7 @@ class StoreInfoViewController: UIViewController {
                 let polyline = GMSPolyline.init(path: path)
                 polyline.strokeWidth = 3
                 polyline.strokeColor = UIColor.red
-                polyline.map = self.mapView
+                polyline.map = self.myMapView
             }
         }
     }
@@ -267,7 +268,7 @@ extension StoreInfoViewController: CLLocationManagerDelegate{
             completed: nil
         )
         
-        marker.map = mapView
+        marker.map = myMapView
         marker.iconView = imageView
         
         if let end = endPosition {

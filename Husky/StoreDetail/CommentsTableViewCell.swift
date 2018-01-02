@@ -89,13 +89,22 @@ class CommentsTableViewCell: FoldingCell {
         //建立乘載模糊效果的圖
         let blurView = UIVisualEffectView(effect: blurEffect)
         //設置模糊效果圖片範圍
-        blurView.frame.size = CGSize(width: self.foregroundView.frame.width, height: self.foregroundView.frame.height)
+//        blurView.frame.size = CGSize(width: self.foregroundView.frame.width, height: self.foregroundView.frame.height)
         //添加模糊圖片到view上（圖片下方都會有模糊的效果）
+        blurView.translatesAutoresizingMaskIntoConstraints = false
         self.foregroundBlurImageView.addSubview(blurView)
         
         // Add Auto Layout for blurView
         
-//        blurView.leadingAnchor.constraint(equalTo: foregroundBlurImageView.leadingAnchor).isActive = true
+        blurView.leadingAnchor.constraint(equalTo: foregroundView.leadingAnchor).isActive = true
+        blurView.trailingAnchor.constraint(equalTo: foregroundView.trailingAnchor).isActive = true
+        blurView.topAnchor.constraint(equalTo: foregroundView.topAnchor).isActive = true
+        blurView.bottomAnchor.constraint(equalTo: foregroundView.bottomAnchor).isActive = true
+        
+        
+
+
+        
         
     }
     
