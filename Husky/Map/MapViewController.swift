@@ -30,19 +30,21 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initLactionManager()
-        
         setUpNavigationBar()
 
         // fetch branches information
         StoreProvider.shared.delegate = self
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         startLoading(status: "Loading")
+        
+        //mapView.clear()
+        
+        initLactionManager()
+        
         StoreProvider.shared.getStores()
     }
     
@@ -140,24 +142,33 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             marker.snippet = store.id
             ref = NetworkingService.databaseRef
             if let userId = Auth.auth().currentUser?.uid {
+
                 ref.child("StoreComments").queryOrdered(byChild: "uid").queryEqual(toValue: userId).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
                     if let snapshotValue = snapshot.value,
                         let snapshotValueDics = snapshotValue as? [String: Any] {
+                        
                         for snapshotValueDic in snapshotValueDics {
                             if let valueDic = snapshotValueDic.value as? [String: Any],
                                 let uidValue = valueDic["uid"] as? String,
                                 let storeValue = valueDic["storeId"] as? String{
-                                
                                 if (userId == uidValue) && (store.id == storeValue){
                                     marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
+                                    break
                                 } else {
                                     marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                                 }
+                            } else {
+                                marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                             }
-                            
                         }
+                        
+                    }else {
+                        marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                     }
-                   marker.map = self.mapView
+                    
+                    marker.map = self.mapView
+                    
                 })
             }
         }

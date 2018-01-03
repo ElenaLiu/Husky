@@ -207,7 +207,7 @@
                                     <action selector="phoneCallTapped:" destination="tCB-iG-6hX" eventType="touchUpInside" id="7gn-1M-TCI"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2P-ZK-P9a" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2P-ZK-P9a">
                                 <rect key="frame" x="0.0" y="265.5" width="375" height="307.5"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -245,7 +245,7 @@
                     <connections>
                         <outlet property="addressGuideTapped" destination="NQe-wI-ep6" id="KxF-Wu-cI7"/>
                         <outlet property="addressLabel" destination="xm2-sK-CEl" id="YBe-yy-QuM"/>
-                        <outlet property="myMapView" destination="D2P-ZK-P9a" id="Gu0-OZ-CTM"/>
+                        <outlet property="myMapView" destination="D2P-ZK-P9a" id="DoI-l1-Agh"/>
                         <outlet property="phoneLabel" destination="gxv-o0-uPR" id="kHV-Ty-4m9"/>
                         <outlet property="scoreAverageView" destination="Kn0-iZ-E32" id="qcS-Z0-yW4"/>
                         <outlet property="scorePeopleLabel" destination="PVM-Fn-OZm" id="eL2-Pz-yic"/>

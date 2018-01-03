@@ -37,7 +37,17 @@ class CommentsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        startLoading(status: "Loading")
+        if comments != nil {
+           startLoading(status: "Loading")
+        } else {
+            let alert = UIAlertController(title: "目前還沒有評論唷!", message: "快來搶頭香！", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "沒問題！", style: .default, handler: { (action) in
+                
+            })
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         CommentProvider.shared.fetchComments(selectStoreId: (selectedMarkerId?.id)!)
         
     }
@@ -103,7 +113,6 @@ class CommentsTableViewController: UITableViewController {
         
         // Trainsition String type to be URL
         let photoUrl = URL(string: comment.imageUrl)
-        
         //上傳圖片時才壓縮, 載入圖片時不用
         DispatchQueue.main.async {
             cell.foregroundBlurImageView.sd_setImage(with: photoUrl, completed: nil)

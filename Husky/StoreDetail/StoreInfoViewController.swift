@@ -30,13 +30,14 @@ class StoreInfoViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
-//    var mapView: GMSMapView!
+    var mapView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     var endPosition: CLLocation?
     
-//    @IBOutlet weak var myMapView: UIView!
-    @IBOutlet weak var myMapView: GMSMapView!
+    @IBOutlet weak var myMapView: UIView!
+
+//    @IBOutlet weak var myMapView: GMSMapView!
     
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -163,16 +164,20 @@ class StoreInfoViewController: UIViewController {
             zoom: zoomLevel
         )
         
-//        self.mapView = GMSMapView.map(
-//            withFrame: myMapView.bounds,
-//            camera: camera
-//        )
-//
-//        print(mapView.frame.width)
-//        print(mapView.frame.height)
-//        
-//        myMapView.addSubview(mapView)
-
+        self.mapView = GMSMapView.map(
+            withFrame: myMapView.bounds,
+            camera: camera
+        )
+        
+        myMapView.addSubview(mapView)
+        
+        // Set up myMapView Constrain
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.leadingAnchor.constraint(equalTo: myMapView.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: myMapView.trailingAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: myMapView.topAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: myMapView.bottomAnchor).isActive = true
+        
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(
@@ -187,7 +192,7 @@ class StoreInfoViewController: UIViewController {
         
         guard let nameValue = nameValue else { return }
         marker.title = nameValue
-        marker.map = myMapView
+        marker.map = mapView
         marker.icon = #imageLiteral(resourceName: "DarkBubbleTea")
     }
     
@@ -236,7 +241,7 @@ class StoreInfoViewController: UIViewController {
                 let polyline = GMSPolyline.init(path: path)
                 polyline.strokeWidth = 3
                 polyline.strokeColor = UIColor.red
-                polyline.map = self.myMapView
+                polyline.map = self.mapView
             }
         }
     }
@@ -267,7 +272,7 @@ extension StoreInfoViewController: CLLocationManagerDelegate{
             completed: nil
         )
         
-        marker.map = myMapView
+        marker.map = mapView
         marker.iconView = imageView
         
         if let end = endPosition {
