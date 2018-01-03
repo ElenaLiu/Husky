@@ -13,13 +13,63 @@ import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController {
     
+    let networkingService = NetworkingService()
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var loginEmailAddressTextField: UITextField!
     
     @IBOutlet weak var loginPasswordTextField: UITextField!
     
-    let networkingService = NetworkingService()
+    @IBOutlet weak var loginTapped: UIButton!
+    
+    @IBAction func loginTapped(_ sender: Any) {
+        
+        startLoading(status: "Loading")
+        
+        networkingService.signIn(email: loginEmailAddressTextField.text!,
+                                 password: loginPasswordTextField.text!)
+        //Tapped button and dismiss keyboard
+        view.endEditing(true)
+    }
+    
+    @IBAction func forgotPasswordTapped(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "忘記密碼?",
+                                                message: "Enter your E-mail", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler:
+            
+            {(_ textField: UITextField) -> Void in
+                
+                textField.placeholder = "Your E-mail"
+                
+        })
+        
+        let confirmAction = UIAlertAction(title: "OK",
+                                          style: .default,
+                                          handler:
+            {(_ action: UIAlertAction) -> Void in
+                
+                guard let email = alertController.textFields?.first?.text else { return }
+                
+                self.networkingService.resetPassword(email: email)
+                
+        })
+        
+        alertController.addAction(confirmAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+
+    
+
     
     //MARK: Life cycle
     override func viewDidLoad() {
@@ -47,50 +97,6 @@ class LoginViewController: UIViewController {
     deinit {
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
-    }
-    
-
-    @IBAction func forgotPasswordTapped(_ sender: Any) {
-
-        let alertController = UIAlertController(title: "忘記密碼?",
-                                                message: "Enter your E-mail", preferredStyle: .alert)
-        
-        alertController.addTextField(configurationHandler:
-            
-            {(_ textField: UITextField) -> Void in
-            
-            textField.placeholder = "Your E-mail"
-            
-        })
-        
-        let confirmAction = UIAlertAction(title: "OK",
-                                          style: .default,
-                                          handler:
-            {(_ action: UIAlertAction) -> Void in
-            
-            guard let email = alertController.textFields?.first?.text else { return }
-            
-            self.networkingService.resetPassword(email: email)
-            
-        })
-        
-        alertController.addAction(confirmAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .cancel,
-                                         handler: nil)
-        
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    @IBOutlet weak var loginTapped: UIButton!
-    
-    @IBAction func loginTapped(_ sender: Any) {
-        
-        networkingService.signIn(email: loginEmailAddressTextField.text!,
-                                 password: loginPasswordTextField.text!)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -121,6 +127,8 @@ class LoginViewController: UIViewController {
         
         loginEmailAddressTextField.resignFirstResponder()
         loginPasswordTextField.resignFirstResponder()
+        loginTapped.resignFirstResponder()
+        
     }
     
     func setUpLoginTapped() {

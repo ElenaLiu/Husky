@@ -15,30 +15,28 @@ import Firebase
 
 class MapViewController: UIViewController {
     
+    //MARK: Properties
     @IBOutlet weak var myMapView: UIView!
-    
     var ref: DatabaseReference!
-    
     var storesInfo = [Store]()
-    
     var locationMannager = CLLocationManager()
     var cruuentLocation: CLLocation?
+//    var placesClient: GMSPlacesClient!
     var mapView: GMSMapView!
-    var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 16.0
     var selectedPlace: GMSPlace?
     
+    //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initLactionManager()
         
         setUpNavigationBar()
-        
-        setUpMapView()
 
         // fetch branches information
         StoreProvider.shared.delegate = self
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,25 +52,27 @@ class MapViewController: UIViewController {
         locationMannager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationMannager.requestAlwaysAuthorization()
         locationMannager.distanceFilter = 80
-        locationMannager.startUpdatingLocation()
         locationMannager.delegate = self
+        locationMannager.startUpdatingLocation()
         
-        placesClient = GMSPlacesClient.shared()
+//        placesClient = GMSPlacesClient.shared()
     }
     
     func setUpNavigationBar() {
         
-        //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 28)!]
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.titleTextAttributes = [
+            NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 28)!
+        ]
         navigationItem.title = "i Bubble"
     }
     
-    func setUpMapView() {
+    func setUpMapView(location: CLLocation) {
         
         let camera = GMSCameraPosition.camera(
-            withLatitude: 25.042995/*user location*/,
-            longitude: 121.564988/*user location*/,
+            withLatitude: location.coordinate.latitude/*user location*/,
+            longitude: location.coordinate.longitude/*user location*/,
             zoom: zoomLevel)
         
         self.mapView = GMSMapView.map(
@@ -81,7 +81,6 @@ class MapViewController: UIViewController {
         
         myMapView.addSubview(mapView)
         mapView.delegate = self
-        
     }
 }
 
@@ -92,6 +91,8 @@ extension MapViewController: CLLocationManagerDelegate {
         let location: CLLocation = locations.last!
         
         manager.stopUpdatingLocation()
+        
+        setUpMapView(location: location)
         
         //set up marker
         let marker = GMSMarker()
@@ -112,12 +113,11 @@ extension MapViewController: CLLocationManagerDelegate {
         
         //put marker on the mapView
         marker.map = mapView
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
-        
+        print(error.localizedDescription)
     }
 }
 
@@ -138,7 +138,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
             marker.title = store.name
             marker.snippet = store.id
-            ref = Database.database().reference()
+            ref = NetworkingService.databaseRef
             if let userId = Auth.auth().currentUser?.uid {
                 ref.child("StoreComments").queryOrdered(byChild: "uid").queryEqual(toValue: userId).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let snapshotValue = snapshot.value,
@@ -154,6 +154,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                                     marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                                 }
                             }
+                            
                         }
                     }
                    marker.map = self.mapView
@@ -183,5 +184,4 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         self.present(storeInfoNavigationController, animated: true, completion: nil)
         return true
     }
-    
 }

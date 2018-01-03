@@ -65,13 +65,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="i Bubble" id="DnT-CV-pyr">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="AddStore" style="plain" id="Axp-ag-pd9">
-                            <connections>
-                                <action selector="saveStoreTapped:" destination="6sq-dl-Gmn" id="oy4-cT-QzX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="i Bubble" id="DnT-CV-pyr"/>
                     <connections>
                         <outlet property="storeAddressTextField" destination="lWT-6Z-KSb" id="ZSF-Dl-hQY"/>
                         <outlet property="storeNameTextField" destination="hZa-zv-AM4" id="MvJ-yV-gyH"/>
@@ -106,7 +100,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AddStore" width="25" height="25"/>
         <image name="BubbleTea(Brown)" width="25" height="40"/>
     </resources>
 </document>

@@ -163,12 +163,6 @@
                                 <action selector="logOutTapped:" destination="O9a-Rr-6b8" id="P1q-9t-2hS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="clipboard-2" style="plain" id="rya-cF-dCz">
-                            <color key="tintColor" red="0.31764705879999999" green="0.73333333329999995" blue="0.6588235294" alpha="0.0" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="saveProfileInfo:" destination="O9a-Rr-6b8" id="71u-01-YS4"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="AKk-fb-uaj" id="DCu-Sm-AtE"/>
@@ -202,7 +196,6 @@
     </scenes>
     <resources>
         <image name="Logout" width="25" height="25"/>
-        <image name="clipboard-2" width="64" height="64"/>
         <image name="user-2" width="128" height="128"/>
     </resources>
 </document>

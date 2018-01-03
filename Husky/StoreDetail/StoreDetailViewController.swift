@@ -111,10 +111,15 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
         if newViewController is ScoreViewController {
             
             let cameraTapped = UIButton(type: .system)
+            
             cameraTapped.setImage(#imageLiteral(resourceName: "PhotoCamera").withRenderingMode(.alwaysOriginal), for: .normal)
+            
             cameraTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+            
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cameraTapped)
+            
             cameraTapped.addTarget(self, action: #selector(takePhotoAction), for: .touchUpInside)
+            
         } else {
             navigationItem.rightBarButtonItem = nil
         }

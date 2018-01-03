@@ -23,10 +23,10 @@ class AddStoreViewController: UIViewController {
     
     @IBOutlet weak var storeAddressTextField: UITextField!
     
-    @IBAction func saveStoreTapped(_ sender: Any) {
-        
-        StoreProvider.shared.saveStore(place: self.placeInfo!)
-    }
+//    @IBAction func saveStoreTapped(_ sender: Any) {
+//
+//        StoreProvider.shared.saveStore(place: self.placeInfo!)
+//    }
 
     @IBAction func addStoreTapped(_ sender: Any) {
         
@@ -76,24 +76,39 @@ class AddStoreViewController: UIViewController {
         
         setUpNavigationBar()
         
+        setUpSaveStoreTapped()
+        
         //tap anywhere to hide keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
 
     func setUpNavigationBar() {
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 28)!]
         navigationItem.title = "i Bubble"
-        
-        let image = #imageLiteral(resourceName: "AddStore")
-        let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: imageView)
-        imageView.contentMode = .scaleAspectFit
-        navigationItem.rightBarButtonItem?.customView = imageView
     }
+    
+    func setUpSaveStoreTapped() {
+        
+        let saveStoreTapped = UIButton(type: .custom)
+        saveStoreTapped.setImage(#imageLiteral(resourceName: "AddStore").withRenderingMode(.alwaysOriginal), for: .normal)
+        saveStoreTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveStoreTapped)
+        saveStoreTapped.addTarget(self, action: #selector(saveStoreAction), for: .touchUpInside)
+    }
+    
+    @objc func saveStoreAction() {
+        
+        let alert = UIAlertController(title: "", message: "我發自內心覺得這家好喝！！", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { (action) in
+            StoreProvider.shared.saveStore(place: self.placeInfo!)
+        }))
+        alert.addAction(UIAlertAction(title: "我再想一下", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     @objc func dismissKeyboard() {
         

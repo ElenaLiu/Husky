@@ -27,14 +27,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBAction func saveProfileInfo(_ sender: Any) {
-
-        if let user = Auth.auth().currentUser {
-            let imageData = UIImageJPEGRepresentation(userProfileImageView.image!, 0.8)
-            networkingService.setUserInfo(user: user, username: nameTextField.text!, password: "", data: imageData)
-        }
-    }
-    
     @IBAction func changeProfileImageTapped(_ sender: Any) {
         
         let fusuma = FusumaViewController()
@@ -59,7 +51,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
         if Auth.auth().currentUser != nil {
             
-            let alert = UIAlertController(title: "標題", message: "確定要登出？", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "", message: "確定要登出？", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { (action) in
                 
                 self.networkingService.signOut()
@@ -77,9 +69,9 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setUpScoreImage()
-        
         setUpNavigationBar()
+        
+        setUpsaveProfileInfoTapped()
         
         fetchUserProfile()
    
@@ -100,7 +92,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setUpScoreImage()
+        setUpUserProfileImage()
 
     }
     
@@ -110,6 +102,32 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
         
+    }
+    
+    func setUpsaveProfileInfoTapped() {
+  
+        let saveProfileInfoTapped = UIButton(type: .system)
+        saveProfileInfoTapped.setImage(#imageLiteral(resourceName: "Save").withRenderingMode(.alwaysOriginal), for: .normal)
+        saveProfileInfoTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveProfileInfoTapped)
+        saveProfileInfoTapped.addTarget(self, action: #selector(saveProfileInfoAction), for: .touchUpInside)
+        
+        }
+    
+    @objc func saveProfileInfoAction() {
+        
+        if let user = Auth.auth().currentUser {
+            
+            let alert = UIAlertController(title: "", message: "更新個人資料？", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { (action) in
+                
+                let imageData = UIImageJPEGRepresentation(self.userProfileImageView.image!, 0.8)
+                self.networkingService.setUserInfo(user: user, username: self.nameTextField.text!, password: "", data: imageData)
+                
+            }))
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func fetchUserProfile(){
@@ -132,19 +150,11 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     }
     
     func setUpNavigationBar() {
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        
-        let image = #imageLiteral(resourceName: "Save")
-        let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: imageView)
-        imageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = imageView  
     }
     
-    func setUpScoreImage() {
+    func setUpUserProfileImage() {
 
         self.userProfileImageView.layer.borderWidth = 0
         self.userProfileImageView.layer.masksToBounds = false
@@ -172,7 +182,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     @objc func keyboardWillHide(notification: Notification) {
         
         scrollView.contentInset = UIEdgeInsets.zero
-        
     }
     
     @objc func dismissKeyboard() {
@@ -180,6 +189,5 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         nameTextField.resignFirstResponder()
         nameTextField.resignFirstResponder()
         nameTextField.resignFirstResponder()
-        
     }
 }

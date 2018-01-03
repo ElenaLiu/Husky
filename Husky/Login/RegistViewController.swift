@@ -34,6 +34,8 @@ class RegistViewController: UIViewController, FusumaDelegate {
     
     @IBAction func signUpTapped(_ sender: Any) {
         
+        startLoading(status: "Loading")
+        
         let data = UIImageJPEGRepresentation(self.registImageView.image!, 0.8)
         
         //SCLAlertView().showNotice("Hi~", subTitle: "喝杯珍奶吧～")
@@ -42,6 +44,9 @@ class RegistViewController: UIViewController, FusumaDelegate {
                                  username: registNameTextField.text!,
                                  password: registPasswordTextField.text!,
                                  data: data!)
+        
+        //Tapped button and dismiss keyboard
+        view.endEditing(true)
     }
     
     //MARK: Life Cycle
@@ -147,7 +152,6 @@ class RegistViewController: UIViewController, FusumaDelegate {
         registNameTextField.resignFirstResponder()
         registEmailTextField.resignFirstResponder()
         registPasswordTextField.resignFirstResponder()
-
     }
 }
 
