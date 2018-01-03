@@ -150,29 +150,28 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                         
                         for snapshotValueDic in snapshotValueDics {
                             if let valueDic = snapshotValueDic.value as? [String: Any],
-                                let uidValue = valueDic["uid"] as? String,
                                 let storeValue = valueDic["storeId"] as? String{
-                                if (userId == uidValue) && (store.id == storeValue){
+                                
+                                if (store.id == storeValue) {
                                     marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
                                     break
                                 } else {
                                     marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                                 }
+                                
                             } else {
                                 marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                             }
                         }
-                        
                     }else {
                         marker.icon = #imageLiteral(resourceName: "QStoreMarker")
                     }
-                    
                     marker.map = self.mapView
-                    
                 })
             }
         }
     }
+    
     func didFail(with error: Error) 
     {
         print(error)

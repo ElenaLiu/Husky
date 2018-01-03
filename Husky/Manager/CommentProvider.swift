@@ -14,9 +14,12 @@ protocol CommentProviderDelegate: class {
     
     func didFetch(with comments: [Comment])
     
-    func didFail(with error: Error)
+    func didFail(with error: CommentProviderError)
 }
 
+enum CommentProviderError: Error {
+    case noComment
+}
 
 class CommentProvider {
     
@@ -35,7 +38,10 @@ class CommentProvider {
 
         NetworkingService.databaseRef.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent(of: .value) { (snapshot) in
 
-            guard let commentDic = snapshot.value as? [String: Any] else { return }
+            guard let commentDic = snapshot.value as? [String: Any] else {
+                self.delegate?.didFail(with: CommentProviderError.noComment)
+                return
+            }
 
             var comments = [Comment]()
 

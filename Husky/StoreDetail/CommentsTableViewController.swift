@@ -37,19 +37,8 @@ class CommentsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if comments != nil {
-           startLoading(status: "Loading")
-        } else {
-            let alert = UIAlertController(title: "目前還沒有評論唷!", message: "快來搶頭香！", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "沒問題！", style: .default, handler: { (action) in
-                
-            })
-            alert.addAction(alertAction)
-            self.present(alert, animated: true, completion: nil)
-        }
-        
+        startLoading(status: "Loading")
         CommentProvider.shared.fetchComments(selectStoreId: (selectedMarkerId?.id)!)
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -171,8 +160,19 @@ extension CommentsTableViewController: CommentProviderDelegate {
         }
     }
     
-    func didFail(with error: Error) {
+    func didFail(with error: CommentProviderError) {
         
+        endLoading()
+        if error == CommentProviderError.noComment {
+            let alert = UIAlertController(title: "目前還沒有評論唷!", message: "快來搶頭香！", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "沒問題！", style: .default, handler: { (action) in
+                
+            })
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            print(error.localizedDescription)
+        }
     }
 }
 
