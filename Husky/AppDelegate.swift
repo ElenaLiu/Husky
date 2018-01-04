@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        window = UIWindow(frame: UIScreen.main.bounds)
         logUser()  //寫完logout再➕回來
         return true
     }
@@ -35,12 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func logUser(){
         
         if Auth.auth().currentUser != nil {
-            
             let storyboard = UIStoryboard(name: "MapStoryboard", bundle: nil)
             let tabBar = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
             self.window?.rootViewController = tabBar
+        } else {
+            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigation")
+            self.window?.rootViewController = vc
         }
     }
-
 }
 

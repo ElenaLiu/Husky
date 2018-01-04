@@ -36,7 +36,7 @@ struct NetworkingService {
             if error == nil {
                 print("An email with information on how to reset your password has been sent to you. thank You")
             }else {
-                print(error!.localizedDescription)
+                self.delegate?.didFail(with: error!)
             }
         })
     }
@@ -57,7 +57,7 @@ struct NetworkingService {
                                  password: password,
                                  data: data)
             }else {
-                print(error!.localizedDescription)
+                self.delegate?.didFail(with: error!)
             }
         })
     }
@@ -93,7 +93,7 @@ struct NetworkingService {
                                       username: username,
                                       password: password)
                     }else{
-                        print(error!.localizedDescription)
+                        self.delegate?.didFail(with: error!)
                     }
                 })
             }else {
@@ -136,6 +136,8 @@ struct NetworkingService {
                             
                 if error != nil {
                     print(error!.localizedDescription)
+                    self.delegate?.didFail(with: error!)
+                    return
                 }
                             
                 print("\(user!.displayName!) has signed in succesfully!")
@@ -148,9 +150,11 @@ struct NetworkingService {
     func signOut() {
         do {
             try Auth.auth().signOut()
-        }catch let error as Error{
+        }catch let error {
             print(error.localizedDescription)
+            self.delegate?.didFail(with: error)
         }
         
+        AppDelegate.shared.logUser()
     }
 }

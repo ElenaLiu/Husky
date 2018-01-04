@@ -15,23 +15,25 @@ import Fusuma
 import SkyFloatingLabelTextField
 
 class RegistViewController: UIViewController, FusumaDelegate {
+    
+        var networkingService = NetworkingService()
 
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var registNameTextField: UITextField!
+    
     @IBOutlet weak var registEmailTextField: UITextField!
+    
     @IBOutlet weak var registPasswordTextField: UITextField!
+    
+    @IBOutlet weak var registImageView: UIImageView!
+    
+    @IBOutlet weak var signUpTapped: UIButton!
     
     @IBAction func backToLoginIn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 
-    @IBOutlet weak var registImageView: UIImageView!
-    
-    var networkingService = NetworkingService()
-    
-    @IBOutlet weak var signUpTapped: UIButton!
-    
     @IBAction func signUpTapped(_ sender: Any) {
         
         startLoading(status: "Loading")
@@ -50,13 +52,13 @@ class RegistViewController: UIViewController, FusumaDelegate {
     }
     
     //MARK: Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpRegistTapped()
-        textFieldErrorHandle()
+        networkingService.delegate = self
         
+        setUpRegistTapped()
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillShow),
@@ -156,45 +158,53 @@ class RegistViewController: UIViewController, FusumaDelegate {
 }
 
 //MARK: UITextFieldDelegate function
-extension RegistViewController: UITextFieldDelegate  {
+//extension RegistViewController: UITextFieldDelegate  {
+//
+//    func textFieldErrorHandle() {
+//
+//
+//        registEmailTextField.delegate = self
+//        registPasswordTextField.delegate = self
+//    }
+//
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+//        if textField === registEmailTextField {
+//            if let text = textField.text {
+//                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+//                    if(text.count < 3 || !text.contains("@")) {
+//                        floatingLabelTextField.errorMessage = "Invalid email"
+//                    }
+//                    else {
+//                        // The error message will only disappear when we reset it to nil or empty string
+//                        floatingLabelTextField.errorMessage = ""
+//                    }
+//                }
+//            }
+//        }else if textField === registPasswordTextField {
+//            if let text = textField.text {
+//                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+//                    if(text.count < 7 ) {
+//                        floatingLabelTextField.errorMessage = "Invalid password"
+//                    }
+//                    else {
+//                        // The error message will only disappear when we reset it to nil or empty string
+//                        floatingLabelTextField.errorMessage = ""
+//                    }
+//                }
+//            }
+//
+//        }
+//        return true
+//    }
+//}
+extension RegistViewController: NetworkingServiceDelegate {
     
-    func textFieldErrorHandle() {
-
-
-        registEmailTextField.delegate = self
-        registPasswordTextField.delegate = self
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func didFail(with error: Error) {
         
-        if textField === registEmailTextField {
-            if let text = textField.text {
-                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                    if(text.count < 3 || !text.contains("@")) {
-                        floatingLabelTextField.errorMessage = "Invalid email"
-                    }
-                    else {
-                        // The error message will only disappear when we reset it to nil or empty string
-                        floatingLabelTextField.errorMessage = ""
-                    }
-                }
-            }
-        }else if textField === registPasswordTextField {
-            if let text = textField.text {
-                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                    if(text.count < 7 ) {
-                        floatingLabelTextField.errorMessage = "Invalid password"
-                    }
-                    else {
-                        // The error message will only disappear when we reset it to nil or empty string
-                        floatingLabelTextField.errorMessage = ""
-                    }
-                }
-            }
-            
-        }
-        return true
+        endLoading()
+        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
+        self.present(alert, animated: true, completion: nil)
     }
 }
-
-
