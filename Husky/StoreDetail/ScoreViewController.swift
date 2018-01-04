@@ -9,9 +9,10 @@
 import UIKit
 import Cosmos
 import Firebase
+import Fusuma
 
 
-class ScoreViewController: UIViewController {
+class ScoreViewController: UIViewController, FusumaDelegate {
     
     let networkingService = NetworkingService()
     
@@ -128,7 +129,32 @@ class ScoreViewController: UIViewController {
         self.scoreImageView.layer.borderWidth = 0
         self.scoreImageView.layer.cornerRadius = 10
         self.scoreImageView.clipsToBounds = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(takePhotoAction))
+        
+        self.scoreImageView.addGestureRecognizer(tap)
+        self.scoreImageView.isUserInteractionEnabled = true
+
     }
+    @objc func takePhotoAction() {
+        
+        let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        self.present(fusuma, animated: true, completion: nil)
+    }
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
+        self.scoreImageView.image = image
+        self.scoreImageView.contentMode = .scaleAspectFill
+    }
+    
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
+    
+    func fusumaCameraRollUnauthorized() {}
     
     func setUpSaveScoreButton() {
         

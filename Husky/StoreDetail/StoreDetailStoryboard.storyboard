@@ -202,7 +202,7 @@
                                 <size key="shadowOffset" width="-1" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店名" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCY-gZ-Ate">
-                                <rect key="frame" x="75" y="105" width="215" height="26"/>
+                                <rect key="frame" x="75" y="105" width="215" height="25.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -637,7 +637,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf2-hg-nY5">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenBubbleTea" translatesAutoresizingMaskIntoConstraints="NO" id="R7f-KM-e3k">
+                                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoCamera" translatesAutoresizingMaskIntoConstraints="NO" id="R7f-KM-e3k">
                                                         <rect key="frame" x="80" y="0.0" width="215" height="200"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowXOffset">
@@ -892,8 +892,8 @@
         <image name="Back" width="25" height="25"/>
         <image name="BubbleTea(Brown)" width="25" height="40"/>
         <image name="EmptyTea" width="25" height="35"/>
-        <image name="GreenBubbleTea" width="25" height="45"/>
         <image name="Phone" width="25" height="26"/>
+        <image name="PhotoCamera" width="32" height="32"/>
         <image name="lover-2" width="32" height="32"/>
         <image name="lover-3" width="64" height="64"/>
         <image name="mapGuide" width="25" height="24"/>

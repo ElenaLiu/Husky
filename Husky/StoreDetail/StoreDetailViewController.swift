@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Fusuma
 
-class StoreDetailViewController: UIViewController, FusumaDelegate {
+class StoreDetailViewController: UIViewController {
     
     let textView = UITextView()
     
@@ -113,21 +112,21 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
     
     func changePage(to newViewController: UIViewController) {
         
-        if newViewController is ScoreViewController {
-            
-            let cameraTapped = UIButton(type: .system)
-            
-            cameraTapped.setImage(#imageLiteral(resourceName: "PhotoCamera").withRenderingMode(.alwaysOriginal), for: .normal)
-            
-            cameraTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-            
-            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cameraTapped)
-            
-            cameraTapped.addTarget(self, action: #selector(takePhotoAction), for: .touchUpInside)
-            
-        } else {
-            navigationItem.rightBarButtonItem = nil
-        }
+//        if newViewController is ScoreViewController {
+//
+//            let cameraTapped = UIButton(type: .system)
+//
+//            cameraTapped.setImage(#imageLiteral(resourceName: "PhotoCamera").withRenderingMode(.alwaysOriginal), for: .normal)
+//
+//            cameraTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+//
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cameraTapped)
+//
+//            cameraTapped.addTarget(self, action: #selector(takePhotoAction), for: .touchUpInside)
+//
+//        } else {
+//            navigationItem.rightBarButtonItem = nil
+//        }
         
         // Remove previous viewController
         selectedViewController.willMove(toParentViewController: nil)
@@ -144,25 +143,25 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
         self.selectedViewController = newViewController
     }
     
-    @objc func takePhotoAction() {
-        
-       let fusuma = FusumaViewController()
-        fusuma.delegate = self
-        fusuma.cropHeightRatio = 1
-        self.present(fusuma, animated: true, completion: nil)
-    }
-    
-    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
-        
-        self.ScoreViewController.scoreImageView.image = image
-        self.ScoreViewController.scoreImageView.contentMode = .scaleAspectFill
-    }
-    
-    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
-    
-    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
-    
-    func fusumaCameraRollUnauthorized() {}
+//    @objc func takePhotoAction() {
+//        
+//       let fusuma = FusumaViewController()
+//        fusuma.delegate = self
+//        fusuma.cropHeightRatio = 1
+//        self.present(fusuma, animated: true, completion: nil)
+//    }
+//    
+//    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+//        
+//        self.ScoreViewController.scoreImageView.image = image
+//        self.ScoreViewController.scoreImageView.contentMode = .scaleAspectFill
+//    }
+//    
+//    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
+//    
+//    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
+//    
+//    func fusumaCameraRollUnauthorized() {}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

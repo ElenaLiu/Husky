@@ -112,7 +112,7 @@ class AddStoreViewController: UIViewController {
     func setUpSaveStoreTapped() {
         
         let saveStoreTapped = UIButton(type: .custom)
-        saveStoreTapped.setImage(#imageLiteral(resourceName: "AddStore").withRenderingMode(.alwaysTemplate), for: .normal)
+        saveStoreTapped.setImage(#imageLiteral(resourceName: "AddStore").withRenderingMode(.alwaysOriginal), for: .normal)
         saveStoreTapped.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveStoreTapped)
         saveStoreTapped.addTarget(self, action: #selector(saveStoreAction), for: .touchUpInside)

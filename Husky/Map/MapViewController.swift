@@ -99,12 +99,17 @@ extension MapViewController: CLLocationManagerDelegate {
         marker.position = location.coordinate
         
         //set up user marker image view
-        let testView = UIView()
-        let testView1 = UIView()
-        testView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
-        view.backgroundColor = UIColor.clear
-        testView1.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
-        view.backgroundColor = UIColor.clear
+
+        let shadowView = UIView()
+        shadowView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        shadowView.clipsToBounds = true
+        shadowView.layer.cornerRadius = shadowView.frame.width / 2
+        
+        shadowView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        shadowView.layer.shadowOpacity = 1.0
+        shadowView.layer.shadowRadius = 5
+        shadowView.layer.shadowColor = UIColor(red: 76.0/255.0, green: 79.0/255.0, blue: 78.0/255.0, alpha: 1.0).cgColor
+        
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
@@ -114,15 +119,9 @@ extension MapViewController: CLLocationManagerDelegate {
                               placeholderImage: #imageLiteral(resourceName: "user-2"),
                               options: [],
                               completed: nil)
-        testView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        testView.layer.shadowOpacity = 1.0
-        testView.layer.shadowRadius = 2
-        testView.layer.shadowColor = UIColor(red: 155.0/255.0, green: 85.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        
-        testView1.addSubview(testView)
-        testView.addSubview(imageView)
-        marker.iconView = testView
-//        marker.iconView = imageView
+
+        shadowView.addSubview(imageView)
+        marker.iconView = shadowView
         
         //put marker on the mapView
         marker.map = mapView
