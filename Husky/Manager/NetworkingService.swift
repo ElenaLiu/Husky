@@ -103,7 +103,6 @@ struct NetworkingService {
         }
     }
     
-    
     // 3 --- Saving the user Info in the database
     private func saveInfo(user: User!,
                           username: String,

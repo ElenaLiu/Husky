@@ -87,23 +87,28 @@ class StoreDetailViewController: UIViewController, FusumaDelegate {
     
     func setUpNavigationBar() {
         
+
         //navigationItem.title = selectedMarkerId?.name
 //        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Papyrus", size: 15)!]
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+//        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "GreenBubbleTea"))
+//        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+//        navigationItem.titleView = titleImageView
+//
         
         let textView = UITextView()
-        textView.text = selectedMarkerId?.name
+        textView.text = "i Bubble"
         textView.isEditable = false
         textView.isSelectable = false
-        textView.font = UIFont(name: "NotoSansCJKtc-Regular", size: 18)
+        textView.font = UIFont(name: "Chalkduster", size: 25)
         textView.textAlignment = .center
         textView.showsHorizontalScrollIndicator = false
         textView.showsVerticalScrollIndicator = false
-    
+
         textView.sizeToFit()
-        navigationItem.titleView = textView
-        
+        navigationItem.titleView = textView 
     }
     
     func changePage(to newViewController: UIViewController) {

@@ -126,8 +126,6 @@ class ScoreViewController: UIViewController {
     func setUpScoreImage() {
         
         self.scoreImageView.layer.borderWidth = 0
-        self.scoreImageView.layer.masksToBounds = false
-        self.scoreImageView.layer.borderColor = UIColor.gray.cgColor
         self.scoreImageView.layer.cornerRadius = 10
         self.scoreImageView.clipsToBounds = true
     }
@@ -135,8 +133,6 @@ class ScoreViewController: UIViewController {
     func setUpSaveScoreButton() {
         
         self.saveScoreButton.layer.borderWidth = 0
-        self.saveScoreButton.layer.masksToBounds = false
-        self.saveScoreButton.layer.borderColor = UIColor.gray.cgColor
         self.saveScoreButton.layer.cornerRadius = 30
         self.saveScoreButton.clipsToBounds = true
     }
@@ -144,9 +140,7 @@ class ScoreViewController: UIViewController {
     func setUpCommentTextField() {
         
         self.commentTextField.layer.borderWidth = 0
-        self.commentTextField.layer.masksToBounds = false
-        self.commentTextField.layer.borderColor = UIColor.gray.cgColor
-        self.commentTextField.layer.cornerRadius = 30
+        self.commentTextField.layer.cornerRadius = 20
         self.commentTextField.clipsToBounds = true
     }
     
@@ -196,7 +190,6 @@ class ScoreViewController: UIViewController {
         fourthRatingView.settings.starSize = 30
         fourthRatingView.didTouchCosmos = { rating in
             self.fourthRating = rating
-
         }
     }
     

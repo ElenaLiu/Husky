@@ -179,7 +179,6 @@ extension RegistViewController: UITextFieldDelegate  {
                     }
                 }
             }
-            
         }else if textField === registPasswordTextField {
             if let text = textField.text {
                 if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {

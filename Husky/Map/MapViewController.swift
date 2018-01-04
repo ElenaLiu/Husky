@@ -99,17 +99,30 @@ extension MapViewController: CLLocationManagerDelegate {
         marker.position = location.coordinate
         
         //set up user marker image view
+        let testView = UIView()
+        let testView1 = UIView()
+        testView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        view.backgroundColor = UIColor.clear
+        testView1.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
+        view.backgroundColor = UIColor.clear
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.frame.size = CGSize(width: 40, height: 40)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 10, y: 10, width: 40, height: 40)
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.sd_setImage(with: Auth.auth().currentUser?.photoURL,
                               placeholderImage: #imageLiteral(resourceName: "user-2"),
                               options: [],
-                              completed: nil
-        )
-        marker.iconView = imageView
+                              completed: nil)
+        testView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        testView.layer.shadowOpacity = 1.0
+        testView.layer.shadowRadius = 2
+        testView.layer.shadowColor = UIColor(red: 155.0/255.0, green: 85.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        
+        testView1.addSubview(testView)
+        testView.addSubview(imageView)
+        marker.iconView = testView
+//        marker.iconView = imageView
         
         //put marker on the mapView
         marker.map = mapView
@@ -129,6 +142,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         
         for store in stores {
             let marker = GMSMarker()
+         
             
             marker.position = CLLocationCoordinate2D(
                 latitude: store.latitude,
@@ -136,6 +150,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             )
             
             marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
+        
             marker.title = store.name
             marker.snippet = store.id
             ref = NetworkingService.databaseRef

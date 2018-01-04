@@ -37,7 +37,7 @@ class StoreInfoViewController: UIViewController {
     
     @IBOutlet weak var myMapView: UIView!
 
-//    @IBOutlet weak var myMapView: GMSMapView!
+    @IBOutlet weak var storeNameLabel: UILabel!
     
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -135,8 +135,10 @@ class StoreInfoViewController: UIViewController {
         
         if let addressValue = addressValue,
             let phoneValue = phoneValue,
-            let scorePeopleValue = scorePeopleValue {
+            let scorePeopleValue = scorePeopleValue,
+            let nameValue = nameValue{
             
+            storeNameLabel.text = nameValue
             addressLabel.text = addressValue
             phoneLabel.text = phoneValue
             scorePeopleLabel.text = "\(scorePeopleValue) 則 評 論"

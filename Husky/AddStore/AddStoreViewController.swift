@@ -60,7 +60,6 @@ class AddStoreViewController: UIViewController {
                 self.storePhoneNumberTextField.isEnabled = true
             }
             
-            
             if let address = place.formattedAddress {
                 self.storeAddressTextField.isEnabled = false
                 self.storeAddressTextField.text = place.formattedAddress
@@ -93,16 +92,27 @@ class AddStoreViewController: UIViewController {
     }
 
     func setUpNavigationBar() {
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 28)!]
-        navigationItem.title = "i Bubble"
+        
+//        navigationController?.navigationBar.titleTextAttributes =
+//        let textView = UITextView()
+//        textView.text = "i Bubble"
+//        textView.isEditable = false
+//        textView.isSelectable = false
+//        textView.font = UIFont(name: "Chalkduster", size: 25)
+//        textView.textAlignment = .center
+//        textView.showsHorizontalScrollIndicator = false
+//        textView.showsVerticalScrollIndicator = false
+//        textView.sizeToFit()
+//        navigationItem.titleView = textView
     }
     
     func setUpSaveStoreTapped() {
         
         let saveStoreTapped = UIButton(type: .custom)
-        saveStoreTapped.setImage(#imageLiteral(resourceName: "AddStore").withRenderingMode(.alwaysOriginal), for: .normal)
+        saveStoreTapped.setImage(#imageLiteral(resourceName: "AddStore").withRenderingMode(.alwaysTemplate), for: .normal)
         saveStoreTapped.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveStoreTapped)
         saveStoreTapped.addTarget(self, action: #selector(saveStoreAction), for: .touchUpInside)

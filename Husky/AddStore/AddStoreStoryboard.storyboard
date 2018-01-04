@@ -26,25 +26,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-tJ-fuX">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-tJ-fuX">
                                 <rect key="frame" x="40" y="314" width="295" height="253"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-zv-AM4">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="64.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="71"/>
                                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-6Z-KSb">
-                                        <rect key="frame" x="0.0" y="94.5" width="295" height="64"/>
+                                        <rect key="frame" x="0.0" y="91" width="295" height="71"/>
                                         <color key="backgroundColor" red="0.98023545742034912" green="0.89025676250457764" blue="0.88627922534942627" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibU-MN-K84">
-                                        <rect key="frame" x="0.0" y="188.5" width="295" height="64.5"/>
+                                        <rect key="frame" x="0.0" y="182" width="295" height="71"/>
                                         <color key="backgroundColor" red="1" green="0.91176470588235292" blue="0.91176470588235292" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
@@ -71,12 +71,21 @@
                                 <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選 擇 店 家" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vz-U8-hSf">
+                                <rect key="frame" x="251" y="200" width="84" height="19.5"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uoa-mB-mWC" firstAttribute="bottom" secondItem="XFn-tJ-fuX" secondAttribute="bottom" constant="100" id="4K9-Nz-VDo"/>
                             <constraint firstItem="uoa-mB-mWC" firstAttribute="trailing" secondItem="89K-uG-7Fs" secondAttribute="trailing" id="8Ox-lV-AFb"/>
+                            <constraint firstItem="7Vz-U8-hSf" firstAttribute="top" secondItem="uoa-mB-mWC" secondAttribute="top" constant="136" id="C82-ht-9fR"/>
                             <constraint firstItem="89K-uG-7Fs" firstAttribute="width" secondItem="uoa-mB-mWC" secondAttribute="width" id="Drr-wr-PSO"/>
+                            <constraint firstItem="7Vz-U8-hSf" firstAttribute="leading" secondItem="uoa-mB-mWC" secondAttribute="leading" constant="251" id="IaE-vA-s3e"/>
+                            <constraint firstItem="uoa-mB-mWC" firstAttribute="trailing" secondItem="7Vz-U8-hSf" secondAttribute="trailing" constant="40" id="aXo-Sw-Tut"/>
                             <constraint firstItem="bCL-6c-RSu" firstAttribute="centerX" secondItem="89K-uG-7Fs" secondAttribute="centerX" id="bWp-oA-4zF"/>
                             <constraint firstItem="XFn-tJ-fuX" firstAttribute="leading" secondItem="uoa-mB-mWC" secondAttribute="leading" constant="40" id="fbZ-Es-zml"/>
                             <constraint firstItem="uoa-mB-mWC" firstAttribute="trailing" secondItem="XFn-tJ-fuX" secondAttribute="trailing" constant="40" id="hMV-Xc-SAU"/>
@@ -91,7 +100,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="i Bubble" id="DnT-CV-pyr"/>
+                    <navigationItem key="navigationItem" title="i Bubble" leftItemsSupplementBackButton="YES" id="DnT-CV-pyr"/>
                     <connections>
                         <outlet property="addStoreButton" destination="bCL-6c-RSu" id="LSv-xv-jEp"/>
                         <outlet property="storeAddressTextField" destination="lWT-6Z-KSb" id="ZSF-Dl-hQY"/>

@@ -63,7 +63,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Enter Your Email"/>
@@ -97,9 +97,9 @@
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Please Enter less then 8 characters"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="greater then 8 characters"/>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </userDefinedRuntimeAttribute>
@@ -267,7 +267,7 @@
                                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22F-Qg-5W5">
-                                                <rect key="frame" x="10" y="50" width="58" height="29"/>
+                                                <rect key="frame" x="10" y="40" width="58" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="t6q-nb-Gfj"/>
                                                     <constraint firstAttribute="width" constant="58" id="v05-8J-P17"/>
@@ -313,7 +313,7 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
                                                                         <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -378,7 +378,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES" textContentType="password"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
                                                                         <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -387,7 +387,6 @@
                                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Please Enter less then 8 characters"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                                                         <real key="value" value="3"/>
                                                                     </userDefinedRuntimeAttribute>
@@ -400,6 +399,7 @@
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="greater then 8 characters"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -457,7 +457,7 @@
                                             <constraint firstItem="CWO-Dd-QBf" firstAttribute="leading" secondItem="ktw-Tt-iZ6" secondAttribute="leading" id="eve-g5-V2w"/>
                                             <constraint firstItem="nBv-2I-NUX" firstAttribute="top" secondItem="ktw-Tt-iZ6" secondAttribute="top" id="ngb-Ox-c4F"/>
                                             <constraint firstItem="iuA-Jt-y49" firstAttribute="leading" secondItem="ktw-Tt-iZ6" secondAttribute="leading" constant="15" id="oly-Bd-FW2"/>
-                                            <constraint firstItem="22F-Qg-5W5" firstAttribute="top" secondItem="ktw-Tt-iZ6" secondAttribute="top" constant="50" id="oni-0j-Ibf"/>
+                                            <constraint firstItem="22F-Qg-5W5" firstAttribute="top" secondItem="ktw-Tt-iZ6" secondAttribute="top" constant="40" id="oni-0j-Ibf"/>
                                             <constraint firstItem="E4f-Px-DF5" firstAttribute="top" secondItem="ktw-Tt-iZ6" secondAttribute="top" constant="150" id="xrY-U6-fmE"/>
                                             <constraint firstAttribute="trailing" secondItem="E4f-Px-DF5" secondAttribute="trailing" constant="124" id="ypl-a2-Lea"/>
                                         </constraints>
