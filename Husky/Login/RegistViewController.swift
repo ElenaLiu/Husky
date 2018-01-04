@@ -80,8 +80,8 @@ class RegistViewController: UIViewController, FusumaDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setUpregistImage()
         
+        setUpregistImage()
     }
     
     // MARK: Status Bar

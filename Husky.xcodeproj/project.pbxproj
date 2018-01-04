@@ -39,6 +39,8 @@
 		AC84D5761FFA4CF2009D4B44 /* LoadingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC84D5751FFA4CF2009D4B44 /* LoadingFunction.swift */; };
 		AC8504451FFA140400251018 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8504441FFA140400251018 /* UserProvider.swift */; };
 		ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBAE1171FEFF02E0022AF5F /* Comment.swift */; };
+		ACBC80281FFDB8680000AE98 /* GradientFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC80271FFDB8680000AE98 /* GradientFunction.swift */; };
+		ACBC802A1FFDBAB30000AE98 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC80291FFDBAB30000AE98 /* Colors.swift */; };
 		ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */; };
 		ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */; };
 		ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */; };
@@ -87,6 +89,8 @@
 		AC84D5751FFA4CF2009D4B44 /* LoadingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFunction.swift; sourceTree = "<group>"; };
 		AC8504441FFA140400251018 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		ACBAE1171FEFF02E0022AF5F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		ACBC80271FFDB8680000AE98 /* GradientFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientFunction.swift; sourceTree = "<group>"; };
+		ACBC80291FFDBAB30000AE98 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
 		ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
 		ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyWEN2017.ttf; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			children = (
 				AC75D15F1FE12B790072DD1B /* AppDelegate.swift */,
 				AC84D5751FFA4CF2009D4B44 /* LoadingFunction.swift */,
+				ACBC80271FFDB8680000AE98 /* GradientFunction.swift */,
 				AC791B3E1FE26158004A7893 /* Manager */,
 				ACFB34331FECD7DB002A690A /* AddStore */,
 				AC1E1A5B1FE16123004FD468 /* UserProfile */,
@@ -229,6 +234,7 @@
 		AC791B3E1FE26158004A7893 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				ACBC80291FFDBAB30000AE98 /* Colors.swift */,
 				AC791B4B1FE3CB14004A7893 /* NetworkingService.swift */,
 				AC791B431FE28533004A7893 /* StoreProvider.swift */,
 				AC791B411FE2619C004A7893 /* Store.swift */,
@@ -381,6 +387,7 @@
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageView+Extension/UIImageView_Extension.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -399,6 +406,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageView_Extension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -443,6 +451,7 @@
 				AC8504451FFA140400251018 /* UserProvider.swift in Sources */,
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
+				ACBC802A1FFDBAB30000AE98 /* Colors.swift in Sources */,
 				AC84D5761FFA4CF2009D4B44 /* LoadingFunction.swift in Sources */,
 				AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */,
 				ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */,
@@ -450,6 +459,7 @@
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
 				AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */,
 				ACFB343B1FECD880002A690A /* AddStoreNavigationController.swift in Sources */,
+				ACBC80281FFDB8680000AE98 /* GradientFunction.swift in Sources */,
 				AC791B5A1FE9423D004A7893 /* StoreDetailNavigationController.swift in Sources */,
 				AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */,
 				AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */,

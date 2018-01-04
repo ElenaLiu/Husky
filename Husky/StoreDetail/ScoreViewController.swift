@@ -37,6 +37,8 @@ class ScoreViewController: UIViewController {
     var fourthRating: Double = 0.0
     var fifthRating: Double = 0.0
     
+    @IBOutlet weak var saveScoreButton: UIButton!
+    
     @IBAction func saveScoreTapped(_ sender: Any) {
 
         let imageData = UIImageJPEGRepresentation(self.scoreImageView.image!, 0.8)
@@ -97,6 +99,9 @@ class ScoreViewController: UIViewController {
         super.viewDidLoad()
         
         setUpScoreImage()
+        setUpSaveScoreButton()
+        saveScoreButton.setGradient(colorOne: Colors.pinkyred, colorTwo: Colors.lightpinkyred)
+        setUpCommentTextField()
         setUpFirstRating()
         setUpSecondRating()
         setUpthirdRating()
@@ -120,11 +125,29 @@ class ScoreViewController: UIViewController {
 
     func setUpScoreImage() {
         
-        self.scoreImageView.layer.borderWidth = 0.6
+        self.scoreImageView.layer.borderWidth = 0
         self.scoreImageView.layer.masksToBounds = false
         self.scoreImageView.layer.borderColor = UIColor.gray.cgColor
         self.scoreImageView.layer.cornerRadius = 10
         self.scoreImageView.clipsToBounds = true
+    }
+    
+    func setUpSaveScoreButton() {
+        
+        self.saveScoreButton.layer.borderWidth = 0
+        self.saveScoreButton.layer.masksToBounds = false
+        self.saveScoreButton.layer.borderColor = UIColor.gray.cgColor
+        self.saveScoreButton.layer.cornerRadius = 30
+        self.saveScoreButton.clipsToBounds = true
+    }
+    
+    func setUpCommentTextField() {
+        
+        self.commentTextField.layer.borderWidth = 0
+        self.commentTextField.layer.masksToBounds = false
+        self.commentTextField.layer.borderColor = UIColor.gray.cgColor
+        self.commentTextField.layer.cornerRadius = 30
+        self.commentTextField.clipsToBounds = true
     }
     
     func setUpFirstRating() {

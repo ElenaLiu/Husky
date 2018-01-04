@@ -17,17 +17,16 @@ class AddStoreViewController: UIViewController {
     
     var placeInfo: GMSPlace?
     
+    var gradientLayer: CAGradientLayer!
+    
     @IBOutlet weak var storeNameTextField: UITextField!
     
     @IBOutlet weak var storePhoneNumberTextField: UITextField!
     
     @IBOutlet weak var storeAddressTextField: UITextField!
-    
-//    @IBAction func saveStoreTapped(_ sender: Any) {
-//
-//        StoreProvider.shared.saveStore(place: self.placeInfo!)
-//    }
 
+    @IBOutlet weak var addStoreButton: UIButton!
+    
     @IBAction func addStoreTapped(_ sender: Any) {
         
         storeNameTextField.text = ""
@@ -82,6 +81,17 @@ class AddStoreViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setUpTextField()
+        storeAddressTextField.setGradient(colorOne: Colors.pinkyred, colorTwo: Colors.lightpinkyred)
+        
+        storePhoneNumberTextField.setGradient(colorOne: Colors.seaGreen, colorTwo: Colors.lightSeaGreen)
+        
+        storeNameTextField.setGradient(colorOne: Colors.purple, colorTwo: Colors.lightPurple)
+    }
+
     func setUpNavigationBar() {
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -93,11 +103,11 @@ class AddStoreViewController: UIViewController {
         
         let saveStoreTapped = UIButton(type: .custom)
         saveStoreTapped.setImage(#imageLiteral(resourceName: "AddStore").withRenderingMode(.alwaysOriginal), for: .normal)
-        saveStoreTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        saveStoreTapped.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveStoreTapped)
         saveStoreTapped.addTarget(self, action: #selector(saveStoreAction), for: .touchUpInside)
     }
-    
+
     @objc func saveStoreAction() {
         
         let alert = UIAlertController(title: "", message: "我發自內心覺得這家好喝！！", preferredStyle: UIAlertControllerStyle.alert)
@@ -108,7 +118,26 @@ class AddStoreViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
+    func setUpTextField() {
+        
+        self.storeNameTextField.layer.borderWidth = 0
+        self.storeNameTextField.layer.masksToBounds = false
+        self.storeNameTextField.layer.borderColor = UIColor.gray.cgColor
+        self.storeNameTextField.layer.cornerRadius = 20
+        self.storeNameTextField.clipsToBounds = true
+        
+        self.storeAddressTextField.layer.borderWidth = 0
+        self.storeAddressTextField.layer.masksToBounds = false
+        self.storeAddressTextField.layer.borderColor = UIColor.gray.cgColor
+        self.storeAddressTextField.layer.cornerRadius = 20
+        self.storeAddressTextField.clipsToBounds = true
+        
+        self.storePhoneNumberTextField.layer.borderWidth = 0
+        self.storePhoneNumberTextField.layer.masksToBounds = false
+        self.storePhoneNumberTextField.layer.borderColor = UIColor.gray.cgColor
+        self.storePhoneNumberTextField.layer.cornerRadius = 20
+        self.storePhoneNumberTextField.clipsToBounds = true
+    }
     
     @objc func dismissKeyboard() {
         
@@ -117,6 +146,5 @@ class AddStoreViewController: UIViewController {
         storeNameTextField.resignFirstResponder()
     }
 }
-
 
 

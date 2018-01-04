@@ -23,7 +23,7 @@ target 'Husky' do
   pod 'Fusuma'
   pod 'GooglePlacePicker'
   pod 'SVProgressHUD'
-
+  pod 'UIImageView+Extension','~> 0.2'
 
 
 

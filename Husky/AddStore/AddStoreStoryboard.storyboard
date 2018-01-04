@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKtc-Regular.otf">
+            <string>NotoSansCJKtc-Regular</string>
+        </array>
+        <array key="SentyWEN2017.ttf">
+            <string>SentyWen</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--i Bubble-->
         <scene sceneID="G35-4b-2nh">
@@ -18,47 +26,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-tJ-fuX">
-                                <rect key="frame" x="20" y="214" width="335" height="253"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-tJ-fuX">
+                                <rect key="frame" x="40" y="314" width="295" height="253"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" background="BubbleTea(Brown)" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-zv-AM4">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="67.5"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.2283283390410959" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-zv-AM4">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="64.5"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-6Z-KSb">
-                                        <rect key="frame" x="0.0" y="92.5" width="335" height="68"/>
-                                        <color key="backgroundColor" red="0.98023545742034912" green="0.89025676250457764" blue="0.88627922534942627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-6Z-KSb">
+                                        <rect key="frame" x="0.0" y="94.5" width="295" height="64"/>
+                                        <color key="backgroundColor" red="0.98023545742034912" green="0.89025676250457764" blue="0.88627922534942627" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibU-MN-K84">
-                                        <rect key="frame" x="0.0" y="185.5" width="335" height="67.5"/>
-                                        <color key="backgroundColor" red="0.99196183681488037" green="0.95698976516723633" blue="0.87450480461120605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibU-MN-K84">
+                                        <rect key="frame" x="0.0" y="188.5" width="295" height="64.5"/>
+                                        <color key="backgroundColor" red="1" green="0.91176470588235292" blue="0.91176470588235292" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCL-6c-RSu">
-                                <rect key="frame" x="34" y="505" width="307" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="select store"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCL-6c-RSu">
+                                <rect key="frame" x="145" y="134" width="84" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="F1l-YM-atz"/>
+                                </constraints>
+                                <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="addStoreTapped:" destination="6sq-dl-Gmn" eventType="touchUpInside" id="NiC-2n-Trn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享好喝的珍奶店吧~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89K-uG-7Fs">
+                                <rect key="frame" x="0.0" y="231" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3am-zk-ett"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SentyWen" family="SentyWen" pointSize="22"/>
+                                <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uoa-mB-mWC" firstAttribute="bottom" secondItem="XFn-tJ-fuX" secondAttribute="bottom" constant="200" id="4K9-Nz-VDo"/>
-                            <constraint firstItem="XFn-tJ-fuX" firstAttribute="leading" secondItem="uoa-mB-mWC" secondAttribute="leading" constant="20" id="fbZ-Es-zml"/>
-                            <constraint firstItem="uoa-mB-mWC" firstAttribute="trailing" secondItem="XFn-tJ-fuX" secondAttribute="trailing" constant="20" id="hMV-Xc-SAU"/>
-                            <constraint firstItem="XFn-tJ-fuX" firstAttribute="top" secondItem="uoa-mB-mWC" secondAttribute="top" constant="150" id="vW3-Nk-C15"/>
+                            <constraint firstItem="uoa-mB-mWC" firstAttribute="bottom" secondItem="XFn-tJ-fuX" secondAttribute="bottom" constant="100" id="4K9-Nz-VDo"/>
+                            <constraint firstItem="uoa-mB-mWC" firstAttribute="trailing" secondItem="89K-uG-7Fs" secondAttribute="trailing" id="8Ox-lV-AFb"/>
+                            <constraint firstItem="89K-uG-7Fs" firstAttribute="width" secondItem="uoa-mB-mWC" secondAttribute="width" id="Drr-wr-PSO"/>
+                            <constraint firstItem="bCL-6c-RSu" firstAttribute="centerX" secondItem="89K-uG-7Fs" secondAttribute="centerX" id="bWp-oA-4zF"/>
+                            <constraint firstItem="XFn-tJ-fuX" firstAttribute="leading" secondItem="uoa-mB-mWC" secondAttribute="leading" constant="40" id="fbZ-Es-zml"/>
+                            <constraint firstItem="uoa-mB-mWC" firstAttribute="trailing" secondItem="XFn-tJ-fuX" secondAttribute="trailing" constant="40" id="hMV-Xc-SAU"/>
+                            <constraint firstItem="89K-uG-7Fs" firstAttribute="top" secondItem="bCL-6c-RSu" secondAttribute="bottom" constant="10" id="icP-Zv-8D8"/>
+                            <constraint firstItem="bCL-6c-RSu" firstAttribute="leading" secondItem="uoa-mB-mWC" secondAttribute="leading" constant="145" id="pjZ-Ig-O0j"/>
+                            <constraint firstItem="bCL-6c-RSu" firstAttribute="top" secondItem="uoa-mB-mWC" secondAttribute="top" constant="70" id="poo-8q-T56"/>
+                            <constraint firstItem="XFn-tJ-fuX" firstAttribute="top" secondItem="uoa-mB-mWC" secondAttribute="top" constant="250" id="vW3-Nk-C15"/>
+                            <constraint firstItem="89K-uG-7Fs" firstAttribute="leading" secondItem="uoa-mB-mWC" secondAttribute="leading" id="ymj-YO-auQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uoa-mB-mWC"/>
                         <userDefinedRuntimeAttributes>
@@ -67,6 +93,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="i Bubble" id="DnT-CV-pyr"/>
                     <connections>
+                        <outlet property="addStoreButton" destination="bCL-6c-RSu" id="LSv-xv-jEp"/>
                         <outlet property="storeAddressTextField" destination="lWT-6Z-KSb" id="ZSF-Dl-hQY"/>
                         <outlet property="storeNameTextField" destination="hZa-zv-AM4" id="MvJ-yV-gyH"/>
                         <outlet property="storePhoneNumberTextField" destination="ibU-MN-K84" id="0Io-oA-iuz"/>
@@ -100,6 +127,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BubbleTea(Brown)" width="25" height="40"/>
+        <image name="Search" width="64" height="64"/>
     </resources>
 </document>

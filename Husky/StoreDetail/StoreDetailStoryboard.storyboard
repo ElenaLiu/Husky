@@ -14,6 +14,9 @@
         <array key="NotoSansCJKtc-Regular.otf">
             <string>NotoSansCJKtc-Regular</string>
         </array>
+        <array key="PingFang.ttc">
+            <string>PingFangSC-Semibold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Store Detail View Controller-->
@@ -600,8 +603,26 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf2-hg-nY5">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenBubbleTea" translatesAutoresizingMaskIntoConstraints="NO" id="R7f-KM-e3k">
+                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenBubbleTea" translatesAutoresizingMaskIntoConstraints="NO" id="R7f-KM-e3k">
                                                         <rect key="frame" x="80" y="0.0" width="215" height="200"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowXOffset">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowYOffset">
+                                                                <real key="value" value="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circle" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="30"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -707,7 +728,7 @@
                                                     <stackView opaque="NO" tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4f-ng-6lB">
                                                         <rect key="frame" x="0.0" y="174" width="300" height="25.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="二訪心得：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jB-Jm-qUq">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服務態度：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jB-Jm-qUq">
                                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="25.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="85" id="BfS-gU-2Oh"/>
@@ -748,8 +769,8 @@
                                                     <constraint firstAttribute="width" constant="200" id="0Qe-pN-rsK"/>
                                                     <constraint firstAttribute="height" constant="60" id="9J7-eA-oZX"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="17"/>
-                                                <state key="normal" title="送出心得">
+                                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                                                <state key="normal" title="送  出  心  得">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -797,6 +818,7 @@
                         <outlet property="fifthRatingView" destination="Pc6-oh-zam" id="xJ6-Y6-33H"/>
                         <outlet property="firstRatingView" destination="bS3-Gd-q8i" id="PSf-BC-GRW"/>
                         <outlet property="fourthRatingView" destination="64h-lG-fpd" id="Lla-99-6IM"/>
+                        <outlet property="saveScoreButton" destination="rHw-Jx-YBx" id="K6j-Mc-Gxp"/>
                         <outlet property="scoreImageView" destination="R7f-KM-e3k" id="mO2-v7-CQF"/>
                         <outlet property="scoreScrollView" destination="J9S-CZ-mmJ" id="XLQ-nD-GTZ"/>
                         <outlet property="secondRatingView" destination="eOY-FP-G7L" id="KFS-KA-fZa"/>
@@ -805,7 +827,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feE-dL-jLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1840.625" y="-9.9609375"/>
+            <point key="canvasLocation" x="-1840.8" y="-10.344827586206897"/>
         </scene>
         <!--Store Detail Navigation Controller-->
         <scene sceneID="quN-Nk-dqh">
@@ -836,7 +858,7 @@
         <image name="Back" width="25" height="25"/>
         <image name="BubbleTea(Brown)" width="25" height="40"/>
         <image name="EmptyTea" width="25" height="35"/>
-        <image name="GreenBubbleTea" width="220" height="357"/>
+        <image name="GreenBubbleTea" width="25" height="45"/>
         <image name="Phone" width="25" height="26"/>
         <image name="lover-2" width="32" height="32"/>
         <image name="lover-3" width="64" height="64"/>

@@ -41,8 +41,6 @@ class MapViewController: UIViewController {
         
         startLoading(status: "Loading")
         
-        //mapView.clear()
-        
         initLactionManager()
         
         StoreProvider.shared.getStores()
