@@ -142,6 +142,23 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         for store in stores {
             let marker = GMSMarker()
          
+            //set up user marker image view
+            
+            let shadowView = UIView()
+            shadowView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+            shadowView.clipsToBounds = true
+            shadowView.layer.cornerRadius = shadowView.frame.width / 2
+            
+            shadowView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+            shadowView.layer.shadowOpacity = 1.0
+            shadowView.layer.shadowRadius = 5
+            shadowView.layer.shadowColor = UIColor(red: 76.0/255.0, green: 79.0/255.0, blue: 78.0/255.0, alpha: 1.0).cgColor
+            
+            let imageView = UIImageView()
+            imageView.clipsToBounds = true
+            imageView.contentMode = .scaleAspectFit
+            imageView.frame = CGRect(x: 10, y: 10, width: 40, height: 40)
+            imageView.layer.cornerRadius = imageView.frame.width / 2
             
             marker.position = CLLocationCoordinate2D(
                 latitude: store.latitude,
@@ -165,19 +182,21 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
                                 let storeValue = valueDic["storeId"] as? String{
                                 
                                 if (store.id == storeValue) {
-                                    marker.icon = #imageLiteral(resourceName: "ColorfurBubbleTea")
+                                    imageView.image = #imageLiteral(resourceName: "ColorfurBubbleTea")
                                     break
                                 } else {
-                                    marker.icon = #imageLiteral(resourceName: "QStoreMarker")
+                                    imageView.image = #imageLiteral(resourceName: "QStoreMarker")
                                 }
                                 
                             } else {
-                                marker.icon = #imageLiteral(resourceName: "QStoreMarker")
+                                imageView.image = #imageLiteral(resourceName: "QStoreMarker")
                             }
                         }
                     }else {
-                        marker.icon = #imageLiteral(resourceName: "QStoreMarker")
+                        imageView.image = #imageLiteral(resourceName: "QStoreMarker")
                     }
+                    shadowView.addSubview(imageView)
+                    marker.iconView = shadowView
                     marker.map = self.mapView
                 })
             }
