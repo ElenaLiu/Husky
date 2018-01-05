@@ -19,6 +19,8 @@ class AddStoreViewController: UIViewController {
     
     var gradientLayer: CAGradientLayer!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var storeNameTextField: UITextField!
     
     @IBOutlet weak var storePhoneNumberTextField: UITextField!
@@ -68,7 +70,7 @@ class AddStoreViewController: UIViewController {
             }
         })
     }
-
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,8 +78,19 @@ class AddStoreViewController: UIViewController {
         
         setUpSaveStoreTapped()
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         //tap anywhere to hide keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+    
+    deinit {
+        
+    let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -90,13 +103,13 @@ class AddStoreViewController: UIViewController {
         
         storeNameTextField.setGradient(colorOne: Colors.purple, colorTwo: Colors.lightPurple)
     }
-
+    //MARK: Navigation Bar
     func setUpNavigationBar() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
 
     }
-    
+    //MARK: SaveStoreTapped
     func setUpSaveStoreTapped() {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "送出", style: .plain, target: self, action: #selector(saveStoreAction))
@@ -131,6 +144,20 @@ class AddStoreViewController: UIViewController {
         self.storePhoneNumberTextField.layer.borderColor = UIColor.gray.cgColor
         self.storePhoneNumberTextField.layer.cornerRadius = 20
         self.storePhoneNumberTextField.clipsToBounds = true
+    }
+    //MARK: Handling keyboard
+    @objc func keyboardWillShow(notification: Notification) {
+        
+        let userInfo = (notification as Notification).userInfo
+        let keyboardCGRact = (userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRact.height - 200, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollRectToVisible(keyboardCGRact, animated: true)
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        
+        scrollView.contentInset = UIEdgeInsets.zero
     }
     
     @objc func dismissKeyboard() {
