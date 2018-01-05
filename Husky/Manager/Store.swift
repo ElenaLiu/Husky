@@ -13,7 +13,6 @@ import GoogleMaps
 public struct Store {
     
     // MARK: Schema
-    
     public struct Schema {
         
         public static let id = "id"
@@ -35,7 +34,6 @@ public struct Store {
     }
     
     // MARK: Property
-    
     public let id: String
     
     public let name: String

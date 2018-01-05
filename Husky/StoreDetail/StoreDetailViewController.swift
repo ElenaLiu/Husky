@@ -12,6 +12,8 @@ class StoreDetailViewController: UIViewController {
     
     let textView = UITextView()
     
+    var isHigitLighted: Bool = false
+    
     var selectedMarkerId: Store?
     
     var StoreInfoViewController: StoreInfoViewController!
@@ -35,10 +37,19 @@ class StoreDetailViewController: UIViewController {
     @IBAction func showStoreInfoPageTapped(_ sender: Any) {
         
         if let navigationController = self.navigationController as? StoreDetailNavigationController {
+            var page = UIViewController()
+            let showStoreInfoPageTapped = UIButton()
+            if page == StoreInfoViewController {
+                showStoreInfoPageTapped.setTitleColor(UIColor.blue, for: .highlighted)
+               
+            }else {
+                
+            }
         
             StoreInfoViewController.selectedMarkerId = navigationController.selectedMarkerId
 
             changePage(to: StoreInfoViewController)
+         
         }
     }
     
@@ -78,7 +89,7 @@ class StoreDetailViewController: UIViewController {
         // SetUp default page
         selectedViewController = StoreInfoViewController
     }
-
+    
     @IBAction func backToMapPageTapped(_ sender: Any) {
 
         self.dismiss(animated: true, completion: nil)
@@ -112,6 +123,12 @@ class StoreDetailViewController: UIViewController {
     
     func changePage(to newViewController: UIViewController) {
         
+        if newViewController is StoreInfoViewController {
+//            let showStoreInfoPageTapped = UIButton(type: .custom)
+            self.storeInfoPageTapped.setTitleColor(UIColor.blue, for: .highlighted)
+        } else {
+            
+        }
 //        if newViewController is ScoreViewController {
 //
 //            let cameraTapped = UIButton(type: .system)

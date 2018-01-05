@@ -286,7 +286,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-2" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-Px-DF5" customClass="CustomizableImageView" customModule="Husky" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scorePicture" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-Px-DF5" customClass="CustomizableImageView" customModule="Husky" customModuleProvider="target">
                                                 <rect key="frame" x="123" y="150" width="128" height="128"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -523,6 +523,6 @@
     <resources>
         <image name="Back" width="25" height="25"/>
         <image name="LaunchScreen" width="750" height="1334"/>
-        <image name="user-2" width="128" height="128"/>
+        <image name="scorePicture" width="32" height="32"/>
     </resources>
 </document>

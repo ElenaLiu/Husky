@@ -120,6 +120,7 @@ class RegistViewController: UIViewController, FusumaDelegate {
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
         registImageView.image = image
+        registImageView.contentMode = .scaleAspectFill
     }
     
     func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
@@ -154,6 +155,17 @@ class RegistViewController: UIViewController, FusumaDelegate {
         registNameTextField.resignFirstResponder()
         registEmailTextField.resignFirstResponder()
         registPasswordTextField.resignFirstResponder()
+    }
+}
+
+extension RegistViewController: NetworkingServiceDelegate {
+    
+    func didFail(with error: Error) {
+        
+        endLoading()
+        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -198,13 +210,4 @@ class RegistViewController: UIViewController, FusumaDelegate {
 //        return true
 //    }
 //}
-extension RegistViewController: NetworkingServiceDelegate {
-    
-    func didFail(with error: Error) {
-        
-        endLoading()
-        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-        self.present(alert, animated: true, completion: nil)
-    }
-}
+

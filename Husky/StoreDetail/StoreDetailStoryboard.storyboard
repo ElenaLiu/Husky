@@ -37,10 +37,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SgX-nt-7G2">
                                 <rect key="frame" x="0.0" y="64" width="375" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-5p-SA9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-5p-SA9">
                                         <rect key="frame" x="0.0" y="0.0" width="123.5" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="18"/>
+                                        <size key="titleShadowOffset" width="2" height="2"/>
                                         <state key="normal" title="店 家 資 訊">
                                             <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -110,6 +111,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="commentsPageTapped" destination="fdf-74-B9q" id="oTq-QL-PSY"/>
                         <outlet property="containerView" destination="5rQ-he-ysq" id="S6C-C2-KZ7"/>
                         <outlet property="scorePageTapped" destination="KVe-BE-cuW" id="o1C-mX-gSs"/>
                         <outlet property="storeInfoPageTapped" destination="zhJ-5p-SA9" id="wWb-HC-1py"/>

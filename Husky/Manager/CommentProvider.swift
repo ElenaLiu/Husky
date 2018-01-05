@@ -36,7 +36,7 @@ class CommentProvider {
 
         let storeId = selectStoreId
 
-        NetworkingService.databaseRef.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent(of: .value) { (snapshot) in
+NetworkingService.databaseRef.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent(of: .value) { (snapshot) in
 
             guard let commentDic = snapshot.value as? [String: Any] else {
                 self.delegate?.didFail(with: CommentProviderError.noComment)

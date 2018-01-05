@@ -15,7 +15,6 @@ import Cosmos
 import Firebase
 import SDWebImage
 
-
 class StoreInfoViewController: UIViewController {
     
     var selectedMarkerId: Store?

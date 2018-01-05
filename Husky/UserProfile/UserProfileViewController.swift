@@ -38,6 +38,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
         userProfileImageView.image = image
+        userProfileImageView.contentMode = .scaleAspectFill
     }
     
     func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}

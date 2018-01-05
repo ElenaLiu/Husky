@@ -134,6 +134,18 @@ class LoginViewController: UIViewController {
     }
 }
 
+extension LoginViewController: NetworkingServiceDelegate {
+    func didFail(with error: Error) {
+    
+//        endLoading()
+        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+}
+
+
 //extension LoginViewController: UITextFieldDelegate  {
 //
 //    func textFieldErrorHandle() {
@@ -174,13 +186,5 @@ class LoginViewController: UIViewController {
 //    }
 //}
 
-extension LoginViewController: NetworkingServiceDelegate {
-    func didFail(with error: Error) {
-        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-}
 
 
