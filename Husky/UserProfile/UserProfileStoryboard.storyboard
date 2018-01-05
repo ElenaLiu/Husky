@@ -33,7 +33,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8j-mL-GRg">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scorePicture" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scorePicture" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-F3-WuG">
                                                 <rect key="frame" x="111" y="11" width="191" height="191"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="r4D-F3-WuG" secondAttribute="height" multiplier="1:1" id="AhC-7k-KQu"/>

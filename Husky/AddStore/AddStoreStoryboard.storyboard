@@ -70,7 +70,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選 擇 店 家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vz-U8-hSf">
-                                                <rect key="frame" x="0.0" y="129" width="414" height="15.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="129" width="414" height="19.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
