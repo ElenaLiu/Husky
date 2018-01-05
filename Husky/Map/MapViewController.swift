@@ -149,7 +149,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             shadowView.clipsToBounds = true
             shadowView.layer.cornerRadius = shadowView.frame.width / 2
             
-            shadowView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+            shadowView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
             shadowView.layer.shadowOpacity = 1.0
             shadowView.layer.shadowRadius = 5
             shadowView.layer.shadowColor = UIColor(red: 76.0/255.0, green: 79.0/255.0, blue: 78.0/255.0, alpha: 1.0).cgColor
