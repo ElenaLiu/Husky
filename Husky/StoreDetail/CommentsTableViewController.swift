@@ -88,7 +88,6 @@ class CommentsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return comments.count
-
     }
 
     
@@ -102,7 +101,7 @@ class CommentsTableViewController: UITableViewController {
         
         // Trainsition String type to be URL
         let photoUrl = URL(string: comment.imageUrl)
-        //上傳圖片時才壓縮, 載入圖片時不用
+     
         DispatchQueue.main.async {
             cell.foregroundBlurImageView.sd_setImage(with: photoUrl, completed: nil)
             cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
@@ -117,7 +116,6 @@ class CommentsTableViewController: UITableViewController {
         }
         
         let commentUid = comment.uid
-        
         NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
            
             guard let userDic = snapshot.value as? [String: Any] else { return }
@@ -130,8 +128,6 @@ class CommentsTableViewController: UITableViewController {
                 print("6 \(username)")
                 print("66 \(photoUrl)")
                 
-            
-                
                 DispatchQueue.main.async {
                     // Trainsition String type to be URL
                     let userPhotoUrl = URL(string: photoUrl)
@@ -139,9 +135,7 @@ class CommentsTableViewController: UITableViewController {
                     
                     cell.userNameLabel.text = username
                 }
-                
             }
-            
         }
         return cell
     }
@@ -166,7 +160,6 @@ extension CommentsTableViewController: CommentProviderDelegate {
         if error == CommentProviderError.noComment {
             let alert = UIAlertController(title: "目前還沒有評論唷!", message: "快來搶頭香！", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "沒問題！", style: .default, handler: { (action) in
-                
             })
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)

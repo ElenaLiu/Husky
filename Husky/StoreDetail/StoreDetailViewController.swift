@@ -37,19 +37,10 @@ class StoreDetailViewController: UIViewController {
     @IBAction func showStoreInfoPageTapped(_ sender: Any) {
         
         if let navigationController = self.navigationController as? StoreDetailNavigationController {
-            var page = UIViewController()
-            let showStoreInfoPageTapped = UIButton()
-            if page == StoreInfoViewController {
-                showStoreInfoPageTapped.setTitleColor(UIColor.blue, for: .highlighted)
-               
-            }else {
-                
-            }
-        
+
             StoreInfoViewController.selectedMarkerId = navigationController.selectedMarkerId
 
             changePage(to: StoreInfoViewController)
-         
         }
     }
     
@@ -88,6 +79,8 @@ class StoreDetailViewController: UIViewController {
         
         // SetUp default page
         selectedViewController = StoreInfoViewController
+        self.storeInfoPageTapped.setTitleColor(UIColor.blue, for: .normal)
+        
     }
     
     @IBAction func backToMapPageTapped(_ sender: Any) {
@@ -97,17 +90,14 @@ class StoreDetailViewController: UIViewController {
     
     func setUpNavigationBar() {
         
-
         //navigationItem.title = selectedMarkerId?.name
 //        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Papyrus", size: 15)!]
-        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
 //        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "GreenBubbleTea"))
 //        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
 //        navigationItem.titleView = titleImageView
 //
-        
         let textView = UITextView()
         textView.text = "i Bubble"
         textView.isEditable = false
@@ -124,10 +114,23 @@ class StoreDetailViewController: UIViewController {
     func changePage(to newViewController: UIViewController) {
         
         if newViewController is StoreInfoViewController {
-//            let showStoreInfoPageTapped = UIButton(type: .custom)
-            self.storeInfoPageTapped.setTitleColor(UIColor.blue, for: .highlighted)
+
+            self.storeInfoPageTapped.setTitleColor(UIColor.blue, for: .normal)
         } else {
+            self.storeInfoPageTapped.setTitleColor(UIColor.black, for: .normal)
+        }
+        if newViewController is ScoreViewController {
             
+            self.scorePageTapped.setTitleColor(UIColor.blue, for: .normal)
+        } else {
+            self.scorePageTapped.setTitleColor(UIColor.black, for: .normal)
+        }
+        
+        if newViewController is CommentsTableViewController {
+            
+            self.commentsPageTapped.setTitleColor(UIColor.blue, for: .normal)
+        } else {
+            self.commentsPageTapped.setTitleColor(UIColor.black, for: .normal)
         }
 //        if newViewController is ScoreViewController {
 //
@@ -160,26 +163,6 @@ class StoreDetailViewController: UIViewController {
         self.selectedViewController = newViewController
     }
     
-//    @objc func takePhotoAction() {
-//        
-//       let fusuma = FusumaViewController()
-//        fusuma.delegate = self
-//        fusuma.cropHeightRatio = 1
-//        self.present(fusuma, animated: true, completion: nil)
-//    }
-//    
-//    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
-//        
-//        self.ScoreViewController.scoreImageView.image = image
-//        self.ScoreViewController.scoreImageView.contentMode = .scaleAspectFill
-//    }
-//    
-//    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
-//    
-//    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
-//    
-//    func fusumaCameraRollUnauthorized() {}
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ContainerViewSegue" {
@@ -202,15 +185,16 @@ class StoreDetailViewController: UIViewController {
     }
 }
 
-extension StoreDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-    {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        {
-            ScoreViewController.scoreImageView.image = pickedImage
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-}
+//extension StoreDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+//    {
+//        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        {
+//            ScoreViewController.scoreImageView.image = pickedImage
+//        }
+//
+//        dismiss(animated: true, completion: nil)
+//    }
+//}
+

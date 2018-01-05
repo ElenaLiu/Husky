@@ -246,12 +246,10 @@ class ScoreViewController: UIViewController, FusumaDelegate {
     @objc func keyboardWillHide(notification: Notification) {
         
         scoreScrollView.contentInset = UIEdgeInsets.zero
-
     }
     
     @objc func dismissKeyboard() {
         
         commentTextField.resignFirstResponder()
-        
     }
 }

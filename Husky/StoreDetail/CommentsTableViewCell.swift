@@ -85,7 +85,6 @@ class CommentsTableViewCell: FoldingCell {
         self.containerBlurImageView.layer.masksToBounds = true
         self.containerBlurImageView.layer.cornerRadius = 20
         self.containerBlurImageView.clipsToBounds = true
-        
     }
     
     func setUpForegroundBlurImageView() {

@@ -71,7 +71,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
         fetchUserProfile()
    
-        
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillShow),
