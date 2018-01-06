@@ -140,7 +140,7 @@ class StoreInfoViewController: UIViewController {
             storeNameLabel.text = nameValue
             addressLabel.text = addressValue
             phoneLabel.text = phoneValue
-            scorePeopleLabel.text = "\(scorePeopleValue) 則 評 論"
+            scorePeopleLabel.text = String(scorePeopleValue) + NSLocalizedString(" comment(s)", comment: "")
         }
     }
     

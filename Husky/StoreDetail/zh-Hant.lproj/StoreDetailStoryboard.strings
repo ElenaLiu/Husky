@@ -1,0 +1,75 @@
+
+/* Class = "UILabel"; text = "奶茶風味："; ObjectID = "1S1-rS-2Q6"; */
+"1S1-rS-2Q6.text" = "奶茶風味：";
+
+/* Class = "UILabel"; text = "珍珠風味："; ObjectID = "3JM-Wf-xJV"; */
+"3JM-Wf-xJV.text" = "珍珠風味：";
+
+/* Class = "UILabel"; text = "珍珠Ｑ度："; ObjectID = "3yR-ch-DtW"; */
+"3yR-ch-DtW.text" = "珍珠Ｑ度：";
+
+/* Class = "UILabel"; text = "奶茶風味："; ObjectID = "6cG-8J-TBc"; */
+"6cG-8J-TBc.text" = "奶茶風味：";
+
+/* Class = "UILabel"; text = "電 話："; ObjectID = "8Wp-64-an5"; */
+"8Wp-64-an5.text" = "電 話：";
+
+/* Class = "UILabel"; text = "服務態度："; ObjectID = "8jB-Jm-qUq"; */
+"8jB-Jm-qUq.text" = "服務態度：";
+
+/* Class = "UILabel"; text = "珍珠Ｑ度："; ObjectID = "Bp1-Ha-LsC"; */
+"Bp1-Ha-LsC.text" = "珍珠Ｑ度：";
+
+/* Class = "UILabel"; text = "地 址："; ObjectID = "Ixl-J3-Hza"; */
+"Ixl-J3-Hza.text" = "地 址：";
+
+/* Class = "UITextView"; text = "Leave some comment....."; ObjectID = "KVX-cp-WuI"; */
+"KVX-cp-WuI.text" = "Leave some comment.....";
+
+/* Class = "UIButton"; normalTitle = "評 分"; ObjectID = "KVe-BE-cuW"; */
+"KVe-BE-cuW.normalTitle" = "評 分";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "OQp-oK-IkX"; */
+"OQp-oK-IkX.title" = "Item";
+
+/* Class = "UILabel"; text = "評分人數"; ObjectID = "PVM-Fn-OZm"; */
+"PVM-Fn-OZm.text" = "評分人數";
+
+/* Class = "UILabel"; text = "珍珠量："; ObjectID = "VSp-3f-zI8"; */
+"VSp-3f-zI8.text" = "珍珠量：";
+
+/* Class = "UILabel"; text = "珍珠量："; ObjectID = "XJo-dr-c2z"; */
+"XJo-dr-c2z.text" = "珍珠量：";
+
+/* Class = "UILabel"; text = "目前還沒有評論唷！"; ObjectID = "afK-eJ-mM5"; */
+"afK-eJ-mM5.text" = "目前還沒有評論唷！";
+
+/* Class = "UILabel"; text = "店名"; ObjectID = "eCY-gZ-Ate"; */
+"eCY-gZ-Ate.text" = "店名";
+
+/* Class = "UILabel"; text = "店名："; ObjectID = "fWx-sM-N6v"; */
+"fWx-sM-N6v.text" = "店名：";
+
+/* Class = "UIButton"; normalTitle = "評 論"; ObjectID = "fdf-74-B9q"; */
+"fdf-74-B9q.normalTitle" = "評 論";
+
+/* Class = "UILabel"; text = "電話"; ObjectID = "gxv-o0-uPR"; */
+"gxv-o0-uPR.text" = "電話";
+
+/* Class = "UILabel"; text = "珍珠甜度："; ObjectID = "hII-Rd-ZBs"; */
+"hII-Rd-ZBs.text" = "珍珠甜度：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kxt-Uk-3ts"; */
+"kxt-Uk-3ts.text" = "Label";
+
+/* Class = "UILabel"; text = "服務態度："; ObjectID = "rBm-Ch-NVR"; */
+"rBm-Ch-NVR.text" = "服務態度：";
+
+/* Class = "UIButton"; normalTitle = "送  出  心  得"; ObjectID = "rHw-Jx-YBx"; */
+"rHw-Jx-YBx.normalTitle" = "送  出  心  得";
+
+/* Class = "UILabel"; text = "地址"; ObjectID = "xm2-sK-CEl"; */
+"xm2-sK-CEl.text" = "地址";
+
+/* Class = "UIButton"; normalTitle = "店 家 資 訊"; ObjectID = "zhJ-5p-SA9"; */
+"zhJ-5p-SA9.normalTitle" = "店 家 資 訊";

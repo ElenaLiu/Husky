@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		79B579ACBA4A6ABFBFE7484A /* Pods_Husky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */; };
+		AC07E5712000B992002EF9C8 /* StoreDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E5732000B992002EF9C8 /* StoreDetailStoryboard.storyboard */; };
+		AC07E57A2000BB7F002EF9C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC07E57C2000BB7F002EF9C8 /* Localizable.strings */; };
 		AC11DD761FF21C9300834285 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD751FF21C9300834285 /* User.swift */; };
 		AC11DD781FF388E000834285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC11DD771FF388E000834285 /* Assets.xcassets */; };
 		AC11DD7A1FF52DC600834285 /* CommentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD791FF52DC600834285 /* CommentProvider.swift */; };
@@ -18,7 +20,6 @@
 		AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A531FE160CC004FD468 /* StoreInfoViewController.swift */; };
 		AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */; };
 		AC1E1A581FE160F2004FD468 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */; };
-		AC1E1A5A1FE16111004FD468 /* StoreDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */; };
 		AC1E1A5F1FE16185004FD468 /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */; };
 		AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */; };
 		AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */; };
@@ -55,6 +56,11 @@
 /* Begin PBXFileReference section */
 		700C1E20DE2AF1473C3B2F1C /* Pods-Husky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.debug.xcconfig"; sourceTree = "<group>"; };
 		8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Husky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC07E5722000B992002EF9C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StoreDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		AC07E5752000B99E002EF9C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StoreDetailStoryboard.strings; sourceTree = "<group>"; };
+		AC07E5782000BB0E002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/StoreDetailStoryboard.strings"; sourceTree = "<group>"; };
+		AC07E5792000BB0F002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		AC07E57D2000BB9E002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AC11DD751FF21C9300834285 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC11DD771FF388E000834285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC11DD791FF52DC600834285 /* CommentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentProvider.swift; sourceTree = "<group>"; };
@@ -65,7 +71,6 @@
 		AC1E1A531FE160CC004FD468 /* StoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoViewController.swift; sourceTree = "<group>"; };
 		AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
-		AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -158,7 +163,7 @@
 				AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */,
 				AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */,
 				AC791B451FE36DFE004A7893 /* CommentsTableViewCell.swift */,
-				AC1E1A591FE16111004FD468 /* StoreDetailStoryboard.storyboard */,
+				AC07E5732000B992002EF9C8 /* StoreDetailStoryboard.storyboard */,
 			);
 			path = StoreDetail;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				AC791B5F1FEBD093004A7893 /* Classic Xing kai Font.TTF */,
 				AC791B5D1FEBD086004A7893 /* Chihaya日文字體1.ttf */,
 				AC75D16B1FE12B790072DD1B /* Info.plist */,
+				AC07E57C2000BB7F002EF9C8 /* Localizable.strings */,
 			);
 			path = Husky;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = AC75D1531FE12B790072DD1B;
 			productRefGroup = AC75D15D1FE12B790072DD1B /* Products */;
@@ -328,7 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1E1A5A1FE16111004FD468 /* StoreDetailStoryboard.storyboard in Resources */,
+				AC07E5712000B992002EF9C8 /* StoreDetailStoryboard.storyboard in Resources */,
 				AC791B601FEBD094004A7893 /* Classic Xing kai Font.TTF in Resources */,
 				ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */,
 				ACFB34371FECD831002A690A /* AddStoreStoryboard.storyboard in Resources */,
@@ -341,6 +348,7 @@
 				ACFB34301FEBD3FB002A690A /* SentyZHAO.ttf in Resources */,
 				ACFB34321FECB7F3002A690A /* NotoSansCJKtc-Regular.otf in Resources */,
 				ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */,
+				AC07E57A2000BB7F002EF9C8 /* Localizable.strings in Resources */,
 				AC1E1A511FE15EFB004FD468 /* MapStoryboard.storyboard in Resources */,
 				ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */,
 			);
@@ -486,10 +494,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		AC07E5732000B992002EF9C8 /* StoreDetailStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC07E5722000B992002EF9C8 /* Base */,
+				AC07E5752000B99E002EF9C8 /* en */,
+				AC07E5782000BB0E002EF9C8 /* zh-Hant */,
+			);
+			name = StoreDetailStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		AC07E57C2000BB7F002EF9C8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC07E57D2000BB9E002EF9C8 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AC75D1691FE12B790072DD1B /* Base */,
+				AC07E5792000BB0F002EF9C8 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -501,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -558,6 +586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
