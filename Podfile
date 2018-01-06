@@ -17,13 +17,14 @@ target 'Husky' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'FoldingCell'
-  pod 'RAMAnimatedTabBarController'
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift', :branch => 'master'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Fusuma'
   pod 'GooglePlacePicker'
   pod 'SVProgressHUD'
   pod 'UIImageView+Extension','~> 0.2'
+  pod 'Fabric', '~> 1.7.2'
+  pod 'Crashlytics', '~> 3.9.3'
 
 
 
