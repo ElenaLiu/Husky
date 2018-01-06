@@ -112,19 +112,19 @@ class AddStoreViewController: UIViewController {
     //MARK: SaveStoreTapped
     func setUpSaveStoreTapped() {
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "送出", style: .plain, target: self, action: #selector(saveStoreAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Send", comment: ""), style: .plain, target: self, action: #selector(saveStoreAction))
     }
 
     @objc func saveStoreAction() {
         
-        let alert = UIAlertController(title: "", message: "我發自內心覺得這家好喝！！", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "", message: NSLocalizedString("Send?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString(" Yes ", comment: ""), style: .default, handler: { (action) in
             StoreProvider.shared.saveStore(place: self.placeInfo!)
             self.storeNameTextField.text = ""
             self.storeAddressTextField.text = ""
             self.storePhoneNumberTextField.text = ""
         }))
-        alert.addAction(UIAlertAction(title: "我再想一下", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

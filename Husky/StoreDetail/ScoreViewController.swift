@@ -71,9 +71,8 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
                 fourthRating: fourthRating,
                 fifthRating: fifthRating
             )
-            
-        let alert = UIAlertController(title: "", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "", message: NSLocalizedString("Send comment?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes ", comment: ""), style: .default, handler: { (action) in
             startLoading(status: "Loading")
             CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
             
@@ -91,7 +90,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
             self.scoreImageView.contentMode = .scaleAspectFit
             
         }))
-        alert.addAction(UIAlertAction(title: "等等我再想想！", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
         }
     }
@@ -133,7 +132,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         
-        commentTextField.text = "Leave some comment....."
+        commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
     }
 
     func setUpScoreImage() {

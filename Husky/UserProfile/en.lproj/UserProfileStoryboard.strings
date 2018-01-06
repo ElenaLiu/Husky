@@ -1,0 +1,15 @@
+
+/* Class = "UITextField"; placeholder = "Email:"; ObjectID = "AKk-fb-uaj"; */
+"AKk-fb-uaj.placeholder" = "Email:";
+
+/* Class = "UIButton"; normalTitle = "編輯大頭貼"; ObjectID = "IIe-tI-FTs"; */
+"IIe-tI-FTs.normalTitle" = "Edit profile";
+
+/* Class = "UINavigationItem"; title = "編輯個人檔案"; ObjectID = "KQC-0c-LSh"; */
+"KQC-0c-LSh.title" = "Edit profile";
+
+/* Class = "UIBarButtonItem"; title = "Log out"; ObjectID = "liK-Nx-q0K"; */
+"liK-Nx-q0K.title" = "Log out";
+
+/* Class = "UILabel"; text = "人森不能沒有珍珠"; ObjectID = "nYn-0e-C93"; */
+"nYn-0e-C93.text" = "Life can't be without bubble.";

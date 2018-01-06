@@ -803,7 +803,7 @@
                                                     <constraint firstAttribute="width" constant="300" id="OzS-wl-wMg"/>
                                                 </constraints>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Leave some comment....." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-cp-WuI">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-cp-WuI">
                                                 <rect key="frame" x="60" y="439.5" width="255" height="80"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>

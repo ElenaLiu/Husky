@@ -52,12 +52,12 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
         if Auth.auth().currentUser != nil {
             
-            let alert = UIAlertController(title: "", message: "確定要登出？", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "", message: NSLocalizedString("Log out?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (action) in
                 
                 self.networkingService.signOut()
             }))
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -113,14 +113,14 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
         if let user = Auth.auth().currentUser {
             
-            let alert = UIAlertController(title: "", message: "更新個人資料？", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "", message: NSLocalizedString("Update personal profile?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (action) in
                 
                 let imageData = UIImageJPEGRepresentation(self.userProfileImageView.image!, 0.8)
                 self.networkingService.setUserInfo(user: user, username: self.nameTextField.text!, password: "", data: imageData)
                 
             }))
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }

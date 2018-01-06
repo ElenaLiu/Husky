@@ -10,6 +10,9 @@
 		79B579ACBA4A6ABFBFE7484A /* Pods_Husky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB3B32259F12B2E435BF7A3 /* Pods_Husky.framework */; };
 		AC07E5712000B992002EF9C8 /* StoreDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E5732000B992002EF9C8 /* StoreDetailStoryboard.storyboard */; };
 		AC07E57A2000BB7F002EF9C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC07E57C2000BB7F002EF9C8 /* Localizable.strings */; };
+		AC07E57E2000C062002EF9C8 /* AddStoreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E5802000C062002EF9C8 /* AddStoreStoryboard.storyboard */; };
+		AC07E5852000C3A2002EF9C8 /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E5872000C3A2002EF9C8 /* UserProfileStoryboard.storyboard */; };
+		AC07E58C2000CAC1002EF9C8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E58E2000CAC1002EF9C8 /* Login.storyboard */; };
 		AC11DD761FF21C9300834285 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD751FF21C9300834285 /* User.swift */; };
 		AC11DD781FF388E000834285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC11DD771FF388E000834285 /* Assets.xcassets */; };
 		AC11DD7A1FF52DC600834285 /* CommentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD791FF52DC600834285 /* CommentProvider.swift */; };
@@ -20,12 +23,10 @@
 		AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A531FE160CC004FD468 /* StoreInfoViewController.swift */; };
 		AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */; };
 		AC1E1A581FE160F2004FD468 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */; };
-		AC1E1A5F1FE16185004FD468 /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */; };
 		AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */; };
 		AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */; };
 		AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D15F1FE12B790072DD1B /* AppDelegate.swift */; };
 		AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */; };
-		AC75D1731FE148A20072DD1B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1721FE148A20072DD1B /* Login.storyboard */; };
 		AC75D1751FE148D80072DD1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D1741FE148D80072DD1B /* LoginViewController.swift */; };
 		AC791B421FE2619C004A7893 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B411FE2619C004A7893 /* Store.swift */; };
 		AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B431FE28533004A7893 /* StoreProvider.swift */; };
@@ -48,7 +49,6 @@
 		ACFB34301FEBD3FB002A690A /* SentyZHAO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342F1FEBD3FB002A690A /* SentyZHAO.ttf */; };
 		ACFB34321FECB7F3002A690A /* NotoSansCJKtc-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34311FECB7F1002A690A /* NotoSansCJKtc-Regular.otf */; };
 		ACFB34351FECD81C002A690A /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB34341FECD81C002A690A /* AddStoreViewController.swift */; };
-		ACFB34371FECD831002A690A /* AddStoreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34361FECD831002A690A /* AddStoreStoryboard.storyboard */; };
 		ACFB343B1FECD880002A690A /* AddStoreNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB343A1FECD880002A690A /* AddStoreNavigationController.swift */; };
 		ACFB343D1FECD8FB002A690A /* UserProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB343C1FECD8FB002A690A /* UserProfileNavigationController.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +61,15 @@
 		AC07E5782000BB0E002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/StoreDetailStoryboard.strings"; sourceTree = "<group>"; };
 		AC07E5792000BB0F002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AC07E57D2000BB9E002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AC07E57F2000C062002EF9C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddStoreStoryboard.storyboard; sourceTree = "<group>"; };
+		AC07E5822000C07A002EF9C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddStoreStoryboard.strings; sourceTree = "<group>"; };
+		AC07E5842000C07B002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AddStoreStoryboard.strings"; sourceTree = "<group>"; };
+		AC07E5862000C3A2002EF9C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		AC07E5892000C3A4002EF9C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UserProfileStoryboard.strings; sourceTree = "<group>"; };
+		AC07E58B2000C3A7002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/UserProfileStoryboard.strings"; sourceTree = "<group>"; };
+		AC07E58D2000CAC1002EF9C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		AC07E5902000CAC6002EF9C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
+		AC07E5922000CAC7002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Login.strings"; sourceTree = "<group>"; };
 		AC11DD751FF21C9300834285 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC11DD771FF388E000834285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC11DD791FF52DC600834285 /* CommentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentProvider.swift; sourceTree = "<group>"; };
@@ -71,14 +80,12 @@
 		AC1E1A531FE160CC004FD468 /* StoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoViewController.swift; sourceTree = "<group>"; };
 		AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
-		AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AC75D15C1FE12B790072DD1B /* Husky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Husky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC75D15F1FE12B790072DD1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC75D1691FE12B790072DD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC75D16B1FE12B790072DD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC75D1721FE148A20072DD1B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		AC75D1741FE148D80072DD1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AC791B411FE2619C004A7893 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		AC791B431FE28533004A7893 /* StoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProvider.swift; sourceTree = "<group>"; };
@@ -102,7 +109,6 @@
 		ACFB342F1FEBD3FB002A690A /* SentyZHAO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyZHAO.ttf; sourceTree = "<group>"; };
 		ACFB34311FECB7F1002A690A /* NotoSansCJKtc-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKtc-Regular.otf"; sourceTree = "<group>"; };
 		ACFB34341FECD81C002A690A /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
-		ACFB34361FECD831002A690A /* AddStoreStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStoreStoryboard.storyboard; sourceTree = "<group>"; };
 		ACFB343A1FECD880002A690A /* AddStoreNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreNavigationController.swift; sourceTree = "<group>"; };
 		ACFB343C1FECD8FB002A690A /* UserProfileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNavigationController.swift; sourceTree = "<group>"; };
 		E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Husky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Husky/Pods-Husky.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +179,7 @@
 			children = (
 				ACFB343C1FECD8FB002A690A /* UserProfileNavigationController.swift */,
 				AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */,
-				AC1E1A5E1FE16185004FD468 /* UserProfileStoryboard.storyboard */,
+				AC07E5872000C3A2002EF9C8 /* UserProfileStoryboard.storyboard */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -230,7 +236,7 @@
 		AC75D1711FE148360072DD1B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AC75D1721FE148A20072DD1B /* Login.storyboard */,
+				AC07E58E2000CAC1002EF9C8 /* Login.storyboard */,
 				AC75D1741FE148D80072DD1B /* LoginViewController.swift */,
 				AC791B491FE3A925004A7893 /* RegistViewController.swift */,
 			);
@@ -256,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFB34341FECD81C002A690A /* AddStoreViewController.swift */,
-				ACFB34361FECD831002A690A /* AddStoreStoryboard.storyboard */,
+				AC07E5802000C062002EF9C8 /* AddStoreStoryboard.storyboard */,
 				ACFB343A1FECD880002A690A /* AddStoreNavigationController.swift */,
 			);
 			path = AddStore;
@@ -338,12 +344,12 @@
 				AC07E5712000B992002EF9C8 /* StoreDetailStoryboard.storyboard in Resources */,
 				AC791B601FEBD094004A7893 /* Classic Xing kai Font.TTF in Resources */,
 				ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */,
-				ACFB34371FECD831002A690A /* AddStoreStoryboard.storyboard in Resources */,
+				AC07E57E2000C062002EF9C8 /* AddStoreStoryboard.storyboard in Resources */,
 				AC11DD781FF388E000834285 /* Assets.xcassets in Resources */,
 				AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */,
 				AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */,
-				AC75D1731FE148A20072DD1B /* Login.storyboard in Resources */,
-				AC1E1A5F1FE16185004FD468 /* UserProfileStoryboard.storyboard in Resources */,
+				AC07E58C2000CAC1002EF9C8 /* Login.storyboard in Resources */,
+				AC07E5852000C3A2002EF9C8 /* UserProfileStoryboard.storyboard in Resources */,
 				AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */,
 				ACFB34301FEBD3FB002A690A /* SentyZHAO.ttf in Resources */,
 				ACFB34321FECB7F3002A690A /* NotoSansCJKtc-Regular.otf in Resources */,
@@ -510,6 +516,36 @@
 				AC07E57D2000BB9E002EF9C8 /* zh-Hant */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		AC07E5802000C062002EF9C8 /* AddStoreStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC07E57F2000C062002EF9C8 /* Base */,
+				AC07E5822000C07A002EF9C8 /* en */,
+				AC07E5842000C07B002EF9C8 /* zh-Hant */,
+			);
+			name = AddStoreStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		AC07E5872000C3A2002EF9C8 /* UserProfileStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC07E5862000C3A2002EF9C8 /* Base */,
+				AC07E5892000C3A4002EF9C8 /* en */,
+				AC07E58B2000C3A7002EF9C8 /* zh-Hant */,
+			);
+			name = UserProfileStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		AC07E58E2000CAC1002EF9C8 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC07E58D2000CAC1002EF9C8 /* Base */,
+				AC07E5902000CAC6002EF9C8 /* en */,
+				AC07E5922000CAC7002EF9C8 /* zh-Hant */,
+			);
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */ = {

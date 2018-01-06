@@ -35,18 +35,18 @@ class LoginViewController: UIViewController {
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
         
-        let alertController = UIAlertController(title: "忘記密碼?",
-                                                message: "Enter your E-mail", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Forgot password?", comment: ""),
+                                                message: NSLocalizedString("Enter your E-mail", comment: ""), preferredStyle: .alert)
         
         alertController.addTextField(configurationHandler:
             
             {(_ textField: UITextField) -> Void in
                 
-                textField.placeholder = "Your E-mail"
+                textField.placeholder = NSLocalizedString("Your E-mail", comment: "")
                 
         })
         
-        let confirmAction = UIAlertAction(title: "OK",
+        let confirmAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""),
                                           style: .default,
                                           handler:
             {(_ action: UIAlertAction) -> Void in
@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
         
         alertController.addAction(confirmAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel",
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .cancel,
                                          handler: nil)
         

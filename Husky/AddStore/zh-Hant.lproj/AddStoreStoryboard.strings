@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "選 擇 店 家"; ObjectID = "7Vz-U8-hSf"; */
+"7Vz-U8-hSf.text" = "選 擇 店 家";
+
+/* Class = "UILabel"; text = "分享好喝的珍奶店吧~"; ObjectID = "89K-uG-7Fs"; */
+"89K-uG-7Fs.text" = "分享好喝的珍奶店吧~";
+
+/* Class = "UINavigationItem"; title = "i Bubble"; ObjectID = "DnT-CV-pyr"; */
+"DnT-CV-pyr.title" = "i Bubble";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "hZa-zv-AM4"; */
+"hZa-zv-AM4.placeholder" = "店名";
+
+/* Class = "UITextField"; placeholder = "Phone Number"; ObjectID = "ibU-MN-K84"; */
+"ibU-MN-K84.placeholder" = "電話";
+
+/* Class = "UITextField"; placeholder = "Address"; ObjectID = "lWT-6Z-KSb"; */
+"lWT-6Z-KSb.placeholder" = "地址";

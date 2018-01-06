@@ -1,0 +1,33 @@
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "93p-al-zoC"; */
+"93p-al-zoC.placeholder" = "ID";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "CJ5-vx-IR2"; */
+"CJ5-vx-IR2.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "i Bubble"; ObjectID = "CWO-Dd-QBf"; */
+"CWO-Dd-QBf.text" = "i Bubble";
+
+/* Class = "UILabel"; text = "i Bubble"; ObjectID = "MBv-gP-XL4"; */
+"MBv-gP-XL4.text" = "i Bubble";
+
+/* Class = "UIButton"; normalTitle = "忘記密碼"; ObjectID = "PYh-I0-QAd"; */
+"PYh-I0-QAd.normalTitle" = "Forgot password";
+
+/* Class = "UIButton"; normalTitle = "註冊"; ObjectID = "etC-UW-Nev"; */
+"etC-UW-Nev.normalTitle" = "Regist";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "hIk-Go-n0h"; */
+"hIk-Go-n0h.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "登入"; ObjectID = "mUn-DK-Ff5"; */
+"mUn-DK-Ff5.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "註冊"; ObjectID = "nxm-B7-bYe"; */
+"nxm-B7-bYe.normalTitle" = "Regist";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "s1S-Bd-ovg"; */
+"s1S-Bd-ovg.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "v9V-5v-wNy"; */
+"v9V-5v-wNy.placeholder" = "Email";
