@@ -13,6 +13,7 @@
 		AC07E57E2000C062002EF9C8 /* AddStoreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E5802000C062002EF9C8 /* AddStoreStoryboard.storyboard */; };
 		AC07E5852000C3A2002EF9C8 /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E5872000C3A2002EF9C8 /* UserProfileStoryboard.storyboard */; };
 		AC07E58C2000CAC1002EF9C8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC07E58E2000CAC1002EF9C8 /* Login.storyboard */; };
+		AC07E5942000E8B4002EF9C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC07E5932000E8B4002EF9C8 /* GoogleService-Info.plist */; };
 		AC11DD761FF21C9300834285 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD751FF21C9300834285 /* User.swift */; };
 		AC11DD781FF388E000834285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC11DD771FF388E000834285 /* Assets.xcassets */; };
 		AC11DD7A1FF52DC600834285 /* CommentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD791FF52DC600834285 /* CommentProvider.swift */; };
@@ -23,7 +24,6 @@
 		AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A531FE160CC004FD468 /* StoreInfoViewController.swift */; };
 		AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */; };
 		AC1E1A581FE160F2004FD468 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */; };
-		AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */; };
 		AC5F46071FF08D5400D5EB24 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */; };
 		AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC75D15F1FE12B790072DD1B /* AppDelegate.swift */; };
 		AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */; };
@@ -70,6 +70,7 @@
 		AC07E58D2000CAC1002EF9C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		AC07E5902000CAC6002EF9C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
 		AC07E5922000CAC7002EF9C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Login.strings"; sourceTree = "<group>"; };
+		AC07E5932000E8B4002EF9C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC11DD751FF21C9300834285 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC11DD771FF388E000834285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC11DD791FF52DC600834285 /* CommentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentProvider.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		AC1E1A531FE160CC004FD468 /* StoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoViewController.swift; sourceTree = "<group>"; };
 		AC1E1A551FE160DB004FD468 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		AC1E1A571FE160F2004FD468 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
-		AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC5F46061FF08D5400D5EB24 /* UserProfileViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AC75D15C1FE12B790072DD1B /* Husky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Husky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC75D15F1FE12B790072DD1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				AC75D1711FE148360072DD1B /* Login */,
 				AC75D1681FE12B790072DD1B /* LaunchScreen.storyboard */,
 				AC11DD771FF388E000834285 /* Assets.xcassets */,
-				AC59904E1FE2214C00B4DE47 /* GoogleService-Info.plist */,
+				AC07E5932000E8B4002EF9C8 /* GoogleService-Info.plist */,
 				ACFB34311FECB7F1002A690A /* NotoSansCJKtc-Regular.otf */,
 				ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */,
 				ACFB342F1FEBD3FB002A690A /* SentyZHAO.ttf */,
@@ -346,11 +346,11 @@
 				ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */,
 				AC07E57E2000C062002EF9C8 /* AddStoreStoryboard.storyboard in Resources */,
 				AC11DD781FF388E000834285 /* Assets.xcassets in Resources */,
-				AC59904F1FE2214D00B4DE47 /* GoogleService-Info.plist in Resources */,
 				AC791B5E1FEBD087004A7893 /* Chihaya日文字體1.ttf in Resources */,
 				AC07E58C2000CAC1002EF9C8 /* Login.storyboard in Resources */,
 				AC07E5852000C3A2002EF9C8 /* UserProfileStoryboard.storyboard in Resources */,
 				AC75D16A1FE12B790072DD1B /* LaunchScreen.storyboard in Resources */,
+				AC07E5942000E8B4002EF9C8 /* GoogleService-Info.plist in Resources */,
 				ACFB34301FEBD3FB002A690A /* SentyZHAO.ttf in Resources */,
 				ACFB34321FECB7F3002A690A /* NotoSansCJKtc-Regular.otf in Resources */,
 				ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */,
@@ -680,7 +680,7 @@
 				INFOPLIST_FILE = Husky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wawaliu.Husky;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fangyu.ibubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -699,7 +699,7 @@
 				INFOPLIST_FILE = Husky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wawaliu.Husky;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fangyu.ibubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
