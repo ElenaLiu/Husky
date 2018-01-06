@@ -110,6 +110,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
         
         //用delegate 要寫這行才會有動作
         commentTextField.delegate = self
+        commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -248,7 +249,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
     @objc func keyboardWillShow(notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo!
         let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height - 130, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height - 80, right: 0)
         scoreScrollView.contentInset = contentInsets
         scoreScrollView.scrollRectToVisible(keyboardCGRect, animated: true)
         
