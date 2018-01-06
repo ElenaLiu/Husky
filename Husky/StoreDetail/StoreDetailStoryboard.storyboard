@@ -41,9 +41,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="123.5" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="18"/>
-                                        <size key="titleShadowOffset" width="2" height="2"/>
+                                        <size key="titleShadowOffset" width="2" height="1"/>
                                         <state key="normal" title="店 家 資 訊">
-                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="showStoreInfoPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="bin-1L-upP"/>
@@ -53,8 +54,10 @@
                                         <rect key="frame" x="125.5" y="0.0" width="124" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="18"/>
+                                        <size key="titleShadowOffset" width="2" height="1"/>
                                         <state key="normal" title="評 分">
-                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="showScorePageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="F2R-4W-A9O"/>
@@ -64,8 +67,10 @@
                                         <rect key="frame" x="251.5" y="0.0" width="123.5" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="18"/>
+                                        <size key="titleShadowOffset" width="2" height="1"/>
                                         <state key="normal" title="評 論">
-                                            <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="showCommentsPageTapped:" destination="FxB-0y-1f2" eventType="touchUpInside" id="YT6-Dk-S3x"/>
@@ -287,16 +292,23 @@
         <scene sceneID="mKU-hE-sLp">
             <objects>
                 <tableViewController storyboardIdentifier="CommentsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ix-n5-DwX" customClass="CommentsTableViewController" customModule="Husky" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xuD-Pz-CWD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xuD-Pz-CWD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.44782748287671231" colorSpace="calibratedRGB"/>
+                        <label key="tableHeaderView" hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前還沒有評論唷！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="afK-eJ-mM5">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKtc-Regular" family="Noto Sans CJK TC" pointSize="25"/>
+                            <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentsTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsTableViewCell" rowHeight="667" id="Eqq-Bl-ACM" customClass="CommentsTableViewCell" customModule="Husky">
-                                <rect key="frame" x="0.0" y="28" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eqq-Bl-ACM" id="7hq-bZ-Bmr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="666.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGT-S0-m13" customClass="RotatedView" customModule="FoldingCell">
@@ -617,6 +629,9 @@
                             <outlet property="delegate" destination="4Ix-n5-DwX" id="YNJ-Vk-xBv"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="noCommentAlertLable" destination="afK-eJ-mM5" id="6Yl-8d-txQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18x-Ur-uAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -789,7 +804,7 @@
                                                     <constraint firstAttribute="width" constant="300" id="OzS-wl-wMg"/>
                                                 </constraints>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment : " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-cp-WuI">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Leave some comment....." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-cp-WuI">
                                                 <rect key="frame" x="60" y="439.5" width="255" height="80"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>

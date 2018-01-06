@@ -13,6 +13,8 @@ import Cosmos
 
 class CommentsTableViewCell: FoldingCell {
     
+    
+    
     @IBOutlet weak var firstRatingView: CosmosView!
     
     @IBOutlet weak var secondRatingView: CosmosView!

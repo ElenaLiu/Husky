@@ -12,7 +12,7 @@ import Firebase
 import Fusuma
 
 
-class ScoreViewController: UIViewController, FusumaDelegate {
+class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate {
     
     let networkingService = NetworkingService()
     
@@ -87,7 +87,7 @@ class ScoreViewController: UIViewController, FusumaDelegate {
             self.fourthRatingView.rating = 0
             self.fifthRatingView.rating = 0
             self.commentTextField.text = nil
-            self.scoreImageView.image = #imageLiteral(resourceName: "GreenBubbleTea")
+            self.scoreImageView.image = #imageLiteral(resourceName: "scorePicture")
             self.scoreImageView.contentMode = .scaleAspectFit
             
         }))
@@ -109,6 +109,9 @@ class ScoreViewController: UIViewController, FusumaDelegate {
         setUpfourthRating()
         setUpfifthRating()
         
+        //用delegate 要寫這行才會有動作
+        commentTextField.delegate = self
+        
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
@@ -122,6 +125,15 @@ class ScoreViewController: UIViewController, FusumaDelegate {
     deinit {
          let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        commentTextField.text = ""
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        commentTextField.text = "Leave some comment....."
     }
 
     func setUpScoreImage() {

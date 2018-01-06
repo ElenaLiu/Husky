@@ -13,6 +13,8 @@ import SDWebImage
 
 class CommentsTableViewController: UITableViewController {
     
+    @IBOutlet weak var noCommentAlertLable: UILabel!
+    
     fileprivate struct C {
         struct CellHeight {
             static let close: CGFloat = 199
@@ -158,13 +160,16 @@ extension CommentsTableViewController: CommentProviderDelegate {
         
         endLoading()
         if error == CommentProviderError.noComment {
-            let alert = UIAlertController(title: "目前還沒有評論唷!", message: "快來搶頭香！", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "沒問題！", style: .default, handler: { (action) in
-            })
-            alert.addAction(alertAction)
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            print(error.localizedDescription)
+            
+            noCommentAlertLable.isHidden = false
+            
+//            let alert = UIAlertController(title: "目前還沒有評論唷!", message: "快來搶頭香！", preferredStyle: .alert)
+//            let alertAction = UIAlertAction(title: "沒問題！", style: .default, handler: { (action) in
+//            })
+//            alert.addAction(alertAction)
+//            self.present(alert, animated: true, completion: nil)
+//        } else {
+//            print(error.localizedDescription)
         }
     }
 }

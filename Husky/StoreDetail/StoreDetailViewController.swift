@@ -117,20 +117,20 @@ class StoreDetailViewController: UIViewController {
 
             self.storeInfoPageTapped.setTitleColor(Colors.seaGreen, for: .normal)
         } else {
-            self.storeInfoPageTapped.setTitleColor(UIColor.black, for: .normal)
+            self.storeInfoPageTapped.setTitleColor(UIColor.darkGray, for: .normal)
         }
         if newViewController is ScoreViewController {
             
             self.scorePageTapped.setTitleColor(Colors.seaGreen, for: .normal)
         } else {
-            self.scorePageTapped.setTitleColor(UIColor.black, for: .normal)
+            self.scorePageTapped.setTitleColor(UIColor.darkGray, for: .normal)
         }
         
         if newViewController is CommentsTableViewController {
             
             self.commentsPageTapped.setTitleColor(Colors.seaGreen, for: .normal)
         } else {
-            self.commentsPageTapped.setTitleColor(UIColor.black, for: .normal)
+            self.commentsPageTapped.setTitleColor(UIColor.darkGray, for: .normal)
         }
 //        if newViewController is ScoreViewController {
 //

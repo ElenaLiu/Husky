@@ -133,6 +133,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
             self.emailTextField.text = user.email
             
             self.userProfileImageView.sd_setImage(with: user.photoURL, completed: nil)
+            self.userProfileImageView.contentMode = .scaleAspectFill
             
         } else {
             let vc = UIStoryboard(
