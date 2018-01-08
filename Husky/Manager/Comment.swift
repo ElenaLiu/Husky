@@ -15,13 +15,15 @@ public struct Comment {
     
     public struct Schema {
         
+        public static let commentId = "commentId"
+        
         public static let uid = "uid"
         
         public static let storeId = "storeId"
         
         public static let average = "average"
         
-        public static let imageData = "imageData"
+        public static let imageUrl = "imageUrl"
         
         public static let content = "content"
         
@@ -39,13 +41,15 @@ public struct Comment {
     
     // MARK: Property
     
+    public let commentId: String
+    
     public let uid: String
     
     public let storeId: String
     
     public let average: Double
     
-    public let imageData: Data
+    public let imageUrl: String
     
     public let content: String
     

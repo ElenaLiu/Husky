@@ -10,41 +10,56 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import SCLAlertView
+import Fusuma
+import SkyFloatingLabelTextField
 
-class RegistViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegistViewController: UIViewController, FusumaDelegate {
     
+        var networkingService = NetworkingService()
+
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var registNameTextField: UITextField!
+    
     @IBOutlet weak var registEmailTextField: UITextField!
+    
     @IBOutlet weak var registPasswordTextField: UITextField!
     
+    @IBOutlet weak var registImageView: UIImageView!
     
+    @IBOutlet weak var signUpTapped: UIButton!
     
     @IBAction func backToLoginIn(_ sender: Any) {
+        
         self.navigationController?.popViewController(animated: true)
     }
 
-    @IBOutlet weak var registImageView: UIImageView!
-    
-    var networkingService = NetworkingService()
-    
-    @IBAction func signUpButton(_ sender: Any) {
+    @IBAction func signUpTapped(_ sender: Any) {
+        
+        startLoading(status: "Loading")
         
         let data = UIImageJPEGRepresentation(self.registImageView.image!, 0.8)
         
+        //SCLAlertView().showNotice("Hi~", subTitle: "喝杯珍奶吧～")
+   
         networkingService.signUp(email: registEmailTextField.text!,
                                  username: registNameTextField.text!,
                                  password: registPasswordTextField.text!,
                                  data: data!)
-
-        }
+        
+        //Tapped button and dismiss keyboard
+        view.endEditing(true)
+    }
     
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpregistImage()
+        networkingService.delegate = self
         
+        setUpRegistTapped()
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillShow),
@@ -57,7 +72,6 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         //tap anywhere to hide keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                               action: #selector(dismissKeyboard)))
-
     }
     
     // Remove observer
@@ -65,99 +79,58 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
-        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setUpregistImage()
+    }
+    
+    // MARK: Status Bar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
+    // MARK: Class function
     func setUpregistImage() {
         
         self.registImageView.layer.borderWidth = 1
         self.registImageView.layer.masksToBounds = false
-        self.registImageView.layer.borderColor = UIColor.black.cgColor
-        self.registImageView.layer.cornerRadius = registImageView.frame.height/2
+        self.registImageView.layer.borderColor = UIColor.darkGray.cgColor
+        self.registImageView.layer.cornerRadius = registImageView.frame.height/2.0
         self.registImageView.clipsToBounds = true
     }
-
-    @IBAction func chooseUserImage(_ sender: Any) {
+    
+    func setUpRegistTapped() {
         
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.allowsEditing = true
-        
-        let alertController = UIAlertController(title: "Add a Picture",
-                                                message: "Choose From", preferredStyle: .actionSheet)
-       
-        let photosLibraryAction = UIAlertAction(title: "Photos Library",
-                                                style: .default) { (action) in
-            pickerController.sourceType = .photoLibrary
-                                                    
-            self.present(pickerController,
-                         animated: true,
-                         completion: nil)
-            
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .destructive,
-                                         handler: nil)
-        
-        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
-            let cameraAction = UIAlertAction(
-                title: "Camera",
-                style: .default
-            ) {(action) in
-                pickerController.sourceType = .camera
-                                                
-//                //Creat camera overlay
-//                let pickerFrame = CGRect(
-//                    x: 0,
-//                    y: UIApplication.shared.statusBarFrame.size.height,
-//                    width: pickerController.view.bounds.width,
-//                    height: pickerController.view.bounds.height - pickerController.navigationBar.bounds.size.height - pickerController.toolbar.bounds.size.height
-//                )
-//
-//                let squareFrame = CGRect(
-//                    x: pickerFrame.width/2 - 200/2,
-//                    y: pickerFrame.height/2 - 200/2,
-//                    width: 200,
-//                    height: 200
-//                )
-//                UIGraphicsBeginImageContext(pickerFrame.size)
-                
-//                let context = UIGraphicsGetCurrentContext()
-//                CGContext.saveGState(context!)
-//                CGContext.move(context, squareFrame.origin.x, squareFrame.origin.y)
-//                CGContext.addLine(context, squareFrame.origin.x + squareFrame.width, squareFrame.origin.y)
-                
-                self.present(
-                    pickerController,
-                    animated: true,
-                    completion: nil
-                )
-            }
-            
-            alertController.addAction(cameraAction)
-        }
-        
-        alertController.addAction(photosLibraryAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
-        
-    }
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-    {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        {
-            
-            registImageView.image = pickedImage
-            
-        }
-        
-        dismiss(animated: true, completion: nil)
+        self.signUpTapped.layer.cornerRadius = 5
     }
     
-    // Handling keyboard
+    @IBAction func chooseUserImage(_ sender: Any) {
+        
+        //init Fusuma
+        let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        self.present(fusuma, animated: true, completion: nil)
+    }
+    
+    //MARK: FusumaDelegate function
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
+        registImageView.image = image
+        registImageView.contentMode = .scaleAspectFill
+    }
+    
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
+    
+    func fusumaCameraRollUnauthorized() {}
+    
+    //MARK: Handling keyboard
     @objc func keyboardWillShow(notification: Notification)
     {
         
@@ -183,8 +156,59 @@ class RegistViewController: UIViewController, UIImagePickerControllerDelegate, U
         registNameTextField.resignFirstResponder()
         registEmailTextField.resignFirstResponder()
         registPasswordTextField.resignFirstResponder()
-
     }
 }
 
+extension RegistViewController: NetworkingServiceDelegate {
+    
+    func didFail(with error: Error) {
+        
+        endLoading()
+        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+//MARK: UITextFieldDelegate function
+//extension RegistViewController: UITextFieldDelegate  {
+//
+//    func textFieldErrorHandle() {
+//
+//
+//        registEmailTextField.delegate = self
+//        registPasswordTextField.delegate = self
+//    }
+//
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+//        if textField === registEmailTextField {
+//            if let text = textField.text {
+//                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+//                    if(text.count < 3 || !text.contains("@")) {
+//                        floatingLabelTextField.errorMessage = "Invalid email"
+//                    }
+//                    else {
+//                        // The error message will only disappear when we reset it to nil or empty string
+//                        floatingLabelTextField.errorMessage = ""
+//                    }
+//                }
+//            }
+//        }else if textField === registPasswordTextField {
+//            if let text = textField.text {
+//                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+//                    if(text.count < 7 ) {
+//                        floatingLabelTextField.errorMessage = "Invalid password"
+//                    }
+//                    else {
+//                        // The error message will only disappear when we reset it to nil or empty string
+//                        floatingLabelTextField.errorMessage = ""
+//                    }
+//                }
+//            }
+//
+//        }
+//        return true
+//    }
+//}
 

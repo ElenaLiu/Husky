@@ -10,12 +10,32 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let viewControllers: [UIViewController] =  [addStoreNavigationContorller(), setUpMapNavigationController(), userProfileNavigationController()]
-    
+        
         self.setViewControllers(viewControllers, animated: true)
+        
+        // Set up default page
+        self.selectedViewController = viewControllers[1]
+    }
+
+    func addStoreNavigationContorller() -> UINavigationController{
+        
+        let addStoreStoryBoard = UIStoryboard(name: "AddStoreStoryboard", bundle: nil)
+        
+        if let addStoreNavigationContorller = addStoreStoryBoard.instantiateViewController(withIdentifier: "AddStoreNavigation") as? AddStoreNavigationController {
+            
+            let addStoreTabBarItem = UITabBarItem(title: "Add", image: #imageLiteral(resourceName: "Add"), selectedImage: nil)
+            
+            addStoreNavigationContorller.tabBarItem = addStoreTabBarItem
+            
+            return addStoreNavigationContorller
+        }
+        
+        return UINavigationController()
     }
     
     func setUpMapNavigationController() -> UINavigationController {
@@ -24,11 +44,14 @@ class TabBarController: UITabBarController {
         
         if let mapNavigationController =
             mapStoryBoard.instantiateViewController(withIdentifier: "MapNavigation") as? MapNavigationController {
+            
             let mapTabBarItem = UITabBarItem(title: "Map", image: #imageLiteral(resourceName: "Map"), selectedImage: nil)
+            
             mapNavigationController.tabBarItem = mapTabBarItem
             
             return mapNavigationController
         }
+        
         return UINavigationController()
     }
     
@@ -37,24 +60,14 @@ class TabBarController: UITabBarController {
         let userProfileStoryBoard = UIStoryboard(name: "UserProfileStoryboard", bundle: nil)
         
         if let userProfileNavigationController = userProfileStoryBoard.instantiateViewController(withIdentifier: "UserProfileNavigation") as? UserProfileNavigationController {
+            
             let userprofileTabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "UserProfile"), selectedImage: nil)
+            
             userProfileNavigationController.tabBarItem = userprofileTabBarItem
             
             return userProfileNavigationController
         }
-        return UINavigationController()
-    }
-    
-    func addStoreNavigationContorller() -> UINavigationController{
         
-        let addStoreStoryBoard = UIStoryboard(name: "AddStoreStoryboard", bundle: nil)
-        
-        if let addStoreNavigationContorller = addStoreStoryBoard.instantiateViewController(withIdentifier: "AddStoreNavigation") as? AddStoreNavigationController {
-            let addStoreTabBarItem = UITabBarItem(title: "Add", image: #imageLiteral(resourceName: "Add"), selectedImage: nil)
-            addStoreNavigationContorller.tabBarItem = addStoreTabBarItem
-            
-            return addStoreNavigationContorller
-        }
         return UINavigationController()
     }
 }

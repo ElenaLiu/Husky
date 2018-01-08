@@ -12,8 +12,6 @@ class StoreDetailNavigationController: UINavigationController {
 
     var selectedMarkerId: Store?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

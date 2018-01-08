@@ -9,10 +9,12 @@
 import UIKit
 import Cosmos
 import Firebase
+import Fusuma
 
 
-class ScoreViewController: UIViewController {
+class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate {
     
+    //MARK: Properties
     let networkingService = NetworkingService()
     
     var ref: DatabaseReference!
@@ -37,9 +39,11 @@ class ScoreViewController: UIViewController {
     var fourthRating: Double = 0.0
     var fifthRating: Double = 0.0
     
+    @IBOutlet weak var saveScoreButton: UIButton!
     
+    //MARK: Save score
     @IBAction func saveScoreTapped(_ sender: Any) {
-        
+
         let imageData = UIImageJPEGRepresentation(self.scoreImageView.image!, 0.8)
         
         guard let content = commentTextField.text else { return }
@@ -53,14 +57,15 @@ class ScoreViewController: UIViewController {
         
         let scoreAverage = averageTotal / Double(selectedStore.scoredPeople + 1)
 
-        ref = StoreProvider.ref
+        ref = NetworkingService.databaseRef
         if let uid = Auth.auth().currentUser?.uid {
             
             let comment = Comment(
+                commentId: "",
                 uid: uid,
                 storeId: selectedStore.id,
                 average: newAverage,
-                imageData: imageData!,
+                imageUrl: "",
                 content: content,
                 firstRating: firstRating,
                 secondRating: secondRating,
@@ -68,15 +73,13 @@ class ScoreViewController: UIViewController {
                 fourthRating: fourthRating,
                 fifthRating: fifthRating
             )
-            
-        let alert = UIAlertController(title: "標題", message: "送出評分？", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "我有摸著良心給分！", style: .default, handler: { (action) in
-            
-            self.networkingService.saveComment(comment: comment)
+        let alert = UIAlertController(title: "", message: NSLocalizedString("Send comment?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes ", comment: ""), style: .default, handler: { (action) in
+            startLoading(status: "Loading")
+            CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
             
             let storeRef = self.ref.child("Stores").child(selectedStore.id)
             let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
-            //let childUpdate = [storeRef: stores]
             storeRef.updateChildValues(stores)
             
             self.firstRatingView.rating = 0
@@ -85,23 +88,32 @@ class ScoreViewController: UIViewController {
             self.fourthRatingView.rating = 0
             self.fifthRatingView.rating = 0
             self.commentTextField.text = nil
-            self.scoreImageView.image = #imageLiteral(resourceName: "Bubble-1")
+            self.scoreImageView.image = #imageLiteral(resourceName: "scorePicture")
+            self.scoreImageView.contentMode = .scaleAspectFit
+            
         }))
-        alert.addAction(UIAlertAction(title: "等等我再想想！", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
         }
     }
 
-    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpScoreImage()
+        setUpSaveScoreButton()
+        saveScoreButton.setGradient(colorOne: Colors.pinkyred, colorTwo: Colors.lightpinkyred)
+        setUpCommentTextField()
         setUpFirstRating()
         setUpSecondRating()
         setUpthirdRating()
         setUpfourthRating()
         setUpfifthRating()
+        
+        //用delegate 要寫這行才會有動作
+        commentTextField.delegate = self
+        commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -114,18 +126,64 @@ class ScoreViewController: UIViewController {
     
     // Remove observer
     deinit {
-        
          let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }
-
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        commentTextField.text = ""
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
+    }
+    //MARK: Pick up photo
     func setUpScoreImage() {
         
-        self.scoreImageView.layer.borderWidth = 1
-        self.scoreImageView.layer.masksToBounds = false
-        self.scoreImageView.layer.borderColor = UIColor.black.cgColor
-        self.scoreImageView.layer.cornerRadius = 5
+        self.scoreImageView.layer.borderWidth = 0
+        self.scoreImageView.layer.cornerRadius = 10
         self.scoreImageView.clipsToBounds = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(takePhotoAction))
+        
+        self.scoreImageView.addGestureRecognizer(tap)
+        self.scoreImageView.isUserInteractionEnabled = true
+
+    }
+    
+    @objc func takePhotoAction() {
+        
+        let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        self.present(fusuma, animated: true, completion: nil)
+    }
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
+        self.scoreImageView.image = image
+        self.scoreImageView.contentMode = .scaleAspectFill
+    }
+    
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {}
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {}
+    
+    func fusumaCameraRollUnauthorized() {}
+    
+    func setUpSaveScoreButton() {
+        
+        self.saveScoreButton.layer.borderWidth = 0
+        self.saveScoreButton.layer.cornerRadius = 30
+        self.saveScoreButton.clipsToBounds = true
+    }
+    
+    func setUpCommentTextField() {
+        
+        self.commentTextField.layer.borderWidth = 0
+        self.commentTextField.layer.cornerRadius = 20
+        self.commentTextField.clipsToBounds = true
     }
     
     func setUpFirstRating() {
@@ -174,7 +232,6 @@ class ScoreViewController: UIViewController {
         fourthRatingView.settings.starSize = 30
         fourthRatingView.didTouchCosmos = { rating in
             self.fourthRating = rating
-
         }
     }
     
@@ -196,7 +253,7 @@ class ScoreViewController: UIViewController {
     @objc func keyboardWillShow(notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo!
         let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRect.height - 80, right: 0)
         scoreScrollView.contentInset = contentInsets
         scoreScrollView.scrollRectToVisible(keyboardCGRect, animated: true)
         
@@ -205,12 +262,10 @@ class ScoreViewController: UIViewController {
     @objc func keyboardWillHide(notification: Notification) {
         
         scoreScrollView.contentInset = UIEdgeInsets.zero
-
     }
     
     @objc func dismissKeyboard() {
         
         commentTextField.resignFirstResponder()
-        
     }
 }

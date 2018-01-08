@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,110 +23,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LunchView" translatesAutoresizingMaskIntoConstraints="NO" id="GdS-R2-tE5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i Bubble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNO-Db-vme">
-                                <rect key="frame" x="0.0" y="145" width="375" height="86"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="68"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="YLC-lM-AP4">
-                                <rect key="frame" x="-9" y="549" width="38" height="38"/>
-                                <color key="tintColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA2-q2-EMG">
+                                <rect key="frame" x="0.0" y="-25" width="375" height="732"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="GdS-R2-tE5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="732"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i Bubble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNO-Db-vme">
+                                        <rect key="frame" x="10" y="86" width="355" height="76"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YLC-lM-AP4" secondAttribute="height" multiplier="1:1" id="bdg-zj-26y"/>
+                                    <constraint firstItem="GdS-R2-tE5" firstAttribute="leading" secondItem="MA2-q2-EMG" secondAttribute="leading" id="MXD-Ud-zWX"/>
+                                    <constraint firstItem="pNO-Db-vme" firstAttribute="leading" secondItem="MA2-q2-EMG" secondAttribute="leading" constant="10" id="NLe-B4-nO2"/>
+                                    <constraint firstAttribute="trailing" secondItem="GdS-R2-tE5" secondAttribute="trailing" id="d5I-sj-tX9"/>
+                                    <constraint firstAttribute="bottom" secondItem="GdS-R2-tE5" secondAttribute="bottom" id="euI-Tv-4ba"/>
+                                    <constraint firstItem="GdS-R2-tE5" firstAttribute="top" secondItem="MA2-q2-EMG" secondAttribute="top" id="kG7-Ti-6th"/>
+                                    <constraint firstItem="pNO-Db-vme" firstAttribute="top" secondItem="MA2-q2-EMG" secondAttribute="top" constant="86" id="uYv-8E-AgI"/>
+                                    <constraint firstAttribute="trailing" secondItem="pNO-Db-vme" secondAttribute="trailing" constant="10" id="yGc-fr-m9W"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-bP-dkn">
-                                <rect key="frame" x="350" y="451" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="t3R-bP-dkn" secondAttribute="height" multiplier="1:1" id="MvQ-Jr-LOq"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0V-ME-p4g">
-                                <rect key="frame" x="86" y="530.5" width="42" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="D0V-ME-p4g" secondAttribute="height" multiplier="1:1" id="PTw-k8-SBb"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="BJZ-T4-rbU">
-                                <rect key="frame" x="297" y="496" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BJZ-T4-rbU" secondAttribute="height" multiplier="1:1" id="cSv-Bs-cRI"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="uhx-qg-UHe">
-                                <rect key="frame" x="202" y="518" width="38" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="uhx-qg-UHe" secondAttribute="height" multiplier="1:1" id="ySG-Xo-x6y"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="3zy-Et-nun">
-                                <rect key="frame" x="259" y="537" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="3zy-Et-nun" secondAttribute="height" multiplier="1:1" id="hfa-nr-WZc"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-87-iJS">
-                                <rect key="frame" x="157" y="565" width="33" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="c7O-87-iJS" secondAttribute="height" multiplier="1:1" id="kE1-N5-meV"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble-1" translatesAutoresizingMaskIntoConstraints="NO" id="wRo-ST-dxq">
-                                <rect key="frame" x="40" y="505" width="38" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wRo-ST-dxq" secondAttribute="height" multiplier="1:1" id="QVa-w3-r73"/>
-                                </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uhx-qg-UHe" secondAttribute="trailing" constant="135" id="0iq-4O-3jy"/>
-                            <constraint firstItem="uhx-qg-UHe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="202" id="2vO-AF-VWU"/>
-                            <constraint firstItem="t3R-bP-dkn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="350" id="30c-sZ-EmZ"/>
-                            <constraint firstItem="GdS-R2-tE5" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="6OB-a8-ltL"/>
-                            <constraint firstItem="D0V-ME-p4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="7B4-jr-3GD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="D0V-ME-p4g" secondAttribute="bottom" constant="94.5" id="HlS-PT-R87"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D0V-ME-p4g" secondAttribute="trailing" constant="247" id="HvY-wi-Z8m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t3R-bP-dkn" secondAttribute="bottom" constant="180" id="JDZ-Hg-wTb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3zy-Et-nun" secondAttribute="bottom" constant="95" id="KWB-QV-9Oy"/>
-                            <constraint firstItem="3zy-Et-nun" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="259" id="Kvd-2z-sr3"/>
-                            <constraint firstItem="GdS-R2-tE5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M3U-iR-wHd"/>
-                            <constraint firstItem="wRo-ST-dxq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Mhu-M7-Mey"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YLC-lM-AP4" secondAttribute="trailing" constant="346" id="OUv-Qz-esf"/>
-                            <constraint firstItem="c7O-87-iJS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="157" id="Sqw-fp-XXe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wRo-ST-dxq" secondAttribute="trailing" constant="297" id="XUu-1p-WVo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GdS-R2-tE5" secondAttribute="trailing" id="ZRP-6n-WLx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uhx-qg-UHe" secondAttribute="bottom" constant="111" id="Zgg-vU-QYO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BJZ-T4-rbU" secondAttribute="trailing" constant="42" id="Zgq-RX-wg5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="GdS-R2-tE5" secondAttribute="top" constant="20" id="anE-uk-llr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pNO-Db-vme" secondAttribute="trailing" id="dUO-Sc-7Cp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="YLC-lM-AP4" secondAttribute="leading" constant="9" id="ded-6u-oE9"/>
-                            <constraint firstItem="BJZ-T4-rbU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="297" id="egD-kj-dKj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YLC-lM-AP4" secondAttribute="bottom" constant="80" id="ezY-IB-oz1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GdS-R2-tE5" secondAttribute="bottom" id="fC8-Vt-Rz0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BJZ-T4-rbU" secondAttribute="bottom" constant="135" id="ihZ-eh-ZuJ"/>
-                            <constraint firstItem="pNO-Db-vme" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lCj-Ps-B5J"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c7O-87-iJS" secondAttribute="trailing" constant="180" id="lsq-UT-ef0"/>
-                            <constraint firstItem="t3R-bP-dkn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="11" id="q3h-m9-fYt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c7O-87-iJS" secondAttribute="bottom" constant="64" id="u5a-YN-kah"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3zy-Et-nun" secondAttribute="trailing" constant="81" id="uTW-ED-YXA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wRo-ST-dxq" secondAttribute="bottom" constant="124" id="va7-vd-u8n"/>
-                            <constraint firstItem="pNO-Db-vme" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="zho-4D-NXp"/>
+                            <constraint firstItem="MA2-q2-EMG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LZ3-Ia-wiE"/>
+                            <constraint firstItem="MA2-q2-EMG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-45" id="Vse-gK-5Iu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MA2-q2-EMG" secondAttribute="bottom" constant="-40" id="bBZ-kB-prS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MA2-q2-EMG" secondAttribute="trailing" id="thz-4U-P4m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
+            <point key="canvasLocation" x="50.399999999999999" y="373.76311844077964"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Bubble-1" width="25" height="25"/>
-        <image name="LunchView" width="1564" height="2780"/>
+        <image name="LaunchScreen" width="750" height="1334"/>
     </resources>
 </document>

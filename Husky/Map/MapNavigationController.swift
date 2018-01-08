@@ -10,9 +10,4 @@ import UIKit
 
 class MapNavigationController: UINavigationController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-
-    }
 }

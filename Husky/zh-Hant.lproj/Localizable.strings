@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  Husky
+
+  Created by 劉芳瑜 on 2018/1/6.
+  Copyright © 2018年 Fang-Yu. Liu. All rights reserved.
+*/
+"Add" = "新增店家";
+"Map" = "地圖";
+"Profile" = "個人資料";
+"「i Bubble」want to open 「Google Maps」" = "「i Bubble」想要打開 「Google Maps」";
+"open" = "打開";
+"Cancel" = "取消";
+"Ok" = "好";
+" comment(s)" = " 則 評 論";
+"Oops!" = "糟糕！";
+"Distance is too far, can't show the path." = "距離太遠，無法繪製路徑";
+"Send comment?" = "送出評分？";
+"Yes " = "我有摸著良心給分！";
+"No " = "等等我再想想！";
+"Leave some comment....." = "留點評論吧～～";
+"Log out?" = "確定要登出？";
+"Update personal profile?" = "更新個人資料？";
+"Forgot password?" = "忘記密碼?";
+"Enter your E-mail" = "輸入您的 Email";
+"Your E-mail" = "您的Email";
+"Send" = "送出";
+"Send?" = "我發自內心覺得這家好喝！！";
+" Yes " = "確定";
+

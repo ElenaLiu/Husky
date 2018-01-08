@@ -9,25 +9,28 @@
 import Foundation
 import Firebase
 import GoogleMaps
+import GooglePlaces
 
 protocol StoreProviderDelegate: class {
     
     func didFetch(with stores: [Store])
     
-    func didFail(with error: Error)
+    func didFail(with error: StoreProviderError)
+}
+
+enum StoreProviderError: Error {
+    
+    case fetchFail
 }
 
 class StoreProvider {
-    
-    static var ref: DatabaseReference = Database.database().reference()
     
     static let shared = StoreProvider()
     
     weak var delegate: StoreProviderDelegate?
     
     func getStores() {
-        
-        StoreProvider.ref.child("Stores").observeSingleEvent(of: .value) { (snapShot) in
+        NetworkingService.databaseRef.child("Stores").observeSingleEvent(of: .value) { (snapShot) in
             
             guard let storeDic = snapShot.value as? [String: Any] else { return }
             
@@ -61,5 +64,21 @@ class StoreProvider {
             }
             self.delegate?.didFetch(with: stores)
         }
+    }
+    
+    func saveStore(place: GMSPlace) {
+        
+        guard let address = place.formattedAddress,
+            let phoneNumber = place.phoneNumber else { return }
+        
+        NetworkingService.databaseRef.child("Stores").childByAutoId().setValue([
+                Store.Schema.name: place.name,
+                Store.Schema.address: address,
+                Store.Schema.phone: phoneNumber,
+                Store.Schema.latitude: place.coordinate.latitude,
+                Store.Schema.longitude: place.coordinate.longitude,
+                Store.Schema.scoredPeople: 0,
+                Store.Schema.storeScoreAverage: 0.0
+                ])
     }
 }

@@ -2,6 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## WebKey
+Husky/ApiKey.swift
+GoogleService-Info.plist
+
 ## Build generated
 build/
 DerivedData/

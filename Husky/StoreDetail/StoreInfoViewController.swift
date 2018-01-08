@@ -15,9 +15,9 @@ import Cosmos
 import Firebase
 import SDWebImage
 
-
 class StoreInfoViewController: UIViewController {
     
+    //MARK: Properties
     var selectedMarkerId: Store?
     
     var nameValue: String!
@@ -36,6 +36,8 @@ class StoreInfoViewController: UIViewController {
     var endPosition: CLLocation?
     
     @IBOutlet weak var myMapView: UIView!
+
+    @IBOutlet weak var storeNameLabel: UILabel!
     
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -45,7 +47,9 @@ class StoreInfoViewController: UIViewController {
     
     @IBOutlet weak var scoreAverageView: CosmosView!
     
-    // Make phone call
+    @IBOutlet weak var addressGuideTapped: UIButton!
+    
+    //MARK: Make phone call
     @IBAction func phoneCallTapped(_ sender: Any) {
         
         guard let phoneValue = phoneValue else { return }
@@ -60,9 +64,7 @@ class StoreInfoViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var addressGuideTapped: UIButton!
-    
-    // set up google guide
+    //MARK: Set up google guide
     @IBAction func addressGuideTapped(_ sender: Any) {
         
         let alert = UIAlertController(title: "", message: "「i Bubble」想要打開 「Google Maps」", preferredStyle: UIAlertControllerStyle.alert)
@@ -94,6 +96,7 @@ class StoreInfoViewController: UIViewController {
         
     }
     
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -133,11 +136,13 @@ class StoreInfoViewController: UIViewController {
         
         if let addressValue = addressValue,
             let phoneValue = phoneValue,
-            let scorePeopleValue = scorePeopleValue {
+            let scorePeopleValue = scorePeopleValue,
+            let nameValue = nameValue{
             
+            storeNameLabel.text = nameValue
             addressLabel.text = addressValue
             phoneLabel.text = phoneValue
-            scorePeopleLabel.text = "\(scorePeopleValue) 則 評 論"
+            scorePeopleLabel.text = String(scorePeopleValue) + NSLocalizedString(" comment(s)", comment: "")
         }
     }
     
@@ -166,9 +171,16 @@ class StoreInfoViewController: UIViewController {
             withFrame: myMapView.bounds,
             camera: camera
         )
-
+        
         myMapView.addSubview(mapView)
-
+        
+        // Set up myMapView Constrain
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.leadingAnchor.constraint(equalTo: myMapView.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: myMapView.trailingAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: myMapView.topAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: myMapView.bottomAnchor).isActive = true
+        
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(
@@ -187,9 +199,10 @@ class StoreInfoViewController: UIViewController {
         marker.icon = #imageLiteral(resourceName: "DarkBubbleTea")
     }
     
-    //MARK: - this is function for create direction path, from start location to desination location
+    //MARK: Function for create direction path, from start location to desination location
     private func drawPath(startLocation: CLLocation, endLocation: CLLocation)
     {
+        startLoading(status: "Loading")
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
         
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
@@ -197,6 +210,8 @@ class StoreInfoViewController: UIViewController {
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=walking"
 
         Alamofire.request(url).responseJSON { response in
+            
+            endLoading()
             
             let json = try! JSON(data: response.data!)
             
@@ -250,6 +265,7 @@ extension StoreInfoViewController: CLLocationManagerDelegate{
         
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         imageView.frame.size = CGSize(width: 50, height: 50)
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.sd_setImage(

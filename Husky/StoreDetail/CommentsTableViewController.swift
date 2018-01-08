@@ -8,30 +8,77 @@
 
 import UIKit
 import FoldingCell
+import Firebase
+import SDWebImage
 
 class CommentsTableViewController: UITableViewController {
     
-    var selectedMarkerId: Store?
+    @IBOutlet weak var noCommentAlertLable: UILabel!
     
-    let kCloseCellHeight: CGFloat = 179
-    let kOpenCellHeight: CGFloat = 488
-    let kRowsCount = 10
-    var cellHeights: [CGFloat] = []
-    
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        guard let selectedStore = selectedMarkerId else { return }
-        setup()
+    fileprivate struct C {
+        struct CellHeight {
+            static let close: CGFloat = 199
+            static let open: CGFloat = 510
+        }
     }
     
-    private func setup() {
-        cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
-        tableView.estimatedRowHeight = kCloseCellHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Bubble-1"))
+    //Add property for calculate cells height
+    var cellHeights: [CGFloat] = []
+    
+    var selectedMarkerId: Store?
+  
+    var comments = [Comment]() //var comments: [Comment] = []
+    
+    // MARK: View Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // fetch stores information
+        CommentProvider.shared.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        startLoading(status: "Loading")
+        CommentProvider.shared.fetchComments(selectStoreId: (selectedMarkerId?.id)!)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         return cellHeights[indexPath.row]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard case let cell as CommentsTableViewCell = tableView.cellForRow(at: indexPath) else {
+            return
+        }
+        
+        var duration = 0.0
+        if cellHeights[indexPath.row] == C.CellHeight.close { // open cell
+            cellHeights[indexPath.row] = C.CellHeight.open
+            cell.unfold(true, animated: true, completion: nil)
+            duration = 0.5
+        } else {// close cell
+            cellHeights[indexPath.row] = C.CellHeight.close
+            cell.unfold(false, animated: true, completion: nil)
+            duration = 1.1
+        }
+        
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if case let cell as CommentsTableViewCell = cell {
+            if cellHeights[indexPath.row] == C.CellHeight.close {
+                cell.unfold(false, animated: false, completion:nil)
+            } else {
+                cell.unfold(true, animated: false, completion: nil)
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -43,62 +90,79 @@ class CommentsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return comments.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as! CommentsTableViewCell
-
+        let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+        cell.durationsForExpandedState = durations
+        cell.durationsForCollapsedState = durations
         
+        let comment = comments[indexPath.row]
+        
+        // Trainsition String type to be URL
+        let photoUrl = URL(string: comment.imageUrl)
+     
+        DispatchQueue.main.async {
+            cell.foregroundBlurImageView.sd_setImage(with: photoUrl, completed: nil)
+            cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
+            cell.containerBlurImageView.sd_setImage(with: photoUrl, completed: nil)
+            cell.containerImageView.sd_setImage(with: photoUrl, completed: nil)
+            cell.firstRatingView.rating = comment.firstRating
+            cell.secondRatingView.rating = comment.secondRating
+            cell.thirdRatingView.rating = comment.thirdRating
+            cell.fourthRatingView.rating = comment.fourthRating
+            cell.fifthRatingView.rating = comment.fifthRating
+            cell.userCommentTextField.text = comment.content
+        }
+        
+        let commentUid = comment.uid
+        NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
+           
+            guard let userDic = snapshot.value as? [String: Any] else { return }
 
+            for value in userDic.values {
+                guard let valueDic = value as? [String: String] else { return }
+                guard let username = valueDic[BubbleUser.Schema.userName] as? String else { return }
+                guard let photoUrl = valueDic[BubbleUser.Schema.photoUrl] as? String else { return }
+               
+                print("6 \(username)")
+                print("66 \(photoUrl)")
+                
+                DispatchQueue.main.async {
+                    // Trainsition String type to be URL
+                    let userPhotoUrl = URL(string: photoUrl)
+                    cell.userImageView.sd_setImage(with: userPhotoUrl, completed: nil)
+                    
+                    cell.userNameLabel.text = username
+                }
+            }
+        }
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+extension CommentsTableViewController: CommentProviderDelegate {
+    
+    func didFetch(with comments: [Comment]) {
+        
+        endLoading()
+        self.comments = comments
+        
+        DispatchQueue.main.async {
+            
+            self.cellHeights = (0..<comments.count).map { _ in C.CellHeight.close }
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didFail(with error: CommentProviderError) {
+        
+        endLoading()
+        if error == CommentProviderError.noComment {
+            
+            noCommentAlertLable.isHidden = false
+        }
+    }
+}
+

@@ -7,7 +7,7 @@
 
 <img src='https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/cosmos_star_rating_control_for_ios_swift_space.png' alt='Cosmos, star rating control for iOS / Swift' width='350'>
 
-This is a UI control for iOS and tvOS written in Swift. It shows a star rating and takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users post those inescapable 1-star reviews!
+This is a UI control for iOS and tvOS written in Swift. It shows a star rating and takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users to post those inescapable 1-star reviews!
 
 * Shows star rating with an optional text label.
 * Can be used as a rating input control (iOS only).
@@ -33,7 +33,7 @@ Simply add [CosmosDistrib.swift](https://github.com/evgenyneu/Cosmos/blob/master
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/Cosmos" ~> 12.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/Cosmos" ~> 13.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -41,7 +41,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 12.0'
+    pod 'Cosmos', '~> 13.0'
 
 
 #### Legacy Swift versions

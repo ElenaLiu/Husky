@@ -15,27 +15,34 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("AIzaSyC6K9j6suJcGaVnGjyCLdG3Ge59f0RDovM")
-        GMSPlacesClient.provideAPIKey("AIzaSyC6K9j6suJcGaVnGjyCLdG3Ge59f0RDovM")
+        GMSServices.provideAPIKey(WebApiKey.googleApiKey)
+        GMSPlacesClient.provideAPIKey(WebApiKey.googleApiKey)
+ 
+        UIApplication.shared.statusBarStyle = .lightContent
         
-        //logUser()  //寫完logout再➕回來
+        window = UIWindow(frame: UIScreen.main.bounds)
+        logUser() 
         return true
     }
     
     func logUser(){
         
         if Auth.auth().currentUser != nil {
-            
             let storyboard = UIStoryboard(name: "MapStoryboard", bundle: nil)
             let tabBar = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
             self.window?.rootViewController = tabBar
+        } else {
+            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigation")
+            self.window?.rootViewController = vc
         }
     }
-
 }
 
