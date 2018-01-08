@@ -29,6 +29,7 @@ class CommentsTableViewController: UITableViewController {
   
     var comments = [Comment]() //var comments: [Comment] = []
     
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -92,7 +93,6 @@ class CommentsTableViewController: UITableViewController {
         return comments.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as! CommentsTableViewCell
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
@@ -162,14 +162,6 @@ extension CommentsTableViewController: CommentProviderDelegate {
         if error == CommentProviderError.noComment {
             
             noCommentAlertLable.isHidden = false
-            
-//            let alert = UIAlertController(title: "目前還沒有評論唷!", message: "快來搶頭香！", preferredStyle: .alert)
-//            let alertAction = UIAlertAction(title: "沒問題！", style: .default, handler: { (action) in
-//            })
-//            alert.addAction(alertAction)
-//            self.present(alert, animated: true, completion: nil)
-//        } else {
-//            print(error.localizedDescription)
         }
     }
 }

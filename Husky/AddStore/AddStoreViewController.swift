@@ -15,6 +15,7 @@ import SkyFloatingLabelTextField
 
 class AddStoreViewController: UIViewController {
     
+    //MARK: Properties
     var placeInfo: GMSPlace?
     
     var gradientLayer: CAGradientLayer!
@@ -70,7 +71,8 @@ class AddStoreViewController: UIViewController {
             }
         })
     }
-    //MARK: Life Cycle
+    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

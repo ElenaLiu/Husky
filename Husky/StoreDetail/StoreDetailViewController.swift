@@ -10,6 +10,7 @@ import UIKit
 
 class StoreDetailViewController: UIViewController {
     
+    //MARK: Properties
     let textView = UITextView()
     
     var isHigitLighted: Bool = false
@@ -66,7 +67,7 @@ class StoreDetailViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
-    //MARK: LifeCycle
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,15 +90,10 @@ class StoreDetailViewController: UIViewController {
     }
     
     func setUpNavigationBar() {
-        
-        //navigationItem.title = selectedMarkerId?.name
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Papyrus", size: 15)!]
+
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-//        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "GreenBubbleTea"))
-//        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-//        navigationItem.titleView = titleImageView
-//
+
         let textView = UITextView()
         textView.text = "i Bubble"
         textView.isEditable = false
@@ -132,21 +128,6 @@ class StoreDetailViewController: UIViewController {
         } else {
             self.commentsPageTapped.setTitleColor(UIColor.darkGray, for: .normal)
         }
-//        if newViewController is ScoreViewController {
-//
-//            let cameraTapped = UIButton(type: .system)
-//
-//            cameraTapped.setImage(#imageLiteral(resourceName: "PhotoCamera").withRenderingMode(.alwaysOriginal), for: .normal)
-//
-//            cameraTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-//
-//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cameraTapped)
-//
-//            cameraTapped.addTarget(self, action: #selector(takePhotoAction), for: .touchUpInside)
-//
-//        } else {
-//            navigationItem.rightBarButtonItem = nil
-//        }
         
         // Remove previous viewController
         selectedViewController.willMove(toParentViewController: nil)
@@ -184,17 +165,4 @@ class StoreDetailViewController: UIViewController {
         }
     }
 }
-
-//extension StoreDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-//    {
-//        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        {
-//            ScoreViewController.scoreImageView.image = pickedImage
-//        }
-//
-//        dismiss(animated: true, completion: nil)
-//    }
-//}
 

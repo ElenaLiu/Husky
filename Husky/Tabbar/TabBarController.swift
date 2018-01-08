@@ -10,12 +10,14 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let viewControllers: [UIViewController] =  [addStoreNavigationContorller(), setUpMapNavigationController(), userProfileNavigationController()]
         
         self.setViewControllers(viewControllers, animated: true)
+        
         // Set up default page
         self.selectedViewController = viewControllers[1]
     }

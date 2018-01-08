@@ -21,12 +21,11 @@ class MapViewController: UIViewController {
     var storesInfo = [Store]()
     var locationMannager = CLLocationManager()
     var cruuentLocation: CLLocation?
-//    var placesClient: GMSPlacesClient!
     var mapView: GMSMapView!
     var zoomLevel: Float = 16.0
     var selectedPlace: GMSPlace?
     
-    //MARK: Life cycle
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +54,6 @@ class MapViewController: UIViewController {
         locationMannager.delegate = self
         locationMannager.startUpdatingLocation()
         
-//        placesClient = GMSPlacesClient.shared()
     }
     
     func setUpNavigationBar() {
@@ -203,7 +201,7 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         }
     }
     
-    func didFail(with error: Error) 
+    func didFail(with error: StoreProviderError)
     {
         print(error)
     }

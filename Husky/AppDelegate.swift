@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("AIzaSyC6K9j6suJcGaVnGjyCLdG3Ge59f0RDovM")
-        GMSPlacesClient.provideAPIKey("AIzaSyC6K9j6suJcGaVnGjyCLdG3Ge59f0RDovM")
+        GMSServices.provideAPIKey(WebApiKey.googleApiKey)
+        GMSPlacesClient.provideAPIKey(WebApiKey.googleApiKey)
  
         UIApplication.shared.statusBarStyle = .lightContent
         

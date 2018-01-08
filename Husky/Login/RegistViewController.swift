@@ -31,6 +31,7 @@ class RegistViewController: UIViewController, FusumaDelegate {
     @IBOutlet weak var signUpTapped: UIButton!
     
     @IBAction func backToLoginIn(_ sender: Any) {
+        
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -51,7 +52,7 @@ class RegistViewController: UIViewController, FusumaDelegate {
         view.endEditing(true)
     }
     
-    //MARK: Life Cycle
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

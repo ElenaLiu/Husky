@@ -18,6 +18,7 @@ protocol CommentProviderDelegate: class {
 }
 
 enum CommentProviderError: Error {
+    
     case noComment
 }
 

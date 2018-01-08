@@ -4,6 +4,7 @@
 
 ## WebKey
 Husky/ApiKey.swift
+GoogleService-Info.plist
 
 ## Build generated
 build/

@@ -142,9 +142,8 @@ struct NetworkingService {
                             
                 print("\(user!.displayName!) has signed in succesfully!")
                 AppDelegate.shared.logUser()
-//                endLoading()
         })
-//        endLoading()
+
     }
     
     func signOut() {

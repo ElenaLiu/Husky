@@ -15,7 +15,12 @@ protocol StoreProviderDelegate: class {
     
     func didFetch(with stores: [Store])
     
-    func didFail(with error: Error)
+    func didFail(with error: StoreProviderError)
+}
+
+enum StoreProviderError: Error {
+    
+    case fetchFail
 }
 
 class StoreProvider {

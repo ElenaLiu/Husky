@@ -13,8 +13,7 @@ import Cosmos
 
 class CommentsTableViewCell: FoldingCell {
     
-    
-    
+    //MARK: Properties
     @IBOutlet weak var firstRatingView: CosmosView!
     
     @IBOutlet weak var secondRatingView: CosmosView!
@@ -38,7 +37,7 @@ class CommentsTableViewCell: FoldingCell {
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var userCommentTextField: UITextView!
-    
+
     override func awakeFromNib() {
 
         setUpRating()

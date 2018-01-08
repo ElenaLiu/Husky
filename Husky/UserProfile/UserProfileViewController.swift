@@ -17,6 +17,7 @@ import SCLAlertView
 
 class UserProfileViewController: UIViewController, FusumaDelegate {
     
+    //MARK: Properties
     let networkingService = NetworkingService()
     
     @IBOutlet weak var userProfileImageView: UIImageView!
@@ -62,6 +63,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         }
     }
     
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

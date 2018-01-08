@@ -14,6 +14,7 @@ import Fusuma
 
 class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate {
     
+    //MARK: Properties
     let networkingService = NetworkingService()
     
     var ref: DatabaseReference!
@@ -40,6 +41,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
     
     @IBOutlet weak var saveScoreButton: UIButton!
     
+    //MARK: Save score
     @IBAction func saveScoreTapped(_ sender: Any) {
 
         let imageData = UIImageJPEGRepresentation(self.scoreImageView.image!, 0.8)
@@ -95,6 +97,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
         }
     }
 
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -135,7 +138,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
         
         commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
     }
-
+    //MARK: Pick up photo
     func setUpScoreImage() {
         
         self.scoreImageView.layer.borderWidth = 0
@@ -148,6 +151,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
         self.scoreImageView.isUserInteractionEnabled = true
 
     }
+    
     @objc func takePhotoAction() {
         
         let fusuma = FusumaViewController()
