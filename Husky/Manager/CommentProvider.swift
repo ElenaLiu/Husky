@@ -18,8 +18,8 @@ protocol CommentProviderDelegate: class {
 }
 
 enum CommentProviderError: Error {
-    
     case noComment
+    case uploadImageFail
 }
 
 class CommentProvider {
@@ -110,6 +110,7 @@ NetworkingService.databaseRef.child("StoreComments").queryOrdered(byChild: "stor
                                 self.saveCommentInfo(comment: comment, imageUrl: imageUrl, key: key)
                             }else {
                                 print(error!.localizedDescription)
+                                self.delegate?.didFail(with: CommentProviderError.uploadImageFail)
                             }
         }
     }

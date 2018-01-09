@@ -121,7 +121,7 @@ class CommentsTableViewController: UITableViewController {
         NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
            
             guard let userDic = snapshot.value as? [String: Any] else { return }
-
+            
             for value in userDic.values {
                 guard let valueDic = value as? [String: String] else { return }
                 guard let username = valueDic[BubbleUser.Schema.userName] as? String else { return }
@@ -142,6 +142,7 @@ class CommentsTableViewController: UITableViewController {
         return cell
     }
 }
+
 extension CommentsTableViewController: CommentProviderDelegate {
     
     func didFetch(with comments: [Comment]) {
@@ -162,6 +163,10 @@ extension CommentsTableViewController: CommentProviderDelegate {
         if error == CommentProviderError.noComment {
             
             noCommentAlertLable.isHidden = false
+        }
+        
+        if error == CommentProviderError.uploadImageFail {
+            //handle error, ex. alert controller tell user image upload fail.
         }
     }
 }
