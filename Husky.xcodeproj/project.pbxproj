@@ -25,6 +25,7 @@
 		AC07E5BE20046FBE002EF9C8 /* GMUDefaultClusterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC07E5B620046FBE002EF9C8 /* GMUDefaultClusterRenderer.m */; };
 		AC07E5F720046FD9002EF9C8 /* GQTPointQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = AC07E5F320046FD9002EF9C8 /* GQTPointQuadTree.m */; };
 		AC07E5F820046FD9002EF9C8 /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = AC07E5F520046FD9002EF9C8 /* GQTPointQuadTreeChild.m */; };
+		AC07E5FB20049279002EF9C8 /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07E5FA20049279002EF9C8 /* POIItem.swift */; };
 		AC11DD761FF21C9300834285 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD751FF21C9300834285 /* User.swift */; };
 		AC11DD781FF388E000834285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC11DD771FF388E000834285 /* Assets.xcassets */; };
 		AC11DD7A1FF52DC600834285 /* CommentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11DD791FF52DC600834285 /* CommentProvider.swift */; };
@@ -116,6 +117,7 @@
 		AC07E5F520046FD9002EF9C8 /* GQTPointQuadTreeChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQTPointQuadTreeChild.m; sourceTree = "<group>"; };
 		AC07E5F620046FD9002EF9C8 /* GQTPointQuadTreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTPointQuadTreeItem.h; sourceTree = "<group>"; };
 		AC07E5F92004712B002EF9C8 /* Cluster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cluster.h; sourceTree = "<group>"; };
+		AC07E5FA20049279002EF9C8 /* POIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		AC11DD751FF21C9300834285 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC11DD771FF388E000834285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC11DD791FF52DC600834285 /* CommentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentProvider.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				ACBAE1171FEFF02E0022AF5F /* Comment.swift */,
 				AC8504441FFA140400251018 /* UserProvider.swift */,
 				AC11DD751FF21C9300834285 /* User.swift */,
+				AC07E5FA20049279002EF9C8 /* POIItem.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				AC791B421FE2619C004A7893 /* Store.swift in Sources */,
 				AC07E5B720046FBE002EF9C8 /* GMUGridBasedClusterAlgorithm.m in Sources */,
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
+				AC07E5FB20049279002EF9C8 /* POIItem.swift in Sources */,
 				AC07E5BB20046FBE002EF9C8 /* GMUClusterManager.m in Sources */,
 				AC8504451FFA140400251018 /* UserProvider.swift in Sources */,
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,

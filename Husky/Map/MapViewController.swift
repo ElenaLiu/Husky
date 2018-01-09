@@ -12,18 +12,24 @@ import GoogleMaps
 import SDWebImage
 import Firebase
 
+class MapViewController: UIViewController, GMUClusterManagerDelegate {
 
-class MapViewController: UIViewController {
-    
     //MARK: Properties
     @IBOutlet weak var myMapView: UIView!
+    
+    private var clusterManager: GMUClusterManager!
+    private var mapView: GMSMapView!
+    
     var ref: DatabaseReference!
     var storesInfo = [Store]()
     var locationMannager = CLLocationManager()
     var cruuentLocation: CLLocation?
-    var mapView: GMSMapView!
+//    var mapView: GMSMapView!
     var zoomLevel: Float = 16.0
     var selectedPlace: GMSPlace?
+    
+    //為獲得最佳效能，標記的建議數目上限為 10,000
+    let kClusterItemCount = 10000
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -77,8 +83,53 @@ class MapViewController: UIViewController {
             withFrame: myMapView.bounds,
             camera: camera)
         
+        // Set up the cluster manager with the supplied icon generator and
+        // renderer.
+        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
+        let renderer = GMUDefaultClusterRenderer(mapView: mapView,
+                                                 clusterIconGenerator: iconGenerator)
+        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
+                                           renderer: renderer)
+        
         myMapView.addSubview(mapView)
         mapView.delegate = self
+    }
+    
+    // MARK: - GMUClusterManagerDelegate
+    func clusterManager(clusterManager: GMUClusterManager, didTapCluster cluster: GMUCluster) {
+        let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
+                                                           zoom: mapView.camera.zoom + 1)
+        let update = GMSCameraUpdate.setCamera(newCamera)
+        mapView.moveCamera(update)
+    }
+    
+    // MARK: - GMUMapViewDelegate
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        if let poiItem = marker.userData as? POIItem {
+            NSLog("Did tap marker for cluster item \(poiItem.name)")
+        } else {
+            NSLog("Did tap a normal marker")
+        }
+        return false
+    }
+    
+    // Randomly generates cluster items within some extent of the camera and adds them to the
+    // cluster manager.
+    private func generateClusterItems(la: CLLocationDegrees, lo: CLLocationDegrees) {
+        let extent = 0.2
+        for index in 1...kClusterItemCount {
+            let lat = la + extent * randomScale()
+            let lng = lo + extent * randomScale()
+            let name = "Item \(index)"
+            let item = POIItem(position: CLLocationCoordinate2DMake(lat, lng), name: name)
+            clusterManager.add(item)
+        }
+    }
+    
+    /// Returns a random value between -1.0 and 1.0.
+    private func randomScale() -> Double {
+        return Double(arc4random()) / Double(UINT32_MAX) * 2.0 - 1.0
     }
 }
 
@@ -97,7 +148,6 @@ extension MapViewController: CLLocationManagerDelegate {
         marker.position = location.coordinate
         
         //set up user marker image view
-
         let shadowView = UIView()
         shadowView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         shadowView.clipsToBounds = true
@@ -136,12 +186,12 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         
         endLoading()
         self.storesInfo = stores
-        
+
+      
         for store in stores {
             let marker = GMSMarker()
          
             //set up user marker image view
-            
             let shadowView = UIView()
             shadowView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
             shadowView.clipsToBounds = true
@@ -158,6 +208,19 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             imageView.frame = CGRect(x: 10, y: 10, width: 40, height: 40)
             imageView.layer.cornerRadius = imageView.frame.width / 2
             
+            var la: CLLocationDegrees = store.latitude
+            var lo: CLLocationDegrees = store.longitude
+            // Generate and add random items to the cluster manager.
+            generateClusterItems(la: la, lo: lo)
+            
+            // Call cluster() after items have been added to perform the clustering
+            // and rendering on map.
+            clusterManager.cluster()
+            
+            // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
+            clusterManager.setDelegate(self, mapDelegate: self)
+            
+            
             marker.position = CLLocationCoordinate2D(
                 latitude: store.latitude,
                 longitude: store.longitude
@@ -167,7 +230,9 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         
             marker.title = store.name
             marker.snippet = store.id
+            
             ref = NetworkingService.databaseRef
+            
             if let userId = Auth.auth().currentUser?.uid {
 
                 ref.child("StoreComments").queryOrdered(byChild: "uid").queryEqual(toValue: userId).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -203,7 +268,10 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
     
     func didFail(with error: StoreProviderError)
     {
-        print(error)
+        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
+        self.present(alert, animated: true, completion: nil)
+   
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {

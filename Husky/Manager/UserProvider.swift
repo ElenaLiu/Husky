@@ -9,7 +9,7 @@
 //import Foundation
 //import Firebase
 //
-////:class 代表這個protocol只有class才可以繼承
+
 //protocol BubbleUserProviderDelegate: class {
 //
 //    func didFetch(with bubbleuser: BubbleUser)
