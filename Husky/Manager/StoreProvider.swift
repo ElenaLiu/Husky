@@ -23,6 +23,16 @@ enum StoreProviderError: Error {
     case fetchFail
 }
 
+public enum JSONError: Error {
+    
+    case notObject
+    
+    case missingValueForKey(String)
+    
+    case invalidValueForKey(String)
+    
+}
+
 class StoreProvider {
     
     static let shared = StoreProvider()

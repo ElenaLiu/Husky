@@ -14,6 +14,15 @@ import Firebase
 
 class MapViewController: UIViewController, GMUClusterManagerDelegate {
 
+//    class BANGMUDefaultClusterIconGenerator: GMUDefaultClusterIconGenerator {
+//        override func icon(forSize size: UInt) -> UIImage {
+//            return #imageLiteral(resourceName: "BubbleTea(Brown)")
+//        }
+//    }
+//
+    
+
+    
     //MARK: Properties
     @IBOutlet weak var myMapView: UIView!
     
@@ -89,8 +98,16 @@ class MapViewController: UIViewController, GMUClusterManagerDelegate {
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         let renderer = GMUDefaultClusterRenderer(mapView: mapView,
                                                  clusterIconGenerator: iconGenerator)
+        
+        //renderer.delegate = self
         clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
                                            renderer: renderer)
+        // Call cluster() after items have been added to perform the clustering
+        // and rendering on map.
+        clusterManager.cluster()
+        
+        // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
+        clusterManager.setDelegate(self, mapDelegate: self)
         
         myMapView.addSubview(mapView)
         mapView.delegate = self
@@ -98,33 +115,40 @@ class MapViewController: UIViewController, GMUClusterManagerDelegate {
     
     // MARK: - GMUClusterManagerDelegate
     func clusterManager(clusterManager: GMUClusterManager, didTapCluster cluster: GMUCluster) {
+        print("didTapCluster cluster")
         let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
                                                            zoom: mapView.camera.zoom + 1)
         let update = GMSCameraUpdate.setCamera(newCamera)
         mapView.moveCamera(update)
     }
     
+    func clusterManager(_ clusterManager: GMUClusterManager, didTap clusterItem: GMUClusterItem) -> Bool {
+        print("didTap clusterItem")
+        return true
+    }
+    
     // MARK: - GMUMapViewDelegate
     func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
         if let poiItem = marker.userData as? POIItem {
-            NSLog("Did tap marker for cluster item \(poiItem.name)")
+            print("Did tap marker for cluster item \(poiItem.name)")
         } else {
-            NSLog("Did tap a normal marker")
+            print("Did tap a normal marker")
         }
         return false
     }
     
     // Randomly generates cluster items within some extent of the camera and adds them to the
     // cluster manager.
-    private func generateClusterItems(la: CLLocationDegrees, lo: CLLocationDegrees) {
-        let extent = 0.2
-        for index in 1...kClusterItemCount {
-            let lat = la + extent * randomScale()
-            let lng = lo + extent * randomScale()
-            let name = "Item \(index)"
+    private func generateClusterItems(latitude: CLLocationDegrees, longitude: CLLocationDegrees, name: String) {
+
+            let lat = latitude
+            let lng = longitude
+            let name = name
             let item = POIItem(position: CLLocationCoordinate2DMake(lat, lng), name: name)
             clusterManager.add(item)
-        }
+
+       
+
     }
     
     /// Returns a random value between -1.0 and 1.0.
@@ -187,7 +211,6 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         endLoading()
         self.storesInfo = stores
 
-      
         for store in stores {
             let marker = GMSMarker()
          
@@ -211,15 +234,9 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
             var la: CLLocationDegrees = store.latitude
             var lo: CLLocationDegrees = store.longitude
             // Generate and add random items to the cluster manager.
-            generateClusterItems(la: la, lo: lo)
+            generateClusterItems(latitude: store.latitude, longitude: store.longitude, name: store.name)
             
-            // Call cluster() after items have been added to perform the clustering
-            // and rendering on map.
-            clusterManager.cluster()
-            
-            // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
-            clusterManager.setDelegate(self, mapDelegate: self)
-            
+           
             
             marker.position = CLLocationCoordinate2D(
                 latitude: store.latitude,
@@ -292,3 +309,16 @@ extension MapViewController: StoreProviderDelegate, GMSMapViewDelegate {
         return true
     }
 }
+//extension MapViewController: GMUClusterRendererDelegate {
+//    func renderer(_ renderer: GMUClusterRenderer, willRenderMarker marker: GMSMarker) {
+//        print("willRenderMarker")
+//    }
+//    func renderer(_ renderer: GMUClusterRenderer, didRenderMarker marker: GMSMarker) {
+//        print("didRenderMarker")
+//    }
+//    func renderer(_ renderer: GMUClusterRenderer, markerFor object: Any) -> GMSMarker? {
+//        print("markerFor")
+//        return GMSMarker()
+//    }
+//}
+
