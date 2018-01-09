@@ -92,8 +92,6 @@ class StoreInfoViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
     
     // MARK: View Life Cycle
