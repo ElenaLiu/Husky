@@ -57,6 +57,8 @@ class MapViewController: UIViewController, GMUClusterManagerDelegate {
         
         initLactionManager()
         
+        setUpClusterManager()
+        
         StoreProvider.shared.getStores()
     }
     
@@ -92,22 +94,7 @@ class MapViewController: UIViewController, GMUClusterManagerDelegate {
             withFrame: myMapView.bounds,
             camera: camera)
         
-        // Set up the cluster manager with the supplied icon generator and
-        // renderer.
-        let iconGenerator = GMUDefaultClusterIconGenerator()
-        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
-        let renderer = GMUDefaultClusterRenderer(mapView: mapView,
-                                                 clusterIconGenerator: iconGenerator)
         
-        //renderer.delegate = self
-        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
-                                           renderer: renderer)
-        // Call cluster() after items have been added to perform the clustering
-        // and rendering on map.
-        clusterManager.cluster()
-        
-        // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
-        clusterManager.setDelegate(self, mapDelegate: self)
         
         myMapView.addSubview(mapView)
         mapView.delegate = self
@@ -154,6 +141,25 @@ class MapViewController: UIViewController, GMUClusterManagerDelegate {
     /// Returns a random value between -1.0 and 1.0.
     private func randomScale() -> Double {
         return Double(arc4random()) / Double(UINT32_MAX) * 2.0 - 1.0
+    }
+    
+    func setUpClusterManager() {
+        // Set up the cluster manager with the supplied icon generator and
+        // renderer.
+        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
+        let renderer = GMUDefaultClusterRenderer(mapView: mapView,
+                                                 clusterIconGenerator: iconGenerator)
+        
+        //renderer.delegate = self
+        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
+                                           renderer: renderer)
+        // Call cluster() after items have been added to perform the clustering
+        // and rendering on map.
+        clusterManager.cluster()
+        
+        // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
+        clusterManager.setDelegate(self, mapDelegate: self)
     }
 }
 
