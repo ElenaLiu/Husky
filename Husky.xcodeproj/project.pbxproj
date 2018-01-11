@@ -105,6 +105,7 @@
 		ACBAE1171FEFF02E0022AF5F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		ACBC80271FFDB8680000AE98 /* GradientFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientFunction.swift; sourceTree = "<group>"; };
 		ACBC80291FFDBAB30000AE98 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		ACCD519B20070EF00062F0D5 /* Husky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Husky.entitlements; sourceTree = "<group>"; };
 		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
 		ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
 		ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyWEN2017.ttf; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 		AC75D15E1FE12B790072DD1B /* Husky */ = {
 			isa = PBXGroup;
 			children = (
+				ACCD519B20070EF00062F0D5 /* Husky.entitlements */,
 				AC07E5962003A976002EF9C8 /* ApiKey.swift */,
 				AC75D15F1FE12B790072DD1B /* AppDelegate.swift */,
 				AC84D5751FFA4CF2009D4B44 /* LoadingFunction.swift */,
@@ -317,6 +319,11 @@
 					AC75D15B1FE12B790072DD1B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -399,6 +406,7 @@
 				"${BUILT_PRODUCTS_DIR}/Fusuma/Fusuma.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -417,6 +425,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fusuma.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -678,6 +687,7 @@
 			baseConfigurationReference = 700C1E20DE2AF1473C3B2F1C /* Pods-Husky.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Husky/Husky.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = THTAJ8H487;
@@ -697,6 +707,7 @@
 			baseConfigurationReference = E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Husky/Husky.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = THTAJ8H487;

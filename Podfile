@@ -25,6 +25,7 @@ target 'Husky' do
   pod 'UIImageView+Extension','~> 0.2'
   pod 'Fabric', '~> 1.7.2'
   pod 'Crashlytics', '~> 3.9.3'
+  pod 'Firebase/Messaging'
 
 
 
