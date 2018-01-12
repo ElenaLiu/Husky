@@ -26,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
+        FirebaseApp.configure()
+        
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -42,8 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
             
         }
+        
         application.registerForRemoteNotifications()
-        FirebaseApp.configure()
+        
         
         // [START add_token_refresh_observer]
         // Add observer for InstanceID token refresh callback.
@@ -63,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationWillTerminate(_ application: UIApplication) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func logUser(){
         
         if Auth.auth().currentUser != nil {
@@ -74,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = vc
         }
     }
-    
+
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
@@ -147,17 +154,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
     }
     
-    // [START connect_on_active]
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        connectToFcm()
-    }
-    // [END connect_on_active]
     // [START disconnect_from_fcm]
     func applicationDidEnterBackground(_ application: UIApplication) {
         Messaging.messaging().disconnect()
         print("Disconnected from FCM.")
     }
     // [END disconnect_from_fcm]
+    
+    // [START connect_on_active]
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        connectToFcm()
+    }
+    // [END connect_on_active]
 }
 
 // [START ios_10_message_handling]
@@ -206,5 +214,6 @@ extension AppDelegate : MessagingDelegate {
     }
 }
 // [END ios_10_data_message_handling]
+
 
 
