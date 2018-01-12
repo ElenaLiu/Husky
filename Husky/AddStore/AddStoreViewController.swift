@@ -99,11 +99,13 @@ class AddStoreViewController: UIViewController {
         super.viewDidAppear(animated)
         
         setUpTextField()
+        
         storeAddressTextField.setGradient(colorOne: Colors.pinkyred, colorTwo: Colors.lightpinkyred)
         
         storePhoneNumberTextField.setGradient(colorOne: Colors.seaGreen, colorTwo: Colors.lightSeaGreen)
         
-        storeNameTextField.setGradient(colorOne: Colors.purple, colorTwo: Colors.lightPurple)
+        storeNameTextField.setGradient(colorOne: Colors.blue, colorTwo: Colors.lightblue)
+        
     }
     //MARK: Navigation Bar
     func setUpNavigationBar() {
