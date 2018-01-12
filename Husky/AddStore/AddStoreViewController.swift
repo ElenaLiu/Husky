@@ -81,12 +81,24 @@ class AddStoreViewController: UIViewController {
         setUpSaveStoreTapped()
         
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(
+            self, selector: #selector(keyboardWillShow(notification:)),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
         
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(notification:)),
+            name: NSNotification.Name.UIKeyboardWillHide,
+            object: nil
+        )
         
         //tap anywhere to hide keyboard
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        self.view.addGestureRecognizer(
+            UITapGestureRecognizer(target: self,
+                                   action: #selector(dismissKeyboard)
+        ))
     }
     
     deinit {
@@ -116,13 +128,25 @@ class AddStoreViewController: UIViewController {
     //MARK: SaveStoreTapped
     func setUpSaveStoreTapped() {
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Send", comment: ""), style: .plain, target: self, action: #selector(saveStoreAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: NSLocalizedString("Send", comment: ""),
+            style: .plain,
+            target: self,
+            action: #selector(saveStoreAction))
     }
 
     @objc func saveStoreAction() {
         
-        let alert = UIAlertController(title: "", message: NSLocalizedString("Send?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString(" Yes ", comment: ""), style: .default, handler: { (action) in
+        let alert = UIAlertController(
+            title: "",
+            message: NSLocalizedString("Send?", comment: ""),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: NSLocalizedString(" Yes ", comment: ""),
+                style: .default,
+                handler: { (action) in
             StoreProvider.shared.saveStore(place: self.placeInfo!)
             self.storeNameTextField.text = ""
             self.storeAddressTextField.text = ""

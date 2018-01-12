@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let gcmMessageIDKey = "gcm.message_id"
     
+    var reachability = Reachability(hostName: "www.apple.com")
+    
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -28,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+//        checkInternetFunction()
+//
+//        downloadData()
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -44,9 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
             
         }
-        
         application.registerForRemoteNotifications()
-        
         
         // [START add_token_refresh_observer]
         // Add observer for InstanceID token refresh callback.
@@ -81,6 +85,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = vc
         }
     }
+    
+//    func checkInternetFunction() -> Bool {
+//        if reachability?.currentReachabilityStatus().rawValue == 0 {
+//
+//            print("no internet connected.")
+//            return false
+//        }else {
+//
+//            print("internet connected successfully.")
+//            return true
+//        }
+//    }
+//
+//    func downloadData() {
+//        if checkInternetFunction() == true {
+//
+//            print("internet connected successfully.")
+//
+//        }else {
+//            endLoading()
+//            var topWindow: UIWindow = UIWindow(frame: UIScreen.main.bounds)
+//            topWindow.rootViewController = UIViewController()
+//            topWindow.windowLevel = UIWindowLevelAlert + 1
+//            let alert = UIAlertController(
+//                title: "Oops!",
+//                message: "No internet connected! Please try again.",
+//                preferredStyle: .alert
+//            )
+//            alert.addAction(
+//                UIAlertAction(
+//                    title: " ",
+//                    style: .cancel,
+//                    handler: {(_ action: UIAlertAction) -> Void in
+//                        
+//                    topWindow.isHidden = true
+//                        }))
+//            topWindow.makeKeyAndVisible()
+//            topWindow.rootViewController?.present(alert, animated: true, completion: nil)
+//        
+//            let when = DispatchTime.now() + 5
+//            DispatchQueue.main.asyncAfter(deadline: when) {
+//                alert.dismiss(animated: true, completion: nil)
+//            }
+//            
+//        }
+//    }
+
 
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {

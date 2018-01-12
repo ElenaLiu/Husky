@@ -16,6 +16,9 @@ import Firebase
 class MapViewController: UIViewController {
     
     //MARK: Properties
+    
+    var reachability = Reachability(hostName: "www.apple.com")
+
     @IBOutlet weak var myMapView: UIView!
     var ref: DatabaseReference!
     var storesInfo = [Store]()
@@ -53,8 +56,45 @@ class MapViewController: UIViewController {
         locationMannager.distanceFilter = 80
         locationMannager.delegate = self
         locationMannager.startUpdatingLocation()
-        
     }
+    
+    func checkInternetFunction() -> Bool {
+        if reachability?.currentReachabilityStatus().rawValue == 0 {
+            
+            print("no internet connected.")
+            return false
+        }else {
+            
+            print("internet connected successfully.")
+            return true
+        }
+    }
+    
+    func downloadData() {
+        if checkInternetFunction() == true {
+            
+            print("internet connected successfully.")
+            
+        }else {
+            endLoading()
+            let alert = UIAlertController(
+                title: "Oops!",
+                message: "No internet connected! Please try again.",
+                preferredStyle: .alert
+            )
+            alert.addAction(
+                UIAlertAction(
+                    title: "Ok",
+                    style: .cancel,
+                    handler: {(_ action: UIAlertAction) -> Void in
+
+                        self.dismiss(animated: true, completion: nil)
+                }))
+
+                self.present(alert, animated: true, completion: nil)
+        }
+    }
+
     
     func setUpNavigationBar() {
         
@@ -68,6 +108,10 @@ class MapViewController: UIViewController {
     
     func setUpMapView(location: CLLocation) {
         
+        checkInternetFunction()
+
+        downloadData()
+
         let camera = GMSCameraPosition.camera(
             withLatitude: location.coordinate.latitude/*user location*/,
             longitude: location.coordinate.longitude/*user location*/,
@@ -84,7 +128,7 @@ class MapViewController: UIViewController {
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+
         //get current location
         let location: CLLocation = locations.last!
         

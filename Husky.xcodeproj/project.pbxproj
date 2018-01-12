@@ -44,6 +44,7 @@
 		ACBAE1181FEFF02E0022AF5F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBAE1171FEFF02E0022AF5F /* Comment.swift */; };
 		ACBC80281FFDB8680000AE98 /* GradientFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC80271FFDB8680000AE98 /* GradientFunction.swift */; };
 		ACBC802A1FFDBAB30000AE98 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC80291FFDBAB30000AE98 /* Colors.swift */; };
+		ACE74453200864D40072BB95 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE74452200864D30072BB95 /* Reachability.m */; };
 		ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */; };
 		ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */; };
 		ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */; };
@@ -106,6 +107,9 @@
 		ACBC80271FFDB8680000AE98 /* GradientFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientFunction.swift; sourceTree = "<group>"; };
 		ACBC80291FFDBAB30000AE98 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ACCD519B20070EF00062F0D5 /* Husky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Husky.entitlements; sourceTree = "<group>"; };
+		ACE74450200864D20072BB95 /* Husky-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Husky-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACE74451200864D30072BB95 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		ACE74452200864D30072BB95 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
 		ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
 		ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyWEN2017.ttf; sourceTree = "<group>"; };
@@ -208,6 +212,9 @@
 		AC75D15E1FE12B790072DD1B /* Husky */ = {
 			isa = PBXGroup;
 			children = (
+				ACE74450200864D20072BB95 /* Husky-Bridging-Header.h */,
+				ACE74451200864D30072BB95 /* Reachability.h */,
+				ACE74452200864D30072BB95 /* Reachability.m */,
 				ACCD519B20070EF00062F0D5 /* Husky.entitlements */,
 				AC07E5962003A976002EF9C8 /* ApiKey.swift */,
 				AC75D15F1FE12B790072DD1B /* AppDelegate.swift */,
@@ -318,8 +325,12 @@
 				TargetAttributes = {
 					AC75D15B1FE12B790072DD1B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -503,6 +514,7 @@
 				AC75D1601FE12B790072DD1B /* AppDelegate.swift in Sources */,
 				AC1E1A561FE160DB004FD468 /* ScoreViewController.swift in Sources */,
 				AC791B5C1FEBB4D5004A7893 /* MapNavigationController.swift in Sources */,
+				ACE74453200864D40072BB95 /* Reachability.m in Sources */,
 				ACFB34351FECD81C002A690A /* AddStoreViewController.swift in Sources */,
 				AC1E1A581FE160F2004FD468 /* CommentsTableViewController.swift in Sources */,
 				ACFB343D1FECD8FB002A690A /* UserProfileNavigationController.swift in Sources */,
@@ -687,6 +699,7 @@
 			baseConfigurationReference = 700C1E20DE2AF1473C3B2F1C /* Pods-Husky.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Husky/Husky.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -697,6 +710,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fangyu.ibubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Husky/Husky-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -707,6 +722,7 @@
 			baseConfigurationReference = E738E553B05023F64B40DA73 /* Pods-Husky.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Husky/Husky.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -717,6 +733,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fangyu.ibubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Husky/Husky-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
