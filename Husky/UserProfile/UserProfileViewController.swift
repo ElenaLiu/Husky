@@ -20,6 +20,8 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     //MARK: Properties
     let networkingService = NetworkingService()
     
+    var reachability = Reachability(hostName: "www.apple.com")
+    
     @IBOutlet weak var userProfileImageView: UIImageView!
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -113,6 +115,9 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     
     @objc func saveProfileInfoAction() {
         
+        checkInternetFunction()
+        downloadData()
+        
         if let user = Auth.auth().currentUser {
             
             let alert = UIAlertController(title: "", message: NSLocalizedString("Update personal profile?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
@@ -126,6 +131,44 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func checkInternetFunction() -> Bool {
+        if reachability?.currentReachabilityStatus().rawValue == 0 {
+            
+            print("no internet connected.")
+            return false
+        }else {
+            
+            print("internet connected successfully.")
+            return true
+        }
+    }
+    
+    func downloadData() {
+        if checkInternetFunction() == true {
+            
+            print("internet connected successfully.")
+            
+        }else {
+            endLoading()
+            let alert = UIAlertController(
+                title: "Oops!",
+                message: "No internet connected! Please try again.",
+                preferredStyle: .alert
+            )
+            alert.addAction(
+                UIAlertAction(
+                    title: "Ok",
+                    style: .cancel,
+                    handler: {(_ action: UIAlertAction) -> Void in
+                        
+                        self.dismiss(animated: true, completion: nil)
+                }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     func fetchUserProfile(){
         
