@@ -2,10 +2,12 @@
 
  <kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/logo.png" width = "40" height = "40" alt="i Bubble" align=center /></kbd> **i Bubble**
  
- 你也是珍奶中毒者嗎？
- 嘴饞時總是找不到附近店家嗎？
- 想嚐鮮卻沒有想法嗎？
+ ###### 你也是珍奶中毒者嗎？
+ ###### 嘴饞時總是找不到附近店家嗎？
+ ###### 想嚐鮮卻沒有想法嗎
  ###### 打開 i Bubble 吧！
+<br />
+<br />
 
 
 ### Features
@@ -55,9 +57,11 @@
 
 ## ScreenShot
 
-<kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/6.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/7.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/2.png" width = "275" height = "500" align=center /></kbd>
+<kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/6.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/7.png" width = "275" height = "500" align=center /></kbd>
+
 <kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/3.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/4.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/12.gif" width = "275" height = "500" align=center /></kbd>    
-<kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/5.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/1.jpg" width = "275" height = "500" align=center /></kbd>    
+
+<kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/2.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/5.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/1.jpg" width = "275" height = "500" align=center /></kbd>    
 
 ## Requirement
 * iOS 11.0+
