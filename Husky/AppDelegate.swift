@@ -17,23 +17,19 @@ import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    //MARK: Properties
     var window: UIWindow?
-    
     let gcmMessageIDKey = "gcm.message_id"
-    
     var reachability = Reachability(hostName: "www.apple.com")
     
     static var shared: AppDelegate {
+        
         return UIApplication.shared.delegate as! AppDelegate
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        
-//        checkInternetFunction()
-//
-//        downloadData()
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -48,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else {
             let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
-            
         }
+        
         application.registerForRemoteNotifications()
         
         // [START add_token_refresh_observer]
@@ -86,53 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-//    func checkInternetFunction() -> Bool {
-//        if reachability?.currentReachabilityStatus().rawValue == 0 {
-//
-//            print("no internet connected.")
-//            return false
-//        }else {
-//
-//            print("internet connected successfully.")
-//            return true
-//        }
-//    }
-//
-//    func downloadData() {
-//        if checkInternetFunction() == true {
-//
-//            print("internet connected successfully.")
-//
-//        }else {
-//            endLoading()
-//            var topWindow: UIWindow = UIWindow(frame: UIScreen.main.bounds)
-//            topWindow.rootViewController = UIViewController()
-//            topWindow.windowLevel = UIWindowLevelAlert + 1
-//            let alert = UIAlertController(
-//                title: "Oops!",
-//                message: "No internet connected! Please try again.",
-//                preferredStyle: .alert
-//            )
-//            alert.addAction(
-//                UIAlertAction(
-//                    title: " ",
-//                    style: .cancel,
-//                    handler: {(_ action: UIAlertAction) -> Void in
-//                        
-//                    topWindow.isHidden = true
-//                        }))
-//            topWindow.makeKeyAndVisible()
-//            topWindow.rootViewController?.present(alert, animated: true, completion: nil)
-//        
-//            let when = DispatchTime.now() + 5
-//            DispatchQueue.main.asyncAfter(deadline: when) {
-//                alert.dismiss(animated: true, completion: nil)
-//            }
-//            
-//        }
-//    }
-
-
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
@@ -140,9 +89,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO: Handle data of notification
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
+            
             print("Message ID: \(messageID)")
         }
-        
+
         // Print full message.
         print(userInfo)
     }
@@ -153,6 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO: Handle data of notification
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
+            
             print("Message ID: \(messageID)")
         }
         
@@ -165,6 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [START refresh_token]
     @objc func tokenRefreshNotification(_ notification: Notification) {
         if let refreshedToken = InstanceID.instanceID().token() {
+            
             print("InstanceID token: \(refreshedToken)")
         }
         
@@ -190,8 +142,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
     // [END connect_to_fcm]
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
     
@@ -199,14 +153,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
     // the InstanceID token.
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("APNs token retrieved: \(deviceToken)")
         
+        print("APNs token retrieved: \(deviceToken)")
         // With swizzling disabled you must set the APNs token here.
         // FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
     }
     
     // [START disconnect_from_fcm]
     func applicationDidEnterBackground(_ application: UIApplication) {
+        
         Messaging.messaging().disconnect()
         print("Disconnected from FCM.")
     }

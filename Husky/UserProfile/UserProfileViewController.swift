@@ -19,15 +19,11 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     
     //MARK: Properties
     let networkingService = NetworkingService()
-    
     var reachability = Reachability(hostName: "www.apple.com")
     
     @IBOutlet weak var userProfileImageView: UIImageView!
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func changeProfileImageTapped(_ sender: Any) {
@@ -55,12 +51,24 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
         if Auth.auth().currentUser != nil {
             
-            let alert = UIAlertController(title: "", message: NSLocalizedString("Log out?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (action) in
+            let alert = UIAlertController(
+                title: "",
+                message: NSLocalizedString("Log out?", comment: ""),
+                preferredStyle: UIAlertControllerStyle.alert
+            )
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("Ok", comment: ""),
+                style: .default,
+                handler: { (action) in
                 
                 self.networkingService.signOut()
             }))
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("Cancel", comment: ""),
+                style: .cancel,
+                handler: nil
+            )
+        )
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -91,8 +99,8 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         setUpUserProfileImage()
-
     }
     
     // Remove observer
@@ -100,7 +108,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
-        
     }
     
     func setUpsaveProfileInfoTapped() {
@@ -110,8 +117,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         saveProfileInfoTapped.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveProfileInfoTapped)
         saveProfileInfoTapped.addTarget(self, action: #selector(saveProfileInfoAction), for: .touchUpInside)
-        
-        }
+    }
     
     @objc func saveProfileInfoAction() {
         
@@ -124,10 +130,18 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (action) in
                 
                 let imageData = UIImageJPEGRepresentation(self.userProfileImageView.image!, 0.8)
-                self.networkingService.setUserInfo(user: user, username: self.nameTextField.text!, password: "", data: imageData)
-                
+                self.networkingService.setUserInfo(user: user,
+                                                   username: self.nameTextField.text!,
+                                                   password: "",
+                                                   data: imageData
+                )
             }))
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("Cancel", comment: ""),
+                style: .cancel,
+                handler: nil
+                )
+            )
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -145,10 +159,9 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     }
     
     func downloadData() {
-        if checkInternetFunction() == true {
+        if checkInternetFunction() {
             
             print("internet connected successfully.")
-            
         }else {
             endLoading()
             let alert = UIAlertController(
@@ -164,11 +177,9 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
                         
                         self.dismiss(animated: true, completion: nil)
                 }))
-            
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
     
     func fetchUserProfile(){
         
@@ -201,7 +212,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         self.userProfileImageView.layer.masksToBounds = false
         self.userProfileImageView.layer.borderColor = UIColor.darkGray.cgColor
         self.userProfileImageView.layer.cornerRadius = userProfileImageView.bounds.size.height / 2.0
-        print("223\(userProfileImageView.bounds)")
         self.userProfileImageView.clipsToBounds = true
     }
     
@@ -217,7 +227,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
                                          right: 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollRectToVisible(keyboardCGRect, animated: true)
-        
     }
     
     @objc func keyboardWillHide(notification: Notification) {

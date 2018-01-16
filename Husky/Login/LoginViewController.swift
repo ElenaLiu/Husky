@@ -16,11 +16,8 @@ class LoginViewController: UIViewController {
     var networkingService = NetworkingService()
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var loginEmailAddressTextField: UITextField!
-    
     @IBOutlet weak var loginPasswordTextField: UITextField!
-    
     @IBOutlet weak var loginTapped: UIButton!
     
     @IBAction func loginTapped(_ sender: Any) {
@@ -71,11 +68,10 @@ class LoginViewController: UIViewController {
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("VC init")
+        
         networkingService.delegate = self
         setUpLoginTapped()
-        
-        
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillShow),
@@ -135,56 +131,12 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: NetworkingServiceDelegate {
+    
     func didFail(with error: Error) {
         
         endLoading()
         let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
         self.present(alert, animated: true, completion: nil)
-        
     }
 }
-
-
-//extension LoginViewController: UITextFieldDelegate  {
-//
-//    func textFieldErrorHandle() {
-//
-//        loginEmailAddressTextField.delegate = self
-//        loginPasswordTextField.delegate = self
-//    }
-
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//
-//        if textField === loginEmailAddressTextField {
-//            if let text = textField.text {
-//                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-//                    if(text.count < 3 || !text.contains("@")) {
-//                        floatingLabelTextField.errorMessage = "Invalid email"
-//                    }
-//                    else {
-//                        // The error message will only disappear when we reset it to nil or empty string
-//                        floatingLabelTextField.errorMessage = ""
-//                    }
-//                }
-//            }
-//
-//        }else if textField === loginPasswordTextField {
-//            if let text = textField.text {
-//                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-//                    if(text.count < 7 ) {
-//                        floatingLabelTextField.errorMessage = "Invalid password"
-//                    }
-//                    else {
-//                        // The error message will only disappear when we reset it to nil or empty string
-//                        floatingLabelTextField.errorMessage = ""
-//                    }
-//                }
-//            }
-//        }
-//        return true
-//    }
-//}
-
-
-

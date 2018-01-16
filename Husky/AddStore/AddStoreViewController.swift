@@ -17,19 +17,13 @@ class AddStoreViewController: UIViewController {
     
     //MARK: Properties
     var placeInfo: GMSPlace?
-    
     var gradientLayer: CAGradientLayer!
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var storeNameTextField: UITextField!
-    
     @IBOutlet weak var storePhoneNumberTextField: UITextField!
-    
     @IBOutlet weak var storeAddressTextField: UITextField!
-
     @IBOutlet weak var addStoreButton: UIButton!
-    
     @IBAction func addStoreTapped(_ sender: Any) {
         
         storeNameTextField.text = ""
@@ -57,16 +51,20 @@ class AddStoreViewController: UIViewController {
             self.storeNameTextField.isEnabled = false
             
             if let phoneNumber = place.phoneNumber {
+                
                 self.storePhoneNumberTextField.isEnabled = false
                 self.storePhoneNumberTextField.text = place.phoneNumber
             }else {
+                
                 self.storePhoneNumberTextField.isEnabled = true
             }
             
             if let address = place.formattedAddress {
+                
                 self.storeAddressTextField.isEnabled = false
                 self.storeAddressTextField.text = place.formattedAddress
             }else {
+                
                 self.storeAddressTextField.isEnabled = true
             }
         })
@@ -121,9 +119,9 @@ class AddStoreViewController: UIViewController {
     }
     //MARK: Navigation Bar
     func setUpNavigationBar() {
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-
     }
     //MARK: SaveStoreTapped
     func setUpSaveStoreTapped() {
@@ -152,7 +150,11 @@ class AddStoreViewController: UIViewController {
             self.storeAddressTextField.text = ""
             self.storePhoneNumberTextField.text = ""
         }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""),
+                                      style: .cancel,
+                                      handler: nil
+            )
+        )
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -181,7 +183,12 @@ class AddStoreViewController: UIViewController {
         
         let userInfo = (notification as Notification).userInfo
         let keyboardCGRact = (userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardCGRact.height - 200, right: 0)
+        let contentInsets = UIEdgeInsets(
+            top: 0,
+            left: 0,
+            bottom: keyboardCGRact.height - 200,
+            right: 0
+        )
         scrollView.contentInset = contentInsets
         scrollView.scrollRectToVisible(keyboardCGRact, animated: true)
     }

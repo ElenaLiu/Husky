@@ -32,7 +32,8 @@ struct NetworkingService {
     
     // Reset Password
     func resetPassword(email: String){
-        Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+        Auth.auth().sendPasswordReset(withEmail: email,
+                                      completion: { (error) in
             if error == nil {
                 print("An email with information on how to reset your password has been sent to you. thank You")
             }else {
@@ -42,7 +43,6 @@ struct NetworkingService {
     }
     
     // 1 ---- create the User
-    
     func signUp(email: String,
                 username: String,
                 password: String,
@@ -63,7 +63,6 @@ struct NetworkingService {
     }
     
     // 2 ------ Set User Info
-    
   func setUserInfo(user: User,
                              username: String,
                              password: String,
@@ -84,6 +83,7 @@ struct NetworkingService {
         imageRef.putData(data as Data,
                          metadata: metaData) { (metaData, error) in
             if error == nil {
+                
                 let changeRequest = user.createProfileChangeRequest()
                 changeRequest.displayName = username
                 changeRequest.photoURL = metaData!.downloadURL()
@@ -139,11 +139,9 @@ struct NetworkingService {
                     self.delegate?.didFail(with: error!)
                     return
                 }
-                            
                 print("\(user!.displayName!) has signed in succesfully!")
                 AppDelegate.shared.logUser()
         })
-
     }
     
     func signOut() {
@@ -153,7 +151,6 @@ struct NetworkingService {
             print(error.localizedDescription)
             self.delegate?.didFail(with: error)
         }
-        
         AppDelegate.shared.logUser()
     }
 }

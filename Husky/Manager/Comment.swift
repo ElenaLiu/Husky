@@ -12,7 +12,6 @@ import Foundation
 public struct Comment {
     
     // MARK: Schema
-    
     public struct Schema {
         
         public static let commentId = "commentId"
@@ -40,7 +39,6 @@ public struct Comment {
     
     
     // MARK: Property
-    
     public let commentId: String
     
     public let uid: String

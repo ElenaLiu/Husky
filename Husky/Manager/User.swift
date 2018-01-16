@@ -14,7 +14,6 @@ import FirebaseDatabase
 public struct BubbleUser {
     
     // MARK: Schema
-    
     public struct Schema {
         
         public static let uid = "uid"
@@ -24,11 +23,9 @@ public struct BubbleUser {
         public static let email = "email"
         
         public static let photoUrl = "photoUrl"
-
     }
     
     // MARK: Property
-    
     public var uid: String
     
     public var userName: String
@@ -36,8 +33,6 @@ public struct BubbleUser {
     public var email: String
     
     public var photoUrl: String
-
-    
 }
 
 

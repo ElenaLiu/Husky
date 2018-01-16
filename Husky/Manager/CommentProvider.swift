@@ -23,30 +23,29 @@ enum CommentProviderError: Error {
 }
 
 class CommentProvider {
-    
-    //static 不用透過實體就可以呼叫
+
     static let shared = CommentProvider()
     
     weak var delegate: CommentProviderDelegate?
     
     var selectedMarkerId: Store?
     
-    var comments = [Comment]()
+//    var comments = [Comment]()
     
     func fetchComments(selectStoreId: String) {
 
         let storeId = selectStoreId
 
-NetworkingService.databaseRef.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent(of: .value) { (snapshot) in
+        NetworkingService.databaseRef.child("StoreComments").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId).observeSingleEvent(of: .value) { (snapshot) in
 
             guard let commentDic = snapshot.value as? [String: Any] else {
+                
                 self.delegate?.didFail(with: CommentProviderError.noComment)
                 return
             }
 
             var comments = [Comment]()
 
-  
             for dicValue in commentDic {
                 
                 let commentId = dicValue.key

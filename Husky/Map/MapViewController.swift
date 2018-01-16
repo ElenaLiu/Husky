@@ -16,10 +16,9 @@ import Firebase
 class MapViewController: UIViewController {
     
     //MARK: Properties
+    @IBOutlet weak var myMapView: UIView!
     
     var reachability = Reachability(hostName: "www.apple.com")
-
-    @IBOutlet weak var myMapView: UIView!
     var ref: DatabaseReference!
     var storesInfo = [Store]()
     var locationMannager = CLLocationManager()
@@ -71,7 +70,7 @@ class MapViewController: UIViewController {
     }
     
     func downloadData() {
-        if checkInternetFunction() == true {
+        if checkInternetFunction() {
             
             print("internet connected successfully.")
             
@@ -109,7 +108,6 @@ class MapViewController: UIViewController {
     func setUpMapView(location: CLLocation) {
         
         checkInternetFunction()
-
         downloadData()
 
         let camera = GMSCameraPosition.camera(

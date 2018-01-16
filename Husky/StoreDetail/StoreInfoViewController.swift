@@ -36,17 +36,11 @@ class StoreInfoViewController: UIViewController {
     var endPosition: CLLocation?
     
     @IBOutlet weak var myMapView: UIView!
-
     @IBOutlet weak var storeNameLabel: UILabel!
-    
     @IBOutlet weak var addressLabel: UILabel!
-    
     @IBOutlet weak var phoneLabel: UILabel!
-    
     @IBOutlet weak var scorePeopleLabel: UILabel!
-    
     @IBOutlet weak var scoreAverageView: CosmosView!
-    
     @IBOutlet weak var addressGuideTapped: UIButton!
     
     //MARK: Make phone call
@@ -67,8 +61,15 @@ class StoreInfoViewController: UIViewController {
     //MARK: Set up google guide
     @IBAction func addressGuideTapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "", message: "「i Bubble」想要打開 「Google Maps」", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "打開", style: .default, handler: { (action) in
+        let alert = UIAlertController(
+            title: "",
+            message: "「i Bubble」想要打開 「Google Maps」",
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "打開",
+            style: .default,
+            handler: { (action) in
             
             guard let userLocation = self.currentLocation else { return }
             
@@ -89,11 +90,8 @@ class StoreInfoViewController: UIViewController {
                 print("Can't use comgooglemaps://");
             }
         }))
-        
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
     
     // MARK: View Life Cycle
@@ -108,6 +106,7 @@ class StoreInfoViewController: UIViewController {
         
         if let latitudeValue = latitudeValue,
             let longitudeValue = longitudeValue {
+
             setUpMapView(
                 latitude: latitudeValue,
                 longitude: longitudeValue
@@ -129,7 +128,6 @@ class StoreInfoViewController: UIViewController {
             
         // Change the size of the stars
         scoreAverageView.settings.starSize = 40
-        
     }
     
     private func setUpStoreInfoWith() {
@@ -155,7 +153,7 @@ class StoreInfoViewController: UIViewController {
         self.locationManager.distanceFilter = 50
         self.locationManager.startUpdatingLocation()
         self.locationManager.delegate = self
-        
+    
         self.placesClient = GMSPlacesClient.shared()
     }
     

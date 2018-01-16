@@ -35,6 +35,8 @@ class StoreDetailViewController: UIViewController {
     
     @IBOutlet weak var commentsPageTapped: UIButton!
     
+    @IBOutlet weak var containerView: UIView!
+    
     @IBAction func showStoreInfoPageTapped(_ sender: Any) {
         
         if let navigationController = self.navigationController as? StoreDetailNavigationController {
@@ -65,8 +67,6 @@ class StoreDetailViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var containerView: UIView!
-    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +80,7 @@ class StoreDetailViewController: UIViewController {
         
         // SetUp default page
         selectedViewController = StoreInfoViewController
+        
         self.storeInfoPageTapped.setTitleColor(Colors.seaGreen, for: .normal)
         
     }

@@ -16,7 +16,6 @@ func startLoading(status: String) { //status loading title name
     if isLoading == true {
         
         return
-        
     }
     
     isLoading = true
@@ -24,7 +23,6 @@ func startLoading(status: String) { //status loading title name
     SVProgressHUD.show(withStatus: status)
     
     UIApplication.shared.beginIgnoringInteractionEvents()
-    
 }
 
 func endLoading() {
@@ -32,7 +30,6 @@ func endLoading() {
     if isLoading == false {
         
         return
-        
     }
     
     isLoading = false
@@ -40,6 +37,5 @@ func endLoading() {
     SVProgressHUD.dismiss()
     
     UIApplication.shared.endIgnoringInteractionEvents()
-    
 }
 
