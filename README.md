@@ -1,12 +1,12 @@
-# Husky
+# i Bubble
 
- <kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/logo.png" width = "40" height = "40" alt="i Bubble" align=center /></kbd> **i Bubble**
+ <kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/logo.png" width = "60" height = "60" alt="i Bubble" align=center /></kbd> 
  
- ###### 你也是珍奶中毒者嗎？
- ###### 嘴饞時總是找不到附近店家嗎？
- ###### 想嚐鮮卻沒有想法嗎？
- ###### 打開 i Bubble 吧！
-<br />
+ **你也是珍奶中毒者嗎？**
+ **嘴饞時總是找不到附近店家嗎？**
+ **想嚐鮮卻沒有想法嗎？**
+ **打開 i Bubble 吧！**
+
 <br />
 
 
@@ -55,7 +55,7 @@
 * 使用推播功能，隨時可以掌握更新店家資訊
 
 
-## ScreenShot
+### ScreenShot
 
 <kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/6.png" width = "275" height = "500" align=center /></kbd><kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/7.png" width = "275" height = "500" align=center /></kbd>
 
