@@ -3,8 +3,11 @@
  <kbd><img src="https://github.com/ElenaLiu/Husky/blob/develop/ScreenShot/logo.png" width = "60" height = "60" alt="i Bubble" align=center /></kbd> 
  
  **你也是珍奶中毒者嗎？**
+ <br />
  **嘴饞時總是找不到附近店家嗎？**
+ <br />
  **想嚐鮮卻沒有想法嗎？**
+ <br />
  **打開 i Bubble 吧！**
 
 <br />
