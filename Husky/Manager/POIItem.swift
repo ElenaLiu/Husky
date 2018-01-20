@@ -11,9 +11,12 @@ import Foundation
 class POIItem: NSObject, GMUClusterItem {
     var position: CLLocationCoordinate2D
     var name: String!
+    var storeId: String!
     
-    init(position: CLLocationCoordinate2D, name: String) {
+    init(position: CLLocationCoordinate2D, name: String, storeId: String!) {
         self.position = position
         self.name = name
+        self.storeId = storeId
     }
 }
+
