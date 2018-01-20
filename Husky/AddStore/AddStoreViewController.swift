@@ -73,11 +73,17 @@ class AddStoreViewController: UIViewController {
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUpNavigationBar()
         
         setUpSaveStoreTapped()
         
+        storeAddressTextField.setGradient(colorOne: Colors.pinkyred, colorTwo: Colors.lightpinkyred)
+        
+        storePhoneNumberTextField.setGradient(colorOne: Colors.seaGreen, colorTwo: Colors.lightSeaGreen)
+        
+        storeNameTextField.setGradient(colorOne: Colors.blue, colorTwo: Colors.lightblue)
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(
             self, selector: #selector(keyboardWillShow(notification:)),
@@ -109,13 +115,6 @@ class AddStoreViewController: UIViewController {
         super.viewDidAppear(animated)
         
         setUpTextField()
-        
-        storeAddressTextField.setGradient(colorOne: Colors.pinkyred, colorTwo: Colors.lightpinkyred)
-        
-        storePhoneNumberTextField.setGradient(colorOne: Colors.seaGreen, colorTwo: Colors.lightSeaGreen)
-        
-        storeNameTextField.setGradient(colorOne: Colors.blue, colorTwo: Colors.lightblue)
-        
     }
     //MARK: Navigation Bar
     func setUpNavigationBar() {
@@ -134,28 +133,46 @@ class AddStoreViewController: UIViewController {
     }
 
     @objc func saveStoreAction() {
-        
-        let alert = UIAlertController(
-            title: "",
-            message: NSLocalizedString("Send?", comment: ""),
-            preferredStyle: UIAlertControllerStyle.alert
-        )
-        alert.addAction(
-            UIAlertAction(
-                title: NSLocalizedString(" Yes ", comment: ""),
-                style: .default,
-                handler: { (action) in
-            StoreProvider.shared.saveStore(place: self.placeInfo!)
-            self.storeNameTextField.text = ""
-            self.storeAddressTextField.text = ""
-            self.storePhoneNumberTextField.text = ""
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""),
-                                      style: .cancel,
-                                      handler: nil
+        if storeNameTextField.text == "" ||
+            storeAddressTextField.text == "" ||
+            storePhoneNumberTextField.text == "" {
+            let alert = UIAlertController(
+                title: "",
+                message: NSLocalizedString("Fields that are required.", comment: ""),
+                preferredStyle: .alert
             )
-        )
-        self.present(alert, animated: true, completion: nil)
+            alert.addAction(
+                UIAlertAction(
+                    title: NSLocalizedString("Ok", comment: ""),
+                    style: .default,
+                    handler: nil
+                )
+            )
+            
+            self.present(alert, animated: true, completion: nil)
+        }else {
+            let alert = UIAlertController(
+                title: "",
+                message: NSLocalizedString("Send?", comment: ""),
+                preferredStyle: UIAlertControllerStyle.alert
+            )
+            alert.addAction(
+                UIAlertAction(
+                    title: NSLocalizedString(" Yes ", comment: ""),
+                    style: .default,
+                    handler: { (action) in
+                        StoreProvider.shared.saveStore(place: self.placeInfo!)
+                        self.storeNameTextField.text = ""
+                        self.storeAddressTextField.text = ""
+                        self.storePhoneNumberTextField.text = ""
+                }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""),
+                                          style: .cancel,
+                                          handler: nil
+                )
+            )
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func setUpTextField() {
@@ -178,6 +195,7 @@ class AddStoreViewController: UIViewController {
         self.storePhoneNumberTextField.layer.cornerRadius = 20
         self.storePhoneNumberTextField.clipsToBounds = true
     }
+    
     //MARK: Handling keyboard
     @objc func keyboardWillShow(notification: Notification) {
         
