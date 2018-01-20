@@ -27,6 +27,4 @@ target 'Husky' do
   pod 'Crashlytics', '~> 3.9.3'
   pod 'Firebase/Messaging'
 
-
-
 end

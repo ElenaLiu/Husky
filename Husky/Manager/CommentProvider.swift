@@ -18,8 +18,8 @@ protocol CommentProviderDelegate: class {
 }
 
 enum CommentProviderError: Error {
-    
     case noComment
+    case uploadImageFail
 }
 
 class CommentProvider {
@@ -109,6 +109,7 @@ class CommentProvider {
                                 self.saveCommentInfo(comment: comment, imageUrl: imageUrl, key: key)
                             }else {
                                 print(error!.localizedDescription)
+                                self.delegate?.didFail(with: CommentProviderError.uploadImageFail)
                             }
         }
     }
