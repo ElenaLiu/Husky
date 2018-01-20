@@ -17,19 +17,16 @@ class MapViewController: UIViewController {
     //MARK: Properties
     @IBOutlet weak var myMapView: UIView!
     
-<<<<<<< HEAD
-    var reachability = Reachability(hostName: "www.apple.com")
-=======
     private var clusterManager: GMUClusterManager!
     private var mapView: GMSMapView!
-    
->>>>>>> clusterMapIcon
+
     var ref: DatabaseReference!
     var storesInfo = [Store]()
     var locationMannager = CLLocationManager()
     var cruuentLocation: CLLocation?
     var zoomLevel: Float = 16.0
     var selectedPlace: GMSPlace?
+    var reachability = Reachability(hostName: "www.apple.com")
     
     var storeHasCommented: [[String: Bool]] = [] //ex. [storeId: true]
     
@@ -126,15 +123,6 @@ extension MapViewController: CLLocationManagerDelegate {
         myMapView.addSubview(mapView)
         mapView.delegate = self
     }
-<<<<<<< HEAD
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        //get current location
-        let location: CLLocation = locations.last!
-=======
     
     func setUpCluster() {
         
@@ -144,7 +132,6 @@ extension MapViewController: CLLocationManagerDelegate {
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         let renderer = GMUDefaultClusterRenderer(mapView: mapView,
                                                  clusterIconGenerator: iconGenerator)
->>>>>>> clusterMapIcon
         
         //set GMUDefaultClusterRenderer delegate to self.
         renderer.delegate = self

@@ -14,7 +14,7 @@ import SDWebImage
 class CommentsTableViewController: UITableViewController {
     
     @IBOutlet weak var noCommentAlertLable: UILabel!
-    
+
     var reachability = Reachability(hostName: "www.apple.com")
     
     fileprivate struct C {

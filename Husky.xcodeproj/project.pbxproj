@@ -150,7 +150,6 @@
 		ACBC80271FFDB8680000AE98 /* GradientFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientFunction.swift; sourceTree = "<group>"; };
 		ACBC80291FFDBAB30000AE98 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ACCD519B20070EF00062F0D5 /* Husky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Husky.entitlements; sourceTree = "<group>"; };
-		ACE74450200864D20072BB95 /* Husky-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Husky-Bridging-Header.h"; sourceTree = "<group>"; };
 		ACE74451200864D30072BB95 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ACE74452200864D30072BB95 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
@@ -296,7 +295,6 @@
 		AC75D15E1FE12B790072DD1B /* Husky */ = {
 			isa = PBXGroup;
 			children = (
-				ACE74450200864D20072BB95 /* Husky-Bridging-Header.h */,
 				ACE74451200864D30072BB95 /* Reachability.h */,
 				ACE74452200864D30072BB95 /* Reachability.m */,
 				ACCD519B20070EF00062F0D5 /* Husky.entitlements */,
@@ -585,12 +583,8 @@
 				AC791B421FE2619C004A7893 /* Store.swift in Sources */,
 				AC07E5B720046FBE002EF9C8 /* GMUGridBasedClusterAlgorithm.m in Sources */,
 				AC1E1A541FE160CC004FD468 /* StoreInfoViewController.swift in Sources */,
-<<<<<<< HEAD
-=======
 				AC07E5FB20049279002EF9C8 /* POIItem.swift in Sources */,
 				AC07E5BB20046FBE002EF9C8 /* GMUClusterManager.m in Sources */,
-				AC8504451FFA140400251018 /* UserProvider.swift in Sources */,
->>>>>>> clusterMapIcon
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC07E5BE20046FBE002EF9C8 /* GMUDefaultClusterRenderer.m in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
@@ -808,12 +802,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fangyu.ibubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-<<<<<<< HEAD
 				SWIFT_OBJC_BRIDGING_HEADER = "Husky/Husky-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-=======
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = Cluster.h;
->>>>>>> clusterMapIcon
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -835,11 +826,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fangyu.ibubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-<<<<<<< HEAD
 				SWIFT_OBJC_BRIDGING_HEADER = "Husky/Husky-Bridging-Header.h";
-=======
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = Cluster.h;
->>>>>>> clusterMapIcon
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
