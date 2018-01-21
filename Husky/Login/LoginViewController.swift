@@ -32,37 +32,32 @@ class LoginViewController: UIViewController {
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
         
-        let alertController = UIAlertController(title: NSLocalizedString("Forgot password?", comment: ""),
-                                                message: NSLocalizedString("Enter your E-mail", comment: ""), preferredStyle: .alert)
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: Fonts.SentyWen16,
+            kTextFont: Fonts.SentyWen16,
+            kButtonFont: Fonts.SentyWen16,
+            showCloseButton: false
+        )
         
-        alertController.addTextField(configurationHandler:
-            
-            {(_ textField: UITextField) -> Void in
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        let emailTextField = alertView.addTextField(NSLocalizedString("Your E-mail", comment: ""))
+        
+        alertView.addButton(
+            NSLocalizedString("Ok", comment: ""),
+            action: {
                 
-                textField.placeholder = NSLocalizedString("Your E-mail", comment: "")
-                
+                self.networkingService.resetPassword(email: emailTextField.text!)
         })
         
-        let confirmAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""),
-                                          style: .default,
-                                          handler:
-            {(_ action: UIAlertAction) -> Void in
-                
-                guard let email = alertController.textFields?.first?.text else { return }
-                
-                self.networkingService.resetPassword(email: email)
-                
-        })
         
-        alertController.addAction(confirmAction)
+        alertView.addButton(NSLocalizedString("Cancel", comment: "")) {
+        }
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
-                                         style: .cancel,
-                                         handler: nil)
-        
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
+        alertView.showWarning(
+            NSLocalizedString("Forgot password?", comment: ""),
+            subTitle: NSLocalizedString("Enter your E-mail", comment: "")
+        )
     }
     
     // MARK: View Life Cycle
@@ -135,8 +130,24 @@ extension LoginViewController: NetworkingServiceDelegate {
     func didFail(with error: Error) {
         
         endLoading()
-        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-        self.present(alert, animated: true, completion: nil)
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: Fonts.SentyWen16,
+            kTextFont: Fonts.SentyWen16,
+            kButtonFont: Fonts.SentyWen16,
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton(
+            NSLocalizedString("Ok ", comment: ""),
+            action: {
+        })
+        
+        alertView.showError(
+            "Error!",
+            subTitle: error.localizedDescription
+        )
     }
 }

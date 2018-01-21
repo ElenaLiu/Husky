@@ -12,6 +12,7 @@ import GooglePlaces
 import GooglePlacePicker
 import Firebase
 import SkyFloatingLabelTextField
+import SCLAlertView
 
 class AddStoreViewController: UIViewController {
     
@@ -73,7 +74,19 @@ class AddStoreViewController: UIViewController {
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
+//        let appearance = SCLAlertView.SCLAppearance(
+//            kTitleFont: UIFont(name: "HelveticaNeue", size: 16)!,
+//            kTextFont: UIFont(name: "HelveticaNeue", size: 16)!,
+//            kButtonFont: UIFont(name: "HelveticaNeue", size: 16)!,
+//            circleBackgroundColor: Colors.lightPurple,
+//            contentViewColor: Colors.blue,
+//            contentViewBorderColor: Colors.pinkyred,
+//            titleColor: UIColor.black
+//            )
+//        let alertView = SCLAlertView(appearance: appearance)
+//        alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom icon you choose")
+     
         setUpNavigationBar()
         
         setUpSaveStoreTapped()
@@ -136,42 +149,43 @@ class AddStoreViewController: UIViewController {
         if storeNameTextField.text == "" ||
             storeAddressTextField.text == "" ||
             storePhoneNumberTextField.text == "" {
-            let alert = UIAlertController(
-                title: "",
-                message: NSLocalizedString("Fields that are required.", comment: ""),
-                preferredStyle: .alert
-            )
-            alert.addAction(
-                UIAlertAction(
-                    title: NSLocalizedString("Ok", comment: ""),
-                    style: .default,
-                    handler: nil
-                )
+            
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: Fonts.SentyWen16,
+                kTextFont: Fonts.SentyWen16,
+                kButtonFont: Fonts.SentyWen16
             )
             
-            self.present(alert, animated: true, completion: nil)
+            let alertView = SCLAlertView(appearance: appearance)
+            
+            alertView.showWarning("", subTitle: NSLocalizedString("Fields that are required.", comment: ""))
+            
         }else {
-            let alert = UIAlertController(
-                title: "",
-                message: NSLocalizedString("Send?", comment: ""),
-                preferredStyle: UIAlertControllerStyle.alert
+            
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: Fonts.SentyWen16,
+                kTextFont: Fonts.SentyWen16,
+                kButtonFont: Fonts.SentyWen16,
+                showCloseButton: false
             )
-            alert.addAction(
-                UIAlertAction(
-                    title: NSLocalizedString(" Yes ", comment: ""),
-                    style: .default,
-                    handler: { (action) in
-                        StoreProvider.shared.saveStore(place: self.placeInfo!)
-                        self.storeNameTextField.text = ""
-                        self.storeAddressTextField.text = ""
-                        self.storePhoneNumberTextField.text = ""
-                }))
-            alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""),
-                                          style: .cancel,
-                                          handler: nil
-                )
+            
+            let alertView = SCLAlertView(appearance: appearance)
+            
+            alertView.addButton(
+                NSLocalizedString(" Yes ", comment: ""),
+                action: {
+                    StoreProvider.shared.saveStore(place: self.placeInfo!)
+                    self.storeNameTextField.text = ""
+                    self.storeAddressTextField.text = ""
+                    self.storePhoneNumberTextField.text = ""
+            })
+            
+            alertView.addButton(
+                NSLocalizedString("No ", comment: ""),
+                action: {}
             )
-            self.present(alert, animated: true, completion: nil)
+            
+            alertView.showSuccess("", subTitle: NSLocalizedString("Send?", comment: ""))
         }
     }
     

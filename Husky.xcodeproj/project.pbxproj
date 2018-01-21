@@ -55,6 +55,8 @@
 		ACBC80281FFDB8680000AE98 /* GradientFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC80271FFDB8680000AE98 /* GradientFunction.swift */; };
 		ACBC802A1FFDBAB30000AE98 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC80291FFDBAB30000AE98 /* Colors.swift */; };
 		ACE74453200864D40072BB95 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE74452200864D30072BB95 /* Reachability.m */; };
+		ACF39A90201466CF00D85BEB /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF39A8F201466CF00D85BEB /* Fonts.swift */; };
+		ACF39A922014725A00D85BEB /* checkInternetFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF39A912014725A00D85BEB /* checkInternetFunction.swift */; };
 		ACFB342A1FEBD3D3002A690A /* SentyCreamPuff.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */; };
 		ACFB342C1FEBD3E4002A690A /* SentyMARUKO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */; };
 		ACFB342E1FEBD3EF002A690A /* SentyWEN2017.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */; };
@@ -152,6 +154,8 @@
 		ACCD519B20070EF00062F0D5 /* Husky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Husky.entitlements; sourceTree = "<group>"; };
 		ACE74451200864D30072BB95 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ACE74452200864D30072BB95 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ACF39A8F201466CF00D85BEB /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		ACF39A912014725A00D85BEB /* checkInternetFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkInternetFunction.swift; sourceTree = "<group>"; };
 		ACFB34291FEBD3D3002A690A /* SentyCreamPuff.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyCreamPuff.ttf; sourceTree = "<group>"; };
 		ACFB342B1FEBD3E4002A690A /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
 		ACFB342D1FEBD3EF002A690A /* SentyWEN2017.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyWEN2017.ttf; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				ACCD519B20070EF00062F0D5 /* Husky.entitlements */,
 				AC07E5962003A976002EF9C8 /* ApiKey.swift */,
 				AC75D15F1FE12B790072DD1B /* AppDelegate.swift */,
+				ACF39A912014725A00D85BEB /* checkInternetFunction.swift */,
 				AC84D5751FFA4CF2009D4B44 /* LoadingFunction.swift */,
 				ACBC80271FFDB8680000AE98 /* GradientFunction.swift */,
 				AC791B3E1FE26158004A7893 /* Manager */,
@@ -348,6 +353,7 @@
 				ACBAE1171FEFF02E0022AF5F /* Comment.swift */,
 				AC11DD751FF21C9300834285 /* User.swift */,
 				AC07E5FA20049279002EF9C8 /* POIItem.swift */,
+				ACF39A8F201466CF00D85BEB /* Fonts.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				AC791B4A1FE3A925004A7893 /* RegistViewController.swift in Sources */,
 				AC07E5BE20046FBE002EF9C8 /* GMUDefaultClusterRenderer.m in Sources */,
 				AC791B481FE3711E004A7893 /* StoreDetailViewController.swift in Sources */,
+				ACF39A90201466CF00D85BEB /* Fonts.swift in Sources */,
 				ACBC802A1FFDBAB30000AE98 /* Colors.swift in Sources */,
 				AC84D5761FFA4CF2009D4B44 /* LoadingFunction.swift in Sources */,
 				AC07E5BC20046FBE002EF9C8 /* GMUStaticCluster.m in Sources */,
@@ -599,6 +606,7 @@
 				AC791B441FE28533004A7893 /* StoreProvider.swift in Sources */,
 				AC1E1A4C1FE155DA004FD468 /* TabBarController.swift in Sources */,
 				ACFB343B1FECD880002A690A /* AddStoreNavigationController.swift in Sources */,
+				ACF39A922014725A00D85BEB /* checkInternetFunction.swift in Sources */,
 				AC07E5972003A976002EF9C8 /* ApiKey.swift in Sources */,
 				ACBC80281FFDB8680000AE98 /* GradientFunction.swift in Sources */,
 				AC07E5B820046FBE002EF9C8 /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */,

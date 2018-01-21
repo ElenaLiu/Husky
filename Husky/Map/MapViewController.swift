@@ -11,6 +11,7 @@ import GooglePlaces
 import GoogleMaps
 import SDWebImage
 import Firebase
+import SCLAlertView
 
 class MapViewController: UIViewController {
     
@@ -26,7 +27,6 @@ class MapViewController: UIViewController {
     var cruuentLocation: CLLocation?
     var zoomLevel: Float = 16.0
     var selectedPlace: GMSPlace?
-    var reachability = Reachability(hostName: "www.apple.com")
     
     var storeHasCommented: [[String: Bool]] = [] //ex. [storeId: true]
     
@@ -54,45 +54,7 @@ class MapViewController: UIViewController {
         locationMannager.delegate = self
         locationMannager.startUpdatingLocation()
     }
-    
-    func checkInternetFunction() -> Bool {
-        if reachability?.currentReachabilityStatus().rawValue == 0 {
-            
-            print("no internet connected.")
-            return false
-        }else {
-            
-            print("internet connected successfully.")
-            return true
-        }
-    }
-    
-    func downloadData() {
-        if checkInternetFunction() {
-            
-            print("internet connected successfully.")
-            
-        }else {
-            endLoading()
-            let alert = UIAlertController(
-                title: "Oops!",
-                message: "No internet connected! Please try again.",
-                preferredStyle: .alert
-            )
-            alert.addAction(
-                UIAlertAction(
-                    title: "Ok",
-                    style: .cancel,
-                    handler: {(_ action: UIAlertAction) -> Void in
-
-                        self.dismiss(animated: true, completion: nil)
-                }))
-
-                self.present(alert, animated: true, completion: nil)
-        }
-    }
-
-    
+ 
     func setUpNavigationBar() {
         
         let navigationBar = navigationController?.navigationBar
@@ -108,9 +70,10 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func setUpMapView(location: CLLocation) {
         
-        checkInternetFunction()
-        downloadData()
-
+        if checkInternetFunction() == false {
+            return
+        }
+        
         let camera = GMSCameraPosition.camera(
             withLatitude: location.coordinate.latitude/*user location*/,
             longitude: location.coordinate.longitude/*user location*/,
@@ -262,9 +225,25 @@ extension MapViewController: StoreProviderDelegate {
     }
     
     func didFail(with error: StoreProviderError) {
-        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-        self.present(alert, animated: true, completion: nil)
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: Fonts.SentyWen16,
+            kTextFont: Fonts.SentyWen16,
+            kButtonFont: Fonts.SentyWen16,
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton(
+            NSLocalizedString("Ok ", comment: ""),
+            action: {
+        })
+        
+        alertView.showError(
+            "Error!",
+            subTitle: error.localizedDescription
+        )
     }
 }
 

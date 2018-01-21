@@ -10,7 +10,7 @@ import UIKit
 import Cosmos
 import Firebase
 import Fusuma
-
+import SCLAlertView
 
 class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate {
     
@@ -73,27 +73,45 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
                 fourthRating: fourthRating,
                 fifthRating: fifthRating
             )
-        let alert = UIAlertController(title: "", message: NSLocalizedString("Send comment?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes ", comment: ""), style: .default, handler: { (action) in
-            startLoading(status: "Loading")
-            CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
             
-            let storeRef = self.ref.child("Stores").child(selectedStore.id)
-            let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
-            storeRef.updateChildValues(stores)
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: Fonts.SentyWen16,
+                kTextFont: Fonts.SentyWen16,
+                kButtonFont: Fonts.SentyWen16,
+                showCloseButton: false
+            )
             
-            self.firstRatingView.rating = 0
-            self.secondRatingView.rating = 0
-            self.thirdRatingView.rating = 0
-            self.fourthRatingView.rating = 0
-            self.fifthRatingView.rating = 0
-            self.commentTextField.text = nil
-            self.scoreImageView.image = #imageLiteral(resourceName: "scorePicture")
-            self.scoreImageView.contentMode = .scaleAspectFit
+            let alertView = SCLAlertView(appearance: appearance)
             
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No ", comment: ""), style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+            alertView.addButton(
+                NSLocalizedString("Yes ", comment: ""),
+                action: {
+                    startLoading(status: "Loading")
+                    CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
+                    
+                    let storeRef = self.ref.child("Stores").child(selectedStore.id)
+                    let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
+                    storeRef.updateChildValues(stores)
+        
+                    self.firstRatingView.rating = 0
+                    self.secondRatingView.rating = 0
+                    self.thirdRatingView.rating = 0
+                    self.fourthRatingView.rating = 0
+                    self.fifthRatingView.rating = 0
+                    self.commentTextField.text = nil
+                    self.scoreImageView.image = #imageLiteral(resourceName: "scorePicture")
+                    self.scoreImageView.contentMode = .center
+            })
+            
+            alertView.addButton(
+                NSLocalizedString("No ", comment: ""),
+                action: {
+            })
+            
+            alertView.showEdit(
+                "",
+                subTitle: NSLocalizedString("Send comment?", comment: "")
+            )
         }
     }
 

@@ -158,12 +158,24 @@ extension RegistViewController: NetworkingServiceDelegate {
     func didFail(with error: Error) {
         
         endLoading()
-        let alert = UIAlertController(
-            title: "Error!",
-            message: error.localizedDescription,
-            preferredStyle: .alert
+
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: Fonts.SentyWen16,
+            kTextFont: Fonts.SentyWen16,
+            kButtonFont: Fonts.SentyWen16,
+            showCloseButton: false
         )
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-        self.present(alert, animated: true, completion: nil)
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton(
+            NSLocalizedString("Ok ", comment: ""),
+            action: {
+        })
+        
+        alertView.showError(
+            "Error!",
+            subTitle: error.localizedDescription
+        )
     }
 }

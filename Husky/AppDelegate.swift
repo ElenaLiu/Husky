@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: Properties
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
-    var reachability = Reachability(hostName: "www.apple.com")
     
     static var shared: AppDelegate {
         

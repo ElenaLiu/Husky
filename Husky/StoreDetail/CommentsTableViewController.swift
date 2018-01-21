@@ -10,12 +10,11 @@ import UIKit
 import FoldingCell
 import Firebase
 import SDWebImage
+import SCLAlertView
 
 class CommentsTableViewController: UITableViewController {
     
     @IBOutlet weak var noCommentAlertLable: UILabel!
-
-    var reachability = Reachability(hostName: "www.apple.com")
     
     fileprivate struct C {
         struct CellHeight {
@@ -42,49 +41,13 @@ class CommentsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-
-
+        if checkInternetFunction() == false {
+            return
+        }
+        
         startLoading(status: "Loading")
-        checkInternetFunction()
-        downloadData()
+
         CommentProvider.shared.fetchComments(selectStoreId: (selectedMarkerId?.id)!)
-    }
-    
-    func checkInternetFunction() -> Bool {
-        if reachability?.currentReachabilityStatus().rawValue == 0 {
-            
-            print("no internet connected.")
-            return false
-        }else {
-            
-            print("internet connected successfully.")
-            return true
-        }
-    }
-    
-    func downloadData() {
-        if checkInternetFunction() == true {
-            
-            print("internet connected successfully.")
-            
-        }else {
-            endLoading()
-            let alert = UIAlertController(
-                title: "Oops!",
-                message: "No internet connected! Please try again.",
-                preferredStyle: .alert
-            )
-            alert.addAction(
-                UIAlertAction(
-                    title: "Ok",
-                    style: .cancel,
-                    handler: {(_ action: UIAlertAction) -> Void in
-                        
-                        self.dismiss(animated: true, completion: nil)
-                }))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -210,9 +173,24 @@ extension CommentsTableViewController: CommentProviderDelegate {
         
         if error == CommentProviderError.uploadImageFail {
             
-            let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-            self.present(alert, animated: true, completion: nil)
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: Fonts.SentyWen16,
+                kTextFont: Fonts.SentyWen16,
+                kButtonFont: Fonts.SentyWen16,
+                showCloseButton: false
+            )
+            
+            let alertView = SCLAlertView(appearance: appearance)
+            
+            alertView.addButton(
+                NSLocalizedString("Ok ", comment: ""),
+                action: {
+            })
+            
+            alertView.showError(
+                "Error!",
+                subTitle: error.localizedDescription
+            )
         }
     }
 }

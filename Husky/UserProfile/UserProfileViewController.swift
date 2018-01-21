@@ -19,7 +19,6 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     
     //MARK: Properties
     let networkingService = NetworkingService()
-    var reachability = Reachability(hostName: "www.apple.com")
     
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -51,25 +50,27 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         
         if Auth.auth().currentUser != nil {
             
-            let alert = UIAlertController(
-                title: "",
-                message: NSLocalizedString("Log out?", comment: ""),
-                preferredStyle: UIAlertControllerStyle.alert
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: Fonts.SentyWen16,
+                kTextFont: Fonts.SentyWen16,
+                kButtonFont: Fonts.SentyWen16,
+                showCloseButton: false
             )
-            alert.addAction(UIAlertAction(
-                title: NSLocalizedString("Ok", comment: ""),
-                style: .default,
-                handler: { (action) in
-                
-                self.networkingService.signOut()
-            }))
-            alert.addAction(UIAlertAction(
-                title: NSLocalizedString("Cancel", comment: ""),
-                style: .cancel,
-                handler: nil
+            
+            let alertView = SCLAlertView(appearance: appearance)
+            
+            alertView.addButton(
+                NSLocalizedString("Ok", comment: ""),
+                action: {
+                    self.networkingService.signOut()
+            })
+            
+            alertView.addButton(
+                NSLocalizedString("Cancel", comment: ""),
+                action: {}
             )
-        )
-            self.present(alert, animated: true, completion: nil)
+            
+            alertView.showNotice("", subTitle: NSLocalizedString("Log out?", comment: ""))
         }
     }
     
@@ -121,63 +122,39 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
     
     @objc func saveProfileInfoAction() {
         
-        checkInternetFunction()
-        downloadData()
+        if checkInternetFunction() == false {
+            return
+        }
         
         if let user = Auth.auth().currentUser {
             
-            let alert = UIAlertController(title: "", message: NSLocalizedString("Update personal profile?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (action) in
-                
-                let imageData = UIImageJPEGRepresentation(self.userProfileImageView.image!, 0.8)
-                self.networkingService.setUserInfo(user: user,
-                                                   username: self.nameTextField.text!,
-                                                   password: "",
-                                                   data: imageData
-                )
-            }))
-            alert.addAction(UIAlertAction(
-                title: NSLocalizedString("Cancel", comment: ""),
-                style: .cancel,
-                handler: nil
-                )
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: Fonts.SentyWen16,
+                kTextFont: Fonts.SentyWen16,
+                kButtonFont: Fonts.SentyWen16,
+                showCloseButton: false
             )
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func checkInternetFunction() -> Bool {
-        if reachability?.currentReachabilityStatus().rawValue == 0 {
-            
-            print("no internet connected.")
-            return false
-        }else {
-            
-            print("internet connected successfully.")
-            return true
-        }
-    }
-    
-    func downloadData() {
-        if checkInternetFunction() {
-            
-            print("internet connected successfully.")
-        }else {
-            endLoading()
-            let alert = UIAlertController(
-                title: "Oops!",
-                message: "No internet connected! Please try again.",
-                preferredStyle: .alert
+
+            let alertView = SCLAlertView(appearance: appearance)
+
+            alertView.addButton(
+                NSLocalizedString("Ok", comment: ""),
+                action: {
+                    let imageData = UIImageJPEGRepresentation(self.userProfileImageView.image!, 0.8)
+                    self.networkingService.setUserInfo(
+                        user: user,
+                        username: self.nameTextField.text!,
+                        password: "",
+                        data: imageData
+                    )
+            })
+
+            alertView.addButton(
+                NSLocalizedString("Cancel", comment: ""),
+                action: {}
             )
-            alert.addAction(
-                UIAlertAction(
-                    title: "Ok",
-                    style: .cancel,
-                    handler: {(_ action: UIAlertAction) -> Void in
-                        
-                        self.dismiss(animated: true, completion: nil)
-                }))
-            self.present(alert, animated: true, completion: nil)
+
+            alertView.showEdit("", subTitle: NSLocalizedString("Update personal profile?", comment: ""))
         }
     }
     

@@ -14,6 +14,7 @@ import SwiftyJSON
 import Cosmos
 import Firebase
 import SDWebImage
+import SCLAlertView
 
 class StoreInfoViewController: UIViewController {
     
@@ -61,37 +62,44 @@ class StoreInfoViewController: UIViewController {
     //MARK: Set up google guide
     @IBAction func addressGuideTapped(_ sender: Any) {
         
-        let alert = UIAlertController(
-            title: "",
-            message: "「i Bubble」想要打開 「Google Maps」",
-            preferredStyle: UIAlertControllerStyle.alert
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: Fonts.SentyWen16,
+            kTextFont: Fonts.SentyWen16,
+            kButtonFont: Fonts.SentyWen16,
+            showCloseButton: false
         )
-        alert.addAction(UIAlertAction(
-            title: "打開",
-            style: .default,
-            handler: { (action) in
-            
-            guard let userLocation = self.currentLocation else { return }
-            
-            guard let longitudeValue = self.longitudeValue else { return }
-            
-            guard let latitudeValue = self.latitudeValue else { return }
-            
-            let googlemapsSchema = "comgooglemaps://"
-            
-            if (UIApplication.shared.canOpenURL(URL(string: googlemapsSchema)!)) {
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton(
+            NSLocalizedString("open", comment: ""),
+            action: {
+                guard let userLocation = self.currentLocation else { return }
+                guard let longitudeValue = self.longitudeValue else { return }
+                guard let latitudeValue = self.latitudeValue else { return }
                 
-                let url = URL(string:
-                    "\(googlemapsSchema)?saddr=\(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)&daddr=\(latitudeValue),\(longitudeValue)&directionsmode=walking")!
+                let googlemapsSchema = "comgooglemaps://"
                 
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                if (UIApplication.shared.canOpenURL(URL(string: googlemapsSchema)!)) {
                 
-            } else {
-                print("Can't use comgooglemaps://");
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+                    let url = URL(
+                        string: "\(googlemapsSchema)?saddr=\(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)&daddr=\(latitudeValue),\(longitudeValue)&directionsmode=walking")!
+                
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    print("Can't use comgooglemaps://");
+                }
+                
+        })
+        
+        alertView.addButton(
+        NSLocalizedString("Cancel", comment: "")) {
+        }
+        
+        alertView.showWarning(
+            "",
+            subTitle: NSLocalizedString("「i Bubble」want to open 「Google Maps」", comment: "")
+        )
     }
     
     // MARK: View Life Cycle
@@ -216,21 +224,26 @@ class StoreInfoViewController: UIViewController {
             let routes = json["routes"].arrayValue
             
             if routes == [] {
-                let alert = UIAlertController(
-                    title: "Oops!",
-                    message: "Distance is too far, can't show the path.",
-                    preferredStyle: .alert
+                
+                let appearance = SCLAlertView.SCLAppearance(
+                    kTitleFont: Fonts.SentyWen16,
+                    kTextFont: Fonts.SentyWen16,
+                    kButtonFont: Fonts.SentyWen16,
+                    showCloseButton: false
                 )
+                
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.addButton(
+                    NSLocalizedString("Ok", comment: ""),
+                    action: {
+                        
+                })
 
-                alert.addAction(
-                    UIAlertAction(
-                        title: "Ok",
-                        style: .default,
-                        handler: nil
-                    )
+                alertView.showWarning(
+                    NSLocalizedString("Oops!", comment: ""),
+                    subTitle: NSLocalizedString("Distance is too far, can't show the path.", comment: "")
                 )
-
-                self.present(alert, animated: true, completion: nil)
             }
 
             // print route using Polyline
