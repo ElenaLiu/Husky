@@ -262,8 +262,6 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
         fifthRatingView.settings.starSize = 30
         fifthRatingView.didTouchCosmos = { rating in
             self.fifthRating = rating
-//        fifthRatingView.didFinishTouchingCosmos = { rating in
-//            self.fifthRating = rating
         }
     }
     

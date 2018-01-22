@@ -30,7 +30,6 @@ public enum JSONError: Error {
     case missingValueForKey(String)
     
     case invalidValueForKey(String)
-    
 }
 
 class StoreProvider {
