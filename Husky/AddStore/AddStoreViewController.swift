@@ -13,6 +13,7 @@ import GooglePlacePicker
 import Firebase
 import SkyFloatingLabelTextField
 import SCLAlertView
+import CoreLocation
 
 class AddStoreViewController: UIViewController {
     
@@ -75,18 +76,6 @@ class AddStoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-//        let appearance = SCLAlertView.SCLAppearance(
-//            kTitleFont: UIFont(name: "HelveticaNeue", size: 16)!,
-//            kTextFont: UIFont(name: "HelveticaNeue", size: 16)!,
-//            kButtonFont: UIFont(name: "HelveticaNeue", size: 16)!,
-//            circleBackgroundColor: Colors.lightPurple,
-//            contentViewColor: Colors.blue,
-//            contentViewBorderColor: Colors.pinkyred,
-//            titleColor: UIColor.black
-//            )
-//        let alertView = SCLAlertView(appearance: appearance)
-//        alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom icon you choose")
-     
         setUpNavigationBar()
         
         setUpSaveStoreTapped()
@@ -146,6 +135,8 @@ class AddStoreViewController: UIViewController {
     }
 
     @objc func saveStoreAction() {
+        
+        dismissKeyboard()
         if storeNameTextField.text == "" ||
             storeAddressTextField.text == "" ||
             storePhoneNumberTextField.text == "" {
@@ -174,10 +165,48 @@ class AddStoreViewController: UIViewController {
             alertView.addButton(
                 NSLocalizedString(" Yes ", comment: ""),
                 action: {
-                    StoreProvider.shared.saveStore(place: self.placeInfo!)
-                    self.storeNameTextField.text = ""
-                    self.storeAddressTextField.text = ""
-                    self.storePhoneNumberTextField.text = ""
+                    if self.placeInfo == nil {
+                        guard let name = self.storeNameTextField.text,
+                        let address = self.storeAddressTextField.text,
+                        let phone = self.storePhoneNumberTextField.text else { return }
+                      
+                        let geoCoder = CLGeocoder()
+                        geoCoder.geocodeAddressString(address, completionHandler: { (placemarks, error) in
+                            guard let placemarks = placemarks,
+                                let location = placemarks.first?.location else {
+                                    
+                                    let appearance = SCLAlertView.SCLAppearance(
+                                        kTitleFont: Fonts.SentyWen16,
+                                        kTextFont: Fonts.SentyWen16,
+                                        kButtonFont: Fonts.SentyWen16,
+                                        showCloseButton: false
+                                    )
+                                    
+                                    let alertView = SCLAlertView(appearance: appearance)
+                                    
+                                    alertView.addButton(
+                                        NSLocalizedString("Ok", comment: ""),
+                                        action: {
+                                            self.storeNameTextField.text = ""
+                                            self.storeAddressTextField.text = ""
+                                            self.storePhoneNumberTextField.text = ""
+                                    })
+                                    
+                                    alertView.showError("", subTitle: NSLocalizedString("Wrong address format, plase try again.", comment: ""))
+                                    return
+                            }
+                            StoreProvider.shared.saveStoreWithoutGMSPlace(name: name, address: address, phone: phone, location: location)
+                            self.storeNameTextField.text = ""
+                            self.storeAddressTextField.text = ""
+                            self.storePhoneNumberTextField.text = ""
+                        })
+                    }else {
+                        
+                        StoreProvider.shared.saveStore(place: self.placeInfo!)
+                        self.storeNameTextField.text = ""
+                        self.storeAddressTextField.text = ""
+                        self.storePhoneNumberTextField.text = ""
+                    }
             })
             
             alertView.addButton(

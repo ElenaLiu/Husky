@@ -129,7 +129,6 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
         setUpfourthRating()
         setUpfifthRating()
         
-        //用delegate 要寫這行才會有動作
         commentTextField.delegate = self
         commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
         
