@@ -21,15 +21,10 @@ protocol StoreProviderDelegate: class {
 enum StoreProviderError: Error {
     
     case fetchFail
-}
-
-public enum JSONError: Error {
     
-    case notObject
+    case infoError, addressError, phoneError, nameError
     
-    case missingValueForKey(String)
-    
-    case invalidValueForKey(String)
+    case latitudeError, longitudeError, scoredPeopleError, storeScoreAverageError
 }
 
 class StoreProvider {
@@ -49,14 +44,31 @@ class StoreProvider {
                 
                 let id = dicValue.key
                 
-                guard let info =  dicValue.value as? [String: Any] else { return }
-                guard let address = info[Store.Schema.address] as? String else { return }
-                guard let phone = info[Store.Schema.phone] as? String else { return }
-                guard let name = info[Store.Schema.name] as? String else { return }
-                guard let latitude = info[Store.Schema.latitude] as? CLLocationDegrees else { return }
-                guard let longitude = info[Store.Schema.longitude] as? CLLocationDegrees else { return }
-                guard let scoredPeople = info[Store.Schema.scoredPeople] as? Int else { return }
-                guard let storeScoreAverage = info[Store.Schema.storeScoreAverage] as? Double else { return }
+                guard
+                    let info =  dicValue.value as? [String: Any] else {
+                    self.delegate?.didFail(with: StoreProviderError.infoError)
+                    return }
+                guard let address = info[Store.Schema.address] as? String else {
+                    self.delegate?.didFail(with: StoreProviderError.addressError)
+                    return }
+                guard let phone = info[Store.Schema.phone] as? String else {
+                    self.delegate?.didFail(with: StoreProviderError.phoneError)
+                    return }
+                guard let name = info[Store.Schema.name] as? String else {
+                    self.delegate?.didFail(with: StoreProviderError.nameError)
+                    return }
+                guard let latitude = info[Store.Schema.latitude] as? CLLocationDegrees else {
+                    self.delegate?.didFail(with: StoreProviderError.latitudeError)
+                    return }
+                guard let longitude = info[Store.Schema.longitude] as? CLLocationDegrees else {
+                    self.delegate?.didFail(with: StoreProviderError.longitudeError)
+                    return }
+                guard let scoredPeople = info[Store.Schema.scoredPeople] as? Int else {
+                    self.delegate?.didFail(with: StoreProviderError.scoredPeopleError)
+                    return }
+                guard let storeScoreAverage = info[Store.Schema.storeScoreAverage] as? Double else {
+                    self.delegate?.didFail(with: StoreProviderError.storeScoreAverageError)
+                    return }
                 
                 stores.append(
                     Store(
@@ -89,5 +101,18 @@ class StoreProvider {
                 Store.Schema.scoredPeople: 0,
                 Store.Schema.storeScoreAverage: 0.0
                 ])
+    }
+    
+    func saveStoreWithoutGMSPlace(name: String, address: String, phone: String, location: CLLocation) {
+    
+        NetworkingService.databaseRef.child("Stores").childByAutoId().setValue([
+            Store.Schema.name: name,
+            Store.Schema.address: address,
+            Store.Schema.phone: phone,
+            Store.Schema.latitude: location.coordinate.latitude,
+            Store.Schema.longitude: location.coordinate.longitude,
+            Store.Schema.scoredPeople: 0,
+            Store.Schema.storeScoreAverage: 0.0
+            ])
     }
 }

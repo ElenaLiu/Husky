@@ -154,7 +154,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
                 action: {}
             )
 
-            alertView.showEdit("", subTitle: NSLocalizedString("Update personal profile?", comment: ""))
+            alertView.showSuccess("", subTitle: NSLocalizedString("Update personal profile?", comment: ""))
         }
     }
     
@@ -200,7 +200,7 @@ class UserProfileViewController: UIViewController, FusumaDelegate {
         let keyboardCGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let contentInsets = UIEdgeInsets(top: 0,
                                          left: 0,
-                                         bottom: keyboardCGRect.height,
+                                         bottom: keyboardCGRect.height - 200,
                                          right: 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollRectToVisible(keyboardCGRect, animated: true)

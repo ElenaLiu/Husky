@@ -121,7 +121,7 @@ class CommentsTableViewController: UITableViewController {
             cell.fifthRatingView.rating = comment.fifthRating
             cell.userCommentTextField.text = comment.content
         }
-        
+    
         let commentUid = comment.uid
         NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
            

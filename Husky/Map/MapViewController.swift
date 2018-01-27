@@ -28,7 +28,7 @@ class MapViewController: UIViewController {
     var zoomLevel: Float = 16.0
     var selectedPlace: GMSPlace?
     
-    var storeHasCommented: [[String: Bool]] = [] //ex. [storeId: true]
+    var storeHasCommented: [[String: Bool]] = []
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -39,9 +39,8 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         startLoading(status: "Loading")
-        
         initLactionManager()
     }
     
@@ -89,8 +88,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func setUpCluster() {
         
-        // Set up the cluster manager with the supplied icon generator and
-        // renderer.
+        // Set up the cluster manager with the supplied icon generator and renderer.
         let iconGenerator = GMUDefaultClusterIconGenerator()
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         let renderer = GMUDefaultClusterRenderer(mapView: mapView,
@@ -187,7 +185,6 @@ extension MapViewController: StoreProviderDelegate {
     
     func didFetch(with stores: [Store]) {
         
-        endLoading()
         self.storesInfo = stores
         
         for store in stores {
@@ -200,7 +197,6 @@ extension MapViewController: StoreProviderDelegate {
             ref = NetworkingService.databaseRef
             
             if let userId = Auth.auth().currentUser?.uid {
-                
                 ref.child("StoreComments").queryOrdered(byChild: "uid").queryEqual(toValue: userId).observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if let snapshotValue = snapshot.value,
@@ -217,14 +213,15 @@ extension MapViewController: StoreProviderDelegate {
                             }
                         }
                     }
-                    
                     self.clusterManager.cluster()
+                    endLoading()
                 })
             }
         }
     }
     
     func didFail(with error: StoreProviderError) {
+        endLoading()
         
         let appearance = SCLAlertView.SCLAppearance(
             kTitleFont: Fonts.SentyWen16,
@@ -270,6 +267,7 @@ extension MapViewController: GMSMapViewDelegate, GMUClusterManagerDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
         if marker.snippet == "UserMarker" {
+           tabBarController?.selectedIndex = 2
             return true
         }
         var didSelectedMarker: Store?
@@ -283,12 +281,6 @@ extension MapViewController: GMSMapViewDelegate, GMUClusterManagerDelegate {
             }
             NSLog("Did tap marker for cluster item \(poiItem.name)")
         } else {
-            for store in self.storesInfo {
-                if store.id == marker.snippet {
-                    didSelectedMarker = store
-                    break
-                }
-            }
             NSLog("Did tap normal mark")
         }
         
