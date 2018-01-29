@@ -21,6 +21,8 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
     
     var selectedMarkerId: Store?
 
+    var isSetImage: Bool = false
+    
     @IBOutlet weak var scoreImageView: UIImageView!
     
     @IBOutlet weak var firstRatingView: CosmosView!
@@ -43,7 +45,38 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
     
     //MARK: Save score
     @IBAction func saveScoreTapped(_ sender: Any) {
-
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: Fonts.SentyWen16,
+            kTextFont: Fonts.SentyWen16,
+            kButtonFont: Fonts.SentyWen16,
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton(
+            NSLocalizedString("Ok", comment: ""),
+            action: {
+        })
+        
+        if self.firstRatingView.rating == 0 {
+            alertView.showInfo("", subTitle: NSLocalizedString("B chewy haven't score, please score before send.", comment: ""))
+            return
+        } else if self.secondRatingView.rating == 0 {
+            alertView.showInfo("", subTitle: NSLocalizedString("B flavor haven't score, please score before send.", comment: ""))
+            return
+        } else if self.thirdRatingView.rating == 0 {
+            alertView.showInfo("", subTitle: NSLocalizedString("B Qty haven't score, please score before send.", comment: ""))
+            return
+        } else if self.fourthRatingView.rating == 0 {
+            alertView.showInfo("", subTitle: NSLocalizedString("T flavor haven't score, please score before send.", comment: ""))
+            return
+        } else if self.fifthRatingView.rating == 0 {
+            alertView.showInfo("", subTitle: NSLocalizedString("Service haven't score, please score before send.", comment: ""))
+            return
+        }
+        
         let imageData = UIImageJPEGRepresentation(self.scoreImageView.image!, 0.8)
         
         guard let content = commentTextField.text else { return }
@@ -87,7 +120,12 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
                 NSLocalizedString("Yes ", comment: ""),
                 action: {
                     startLoading(status: "Loading")
-                    CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
+                    
+                    if self.isSetImage {
+                        CommentProvider.shared.saveComment(comment: comment, imageData: imageData!)
+                    } else {
+                        CommentProvider.shared.saveComment(comment: comment, imageData: nil)
+                    }
                     
                     let storeRef = self.ref.child("Stores").child(selectedStore.id)
                     let stores = ["scoredPeople": selectedStore.scoredPeople + 1 , "storeScoreAverage": scoreAverage] as [String : Any]
@@ -98,8 +136,8 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
                     self.thirdRatingView.rating = 0
                     self.fourthRatingView.rating = 0
                     self.fifthRatingView.rating = 0
-                    self.commentTextField.text = nil
-                    self.scoreImageView.image = #imageLiteral(resourceName: "scorePicture")
+                    self.commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
+                    self.scoreImageView.image = #imageLiteral(resourceName: "PhotoCamera")
                     self.scoreImageView.contentMode = .center
             })
             
@@ -151,10 +189,10 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
         
         commentTextField.text = ""
     }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
-        commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
-    }
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//
+//        commentTextField.text = NSLocalizedString("Leave some comment.....", comment: "")
+//    }
     //MARK: Pick up photo
     func setUpScoreImage() {
         
@@ -179,6 +217,7 @@ class ScoreViewController: UIViewController, FusumaDelegate, UITextViewDelegate 
     
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
+        isSetImage = true
         self.scoreImageView.image = image
         self.scoreImageView.contentMode = .scaleAspectFill
     }

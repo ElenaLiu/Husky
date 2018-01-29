@@ -55,7 +55,7 @@ class AddStoreViewController: UIViewController {
             if let phoneNumber = place.phoneNumber {
                 
                 self.storePhoneNumberTextField.isEnabled = false
-                self.storePhoneNumberTextField.text = place.phoneNumber
+                self.storePhoneNumberTextField.text = phoneNumber
             }else {
                 
                 self.storePhoneNumberTextField.isEnabled = true
@@ -64,7 +64,7 @@ class AddStoreViewController: UIViewController {
             if let address = place.formattedAddress {
                 
                 self.storeAddressTextField.isEnabled = false
-                self.storeAddressTextField.text = place.formattedAddress
+                self.storeAddressTextField.text = address
             }else {
                 
                 self.storeAddressTextField.isEnabled = true
@@ -112,12 +112,21 @@ class AddStoreViewController: UIViewController {
     let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        storeNameTextField.text = ""
+        storePhoneNumberTextField.text = ""
+        storeAddressTextField.text = ""
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setUpTextField()
     }
+    
     //MARK: Navigation Bar
     func setUpNavigationBar() {
         

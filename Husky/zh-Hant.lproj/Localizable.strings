@@ -11,7 +11,7 @@
 "「i Bubble」want to open 「Google Maps」" = "「i Bubble」想要打開 「Google Maps」";
 "open" = "打開";
 "Cancel" = "取消";
-"Ok" = "好";
+"Ok" = "好的";
 " comment(s)" = " 則 評 論";
 "Oops!" = "糟糕！";
 "Distance is too far, can't show the path." = "距離太遠，無法繪製路徑";
@@ -32,4 +32,10 @@
 "No internet connected! Please try again." = "網路連線失敗，再試一次唷！";
 "「i Bubble」want to open 「Google Maps」" = "「i Bubble」想要打開 「Google Maps」";
 "Wrong address format, plase try again." = "地址格式錯誤唷！再試一次啦！\n不然會喝不到珍奶！😫";
+"B chewy haven't score, please score before send." = "珍珠Ｑ度還沒評分喔！\n這很重要啦！🙏";
+"B flavor haven't score, please score before send." = "珍珠風味還沒評分喔！\n這很重要啦！🙏";
+"B Qty haven't score, please score before send." = "珍珠量還沒評分喔！\n這很重要啦！🙏";
+"T flavor haven't score, please score before send." = "奶茶風味還沒評分喔！\n這很重要啦！🙏";
+"Service haven't score, please score before send." = "服務態度還沒評分喔！\n這很重要啦！🙏";
+
 
