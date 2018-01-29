@@ -86,7 +86,7 @@ class CommentProvider {
 
     }
     
-    func saveComment(comment: Comment, imageData: Data)
+    func saveComment(comment: Comment, imageData: Data?)
     {
         let key = NetworkingService.databaseRef.child("StoreComments").childByAutoId().key
         
@@ -100,28 +100,37 @@ class CommentProvider {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         
+        if let imageData = imageData {
         // Save the user Image in the Firebase Storage File
-        imagesRef.putData(imageData,
-                         metadata: metaData) { (metaData, error) in
-                            if error == nil {
-                                let imageUrl = metaData!.downloadURL()
-                                
-                                self.saveCommentInfo(comment: comment, imageUrl: imageUrl, key: key)
-                            }else {
-                                print(error!.localizedDescription)
-                                self.delegate?.didFail(with: CommentProviderError.uploadImageFail)
-                            }
+            imagesRef.putData(imageData,
+                             metadata: metaData) { (metaData, error) in
+                                if error == nil {
+                                    let imageUrl = metaData!.downloadURL()
+                                    
+                                    self.saveCommentInfo(comment: comment, imageUrl: imageUrl, key: key)
+                                }else {
+                                    print(error!.localizedDescription)
+                                    self.delegate?.didFail(with: CommentProviderError.uploadImageFail)
+                                }
+            }
+        } else {
+            self.saveCommentInfo(comment: comment, imageUrl: nil, key: key)
         }
     }
     
     private func saveCommentInfo(comment: Comment, imageUrl: URL?, key: String) {
 
+        var imageUrlString: String = ""
+        if let imageUrl = imageUrl {
+            imageUrlString = imageUrl.absoluteString
+        }
+        
         NetworkingService.databaseRef.child("StoreComments").child(key).setValue([
             "uid": comment.uid,
             "storeId": comment.storeId,
             "average": comment.average,
             "content": comment.content,
-            "imageUrl": imageUrl?.absoluteString,
+            "imageUrl": imageUrlString,
             "score": ["firstRating": comment.firstRating,
                       "secondRating": comment.secondRating,
                       "thirdRating": comment.thirdRating,

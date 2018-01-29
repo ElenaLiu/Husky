@@ -109,18 +109,28 @@ class CommentsTableViewController: UITableViewController {
         // Trainsition String type to be URL
         let photoUrl = URL(string: comment.imageUrl)
      
-        DispatchQueue.main.async {
+        if photoUrl != nil {
             cell.foregroundBlurImageView.sd_setImage(with: photoUrl, completed: nil)
             cell.foregroundImageView.sd_setImage(with: photoUrl, completed: nil)
             cell.containerBlurImageView.sd_setImage(with: photoUrl, completed: nil)
             cell.containerImageView.sd_setImage(with: photoUrl, completed: nil)
-            cell.firstRatingView.rating = comment.firstRating
-            cell.secondRatingView.rating = comment.secondRating
-            cell.thirdRatingView.rating = comment.thirdRating
-            cell.fourthRatingView.rating = comment.fourthRating
-            cell.fifthRatingView.rating = comment.fifthRating
-            cell.userCommentTextField.text = comment.content
+        } else {
+            cell.foregroundBlurImageView.image = #imageLiteral(resourceName: "BubbleTea(Brown)")
+            cell.foregroundBlurImageView.contentMode = .scaleAspectFit
+            cell.foregroundImageView.image = #imageLiteral(resourceName: "BubbleTea(Brown)")
+            cell.foregroundImageView.contentMode = .scaleAspectFit
+            cell.containerBlurImageView.image = #imageLiteral(resourceName: "BubbleTea(Brown)")
+            cell.containerBlurImageView.contentMode = .scaleAspectFit
+            cell.containerImageView.image = #imageLiteral(resourceName: "BubbleTea(Brown)")
+            cell.containerImageView.contentMode = .scaleAspectFit
         }
+        
+        cell.firstRatingView.rating = comment.firstRating
+        cell.secondRatingView.rating = comment.secondRating
+        cell.thirdRatingView.rating = comment.thirdRating
+        cell.fourthRatingView.rating = comment.fourthRating
+        cell.fifthRatingView.rating = comment.fifthRating
+        cell.userCommentTextField.text = comment.content
         
         let commentUid = comment.uid
         NetworkingService.databaseRef.child("Users").queryOrdered(byChild: BubbleUser.Schema.uid).queryEqual(toValue: commentUid).observeSingleEvent(of: .value) { (snapshot) in
@@ -129,8 +139,8 @@ class CommentsTableViewController: UITableViewController {
             
             for value in userDic.values {
                 guard let valueDic = value as? [String: String] else { return }
-                guard let username = valueDic[BubbleUser.Schema.userName] as? String else { return }
-                guard let photoUrl = valueDic[BubbleUser.Schema.photoUrl] as? String else { return }
+                guard let username = valueDic[BubbleUser.Schema.userName] else { return }
+                guard let photoUrl = valueDic[BubbleUser.Schema.photoUrl] else { return }
                
                 print("6 \(username)")
                 print("66 \(photoUrl)")

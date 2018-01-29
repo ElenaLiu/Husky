@@ -54,7 +54,7 @@ class AddStoreViewController: UIViewController {
             if let phoneNumber = place.phoneNumber {
                 
                 self.storePhoneNumberTextField.isEnabled = false
-                self.storePhoneNumberTextField.text = place.phoneNumber
+                self.storePhoneNumberTextField.text = phoneNumber
             }else {
                 
                 self.storePhoneNumberTextField.isEnabled = true
@@ -63,7 +63,7 @@ class AddStoreViewController: UIViewController {
             if let address = place.formattedAddress {
                 
                 self.storeAddressTextField.isEnabled = false
-                self.storeAddressTextField.text = place.formattedAddress
+                self.storeAddressTextField.text = address
             }else {
                 
                 self.storeAddressTextField.isEnabled = true
@@ -75,18 +75,6 @@ class AddStoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-//        let appearance = SCLAlertView.SCLAppearance(
-//            kTitleFont: UIFont(name: "HelveticaNeue", size: 16)!,
-//            kTextFont: UIFont(name: "HelveticaNeue", size: 16)!,
-//            kButtonFont: UIFont(name: "HelveticaNeue", size: 16)!,
-//            circleBackgroundColor: Colors.lightPurple,
-//            contentViewColor: Colors.blue,
-//            contentViewBorderColor: Colors.pinkyred,
-//            titleColor: UIColor.black
-//            )
-//        let alertView = SCLAlertView(appearance: appearance)
-//        alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom icon you choose")
-     
         setUpNavigationBar()
         
         setUpSaveStoreTapped()
@@ -123,12 +111,21 @@ class AddStoreViewController: UIViewController {
     let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        storeNameTextField.text = ""
+        storePhoneNumberTextField.text = ""
+        storeAddressTextField.text = ""
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setUpTextField()
     }
+    
     //MARK: Navigation Bar
     func setUpNavigationBar() {
         
