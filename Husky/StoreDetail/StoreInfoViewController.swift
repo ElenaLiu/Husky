@@ -47,10 +47,13 @@ class StoreInfoViewController: UIViewController {
     //MARK: Make phone call
     @IBAction func phoneCallTapped(_ sender: Any) {
         
+        print(phoneValue)
         guard let phoneValue = phoneValue else { return }
+
+        let phoneNumWithoutSpace = phoneValue.replacingOccurrences(of: " ", with: "")
         
-        if let phoneCallURL = URL(string: "tel://\(phoneValue)") {
-            
+        if let phoneCallURL = URL(string: "tel://\(phoneNumWithoutSpace)") {
+
             UIApplication.shared.open(
                 phoneCallURL,
                 options: [:],
